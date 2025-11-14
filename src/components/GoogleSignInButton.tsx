@@ -1,4 +1,4 @@
-"use client"; // This directive marks this as a Client Component
+"use client";
 
 import { useEffect } from 'react';
 import { useRouter } from 'next/navigation';
@@ -11,8 +11,6 @@ export function GoogleSignInButton() {
     if (response.credential) {
       console.log("Encoded JWT ID token: " + response.credential);
       router.push('/dashboard');
-    } else {
-      console.error("Google Sign-In failed: No credential returned.");
     }
   };
 
@@ -24,16 +22,19 @@ export function GoogleSignInButton() {
       });
 
       const signInDiv = document.getElementById("signInDiv");
-      
-      // --- THE FIX IS HERE ---
-      // We must ensure the element exists before trying to render the button
       if (signInDiv) {
         window.google.accounts.id.renderButton(
           signInDiv,
-          { theme: "outline", size: "large", text: "continue_with", shape: "rectangular", logo_alignment: "left" }
+          { 
+            // --- THE FIX IS HERE ---
+            type: "standard", // This property was missing
+            theme: "outline", 
+            size: "large", 
+            text: "continue_with", 
+            shape: "rectangular", 
+            logo_alignment: "left" 
+          }
         );
-      } else {
-        console.error("Could not find element with id 'signInDiv'");
       }
     }
   }, []);
