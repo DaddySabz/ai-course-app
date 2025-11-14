@@ -1,6 +1,6 @@
 // app/module/page.tsx
-import { ModuleContent } from '../components/ModuleContent';
-import { courseData } from '../data/course-data';
+import { ModuleContent } from '../../components/ModuleContent';
+import { courseData } from '../../data/course-data';
 import Link from 'next/link';
 
 export default function ModulePageLayout() {
