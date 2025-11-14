@@ -4,19 +4,12 @@ import { useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 import Script from 'next/script';
 
-// Define the type for the credential response for TypeScript
-interface CredentialResponse {
-  credential?: string;
-}
-
 export function GoogleSignInButton() {
   const router = useRouter();
 
-  const handleCredentialResponse = (response: CredentialResponse) => {
+  const handleCredentialResponse = (response: google.accounts.id.CredentialResponse) => {
     if (response.credential) {
       console.log("Encoded JWT ID token: " + response.credential);
-      // In a real app, you would send this to your backend for verification
-      // For now, we'll just redirect to the dashboard
       router.push('/dashboard');
     } else {
       console.error("Google Sign-In failed: No credential returned.");
@@ -24,18 +17,24 @@ export function GoogleSignInButton() {
   };
 
   useEffect(() => {
-    // Manually initialize Google Sign-In when the component mounts
     if (window.google) {
       window.google.accounts.id.initialize({
-        client_id: "878645007192-2v99u1asjq74ffgn2c726utp7b64vps4.apps.googleusercontent.com", // Your Google Client ID
+        client_id: "878645007192-2v99u1asjq74ffgn2c726utp7b64vps4.apps.googleusercontent.com",
         callback: handleCredentialResponse
       });
-      window.google.accounts.id.renderButton(
-        document.getElementById("signInDiv"),
-        { theme: "outline", size: "large", text: "continue_with", shape: "rectangular", logo_alignment: "left" }
-      );
-      // Optional: Display the One Tap prompt
-      // window.google.accounts.id.prompt(); 
+
+      const signInDiv = document.getElementById("signInDiv");
+      
+      // --- THE FIX IS HERE ---
+      // We must ensure the element exists before trying to render the button
+      if (signInDiv) {
+        window.google.accounts.id.renderButton(
+          signInDiv,
+          { theme: "outline", size: "large", text: "continue_with", shape: "rectangular", logo_alignment: "left" }
+        );
+      } else {
+        console.error("Could not find element with id 'signInDiv'");
+      }
     }
   }, []);
 
