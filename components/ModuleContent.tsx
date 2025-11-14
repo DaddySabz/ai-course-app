@@ -2,7 +2,7 @@
 "use client";
 
 import { useSearchParams } from 'next/navigation';
-import { courseData } from '../data/course-data';
+import { courseData } from '@/data/course-data';
 import Link from 'next/link';
 import { Suspense } from 'react';
 
@@ -47,7 +47,6 @@ function ModuleDisplay() {
   );
 }
 
-// This is the component we will export and wrap in Suspense
 export function ModuleContent() {
     return (
         <Suspense fallback={<div>Loading module...</div>}>
