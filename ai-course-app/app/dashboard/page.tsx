@@ -1,5 +1,6 @@
 import { auth, signOut } from "@/auth"
 import { redirect } from "next/navigation"
+import { createClient } from '@supabase/supabase-js'
 
 export default async function DashboardPage() {
   const session = await auth()
@@ -8,7 +9,19 @@ export default async function DashboardPage() {
     redirect("/")
   }
 
-  const daysCompleted = 7 // TODO: Get from database
+  // Fetch user progress from Supabase
+  const supabase = createClient(
+    process.env.NEXT_PUBLIC_SUPABASE_URL!,
+    process.env.SUPABASE_SECRET_KEY!
+  )
+
+  const { data: progressData } = await supabase
+    .from('user_progress')
+    .select('lesson_id, completed')
+    .eq('user_id', session.user.email)
+    .eq('completed', true)
+
+  const daysCompleted = progressData?.length || 0
   const totalDays = 30
   const progressPercent = Math.round((daysCompleted / totalDays) * 100)
 
@@ -145,11 +158,11 @@ export default async function DashboardPage() {
                 <p className="text-xs text-text-secondary mt-2 italic">Your name and picture will appear on your certificate.</p>
                 
                 <div className="w-full mt-6 flex flex-col gap-4">
-                  <a href="#" className="flex items-center gap-3 p-3 rounded-lg hover:bg-background-light transition-colors">
-                    <span>🏆</span>
-                    <span className="text-sm font-medium">My Achievements</span>
+                  <a href="/certificate" className="flex items-center gap-3 p-3 rounded-lg hover:bg-background-light transition-colors">
+                    <span>�</span>
+                    <span className="text-sm font-medium">My Certificate</span>
                   </a>
-                  <a href="#" className="flex items-center gap-3 p-3 rounded-lg hover:bg-background-light transition-colors">
+                  <a href="/dashboard" className="flex items-center gap-3 p-3 rounded-lg hover:bg-background-light transition-colors">
                     <span>📊</span>
                     <span className="text-sm font-medium">View Progress</span>
                   </a>

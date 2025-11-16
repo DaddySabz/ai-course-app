@@ -1,4 +1,4 @@
-import { auth } from "@/auth"
+https://ylunzqegctexvatirpmx.supabase.coimport { auth } from "@/auth"
 import { redirect } from "next/navigation"
 import { courseData } from "@/data/course-data"
 import Link from "next/link"
