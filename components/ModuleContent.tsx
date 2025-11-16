@@ -2,7 +2,7 @@
 "use client";
 
 import { useSearchParams } from 'next/navigation';
-import { courseData } from '@/data/course-data';
+import { courseData } from '../data/course-data';
 import Link from 'next/link';
 import { Suspense } from 'react';
 
@@ -49,7 +49,7 @@ function ModuleDisplay() {
 
 export function ModuleContent() {
     return (
-        <Suspense fallback={<div>Loading module...</div>}>
+        <Suspense fallback={<div className="text-center font-bold text-lg">Loading module...</div>}>
             <ModuleDisplay />
         </Suspense>
     )

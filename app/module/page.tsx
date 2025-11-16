@@ -1,6 +1,6 @@
 // app/module/page.tsx
-import { ModuleContent } from '@/components/ModuleContent';
-import { courseData } from '@/data/course-data';
+import { ModuleContent } from '../components/ModuleContent';
+import { courseData } from '../data/course-data';
 import Link from 'next/link';
 
 export default function ModulePageLayout() {
@@ -17,8 +17,13 @@ export default function ModulePageLayout() {
             ))}
           </div>
         </nav>
+         <div className="mt-auto">
+            <Link href="/dashboard" className="block w-full text-center bg-gray-200 hover:bg-gray-300 py-2 px-4 rounded-lg font-bold">
+                My Dashboard
+            </Link>
+        </div>
       </aside>
-      <main className="ml-72 flex-1 p-6 lg-p-10">
+      <main className="ml-72 flex-1 p-6 lg:p-10">
         <div className="max-w-4xl mx-auto flex flex-col items-center">
           <ModuleContent />
         </div>
