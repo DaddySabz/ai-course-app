@@ -18,7 +18,7 @@ export default function ModulePageLayout() {
           </div>
         </nav>
       </aside>
-      <main className="ml-72 flex-1 p-6 lg:p-10">
+      <main className="ml-72 flex-1 p-6 lg-p-10">
         <div className="max-w-4xl mx-auto flex flex-col items-center">
           <ModuleContent />
         </div>
