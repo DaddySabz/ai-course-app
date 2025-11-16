@@ -62,47 +62,61 @@ export default async function ModulePage({
           </p>
         </div>
 
-        {/* Main Content */}
+        {/* Learning Content - Reading Section */}
         <div className="bg-surface rounded-xl border border-border-color p-8 mb-6">
           <div 
             className="prose prose-lg max-w-none"
             dangerouslySetInnerHTML={{ __html: lesson.content }}
           />
-
-          {/* Affiliate Links */}
-          {lesson.affiliateLinks && lesson.affiliateLinks.length > 0 && (
-            <div className="mt-8 p-6 bg-primary/5 border border-primary/20 rounded-lg">
-              <h3 className="text-lg font-semibold text-text-primary mb-3">
-                🔗 Try These Tools:
-              </h3>
-              <div className="flex flex-wrap gap-3">
-                {lesson.affiliateLinks.map((link, index) => (
-                  <a
-                    key={index}
-                    href={link.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 px-4 py-2 bg-primary text-white rounded-lg hover:bg-primary-dark transition-colors font-medium"
-                  >
-                    {link.text} →
-                  </a>
-                ))}
-              </div>
-            </div>
-          )}
-
-          {/* Exercise */}
-          {lesson.exercise && (
-            <div className="mt-8 p-6 bg-accent-yellow/10 border border-accent-yellow/30 rounded-lg">
-              <h3 className="text-lg font-semibold text-text-primary mb-2">
-                📝 Today's Exercise:
-              </h3>
-              <p className="text-text-secondary">
-                {lesson.exercise}
-              </p>
-            </div>
-          )}
         </div>
+
+        {/* Hands-On Section - Clearly Separated */}
+        {lesson.handsOn && (
+          <div className="bg-gradient-to-br from-accent-teal/10 to-primary/10 rounded-xl border-2 border-accent-teal/30 p-8 mb-6">
+            <h2 className="text-2xl font-bold text-text-primary mb-4 flex items-center gap-2">
+              <span className="text-3xl">🛠️</span>
+              {lesson.handsOn.title}
+            </h2>
+            <p className="text-text-secondary text-lg mb-6">
+              {lesson.handsOn.description}
+            </p>
+
+            {/* Affiliate Links */}
+            {lesson.handsOn.affiliateLinks && lesson.handsOn.affiliateLinks.length > 0 && (
+              <div className="mb-6">
+                <h3 className="text-lg font-semibold text-text-primary mb-3">
+                  🔗 Tools You'll Need:
+                </h3>
+                <div className="flex flex-wrap gap-3">
+                  {lesson.handsOn.affiliateLinks.map((link, index) => (
+                    <a
+                      key={index}
+                      href={link.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-2 px-5 py-3 bg-accent-teal text-white rounded-lg hover:bg-teal-600 transition-colors font-semibold shadow-md hover:shadow-lg"
+                    >
+                      {link.text} →
+                    </a>
+                  ))}
+                </div>
+              </div>
+            )}
+
+            {/* Exercise */}
+            {lesson.handsOn.exercise && (
+              <div className="p-5 bg-white/80 border border-accent-yellow/30 rounded-lg">
+                <h3 className="text-lg font-semibold text-text-primary mb-2 flex items-center gap-2">
+                  <span className="text-xl">📝</span>
+                  Your Task:
+                </h3>
+                <p className="text-text-secondary">
+                  {lesson.handsOn.exercise}
+                </p>
+              </div>
+            )}
+          </div>
+        )}
 
         {/* Mark Complete Button */}
         {!isCompleted && (

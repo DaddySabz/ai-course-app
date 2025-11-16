@@ -2,12 +2,16 @@ export type CourseModule = {
   day: number;
   title: string;
   subtitle: string;
-  content: string;
-  affiliateLinks?: {
-    text: string;
-    url: string;
-  }[];
-  exercise?: string;
+  content: string; // Learning/reading content
+  handsOn?: {
+    title: string;
+    description: string;
+    affiliateLinks?: {
+      text: string;
+      url: string;
+    }[];
+    exercise?: string;
+  };
 };
 
 // Generate 30 days of placeholder content
@@ -21,7 +25,7 @@ export const courseData: CourseModule[] = Array.from({ length: 30 }, (_, i) => {
       title: "What is AI?",
       subtitle: "Understanding Artificial Intelligence basics",
       content: `
-        <h2>Welcome to Day 1: Introduction to AI</h2>
+        <h2>📚 Learning Content</h2>
         <p>
           Today you'll learn the fundamentals of Artificial Intelligence and how it's changing the world around us.
         </p>
@@ -32,21 +36,18 @@ export const courseData: CourseModule[] = Array.from({ length: 30 }, (_, i) => {
           <li>Real-world AI applications you use every day</li>
           <li>The difference between AI, Machine Learning, and Deep Learning</li>
         </ul>
-        <h3>Hands-On Exercise:</h3>
-        <p>
-          Sign up for ChatGPT (if you haven't already) and try asking it to explain a complex topic in simple terms.
-        </p>
-        <p>
-          <strong>Try this prompt:</strong> "Explain quantum computing to me like I'm 10 years old"
-        </p>
       `,
-      affiliateLinks: [
-        {
-          text: "Try ChatGPT Free",
-          url: "https://chat.openai.com"
-        }
-      ],
-      exercise: "Ask ChatGPT to explain 3 different complex topics in simple terms. Notice how it adapts its language."
+      handsOn: {
+        title: "🛠️ Hands-On Practice",
+        description: "Sign up for ChatGPT (if you haven't already) and try asking it to explain a complex topic in simple terms.",
+        affiliateLinks: [
+          {
+            text: "Try ChatGPT Free",
+            url: "https://chat.openai.com"
+          }
+        ],
+        exercise: 'Try this prompt: "Explain quantum computing to me like I\'m 10 years old". Then ask ChatGPT to explain 3 different complex topics in simple terms. Notice how it adapts its language.'
+      }
     };
   }
   
@@ -56,7 +57,7 @@ export const courseData: CourseModule[] = Array.from({ length: 30 }, (_, i) => {
       title: "Understanding Large Language Models (LLMs)",
       subtitle: "How ChatGPT and similar tools work",
       content: `
-        <h2>Day 2: Large Language Models Explained</h2>
+        <h2>📚 Learning Content</h2>
         <p>
           Today we dive into Large Language Models (LLMs) - the technology behind ChatGPT, Gemini, and Claude.
         </p>
@@ -67,18 +68,18 @@ export const courseData: CourseModule[] = Array.from({ length: 30 }, (_, i) => {
           <li>Why they can generate human-like responses</li>
           <li>Their limitations and potential biases</li>
         </ul>
-        <h3>Hands-On Exercise:</h3>
-        <p>
-          Today, try Google Gemini and compare its responses to ChatGPT.
-        </p>
       `,
-      affiliateLinks: [
-        {
-          text: "Try Google Gemini",
-          url: "https://gemini.google.com"
-        }
-      ],
-      exercise: "Ask the same question to both ChatGPT and Gemini. Compare their responses."
+      handsOn: {
+        title: "🛠️ Hands-On Practice",
+        description: "Today, try Google Gemini and compare its responses to ChatGPT.",
+        affiliateLinks: [
+          {
+            text: "Try Google Gemini",
+            url: "https://gemini.google.com"
+          }
+        ],
+        exercise: "Ask the same question to both ChatGPT and Gemini. Compare their responses and notice the differences in their answers."
+      }
     };
   }
   
@@ -88,7 +89,7 @@ export const courseData: CourseModule[] = Array.from({ length: 30 }, (_, i) => {
     title: `Day ${day}: Advanced AI Concepts`,
     subtitle: `Learning module for day ${day}`,
     content: `
-      <h2>Day ${day} Content</h2>
+      <h2>📚 Learning Content</h2>
       <p>
         This is placeholder content for Day ${day}. The actual course content will be added soon.
       </p>
@@ -102,6 +103,10 @@ export const courseData: CourseModule[] = Array.from({ length: 30 }, (_, i) => {
         <em>Content coming soon! The instructor is preparing detailed materials for this lesson.</em>
       </p>
     `,
-    exercise: `Complete the exercises for Day ${day}`
+    handsOn: {
+      title: "🛠️ Hands-On Practice",
+      description: `Practical exercises for Day ${day} will be added soon.`,
+      exercise: `Complete the exercises for Day ${day}`
+    }
   };
 });
