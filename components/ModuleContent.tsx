@@ -2,7 +2,7 @@
 "use client";
 
 import { useSearchParams } from 'next/navigation';
-import { courseData } from '../data/course-data';
+import { courseData } from '@/data/course-data';
 import Link from 'next/link';
 import { Suspense } from 'react';
 
