@@ -1,0 +1,7 @@
+{
+  "buildCommand": "cd ai-course-app && npm install && npm run build",
+  "outputDirectory": "ai-course-app/.next",
+  "installCommand": "cd ai-course-app && npm install",
+  "framework": "nextjs",
+  "rootDirectory": "ai-course-app"
+}
