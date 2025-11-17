@@ -38,7 +38,9 @@ export default function LoginPage() {
               
               {/* Standard Login Section */}
               <div className="w-full flex flex-col gap-4 p-6 rounded-xl border-2 border-gray-200 bg-gray-50/50">
-                <h2 className="text-lg font-semibold text-text-primary">Standard Access</h2>
+                <div className="flex items-center justify-between">
+                  <h2 className="text-lg font-semibold text-text-primary">General Access</h2>
+                </div>
                 
                 <form
                   action={async () => {
