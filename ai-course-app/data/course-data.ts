@@ -25,8 +25,6 @@ export const courseData: CourseModule[] = Array.from({ length: 30 }, (_, i) => {
       title: "What Is AI?",
       subtitle: "The Beginner's True Introduction",
       content: `
-        <h2>📘 5–7 Minute Reading: "AI Is Already Part of Your Life — You Just Didn't Notice"</h2>
-        
         <p>For most people, "Artificial Intelligence" sounds like a futuristic invention — something from sci-fi movies, robot uprisings, or sleek machines talking in perfect monotone. But the truth is far more interesting: <strong>AI has quietly been woven into your everyday life for years.</strong></p>
         
         <p>Think about your last 24 hours.</p>
@@ -73,7 +71,7 @@ export const courseData: CourseModule[] = Array.from({ length: 30 }, (_, i) => {
         <p>Today, you'll begin with ChatGPT — the easiest way to experience that "wait, how did it do that?!" moment. Expect a few jaw-drops today. That's the point.</p>
       `,
       handsOn: {
-        title: "COPY/PASTE MIND-BLOWER: \"AI Rewrites Any Mess Into Clarity\"",
+        title: "AI Rewrites Any Mess Into Clarity",
         description: "This is the first magical beginner moment — seeing AI take something confusing and turn it into something clear.",
         affiliateLinks: [
           {
@@ -109,8 +107,6 @@ BONUS EXPERIMENTS:
       title: "What Is a Large Language Model?",
       subtitle: "How AI Learned to Talk",
       content: `
-        <h2>� 5–7 Minute Reading: "The Secret Behind AI's Brainpower"</h2>
-        
         <p>Now that you've met AI in action, let's lift the curtain a little.</p>
         
         <p>The most magical part of modern AI is its ability to <strong>understand and generate language</strong>. It can write essays, explain science, summarise books, create poems, give advice, translate text, roleplay characters, draft emails — all from a single sentence you give it.</p>
@@ -165,7 +161,7 @@ BONUS EXPERIMENTS:
         <p>Today, you'll use Google Gemini — a free LLM known for being smart, fast, and incredibly creative.</p>
       `,
       handsOn: {
-        title: "COPY/PASTE MIND-BLOWER: \"AI Creates a Mini Illustrated Guide From Nothing\"",
+        title: "AI Creates a Mini Illustrated Guide From Nothing",
         description: "This exercise shows how well LLMs explain concepts visually (even without real images).",
         affiliateLinks: [
           {

@@ -9,7 +9,7 @@ export const dynamic = 'force-dynamic'
 export default async function ModulePage({
   searchParams,
 }: {
-  searchParams: { day?: string }
+  searchParams: Promise<{ day?: string }>
 }) {
   const session = await auth()
   
@@ -17,7 +17,8 @@ export default async function ModulePage({
     redirect("/")
   }
 
-  const currentDay = Number(searchParams.day) || 1
+  const params = await searchParams
+  const currentDay = Number(params.day) || 1
   const lesson = courseData.find(m => m.day === currentDay)
   
   if (!lesson) {
