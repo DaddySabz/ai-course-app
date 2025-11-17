@@ -27,9 +27,9 @@ export default async function DashboardPage() {
 
   return (
     <div className="bg-background-light min-h-screen font-body">
-      <div className="max-w-7xl mx-auto px-4 md:px-10 lg:px-20 xl:px-40 py-5">
-        {/* Header */}
-        <header className="flex items-center justify-between border-b border-border-color px-4 md:px-10 py-3">
+      {/* Header */}
+      <header className="bg-white border-b border-border-color">
+        <div className="max-w-7xl mx-auto px-4 md:px-10 py-3 flex items-center justify-between">
           <div className="flex items-center gap-4">
             <div className="size-6 text-primary">
               <svg fill="none" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
@@ -45,7 +45,7 @@ export default async function DashboardPage() {
             <h2 className="text-lg font-semibold">Introduction to AI</h2>
           </div>
           <div className="flex items-center gap-6">
-            <a href="/dashboard" className="text-sm font-medium hover:text-primary transition-colors">Dashboard</a>
+            <a href="/dashboard" className="text-sm font-medium text-primary">Dashboard</a>
             <a href="/module?day=1" className="text-sm font-medium hover:text-primary transition-colors">Course</a>
             <a href="/certificate" className="text-sm font-medium hover:text-primary transition-colors">Certificate</a>
             <img 
@@ -54,10 +54,12 @@ export default async function DashboardPage() {
               className="size-10 rounded-full"
             />
           </div>
-        </header>
+        </div>
+      </header>
 
-        {/* Main Content */}
-        <main className="mt-8 flex flex-col gap-8 px-4 md:px-6">
+      {/* Main Content */}
+      <div className="max-w-7xl mx-auto px-4 md:px-10 py-8">
+        <main className="flex flex-col gap-8">
           <div className="flex flex-wrap justify-between gap-3">
             <div className="flex min-w-72 flex-col gap-2">
               <p className="text-4xl font-bold tracking-tight">My Dashboard</p>
