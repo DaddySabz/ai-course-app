@@ -14,33 +14,20 @@ export default function LoginPage() {
             <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,_rgba(45,212,191,0.1),_transparent_40%)]"></div>
             
             <header className="z-10 w-full">
-              <div className="flex items-center gap-3 text-text-primary">
-                <div className="size-7">
-                  <svg fill="none" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M44 4H30.6666V17.3334H17.3334V30.6666H4V44H44V4Z" fill="url(#logo-gradient)"></path>
-                    <defs>
-                      <linearGradient gradientUnits="userSpaceOnUse" id="logo-gradient" x1="4" x2="44" y1="44" y2="4">
-                        <stop stopColor="#2DD4BF"></stop>
-                        <stop offset="1" stopColor="#FBBF24"></stop>
-                      </linearGradient>
-                    </defs>
-                  </svg>
-                </div>
-                <h2 className="text-text-primary text-lg font-bold leading-tight tracking-[-0.015em]">AI Course 30</h2>
-              </div>
+              {/* Empty header for spacing */}
             </header>
             
             <main className="z-10 flex flex-col items-start justify-center text-left">
               <h1 className="text-text-primary tracking-tight text-4xl font-bold leading-tight pb-3 pt-6 lg:text-5xl">
-                Master <span className="text-accent-teal">AI</span> in 30 Days.
+                Introduction to AI
               </h1>
               <p className="text-text-secondary text-lg font-normal leading-relaxed pb-3 pt-1 max-w-md">
-                Join our guided journey to unlock the power of Artificial Intelligence.
+                Sign in to begin your 30-day journey.
               </p>
             </main>
             
             <footer className="z-10 w-full text-center text-sm text-text-secondary">
-              <p>© 2024 AI Course 30. All rights reserved.</p>
+              <p>© 2026 Wacky Works Digital. All rights reserved.</p>
             </footer>
           </div>
 
@@ -48,15 +35,6 @@ export default function LoginPage() {
           <div className="flex flex-col items-center justify-center bg-white p-8 md:p-12 lg:p-16 overflow-y-auto">
             <div className="flex w-full max-w-md flex-col items-center text-center gap-8">
               
-              {/* Header */}
-              <div className="flex flex-col gap-2">
-                <h1 className="text-text-primary text-[22px] font-bold leading-tight tracking-[-0.015em]">
-                  Welcome to AI Onboarding
-                </h1>
-                <p className="text-text-secondary text-base font-normal leading-relaxed">
-                  Sign in to begin your 30-day journey.
-                </p>
-              </div>
               
               {/* Standard Login Section */}
               <div className="w-full flex flex-col gap-4 p-6 rounded-xl border-2 border-gray-200 bg-gray-50/50">
@@ -111,9 +89,8 @@ export default function LoginPage() {
                     Exclusive Discount
                   </span>
                 </div>
-                <button className="flex w-full items-center justify-center gap-2 rounded-lg bg-green-600 px-5 py-3 text-base font-semibold text-white transition-transform duration-200 hover:scale-[1.02] hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-green-500/50">
-                  <span>🏪</span>
-                  <span>John Lewis & Waitrose Partners</span>
+                <button className="flex w-full items-center justify-center rounded-lg bg-green-600 px-5 py-3 text-base font-semibold text-white transition-transform duration-200 hover:scale-[1.02] hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-green-500/50">
+                  John Lewis & Waitrose Partners
                 </button>
                 <p className="text-xs text-green-800 text-center">
                   Special pricing for our retail partners
@@ -123,14 +100,13 @@ export default function LoginPage() {
               {/* Partner Organizations */}
               <div className="w-full flex flex-col gap-3 p-6 rounded-xl border-2 border-blue-500 bg-gradient-to-br from-blue-50 to-amber-50">
                 <div className="flex items-center justify-between">
-                  <h2 className="text-lg font-semibold text-blue-900">Sponsored Access</h2>
+                  <h2 className="text-lg font-semibold text-blue-900">Sponsor Access</h2>
                   <span className="inline-flex items-center rounded-full bg-gradient-to-r from-blue-600 to-amber-600 px-3 py-1 text-xs font-semibold text-white">
                     Full Access
                   </span>
                 </div>
-                <button className="flex w-full items-center justify-center gap-2 rounded-lg bg-gradient-to-r from-blue-600 to-blue-700 px-5 py-3 text-base font-semibold text-white transition-transform duration-200 hover:scale-[1.02] hover:from-blue-700 hover:to-blue-800 focus:outline-none focus:ring-2 focus:ring-blue-500/50">
-                  <span>🤝</span>
-                  <span>Partner Organizations</span>
+                <button className="flex w-full items-center justify-center rounded-lg bg-gradient-to-r from-blue-600 to-blue-700 px-5 py-3 text-base font-semibold text-white transition-transform duration-200 hover:scale-[1.02] hover:from-blue-700 hover:to-blue-800 focus:outline-none focus:ring-2 focus:ring-blue-500/50">
+                  Partner Organizations
                 </button>
                 <p className="text-xs text-blue-800 text-center">
                   Access with your organization&apos;s sponsor code
