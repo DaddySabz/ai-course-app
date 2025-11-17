@@ -68,23 +68,32 @@ export default async function ModulePage({
                 const isLocked = day.day > 1 && !completedDays.includes(day.day - 1)
                 const isActive = day.day === currentDay
                 
+                if (isLocked) {
+                  return (
+                    <div
+                      key={day.day}
+                      className="flex items-center gap-3 px-3 py-2 rounded-lg text-gray-400 cursor-not-allowed"
+                    >
+                      <span className="flex-shrink-0 text-sm font-medium">🔒</span>
+                      <span className="text-sm truncate">Day {day.day}</span>
+                    </div>
+                  )
+                }
+                
                 return (
                   <Link
                     key={day.day}
-                    href={isLocked ? '#' : `/module?day=${day.day}`}
+                    href={`/module?day=${day.day}`}
                     className={`flex items-center gap-3 px-3 py-2 rounded-lg transition-colors ${
                       isActive 
                         ? 'bg-primary text-white' 
-                        : isLocked
-                        ? 'text-gray-400 cursor-not-allowed'
                         : isDayCompleted
                         ? 'bg-accent-teal/10 text-accent-teal hover:bg-accent-teal/20'
                         : 'hover:bg-gray-100'
                     }`}
-                    onClick={(e) => isLocked && e.preventDefault()}
                   >
                     <span className="flex-shrink-0 text-sm font-medium">
-                      {isLocked ? '🔒' : isDayCompleted ? '✓' : day.day}
+                      {isDayCompleted ? '✓' : day.day}
                     </span>
                     <span className="text-sm truncate">Day {day.day}</span>
                   </Link>
