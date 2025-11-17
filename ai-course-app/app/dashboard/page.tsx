@@ -42,10 +42,12 @@ export default async function DashboardPage() {
                 </defs>
               </svg>
             </div>
-            <h2 className="text-lg font-semibold">30-Day AI Onboarding</h2>
+            <h2 className="text-lg font-semibold">Introduction to AI</h2>
           </div>
-          <div className="flex items-center gap-8">
-            <a href="/dashboard" className="hidden md:inline text-sm font-medium hover:text-primary transition-colors">Home</a>
+          <div className="flex items-center gap-6">
+            <a href="/dashboard" className="text-sm font-medium hover:text-primary transition-colors">Dashboard</a>
+            <a href="/module?day=1" className="text-sm font-medium hover:text-primary transition-colors">Course</a>
+            <a href="/certificate" className="text-sm font-medium hover:text-primary transition-colors">Certificate</a>
             <img 
               src={session.user.image || "/placeholder-avatar.png"} 
               alt="User avatar" 
@@ -116,7 +118,7 @@ export default async function DashboardPage() {
                     href={`/module?day=${daysCompleted + 1}`}
                     className="flex items-center justify-center gap-2 rounded-xl h-12 px-5 flex-1 max-w-[480px] bg-primary text-white font-semibold hover:bg-primary-dark transition-colors"
                   >
-                    <span>Continue with Day {daysCompleted + 1}</span>
+                    <span>{daysCompleted === 0 ? 'Start with Day 1' : `Continue with Day ${daysCompleted + 1}`}</span>
                     <span>→</span>
                   </a>
                 </div>
@@ -148,31 +150,36 @@ export default async function DashboardPage() {
             {/* Right Column - Profile */}
             <section className="lg:col-span-1">
               <div className="bg-surface p-6 rounded-xl border border-border-color flex flex-col items-center text-center">
-                <img 
-                  src={session.user.image || "/placeholder-avatar.png"} 
-                  alt="Profile" 
-                  className="size-24 rounded-full border-4 border-surface ring-2 ring-primary"
-                />
-                <h3 className="mt-4 text-xl font-bold">{session.user.name || "AI Learner"}</h3>
-                <p className="text-sm text-text-secondary mt-1">AI Enthusiast</p>
-                <p className="text-xs text-text-secondary mt-2 italic">Your name and picture will appear on your certificate.</p>
+                <div className="relative group">
+                  <img 
+                    src={session.user.image || "/placeholder-avatar.png"} 
+                    alt="Profile" 
+                    className="size-24 rounded-full border-4 border-surface ring-2 ring-primary"
+                  />
+                  <button className="absolute inset-0 flex items-center justify-center bg-black/50 rounded-full opacity-0 group-hover:opacity-100 transition-opacity">
+                    <span className="text-white text-xs">Upload</span>
+                  </button>
+                </div>
                 
-                <div className="w-full mt-6 flex flex-col gap-4">
-                  <a href="/certificate" className="flex items-center gap-3 p-3 rounded-lg hover:bg-background-light transition-colors">
-                    <span>�</span>
-                    <span className="text-sm font-medium">My Certificate</span>
-                  </a>
-                  <a href="/dashboard" className="flex items-center gap-3 p-3 rounded-lg hover:bg-background-light transition-colors">
-                    <span>📊</span>
-                    <span className="text-sm font-medium">View Progress</span>
-                  </a>
+                <div className="mt-4 w-full">
+                  <input 
+                    type="text" 
+                    defaultValue={session.user.name || "AI Learner"}
+                    className="text-xl font-bold text-center w-full bg-transparent border-b-2 border-transparent hover:border-gray-300 focus:border-primary focus:outline-none px-2 py-1"
+                    placeholder="Your Name"
+                  />
+                </div>
+                
+                <p className="text-xs text-text-secondary mt-3 italic">Your name and picture will appear on your certificate.</p>
+                
+                <div className="w-full mt-6 flex flex-col gap-2">
                   <form action={async () => {
                     "use server"
                     await signOut({ redirectTo: "/" })
-                  }}>
-                    <button className="w-full flex items-center gap-3 p-3 rounded-lg hover:bg-background-light transition-colors text-left">
+                  }} className="w-full">
+                    <button className="w-full flex items-center justify-center gap-2 p-3 rounded-lg bg-red-50 hover:bg-red-100 transition-colors text-red-600 font-medium">
                       <span>🚪</span>
-                      <span className="text-sm font-medium">Sign Out</span>
+                      <span className="text-sm">Sign Out</span>
                     </button>
                   </form>
                 </div>
