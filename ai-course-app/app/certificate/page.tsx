@@ -58,7 +58,38 @@ export default async function CertificatePage() {
   }
 
   return (
-    <div className="bg-background-light min-h-screen flex flex-col items-center justify-center p-4">
+    <div className="bg-background-light min-h-screen">
+      {/* Navigation Header */}
+      <header className="bg-white border-b border-border-color">
+        <div className="max-w-7xl mx-auto px-4 md:px-10 py-3 flex items-center justify-between">
+          <div className="flex items-center gap-4">
+            <div className="size-6 text-primary">
+              <svg fill="none" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+                <path d="M44 4H30.6666V17.3334H17.3334V30.6666H4V44H44V4Z" fill="url(#logo-gradient)"/>
+                <defs>
+                  <linearGradient id="logo-gradient" x1="4" x2="44" y1="44" y2="4">
+                    <stop stopColor="#2DD4BF"/>
+                    <stop offset="1" stopColor="#FBBF24"/>
+                  </linearGradient>
+                </defs>
+              </svg>
+            </div>
+            <h2 className="text-lg font-semibold">Introduction to AI</h2>
+          </div>
+          <div className="flex items-center gap-6">
+            <a href="/dashboard" className="text-sm font-medium hover:text-primary transition-colors">Dashboard</a>
+            <a href="/module?day=1" className="text-sm font-medium hover:text-primary transition-colors">Course</a>
+            <a href="/certificate" className="text-sm font-medium text-primary">Certificate</a>
+            <img 
+              src={session.user.image || "/placeholder-avatar.png"} 
+              alt="User avatar" 
+              className="size-10 rounded-full"
+            />
+          </div>
+        </div>
+      </header>
+
+      <div className="flex flex-col items-center justify-center p-4 py-12">
       {hasCompleted ? (
         <div className="w-full max-w-4xl">
           {/* Certificate Card */}
@@ -153,6 +184,7 @@ export default async function CertificatePage() {
           </Link>
         </div>
       )}
+      </div>
     </div>
   );
 }
