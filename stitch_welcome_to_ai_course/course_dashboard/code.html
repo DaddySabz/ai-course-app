@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-device-width, initial-scale=1.0" name="viewport"/>
+<title>AI Onboarding Dashboard</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+<script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            "primary": "#4F46E5",
+            "accent-blue": "#3B82F6",
+            "accent-pink": "#EC4899",
+            "accent-teal": "#14B8A6",
+            "background-light": "#F9FAFB",
+            "card-light": "#FFFFFF",
+            "border-light": "#E5E7EB",
+            "text-light": "#111827",
+            "text-muted-light": "#6B7280"
+          },
+          fontFamily: {
+            "display": ["Poppins", "sans-serif"]
+          },
+          borderRadius: {
+            "DEFAULT": "0.5rem",
+            "lg": "1rem",
+            "xl": "1.5rem",
+            "full": "9999px"
+          },
+        },
+      },
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings:
+        'FILL' 1,
+        'wght' 400,
+        'GRAD' 0,
+        'opsz' 24
+    }
+    input::placeholder {
+        color: #9CA3AF;
+    }
+    .logo-gradient {
+      background: linear-gradient(to right, #4F46E5, #3B82F6, #EC4899, #14B8A6);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+  </style>
+</head>
+<body class="bg-background-light font-display text-text-light">
+<div class="relative flex h-auto min-h-screen w-full flex-col bg-background-light group/design-root overflow-x-hidden">
+<div class="layout-container flex h-full grow flex-col">
+<div class="px-4 md:px-10 lg:px-20 xl:px-40 flex flex-1 justify-center py-5">
+<div class="layout-content-container flex flex-col max-w-7xl flex-1">
+<header class="flex items-center justify-between whitespace-nowrap border-b border-solid border-border-light px-4 md:px-10 py-3">
+<div class="flex items-center gap-4 text-text-light">
+<div class="size-6 text-primary">
+<svg fill="none" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+<path d="M44 11.2727C44 14.0109 39.8386 16.3957 33.69 17.6364C39.8386 18.877 44 21.2618 44 24C44 26.7382 39.8386 29.123 33.69 30.3636C39.8386 31.6043 44 33.9891 44 36.7273C44 40.7439 35.0457 44 24 44C12.9543 44 4 40.7439 4 36.7273C4 33.9891 8.16144 31.6043 14.31 30.3636C8.16144 29.123 4 26.7382 4 24C4 21.2618 8.16144 18.877 14.31 17.6364C8.16144 16.3957 4 14.0109 4 11.2727C4 7.25611 12.9543 4 24 4C35.0457 4 44 7.25611 44 11.2727Z" fill="url(#logoGradient)"></path>
+<defs>
+<linearGradient gradientUnits="userSpaceOnUse" id="logoGradient" x1="4" x2="44" y1="24" y2="24">
+<stop stop-color="#4F46E5"></stop>
+<stop offset="0.33" stop-color="#3B82F6"></stop>
+<stop offset="0.66" stop-color="#EC4899"></stop>
+<stop offset="1" stop-color="#14B8A6"></stop>
+</linearGradient>
+</defs>
+</svg>
+</div>
+<h2 class="text-text-light text-lg font-semibold leading-tight">30-Day AI Onboarding</h2>
+</div>
+<div class="flex flex-1 justify-end gap-8">
+<div class="hidden md:flex items-center gap-9"><a class="text-text-light text-sm font-medium leading-normal hover:text-primary transition-colors" href="#">Home</a></div>
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-10" data-alt="User avatar with abstract background" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBBeY4PIepgFCroLs2TLWWqErA-KK4R1unOK6lPXq-XeKbOfJ63pkDUr33OjCU3pJNa3YexX9bzXxK_td4CcfT4uslS1E-RYA18ZlPnnigGtu-0PGVr7IyCqklG9GH60BMz_wCqvrJXYHeAnxzO7MPTboLP5ufL5rrroc5CLRTQnNRzabbghYHxZICog8lmkSk9p0kvdZQHMHmzK0fWYyyqkOLcOL8iTsg_KL-pcmbFjzqIPWtiwca4zlC-1BKC198W6Rzc74sy7Q");'></div>
+</div>
+</header>
+<main class="mt-8 flex flex-col gap-8 px-4 md:px-6">
+<div class="flex flex-wrap justify-between gap-3">
+<div class="flex min-w-72 flex-col gap-2">
+<p class="text-text-light text-4xl font-bold leading-tight tracking-tight">My Dashboard</p>
+<p class="text-text-muted-light text-base font-normal leading-normal">Welcome back, let's continue your AI journey.</p>
+</div>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+<aside class="lg:col-span-2 flex flex-col gap-6">
+<div class="bg-card-light p-6 rounded-xl border border-border-light flex flex-col">
+<h3 class="text-lg font-semibold text-text-light mb-4">Course Progress</h3>
+<div class="flex flex-col md:flex-row items-center gap-6">
+<div class="relative size-48">
+<svg class="size-full" height="36" viewBox="0 0 36 36" width="36" xmlns="http://www.w3.org/2000/svg">
+<circle class="stroke-border-light" cx="18" cy="18" fill="none" r="16" stroke-width="3"></circle>
+<defs>
+<linearGradient id="progressGradient" x1="0%" x2="100%" y1="0%" y2="100%">
+<stop offset="0%" stop-color="#4F46E5"></stop>
+<stop offset="100%" stop-color="#3B82F6"></stop>
+</linearGradient>
+</defs>
+<circle class="stroke-[url(#progressGradient)]" cx="18" cy="18" fill="none" r="16" stroke-dasharray="100 100" stroke-dashoffset="75" stroke-linecap="round" stroke-width="3" transform="rotate(-90 18 18)"></circle>
+</svg>
+<div class="absolute inset-0 flex flex-col items-center justify-center">
+<span class="text-4xl font-bold text-text-light">25%</span>
+<span class="text-sm text-text-muted-light">Complete</span>
+</div>
+</div>
+<div class="w-full flex flex-wrap gap-4 flex-1">
+<div class="flex min-w-[100px] flex-1 flex-col gap-2 rounded-lg p-4 bg-background-light">
+<p class="text-text-muted-light text-sm font-medium leading-normal">Days Completed</p>
+<p class="logo-gradient tracking-light text-2xl font-bold leading-tight">7</p>
+</div>
+<div class="flex min-w-[100px] flex-1 flex-col gap-2 rounded-lg p-4 bg-background-light">
+<p class="text-text-muted-light text-sm font-medium leading-normal">Days Remaining</p>
+<p class="text-text-light tracking-light text-2xl font-bold leading-tight">23</p>
+</div>
+</div>
+</div>
+<div class="w-full flex px-4 pt-6 justify-center">
+<button class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-xl h-12 px-5 flex-1 bg-primary text-white gap-2 pl-5 text-base font-semibold leading-normal tracking-[0.015em] hover:bg-indigo-700 transition-colors">
+<span class="truncate">Continue with Day 8</span>
+<span class="material-symbols-outlined text-white">arrow_forward</span>
+</button>
+</div>
+</div>
+<div class="bg-card-light p-6 rounded-xl border border-border-light flex flex-col">
+<div class="flex items-center justify-between mb-4">
+<h3 class="text-lg font-semibold text-text-light">Course Access</h3>
+<div class="flex items-center gap-2">
+<span class="inline-flex items-center rounded-md bg-teal-100 px-2 py-1 text-xs font-medium text-accent-teal">BETA TESTING</span>
+</div>
+</div>
+<div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 rounded-lg bg-background-light p-4">
+<div class="flex flex-col">
+<p class="text-text-light text-lg font-semibold">Current Price</p>
+<div class="flex items-baseline gap-2 mt-1">
+<span class="text-3xl font-bold text-accent-pink">FREE</span>
+<span class="text-lg font-medium text-text-muted-light line-through">£75</span>
+</div>
+<p class="text-sm text-text-muted-light mt-1">Full access to all 30 days of content.</p>
+</div>
+<button class="flex items-center justify-center gap-2 h-10 px-4 rounded-lg bg-gray-200 text-gray-500 cursor-not-allowed w-full sm:w-auto">
+<span class="material-symbols-outlined text-base">lock</span>
+<span class="text-sm font-semibold">Payment processing coming soon</span>
+</button>
+</div>
+<div class="mt-4 text-xs text-text-muted-light">
+<p>As a beta tester, you have full, free access to this course. Future iterations of this course will be a paid product. Thank you for your participation!</p>
+</div>
+</div>
+</aside>
+<section class="lg:col-span-1 flex flex-col gap-6">
+<div class="bg-card-light p-6 rounded-xl border border-border-light flex flex-col items-center text-center">
+<div class="relative group">
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-24 border-4 border-card-light ring-2 ring-accent-blue" data-alt="User avatar with abstract background" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBBeY4PIepgFCroLs2TLWWqErA-KK4R1unOK6lPXq-XeKbOfJ63pkDUr33OjCU3pJNa3YexX9bzXxK_td4CcfT4uslS1E-RYA18ZlPnnigGtu-0PGVr7IyCqklG9GH60BMz_wCqvrJXYHeAnxzO7MPTboLP5ufL5rrroc5CLRTQnNRzabbghYHxZICog8lmkSk9p0kvdZQHMHmzK0fWYyyqkOLcOL8iTsg_KL-pcmbFjzqIPWtiwca4zlC-1BKC198W6Rzc74sy7Q");'></div>
+<label class="cursor-pointer absolute inset-0 flex items-center justify-center bg-black bg-opacity-50 rounded-full opacity-0 group-hover:opacity-100 transition-opacity" for="profile-picture-upload">
+<span class="material-symbols-outlined text-white">upload</span>
+<input class="hidden" id="profile-picture-upload" name="profile-picture" type="file"/>
+</label>
+</div>
+<div class="relative group mt-4 w-full">
+<input class="text-xl font-bold text-text-light bg-transparent text-center w-full rounded-md border-transparent focus:border-primary focus:ring-primary py-1 px-2" type="text" value="Alex Doe"/>
+<span class="material-symbols-outlined text-text-muted-light absolute right-2 top-1/2 -translate-y-1/2 text-lg opacity-0 group-hover:opacity-100 group-focus-within:opacity-100 transition-opacity">edit</span>
+</div>
+<p class="text-sm text-text-muted-light -mt-1">AI Enthusiast</p>
+<p class="text-xs text-text-muted-light mt-2 italic">Your name and picture will appear on your certificate.</p>
+<div class="w-full mt-6 flex flex-col gap-4">
+<div class="flex flex-col gap-4">
+<a class="flex items-center gap-3 p-3 rounded-lg hover:bg-background-light transition-colors group" href="#">
+<span class="material-symbols-outlined text-primary group-hover:text-accent-blue transition-colors">badge</span>
+<span class="text-sm font-medium text-text-light group-hover:text-primary transition-colors">My Achievements</span>
+</a>
+<a class="flex items-center gap-3 p-3 rounded-lg hover:bg-background-light transition-colors group" href="#">
+<span class="material-symbols-outlined text-primary group-hover:text-accent-pink transition-colors">bar_chart</span>
+<span class="text-sm font-medium text-text-light group-hover:text-primary transition-colors">View Progress</span>
+</a>
+<a class="flex items-center gap-3 p-3 rounded-lg hover:bg-background-light transition-colors group" href="#">
+<span class="material-symbols-outlined text-primary group-hover:text-accent-teal transition-colors">settings</span>
+<span class="text-sm font-medium text-text-light group-hover:text-primary transition-colors">Account Settings</span>
+</a>
+</div>
+</div>
+</div>
+</section>
+</div>
+</main>
+</div>
+</div>
+</div>
+</div>
+
+</body></html>

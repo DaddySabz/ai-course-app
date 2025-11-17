@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Secure Checkout - AI Course</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+<script>
+    tailwind.config = {
+        theme: {
+            extend: {
+                colors: {
+                    "primary": {
+                        "DEFAULT": "#4F46E5",
+                        "light": "#6366F1",
+                        "dark": "#4338CA"
+                    },
+                    "secondary": "#A855F7",
+                    "accent": "#4F46E5",
+                    "background": "#F5F3FF",
+                    "surface": "#FFFFFF",
+                    "text-primary": "#1E293B",
+                    "text-secondary": "#64748B",
+                    "border-color": "#E2E8F0",
+                },
+                fontFamily: {
+                    "sans": ["Poppins", "sans-serif"]
+                },
+                borderRadius: {
+                    "DEFAULT": "0.5rem",
+                    "lg": "0.75rem",
+                    "xl": "1rem",
+                    "full": "9999px"
+                },
+                boxShadow: {
+                    "card": "0px 4px 16px rgba(17, 24, 39, 0.05)",
+                    "input": "0px 1px 2px rgba(0, 0, 0, 0.05)",
+                    "button": "0px 4px 14px rgba(79, 70, 229, 0.25)"
+                }
+            },
+        },
+    }
+</script>
+<style>
+    body {
+        font-family: 'Poppins', sans-serif;
+    }
+    .material-symbols-outlined {
+      font-variation-settings:
+      'FILL' 0,
+      'wght' 400,
+      'GRAD' 0,
+      'opsz' 24
+    }
+</style>
+</head>
+<body class="bg-background text-text-primary font-sans antialiased">
+<div class="relative flex min-h-screen w-full flex-col overflow-x-hidden">
+<div class="layout-container flex h-full grow flex-col">
+<div class="flex flex-1 justify-center p-4 sm:p-6 lg:p-8">
+<div class="layout-content-container flex w-full max-w-4xl flex-1 flex-col">
+<header class="flex items-center justify-between whitespace-nowrap px-2 sm:px-0 py-4 mb-4 sm:mb-8">
+<div class="flex items-center gap-3 text-text-primary">
+<div class="size-8 text-secondary">
+<svg fill="none" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+<path clip-rule="evenodd" d="M12.0799 24L4 19.2479L9.95537 8.75216L18.04 13.4961L18.0446 4H29.9554L29.96 13.4961L38.0446 8.75216L44 19.2479L35.92 24L44 28.7521L38.0446 39.2479L29.96 34.5039L29.9554 44H18.0446L18.04 34.5039L9.95537 39.2479L4 28.7521L12.0799 24Z" fill="currentColor" fill-rule="evenodd"></path>
+</svg>
+</div>
+<h2 class="text-xl font-bold">AI Onboarding</h2>
+</div>
+<div class="flex flex-1 justify-end">
+<a class="text-text-secondary hover:text-secondary transition-colors text-sm font-medium" href="#">Back to Course</a>
+</div>
+</header>
+<main class="flex-1">
+<div class="flex flex-col lg:flex-row gap-8 lg:gap-12">
+<div class="w-full lg:w-3/5">
+<div class="mb-6">
+<h1 class="text-3xl font-bold text-text-primary">Secure Checkout</h1>
+<p class="text-text-secondary mt-1">Complete your enrollment in just a few steps.</p>
+</div>
+<div class="space-y-6">
+<div>
+<h2 class="text-lg font-semibold text-text-primary mb-4">Payment Method</h2>
+<div class="flex rounded-lg bg-indigo-100/60 p-1">
+<label class="flex-1 cursor-pointer rounded-md py-2 text-center text-sm font-semibold transition-colors has-[:checked]:bg-white has-[:checked]:text-secondary has-[:checked]:shadow-sm text-text-secondary">
+<input checked="" class="sr-only" name="payment_method" type="radio" value="card"/>
+<span>Credit/Debit Card</span>
+</label>
+<label class="flex-1 cursor-pointer rounded-md py-2 text-center text-sm font-semibold transition-colors has-[:checked]:bg-white has-[:checked]:text-secondary has-[:checked]:shadow-sm text-text-secondary">
+<input class="sr-only" name="payment_method" type="radio" value="paypal"/>
+<span>PayPal</span>
+</label>
+</div>
+</div>
+<form class="space-y-4">
+<h2 class="text-lg font-semibold text-text-primary pt-2">Payment Details</h2>
+<div>
+<label class="block text-sm font-medium text-text-primary mb-1.5" for="cardholder-name">Cardholder Name</label>
+<input class="block w-full rounded-lg border-border-color bg-white px-4 py-2.5 text-text-primary shadow-input focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all" id="cardholder-name" name="cardholder-name" placeholder="John Doe" type="text"/>
+</div>
+<div>
+<label class="block text-sm font-medium text-text-primary mb-1.5" for="card-number">Card Number</label>
+<div class="relative">
+<input class="block w-full rounded-lg border-border-color bg-white px-4 py-2.5 text-text-primary shadow-input focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all" id="card-number" name="card-number" placeholder="0000 0000 0000 0000" type="text"/>
+<div class="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-3 gap-1">
+<img class="h-6 w-auto" data-alt="Visa logo" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDv1gAHBGeYGSlt5M9V47gJxb5n2UAG92sk8WKW_tYNeELy8h5SrG3BQ71d_CphGKtqQcAAtwJzGKMF03A5XmCfDEXy9j8lTgOy4OsC2UjeVvT-3NxnOpG040XfZ-weD5EyHBLgI568NxuhXAi-5Ke570I6CpF3GYDqdc4CCe29PJjTSiTUUo1pLXplEyE15_ALkfWBlOBtby1EhQv9ZoF55GMH1scPIJAVoSH5RI4xbJyBH40uVIjnC66OlQm1TAJbUHozvAKKyQ"/>
+<img class="h-6 w-auto" data-alt="Mastercard logo" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAar0KckLLf1Am30R2LqFQgGTy0whEisJEoFI4uNdS8gukbS8JAggNE9LMvPfIN_ZFrmEKXY5yID4dG0at_or-AhsingmgtsWGw0d4E7fOQo2dOfzOtd2bZ4x0pZQVrkDWrJ4RgcJuTGJlT9Xt62oATHjtGMORYONFR6ctNC7NwEjWweoHV4nBNOhDF7RJb1fNVQaUAxzY3Qa1u4OaM1l8zmPEGkMywP41UdeTbwxvXoUj0kRQjDgBOzfXSIACiL-zS0AtHQ_1XjQ"/>
+</div>
+</div>
+</div>
+<div class="grid grid-cols-2 gap-4">
+<div>
+<label class="block text-sm font-medium text-text-primary mb-1.5" for="expiry-date">Expiry Date</label>
+<input class="block w-full rounded-lg border-border-color bg-white px-4 py-2.5 text-text-primary shadow-input focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all" id="expiry-date" name="expiry-date" placeholder="MM/YY" type="text"/>
+</div>
+<div>
+<label class="block text-sm font-medium text-text-primary mb-1.5" for="cvc">CVC</label>
+<input class="block w-full rounded-lg border-border-color bg-white px-4 py-2.5 text-text-primary shadow-input focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all" id="cvc" name="cvc" placeholder="123" type="text"/>
+</div>
+</div>
+</form>
+</div>
+</div>
+<div class="w-full lg:w-2/5">
+<div class="bg-surface rounded-xl shadow-card p-6">
+<h2 class="text-xl font-bold text-text-primary border-b border-border-color pb-4 mb-4">Order Summary</h2>
+<div class="space-y-4">
+<div class="flex justify-between items-center">
+<p class="text-text-secondary">Introduction to AI</p>
+<p class="font-semibold text-text-primary">£75.00</p>
+</div>
+<div class="border-t border-border-color pt-4 flex justify-between items-center">
+<p class="text-base font-bold text-text-primary">Total</p>
+<p class="text-xl font-bold text-secondary">£75.00</p>
+</div>
+</div>
+<div class="mt-8">
+<button class="w-full flex cursor-pointer items-center justify-center rounded-lg h-12 px-6 bg-secondary text-white text-base font-bold shadow-[0px_4px_14px_rgba(168,85,247,0.25)] hover:bg-violet-700 transition-all">
+                                    Enroll Now &amp; Pay £75
+                                </button>
+</div>
+<div class="mt-6 text-center">
+<div class="flex items-center justify-center gap-2 text-sm text-text-secondary">
+<span class="material-symbols-outlined text-base text-primary">lock</span>
+<span>Your payment is processed securely.</span>
+</div>
+<div class="flex items-center justify-center gap-4 mt-4">
+<img class="h-5 w-auto opacity-60" data-alt="Visa logo" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBnsEQ_pa6HhNuS8jkLUBcsAHIxQl99F0Q8vGer0MwAypk3XVf2FjWWEegcKwJLrWGbxxia_6Mzj5giFqh1q7OuJVwsw7LqbAR1vplLtXAy7i2YoUkSkpYVhbsRGSE5S40WsI6EVcmG1Ei4hr-wiGvxIQEENN_CXyN8z8ekg4ijc2rmso5yHU1tqFj_Kh8MGPcpga95c8tkdL4GwbYcamyY7kJHdcWY7u9fnkWYv4Ts-4ggaromHz-iuHh8MPvSxAnJjONPVElyBw"/>
+<img class="h-5 w-auto opacity-60" data-alt="Mastercard logo" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBewxL9yNnBUw36fWAceanmMiRh142ZL7svi0Xjf-pt03890hFDfPG0lCAIOlJ_rCzAAK970GO2znT5feADXa3TE9IWYa1vvLWK5h9Nwu8OIm6VOpq4RXenrE_qLHq2PkK1ZJHKvP9tzkC6t3vSsFa1PDeXBLiFNnGCYVCo_KRHdlvUVPsq-vPSZHKkz8yq03R9dWyslvfAyRlF_ohm85Y-pRt9w5c-oXpZcUMrc-C99bzvnFHWC9vqFaP3JvhypGQhg2lT9qZPVA"/>
+<img class="h-5 w-auto opacity-60" data-alt="American Express logo" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCPeSTr0DSfASSaA610ZNL4vSVfR3y0QXIcZPVR-PHh7Jes0gxsE-IJ7JK3mQvnRGMdYG2LxzAuPYRKA-rQ2xJbOGp8ryf1sc3_gjuRk6f3k7KHzHBVqfvTs2FOsxLMwxcJ7WVfe_VFDZKRs8KD9t-H27dYPWteYMyKEP6wn28K8TDwcM2P3zfyPM3ZtBrBWzkx5nZW0vZwX7NeN6DaGxG6O7BvgtVY3cODWC_9oDB97m-lNJLj4NJKIdGYWBtLHkoa26XFow9uRg"/>
+<img class="h-5 w-auto opacity-60" data-alt="PayPal logo" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBlplZO-mgby3fgMSwLYkbeNX_Vow5EfLslK0-DziKwORKepKKbzC6lvqnGHKEhdz22SWiM2Jgt6qjMxwUhqL-1XC6MS2E08wNMAhdzPOjg0AVfvcxM-lmrh9rQBGf3CXOP1NWlg1xpcN51cC9_p-5gGaO75GIkZPnhITWeXB-dx6LfCqRf0Ub2bVR5Vx-una4wbaayll5Tswnkn1OqMrL8lWM6UMSkmq1g6mYvuGGgl91rodu5r6kFqW_ksoCRixWIG76gQqJIVA"/>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+<footer class="mt-16 border-t border-solid border-border-color px-2 sm:px-0 py-6">
+<div class="flex flex-col sm:flex-row items-center justify-between gap-4 text-sm text-text-secondary">
+<p>© 2024 AI Onboarding. All rights reserved.</p>
+<div class="flex gap-6">
+<a class="hover:text-secondary transition-colors" href="#">Terms of Service</a>
+<a class="hover:text-secondary transition-colors" href="#">Privacy Policy</a>
+<a class="hover:text-secondary transition-colors" href="#">Support</a>
+</div>
+</div>
+</footer>
+</div>
+</div>
+</div>
+</div>
+</body></html>
