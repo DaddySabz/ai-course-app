@@ -302,11 +302,11 @@ Try These Variations:
         description: "Watch how different prompts create completely different results.",
         affiliateLinks: [
           {
-            text: "Try ChatGPT →",
-            url: "https://chat.openai.com"
+            text: "Try Claude (Anthropic) →",
+            url: "https://claude.ai"
           }
         ],
-        exercise: `Copy these three prompts into ChatGPT and compare the outputs:
+        exercise: `Copy these three prompts into Claude and compare the outputs:
 
 Prompt 1 (weak):
 "Explain climate change"
@@ -420,27 +420,27 @@ Try These Variations:
         description: "Transform rough drafts into polished prose.",
         affiliateLinks: [
           {
-            text: "Try ChatGPT →",
-            url: "https://chat.openai.com"
+            text: "Try Grammarly (Free) →",
+            url: "https://www.grammarly.com"
           }
         ],
-        exercise: `Copy this rough paragraph into ChatGPT:
+        exercise: `Copy this rough paragraph into Grammarly's free editor:
 
 "So basically what I'm trying to say is that remote work has some good things and bad things you know like you can work from anywhere which is cool but also you might feel lonely sometimes and it's hard to like stop working when your laptop is right there and also some people miss the office environment."
 
-Now try these three prompts:
+Watch how Grammarly:
+1. Highlights grammar and spelling errors
+2. Suggests clarity improvements
+3. Offers tone adjustments (formal, confident, friendly)
+4. Shows real-time writing quality score
 
-1. "Rewrite this in a professional tone for a business article, 100 words"
-2. "Rewrite this as a friendly social media post, casual and engaging"
-3. "Turn this into a clear, structured paragraph with specific examples"
-
-Compare the outputs. Notice how each serves a different purpose?
+Then try Grammarly's "Rewrite" feature (if available in free version) or use the AI suggestions to improve each sentence.
 
 Try These Variations:
-• Paste an old email and ask "make this more concise"
-• Draft a rough job application, then ask AI to improve it
-• Write bullet points for a presentation, ask AI to create smooth transitions
-• Take a formal announcement and request a warmer, friendlier version`
+• Paste an old email and watch Grammarly suggest improvements
+• Draft a rough job application and see professional writing suggestions
+• Write a social media post and adjust tone with Grammarly's help
+• Copy any text you've written and see how Grammarly makes it clearer`
       }
     };
   }
@@ -609,34 +609,40 @@ Try These Variations:
         description: "Experience how AI processes and understands language.",
         affiliateLinks: [
           {
-            text: "Try ChatGPT →",
-            url: "https://chat.openai.com"
+            text: "Try DeepL Translator →",
+            url: "https://www.deepl.com/translator"
           }
         ],
-        exercise: `Copy these experiments into ChatGPT:
+        exercise: `Experience advanced AI translation with DeepL:
 
-Experiment 1 - Sentiment Analysis:
-"Analyze the sentiment (positive, negative, neutral) of these reviews:
-1. 'Absolutely loved this product! Worth every penny.'
-2. 'It's okay, nothing special.'
-3. 'Complete waste of money. Very disappointed.'
-4. 'The quality is decent but overpriced.'"
+Experiment 1 - Nuanced Translation:
+Translate this English sentence to multiple languages:
+"The bank can guarantee deposits will eventually cover all accountable losses."
 
-Experiment 2 - Entity Extraction:
-"Extract all people, places, and organizations from this text:
-'Apple CEO Tim Cook announced in San Francisco that the company will partner with Microsoft and Google to improve AI safety standards.'"
+Try: Spanish, French, German, Japanese
+Notice how DeepL captures financial context better than simple word-for-word translation.
 
-Experiment 3 - Ambiguity Resolution:
-"Explain the different meanings of 'bank' in these sentences:
-1. 'I need to visit the bank tomorrow.'
-2. 'We sat on the river bank.'
-3. 'She's banking on getting that promotion.'"
+Experiment 2 - Idiomatic Expressions:
+Translate these idioms and see if meaning is preserved:
+• "It's raining cats and dogs" → German → Back to English
+• "Break a leg" → French → Back to English
+• "Piece of cake" → Spanish → Back to English
+
+Experiment 3 - Formal vs Informal:
+Type: "Hey, can you help me out?"
+Translate to German - notice DeepL offers formal/informal options
+This shows AI understanding social context in language
+
+Experiment 4 - Document Translation:
+Paste a paragraph from a news article
+Translate it to another language
+Notice: punctuation, formatting, and tone preserved
 
 Try These Variations:
-• Have AI detect sarcasm in different phrases
-• Ask it to simplify complex legal or medical text
-• Request idiom explanations from different languages
-• Test its understanding of context-dependent words`
+• Compare DeepL translations with Google Translate - spot the differences
+• Translate complex technical text and see how AI handles jargon
+• Try translating poetry and see how AI handles metaphors
+• Test less common language pairs`
       }
     };
   }
@@ -678,11 +684,11 @@ Try These Variations:
         description: "Generate more ideas in 10 minutes than you typically would in an hour.",
         affiliateLinks: [
           {
-            text: "Try ChatGPT →",
-            url: "https://chat.openai.com"
+            text: "Try Notion AI →",
+            url: "https://www.notion.so/product/ai"
           }
         ],
-        exercise: `Choose a creative challenge (naming a project, designing something, solving a problem) and try this progression:
+        exercise: `Choose a creative challenge (naming a project, designing something, solving a problem) and try this in Notion AI:
 
 Step 1 - Volume:
 "Generate 30 different [names/ideas/approaches] for [your project]. Include diverse styles: professional, playful, descriptive, abstract, cultural references, and unexpected combinations."
@@ -889,41 +895,43 @@ Try These Variations:
         description: "Create a functional website by describing what you want.",
         affiliateLinks: [
           {
-            text: "Try ChatGPT →",
-            url: "https://chat.openai.com"
+            text: "Try Replit AI →",
+            url: "https://replit.com"
           }
         ],
-        exercise: `Copy this into ChatGPT:
+        exercise: `Sign up for free at Replit.com, then:
 
-"Create a simple personal portfolio website with these sections:
-1. Header with my name and job title
-2. About section with placeholder text
-3. Skills section listing 5 skills
-4. Contact section with email
-5. Make it modern, responsive, and use pleasant colors
+1. Click "Create Repl"
+2. Choose "HTML, CSS, JS"
+3. Click the "Generate with AI" button
+4. Type this prompt:
 
-Provide complete HTML and CSS code in a single file that I can save and open in a browser."
+"Create a simple personal portfolio website with:
+- Header with my name and job title
+- About section with placeholder text
+- Skills section listing 5 skills
+- Contact section with email
+- Modern, responsive design with pleasant colors"
 
-ChatGPT will generate complete, working code. Then:
+5. Watch Replit AI generate complete working code
+6. Click "Run" - your website appears instantly!
+7. You just built a live website with zero coding knowledge
 
-1. Copy the code into a text editor
-2. Save it as "portfolio.html"
-3. Double-click the file - it opens in your browser!
-4. You just built a website with zero coding knowledge
+Now try the AI chat to modify it:
+• "Change the color scheme to blue and green"
+• "Add animation when hovering over skills"
+• "Make the layout more modern"
+• "Add a photo placeholder at the top"
 
-Now try variations:
-• Ask AI to change the color scheme
-• Request a different layout
-• Add animation effects
-• Include a photo placeholder
-
-Each time, you get working code instantly. This is how AI makes technical skills accessible.
+Replit AI updates the code live - you see changes immediately!
 
 Try These Variations:
-• Build a simple to-do list app
+• Build a simple calculator
 • Create a countdown timer
-• Make a quiz with questions and answers
-• Design a landing page for a fictional product`
+• Make an interactive quiz
+• Design a landing page with a call-to-action button
+
+This is the power of AI + live coding environments!`
       }
     };
   }
@@ -1043,8 +1051,8 @@ Try These Variations:
         description: "Identify and delegate busywork to AI.",
         affiliateLinks: [
           {
-            text: "Try ChatGPT →",
-            url: "https://chat.openai.com"
+            text: "Try Zapier AI →",
+            url: "https://zapier.com/ai"
           }
         ],
         exercise: `Step 1 - Audit Your Busywork:
@@ -1053,25 +1061,30 @@ List 5 repetitive tasks you do regularly that feel tedious:
 • Example: "Summarizing meeting notes"
 • Example: "Researching competitor pricing"
 
-Step 2 - Delegate to AI:
-For each task, create an AI workflow. Example:
+Step 2 - Try Zapier AI Automation:
+Go to Zapier.com and explore AI-powered automation:
 
-Task: Weekly status update
-AI Prompt: "I need to write a weekly status update. Here's what I accomplished: [paste bullet points]. Write a concise, professional email to my manager highlighting progress and next week's priorities."
+Example Workflows to Try:
+• "When I receive an email with an attachment, save it to Google Drive"
+• "When I add a task in Todoist, create a Google Calendar event"
+• "When someone fills out my form, send me a summary email"
+• "Save Instagram posts I'm tagged in to a spreadsheet"
 
-Task: Meeting summaries
-AI Prompt: "Summarize these meeting notes into: 1) Key decisions, 2) Action items with owners, 3) Open questions"
+Zapier AI helps you describe what you want in plain English, then builds the automation.
 
-Step 3 - Measure Time Saved:
-Track how long your usual method takes vs. using AI
-Most people save 30-60% of time on routine tasks
+Step 3 - Create Your First "Zap":
+1. Click "Create Zap"
+2. Describe your automation need
+3. Watch Zapier AI suggest the workflow
+4. Connect your apps
+5. Test it - automation now runs automatically!
 
 Try These Variations:
-• Use AI to draft responses to common emails
-• Have AI create presentation outlines from bullet points
-• Ask AI to analyze spreadsheet data and generate insights
-• Automate research by having AI summarize multiple sources
-• Create templates for recurring tasks with AI-generated drafts`
+• Automate social media posting across platforms
+• Set up email to Slack notifications
+• Auto-organize files from email attachments
+• Create backup workflows for important documents
+• Build lead capture automations`
       }
     };
   }
@@ -1260,37 +1273,39 @@ Try These Variations:
           description: "Turn spreadsheets into insights using AI.",
           affiliateLinks: [
             {
-              text: "Try ChatGPT with Data Analysis →",
-              url: "https://chat.openai.com"
+              text: "Try Microsoft Copilot →",
+              url: "https://copilot.microsoft.com"
             }
           ],
-          exercise: `If you have ChatGPT Plus, you can upload files. Try this:
+          exercise: `Use Microsoft Copilot's free AI data analysis:
 
-Step 1 - Create Sample Data:
-Create a simple spreadsheet with columns: Date, Product, Sales, Region
-Add 20-30 rows of fake sales data
+Step 1 - Ask Data Questions:
+Go to copilot.microsoft.com and ask questions like:
+• "Explain how to analyze sales data in Excel"
+• "What formulas can I use to calculate growth rates?"
+• "How do I create a pivot table for product sales?"
+• "Show me how to visualize trends in a dataset"
 
-Step 2 - Upload and Analyze:
-Upload to ChatGPT and ask:
-• "What's the total sales by product?"
-• "Which region has the highest average sale?"
-• "Show me sales trends over time"
-• "Identify any unusual patterns"
-• "Create a visualization of sales by region"
+Step 2 - Get Code or Formulas:
+Ask: "Write an Excel formula to calculate the top 3 selling products"
+Copilot provides the formula with explanation!
 
-Step 3 - Complex Questions:
-• "Which product-region combination is most profitable?"
-• "Predict next month's sales based on current trends"
-• "What recommendations do you have to increase sales?"
+Step 3 - Learn Data Analysis Concepts:
+• "Explain correlation vs causation with examples"
+• "What's the difference between mean, median, and mode?"
+• "How do I identify outliers in my data?"
 
-The AI handles all calculations, creates charts, and explains findings in plain English.
+Step 4 - Get Analysis Templates:
+"Create a template for tracking monthly expenses with categories and visualizations"
+
+Copilot gives you step-by-step guidance!
 
 Try These Variations:
-• Analyze your personal spending from bank statements
-• Track fitness data and ask for insights
-• Examine website analytics or social media metrics
-• Evaluate project timelines and identify bottlenecks
-• Compare options using data-driven analysis`
+• Ask for help interpreting Google Analytics data
+• Request guidance on creating charts and graphs
+• Learn statistical concepts through practical examples
+• Get formulas for specific business calculations
+• Ask how to automate repetitive data tasks`
         }
       },
       19: {
@@ -1409,44 +1424,45 @@ Try These Variations:
           description: "Create a practical, sustainable AI workflow.",
           affiliateLinks: [
             {
-              text: "Get Started with ChatGPT →",
-              url: "https://chat.openai.com"
+              text: "Try Perplexity AI →",
+              url: "https://www.perplexity.ai"
             }
           ],
-          exercise: `Create Your AI Integration Plan:
+          exercise: `Use Perplexity AI for research-based workflow planning:
 
-Part 1 - Identify Opportunities:
-List 10 recurring tasks in your work or personal life
-Rate each by: Time spent, Enjoyment (1-10), AI suitability
-Pick the 3 with lowest enjoyment + highest time + best AI fit
+Part 1 - Research Best AI Tools for Your Workflow:
+Ask Perplexity questions like:
+• "What are the best AI tools for [your profession] in 2024?"
+• "Compare AI writing assistants for content creation"
+• "What AI automation tools integrate with Gmail and Slack?"
 
-Part 2 - Design Workflows:
-For each task, write:
-• Current process (how you do it now)
-• AI-enhanced process (how AI could help)
-• Specific prompts or tools needed
-• Trigger that reminds you to use AI
-• Success metric (how you'll know it's working)
+Perplexity provides answers WITH SOURCES - you can verify recommendations!
 
-Part 3 - Create Your Prompt Library:
-Write 5-10 reusable prompts for your common tasks
-Save them in a note or document
-Examples:
-• "Summarize this [document type] focusing on..."
-• "Draft an email responding to [situation] with tone..."
-• "Analyze this data and tell me..."
+Part 2 - Learn Implementation Strategies:
+• "How do professionals integrate AI into daily workflows?"
+• "What are proven strategies for AI-enhanced productivity?"
+• "Show me case studies of AI workflow automation"
 
-Part 4 - 30-Day Integration Challenge:
-Week 1: Use AI for Task #1 every day
-Week 2: Add Task #2 while continuing #1
-Week 3: Add Task #3
-Week 4: Evaluate, refine, make it permanent
+Part 3 - Get Specific Tool Guidance:
+• "How do I use [specific tool] for [specific task]?"
+• "What are the limitations of [AI tool] I should know about?"
+• "Compare [Tool A] vs [Tool B] for [use case]"
+
+Part 4 - Stay Current:
+• "What are the latest AI tools released this month?"
+• "What AI trends should [your industry] watch?"
+• "What new AI capabilities were announced recently?"
+
+Why Perplexity? It cites sources, so you can:
+- Verify claims before adopting tools
+- Read full articles for deeper understanding
+- Trust recommendations with evidence
 
 Try These Variations:
-• Set up AI browser extensions for quick access
-• Create shortcuts or keyboard macros for frequent AI prompts
-• Schedule weekly "AI exploration" time to try new tools
-• Join AI communities to learn others' workflows`
+• Research AI tools specific to your industry
+• Compare pricing and features of AI subscriptions
+• Find tutorials and courses for AI tools you want to learn
+• Discover AI communities and forums to join`
         }
       },
       21: {
@@ -1904,11 +1920,11 @@ Try These Variations:
           description: "Explore how AI explains its reasoning.",
           affiliateLinks: [
             {
-              text: "Try ChatGPT →",
-              url: "https://chat.openai.com"
+              text: "Try Claude (Known for Transparency) →",
+              url: "https://claude.ai"
             }
           ],
-          exercise: `Experiments in AI Explainability:
+          exercise: `Experiments in AI Explainability with Claude:
 
 1. Ask AI to Explain Its Process:
 Prompt: "You just answered my question about [topic]. Explain step-by-step how you arrived at that answer. What information did you prioritize? What reasoning process did you follow?"
