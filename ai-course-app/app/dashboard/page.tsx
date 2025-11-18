@@ -17,11 +17,13 @@ export default async function DashboardPage() {
 
   const { data: progressData } = await supabase
     .from('user_progress')
-    .select('lesson_id, completed')
-    .eq('user_id', session.user.email)
-    .eq('completed', true)
+    .select('day_number, completed_at')
+    .eq('user_id', session.user.id)
+    .order('day_number', { ascending: true })
 
   const daysCompleted = progressData?.length || 0
+  const highestDay = daysCompleted > 0 ? Math.max(...(progressData?.map(p => p.day_number) || [])) : 0
+  const nextDay = Math.min(highestDay + 1, 30)
   const totalDays = 30
   const progressPercent = Math.round((daysCompleted / totalDays) * 100)
 
@@ -118,11 +120,11 @@ export default async function DashboardPage() {
                 {/* Continue Button - Prominent CTA */}
                 <div className="w-full flex pt-8 justify-center">
                   <a 
-                    href={`/module?day=${daysCompleted + 1}`}
+                    href={`/module?day=${nextDay}`}
                     className="glass-mint flex items-center justify-center gap-3 rounded-2xl h-14 px-8 flex-1 max-w-[480px] text-text-primary font-bold text-lg"
                   >
-                    <span>{daysCompleted === 0 ? 'Start with Day 1' : `Continue with Day ${daysCompleted + 1}`}</span>
-                    <span className="text-xl">→</span>
+                    <span>{daysCompleted === 0 ? 'Start with Day 1' : nextDay > 30 ? 'Course Complete! 🎉' : `Continue with Day ${nextDay}`}</span>
+                    {nextDay <= 30 && <span className="text-xl">→</span>}
                   </a>
                 </div>
               </div>
