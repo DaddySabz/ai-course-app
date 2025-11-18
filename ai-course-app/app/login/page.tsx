@@ -21,7 +21,7 @@ export default function LoginPage() {
               </p>
             </main>
             
-            <footer className="z-10 w-full text-left text-sm text-text-tertiary">
+            <footer className="z-10 w-full text-left text-sm text-text-tertiary hidden md:block">
               <p>© 2026 Wacky Works Digital. All rights reserved.</p>
             </footer>
           </div>
@@ -117,6 +117,7 @@ export default function LoginPage() {
                   <span className="text-text-tertiary">·</span>
                   <a className="font-semibold text-text-primary hover:text-sage-green transition-colors" href="#">Privacy Policy</a>
                 </div>
+                <p className="text-text-tertiary mt-4">© 2026 Wacky Works Digital. All rights reserved.</p>
               </div>
             </div>
           </div>
