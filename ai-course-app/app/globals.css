@@ -69,12 +69,17 @@ body {
   box-shadow: var(--shadow-neumorphic);
   border: 1px solid rgba(255, 255, 255, 0.5);
   transition: all 0.3s ease;
+  /* Prevent text blur during transforms */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  backface-visibility: hidden;
+  will-change: transform, box-shadow;
 }
 
 .card-neumorphic:hover {
   box-shadow: -10px 10px 24px rgba(180, 160, 145, 0.4), 
               10px -10px 24px rgba(255, 255, 255, 0.95);
-  transform: translateY(-3px);
+  transform: translate3d(0, -3px, 0);
 }
 
 /* Sage Green Glass - For Completed/Available */
@@ -121,13 +126,18 @@ body {
   border: 1px solid rgba(168, 212, 200, 0.7);
   box-shadow: var(--shadow-neumorphic);
   transition: all 0.3s ease;
+  /* Prevent text blur during transforms */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  backface-visibility: hidden;
+  will-change: transform, box-shadow;
 }
 
 .glass-mint:hover {
   background: linear-gradient(145deg, 
     rgba(168, 212, 200, 0.7), 
     rgba(188, 227, 217, 0.6));
-  transform: translateY(-3px) scale(1.02);
+  transform: translate3d(0, -3px, 0) scale(1.02);
   box-shadow: -10px 10px 24px rgba(180, 160, 145, 0.4), 
               10px -10px 24px rgba(255, 255, 255, 0.95);
 }
@@ -179,12 +189,17 @@ body {
   border: 1px solid rgba(255, 255, 255, 0.5);
   transition: all 0.3s ease;
   font-weight: 600;
+  /* Prevent text blur during transforms */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  backface-visibility: hidden;
+  will-change: transform, box-shadow;
 }
 
 .btn-neumorphic:hover {
   box-shadow: -10px 10px 24px rgba(180, 160, 145, 0.4), 
               10px -10px 24px rgba(255, 255, 255, 0.95);
-  transform: translateY(-3px) scale(1.02);
+  transform: translate3d(0, -3px, 0) scale(1.02);
 }
 
 .btn-neumorphic:active {
