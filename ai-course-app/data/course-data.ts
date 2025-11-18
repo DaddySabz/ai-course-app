@@ -1602,31 +1602,793 @@ Try These Variations:
       ...dayContent[day]
     };
   }
+  
+  if (day >= 23 && day <= 30) {
+    const finalDays: Record<number, {title: string, subtitle: string, content: string, handsOn: any}> = {
+      23: {
+        title: "AI for Accessibility",
+        subtitle: "Technology That Empowers Everyone",
+        content: `
+          <p>AI isn't just convenient — for people with disabilities, it's life-changing. It turns barriers into possibilities, enabling independence that wasn't previously achievable.</p>
+          
+          <p><strong>Vision Assistance</strong><br/>
+          AI-powered apps describe surroundings in real-time. Point your phone at a street sign, and it reads aloud. Scan a document, and it converts text to speech. Navigate unfamiliar spaces using AI-generated spatial awareness. What once required sighted assistance now works independently.</p>
+          
+          <p>Grocery shopping becomes manageable when AI identifies products. Cooking is safer when AI reads recipe instructions aloud. Social connections strengthen when AI describes photos friends share online.</p>
+          
+          <p><strong>Hearing Assistance</strong><br/>
+          Real-time captioning makes conversations accessible. Doorbell rings, babies cry, alarms sound — AI alerts hearing-impaired users to environmental sounds they'd otherwise miss. Video calls with automatic transcription enable full participation in meetings.</p>
+          
+          <p>Sign language recognition AI translates between sign language and spoken language, bridging communication gaps. It's far from perfect, but improving rapidly.</p>
+          
+          <p><strong>Mobility Assistance</strong><br/>
+          Voice control makes technology accessible without physical interaction. "Send a message," "set a reminder," "play music" — tasks that require typing or screen navigation now work through speech alone.</p>
+          
+          <p>AI-powered wheelchairs navigate autonomously, avoiding obstacles and optimizing routes. Prosthetics with AI adapt to terrain and user intent, providing more natural movement.</p>
+          
+          <p><strong>Cognitive Assistance</strong><br/>
+          For people with learning disabilities or neurodivergence, AI provides personalized support. It simplifies complex text, breaks tasks into manageable steps, provides reminders, and adapts explanations to individual comprehension styles.</p>
+          
+          <p>Reading assistance helps dyslexic users by reformatting text, adjusting spacing, highlighting word structures. AI tutors offer patient, judgment-free help with learning challenges.</p>
+          
+          <p><strong>Communication Assistance</strong><br/>
+          For non-verbal individuals, AI-powered communication devices predict words, generate sentences from image selections, and even synthesize natural-sounding speech using the person's own voice patterns (created before speech loss).</p>
+          
+          <p>The remarkable thing? These assistive technologies often benefit everyone. Automatic captions help people in loud environments. Voice control benefits anyone with hands full. Clear language benefits non-native speakers. Accessibility improvements make technology better for all users.</p>
+          
+          <p>But challenges remain. Assistive AI often costs more. Some solutions require expensive devices. Not all platforms prioritize accessibility. And AI biases affect disabled users too — voice recognition trained mostly on typical speech struggles with speech impediments.</p>
+          
+          <p>The future of AI accessibility is immense. As technology improves and costs decrease, barriers continue falling. That's not just technological progress — it's social progress.</p>
+        `,
+        handsOn: {
+          title: "Experience Assistive AI Tools",
+          description: "Understand how AI transforms accessibility.",
+          affiliateLinks: [
+            {
+              text: "Try Seeing AI (iOS) →",
+              url: "https://www.microsoft.com/en-us/ai/seeing-ai"
+            }
+          ],
+          exercise: `Try These Accessibility Features:
 
-  // Remaining days still need content
+1. Voice Control (Built into phones):
+• Turn on voice control in settings
+• Try navigating your phone using only voice commands
+• Send a text, set a reminder, open an app
+• Notice how this would enable hands-free use
+
+2. Screen Reader (VoiceOver on iOS, TalkBack on Android):
+• Enable the screen reader
+• Close your eyes and try using your phone
+• Notice how AI describes interface elements
+• Experience how visually impaired users navigate
+
+3. Live Caption (Android/YouTube):
+• Turn on live captions
+• Play a video without sound
+• Notice how real-time transcription enables access
+
+4. Describe Images (ChatGPT):
+• Upload a photo to ChatGPT
+• Ask it to describe what it sees in detail
+• Try with various images — see how well it works
+• Imagine relying on this for understanding visual content
+
+5. Voice Typing:
+• Use your phone's voice-to-text feature
+• Try writing an entire paragraph without touching the keyboard
+• Notice the freedom of hands-free text input
+
+Reflection:
+• Which assistive features surprised you most?
+• How might these tools transform daily life for disabled users?
+• What barriers still exist that AI could potentially solve?`
+        }
+      },
+      24: {
+        title: "AI in Healthcare",
+        subtitle: "Diagnosing, Treating, and Predicting",
+        content: `
+          <p>AI is transforming healthcare from reactive treatment to proactive prevention, from generalized care to personalized medicine, from delayed diagnosis to early detection.</p>
+          
+          <p><strong>Medical Imaging Analysis</strong><br/>
+          AI examines X-rays, MRIs, CT scans, and identifies abnormalities with accuracy matching or exceeding expert radiologists. It spots tiny tumors humans might miss. It flags early-stage diseases before symptoms appear. Crucially, it works 24/7 without fatigue, providing consistent analysis.</p>
+          
+          <p>In some cancers, AI detects early-stage disease years before traditional methods. That time window dramatically improves treatment outcomes. Early detection saves lives.</p>
+          
+          <p><strong>Personalized Treatment</strong><br/>
+          Traditional medicine often uses one-size-fits-all approaches. AI analyzes your specific genetic makeup, medical history, lifestyle, and environmental factors to suggest personalized treatment plans. What works for most patients might not work for you — AI helps identify optimal treatments for your unique biology.</p>
+          
+          <p>Cancer treatment particularly benefits. AI predicts which chemotherapy combinations will be most effective based on tumor genetics, minimizing ineffective treatments and side effects.</p>
+          
+          <p><strong>Drug Discovery</strong><br/>
+          Developing new medicines traditionally takes 10-15 years and billions of dollars. AI accelerates this by predicting which molecular compounds might work, simulating their effects, and identifying promising candidates faster. This doesn't eliminate clinical trials, but it dramatically narrows the search space.</p>
+          
+          <p>AI also discovers new uses for existing drugs — finding that a heart medication might treat Alzheimer's, for example — by analyzing patterns in vast medical databases.</p>
+          
+          <p><strong>Predictive Healthcare</strong><br/>
+          Wearable devices collect continuous health data. AI analyzes patterns to predict problems before they become serious. Irregular heart rhythms that might indicate stroke risk. Blood sugar patterns suggesting diabetes development. Sleep disruptions correlating with mental health issues.</p>
+          
+          <p>This shift from reactive to predictive medicine is profound. Instead of treating illness, we prevent it. Instead of crisis management, we intervene early when treatment is most effective.</p>
+          
+          <p><strong>Mental Health Support</strong><br/>
+          AI chatbots provide 24/7 mental health support — not replacing therapists, but filling gaps when human help isn't available. They offer coping strategies, track mood patterns, identify concerning changes, and suggest when professional help is needed.</p>
+          
+          <p>For many people, talking to an AI feels less stigmatizing than seeking therapy. It's a starting point that helps people eventually connect with human professionals.</p>
+          
+          <p>But AI healthcare has serious challenges. Medical AI trained on data from predominantly white, male patients may be less accurate for other demographics. Privacy concerns grow as health data feeds AI systems. Who owns your medical data? Who accesses it? These questions need clear answers.</p>
+          
+          <p>And fundamentally: AI assists diagnosis but shouldn't make final decisions. A doctor combines AI insights with clinical judgment, patient preferences, and contextual factors AI might miss. Technology augments human expertise, not replaces it.</p>
+          
+          <p>Despite challenges, the trajectory is clear: AI will make healthcare more accurate, accessible, affordable, and personalized. That's worth celebrating — and worth ensuring happens equitably.</p>
+        `,
+        handsOn: {
+          title: "Explore Health AI Tools",
+          description: "See how AI personalizes health insights.",
+          affiliateLinks: [
+            {
+              text: "Try MyFitnessPal →",
+              url: "https://www.myfitnesspal.com"
+            }
+          ],
+          exercise: `Experiment with Health Tracking and AI Insights:
+
+1. Use Your Phone's Health App:
+• Review the health data your phone already tracks
+• Look for AI-generated insights or trends
+• Notice patterns you hadn't consciously observed
+
+2. Try a Symptom Checker (Use Responsibly):
+• Search "Mayo Clinic Symptom Checker" or similar
+• Input hypothetical symptoms
+• See how AI narrows possible conditions
+• Notice the disclaimers about professional diagnosis
+
+3. Ask ChatGPT Health Questions:
+"Based on current research, what lifestyle changes most effectively reduce heart disease risk?"
+"Explain how continuous glucose monitors help diabetes management"
+"What are evidence-based approaches to improving sleep quality?"
+
+Notice: AI provides information but always recommends professional consultation for actual medical concerns.
+
+4. Explore Nutrition Analysis:
+• Take a photo of your meal
+• Ask ChatGPT to estimate nutritional content
+• Notice accuracy (and limitations)
+
+5. Mental Health Check-in:
+Try this with ChatGPT:
+"I'm feeling overwhelmed. Can you suggest 3 evidence-based stress management techniques and explain how each works?"
+
+IMPORTANT DISCLAIMERS:
+• AI health tools inform, they don't diagnose
+• Always consult real healthcare professionals for medical decisions
+• These tools supplement, never replace, professional care
+• Serious symptoms require immediate professional attention`
+        }
+      },
+      25: {
+        title: "AI and Climate Change",
+        subtitle: "Optimizing Our Way to Sustainability",
+        content: `
+          <p>Climate change is humanity's most complex challenge. AI isn't a silver bullet, but it's becoming an essential tool in understanding, mitigating, and adapting to environmental change.</p>
+          
+          <p><strong>Climate Modeling and Prediction</strong><br/>
+          AI processes vast climate datasets faster and more accurately than traditional methods. It identifies patterns in weather systems, predicts extreme events, and models future scenarios with increasing precision. This helps communities prepare for floods, droughts, and storms.</p>
+          
+          <p>Better predictions enable better decisions: where to build infrastructure, which crops to plant, when to evacuate, how to allocate resources.</p>
+          
+          <p><strong>Energy Optimization</strong><br/>
+          AI manages power grids, balancing renewable energy supply (which fluctuates with weather) with demand. It predicts when solar and wind production will peak, when to store energy, when to draw from batteries. This optimization makes renewable energy more reliable and cost-effective.</p>
+          
+          <p>In buildings, AI controls heating, cooling, and lighting based on occupancy patterns and weather forecasts, reducing energy waste by 20-40%. Multiply that across millions of buildings globally — the impact is substantial.</p>
+          
+          <p><strong>Transportation Efficiency</strong><br/>
+          AI optimizes traffic flow, reducing congestion and emissions. Delivery route optimization cuts fuel consumption. Electric vehicle battery management extends range. Shared transportation systems use AI to efficiently match riders, reducing total vehicles needed.</p>
+          
+          <p>Autonomous vehicles (still developing) promise further efficiency: smoother acceleration, optimal routing, better traffic coordination.</p>
+          
+          <p><strong>Deforestation Monitoring</strong><br/>
+          AI analyzes satellite imagery to detect illegal logging in real-time. What once required slow manual review now happens automatically. Authorities receive alerts within hours of trees being cut, enabling rapid response.</p>
+          
+          <p>This doesn't stop all deforestation, but it dramatically increases enforcement effectiveness. Similar monitoring tracks ocean health, glacier melt, and habitat destruction.</p>
+          
+          <p><strong>Materials Science</strong><br/>
+          AI accelerates discovery of sustainable materials: better batteries for energy storage, carbon-capture technologies, biodegradable plastics, efficient solar panels. By simulating molecular structures, AI identifies promising candidates faster than traditional lab testing.</p>
+          
+          <p><strong>Agriculture Optimization</strong><br/>
+          Precision agriculture uses AI to minimize water, fertilizer, and pesticide use while maximizing yield. Sensors monitor soil conditions, drones scan crops for disease, and AI recommends precise interventions. This reduces environmental impact while feeding more people.</p>
+          
+          <p>But AI has environmental costs too. Training large AI models requires enormous computing power, consuming significant energy. Data centers powering AI tools have substantial carbon footprints. The tech industry must address these impacts even while using AI for environmental solutions.</p>
+          
+          <p>And AI can't solve political and behavioral challenges. Technology can optimize systems, but humans must choose to adopt sustainable practices, pass supportive policies, and prioritize long-term thinking over short-term profit.</p>
+          
+          <p>Climate solutions require technology AND policy AND behavior change. AI is a powerful enabler, but ultimately, humans must decide to use it for planetary benefit.</p>
+        `,
+        handsOn: {
+          title: "Calculate and Reduce Your Carbon Footprint",
+          description: "Use AI to understand and improve your environmental impact.",
+          affiliateLinks: [
+            {
+              text: "Try Carbon Footprint Calculator →",
+              url: "https://www.carbonfootprint.com/calculator.aspx"
+            }
+          ],
+          exercise: `Explore AI-Powered Environmental Tools:
+
+1. Carbon Footprint Analysis:
+Use a carbon calculator, then ask ChatGPT:
+"I calculated my carbon footprint at [X] tons CO2/year. Based on the breakdown:
+• Transportation: [amount]
+• Home energy: [amount]
+• Food: [amount]
+• Shopping: [amount]
+
+Give me 5 specific, realistic actions to reduce my footprint by 20%, ranked by effectiveness and ease."
+
+2. Energy Optimization:
+Ask ChatGPT:
+"Analyze typical energy use in a [your home type]. Suggest AI-enabled and low-tech solutions to reduce consumption by 30%, with estimated costs and payback periods."
+
+3. Sustainable Choices:
+"Compare the environmental impact of [choice A] vs [choice B]. Consider manufacturing, transportation, use, and disposal. Give me a clear recommendation."
+
+Examples:
+• Electric car vs hybrid vs public transport
+• Local produce vs imported organic
+• Reusable products vs recyclable vs biodegradable
+
+4. Climate News Analysis:
+"Summarize recent AI applications in climate change mitigation. What's working? What's promising? What's overhyped?"
+
+5. Personal Action Plan:
+"Create a 12-month plan for reducing my environmental impact. Include:
+• Monthly goals
+• Specific actions
+• How to track progress
+• Expected total impact"
+
+Try These Variations:
+• Research AI-optimized recycling apps
+• Explore smart home energy management systems
+• Investigate carbon offset programs and their effectiveness
+• Use AI to plan sustainable travel routes`
+        }
+      },
+      26: {
+        title: "Explainable AI",
+        subtitle: "Understanding How AI Makes Decisions",
+        content: `
+          <p>AI makes decisions affecting your life constantly: loan approvals, job applications, insurance premiums, content recommendations, medical diagnoses. But how does it decide? Often, even AI creators can't fully explain.</p>
+          
+          <p>This "black box" problem is increasingly concerning. If AI denies your loan, you deserve to know why. If it recommends treatment, doctors need to understand the reasoning. If it filters job applications, candidates should understand evaluation criteria.</p>
+          
+          <p><strong>Why AI Is Hard to Explain</strong><br/>
+          Modern AI, especially deep learning, works through millions or billions of mathematical parameters. Data goes in, answers come out, but the internal process is opaque. It's like asking someone how they recognize faces — they just do, without consciously tracking the process.</p>
+          
+          <p>Traditional software has clear logic: IF condition A, THEN action B. You can trace every decision. Neural networks don't work this way. They develop their own internal representations during training. These representations work but aren't human-interpretable.</p>
+          
+          <p><strong>The Push for Explainability</strong><br/>
+          Researchers develop methods to make AI more transparent:</p>
+          
+          <p><strong>Feature importance:</strong> Which input factors mattered most? For loan decisions, AI might reveal that income and payment history were key factors, while age and zip code had minimal influence.</p>
+          
+          <p><strong>Decision visualization:</strong> Highlighting which parts of an image led to classification. Medical AI might show exactly which parts of an X-ray suggested disease.</p>
+          
+          <p><strong>Counterfactual explanations:</strong> "You were denied credit. If your income was £5,000 higher OR you had 2 fewer missed payments, you would have been approved." This tells you what would change the outcome.</p>
+          
+          <p><strong>Model simplification:</strong> Creating simpler, interpretable AI models that approximate complex ones. Less accurate but more explainable.</p>
+          
+          <p><strong>Why Explainability Matters</strong><br/>
+          Trust: People rightfully hesitate to trust decisions they don't understand. Explainable AI builds confidence.</p>
+          
+          <p>Accountability: If AI causes harm, we need to understand why to prevent recurrence. Unexplainable decisions avoid accountability.</p>
+          
+          <p>Fairness: Bias hides in black boxes. Explainability exposes discriminatory patterns. You can't fix what you can't see.</p>
+          
+          <p>Improvement: Understanding failures helps developers fix them. Explainability accelerates AI refinement.</p>
+          
+          <p>Regulation: Laws increasingly require algorithmic transparency. GDPR includes a "right to explanation" for automated decisions. Explainability isn't optional — it's becoming mandatory.</p>
+          
+          <p><strong>The Trade-Off</strong><br/>
+          Often, more explainable AI is less accurate. Simple decision trees are transparent but crude. Deep neural networks are powerful but opaque. Finding the right balance depends on the application.</p>
+          
+          <p>For entertainment recommendations, opacity is acceptable. For medical diagnosis or criminal sentencing, explainability is crucial. Context matters.</p>
+          
+          <p>As users, demand explanation when AI affects important decisions. Ask financial institutions why AI denied your application. Request clarification when AI evaluates your work. Support regulations requiring algorithmic transparency.</p>
+          
+          <p>AI shouldn't be an inscrutable oracle. It's a tool humans created, and humans should understand how it works.</p>
+        `,
+        handsOn: {
+          title: "Investigate AI Decision-Making",
+          description: "Explore how AI explains its reasoning.",
+          affiliateLinks: [
+            {
+              text: "Try ChatGPT →",
+              url: "https://chat.openai.com"
+            }
+          ],
+          exercise: `Experiments in AI Explainability:
+
+1. Ask AI to Explain Its Process:
+Prompt: "You just answered my question about [topic]. Explain step-by-step how you arrived at that answer. What information did you prioritize? What reasoning process did you follow?"
+
+Notice: Does the explanation feel satisfying? Can you verify the logic?
+
+2. Test Consistency:
+Ask the same question multiple times in different ways. Compare responses. Ask: "Why did you answer differently these two times?"
+
+3. Challenge AI Reasoning:
+When AI gives an answer, ask: "What assumptions are you making? What if [assumption] isn't true? How would your answer change?"
+
+4. Request Alternative Perspectives:
+"You recommended [option A]. Now argue for [option B] instead. What factors would make B better than A?"
+
+5. Identify Decision Factors:
+"I'm deciding between [choices]. List the decision factors you're considering and rank them by importance. Explain why each matters."
+
+6. Explore Bias:
+"You suggested [outcome]. Would your answer differ for someone of different: age / gender / location / background? If so, why?"
+
+Try These Variations:
+• Ask AI to critique its own reasoning
+• Request sources and evidence for claims
+• Have AI identify potential errors in its logic
+• Ask what information would change its recommendation
+• Demand explanation before accepting AI suggestions in important decisions`
+        }
+      },
+      27: {
+        title: "Building AI Literacy in Others",
+        subtitle: "Sharing What You've Learned",
+        content: `
+          <p>You've spent weeks learning about AI. Now comes the most important part: helping others understand it too. AI literacy shouldn't be exclusive — it should be universal.</p>
+          
+          <p><strong>Why This Matters</strong><br/>
+          Digital divides already exist. Adding an AI literacy gap creates new inequalities. People who understand AI will harness its benefits. Those who don't risk being left behind — economically, socially, and politically.</p>
+          
+          <p>Your friends, family, colleagues, and community benefit from what you now know. Sharing knowledge isn't just generous; it's essential for building an informed society that can navigate AI's opportunities and challenges together.</p>
+          
+          <p><strong>How to Teach AI (Without Being Technical)</strong><br/>
+          Most people don't need to know how neural networks work. They need to understand:</p>
+          
+          <p><strong>What AI can do:</strong> Show practical examples relevant to their lives. For parents: AI homework help and educational tools. For business owners: automation and efficiency. For creatives: idea generation and skill augmentation.</p>
+          
+          <p><strong>How to use AI tools:</strong> Walk them through one simple, immediately useful application. Installing ChatGPT and asking one helpful question is better than explaining theory.</p>
+          
+          <p><strong>What to be cautious about:</strong> Privacy, bias, misinformation, over-reliance. Frame concerns practically, not fearfully.</p>
+          
+          <p><strong>How to think critically:</strong> Question AI outputs. Verify important information. Recognize when human judgment matters more than AI suggestions.</p>
+          
+          <p><strong>Tailoring the Message</strong><br/>
+          Different audiences need different approaches:</p>
+          
+          <p><strong>Older relatives:</strong> Focus on practical benefits (voice assistants, photo organization, health monitoring) and safety (scam awareness, deepfakes, verification habits).</p>
+          
+          <p><strong>Children:</strong> Emphasize AI as a learning tool, not a thinking replacement. Encourage curiosity and critical questioning. Explain that AI makes mistakes and needs human oversight.</p>
+          
+          <p><strong>Colleagues:</strong> Show productivity gains. Share specific AI workflows that save time. Demonstrate with real work examples.</p>
+          
+          <p><strong>Community members:</strong> Connect AI to local issues. How does it affect jobs in your area? What opportunities exist? What concerns matter to your community?</p>
+          
+          <p><strong>Overcoming Resistance</strong><br/>
+          Some people fear AI. That's reasonable given media sensationalism and valid concerns. Don't dismiss fears — address them honestly.</p>
+          
+          <p>"AI will replace all jobs." Truth: AI replaces tasks, not entire professions. New jobs emerge. The transition requires support and reskilling, which is a real challenge we should address.</p>
+          
+          <p>"AI is too complicated." Truth: Using AI is becoming easier constantly. You don't need technical skills, just curiosity and practice.</p>
+          
+          <p>"AI is dangerous." Truth: AI has risks that require thoughtful management. But avoiding it entirely means missing significant benefits and having no voice in how it develops.</p>
+          
+          <p><strong>Create Ongoing Learning</strong><br/>
+          Share interesting AI developments. Send relevant articles. Offer to help when they have questions. Learning doesn't end with one conversation — it's ongoing.</p>
+          
+          <p>The goal isn't making everyone an AI expert. It's building baseline literacy so people can engage with AI thoughtfully, use it effectively, and participate in societal conversations about its future.</p>
+          
+          <p>You now have the knowledge to help bridge the AI literacy gap. That's not just a skill — it's a responsibility.</p>
+        `,
+        handsOn: {
+          title: "Teach Someone About AI",
+          description: "Share your knowledge with someone who would benefit.",
+          affiliateLinks: [
+            {
+              text: "Share This Course →",
+              url: "https://your-course-url.com"
+            }
+          ],
+          exercise: `Practical Teaching Challenge:
+
+1. Identify Your Student:
+Choose someone who would benefit from AI literacy:
+• A family member curious about AI
+• A colleague who could use AI in their work
+• A friend struggling with tasks AI could help with
+
+2. Assess Their Starting Point:
+Ask:
+• What do you already know about AI?
+• What AI tools, if any, do you currently use?
+• What concerns or questions do you have?
+• What would you like AI to help you do?
+
+3. Plan Your Lesson:
+Create a simple 15-minute introduction:
+• Start with one relevant example
+• Demo one tool live
+• Guide them through trying it themselves
+• Address one concern they mentioned
+• Suggest one next step
+
+4. Deliver and Adjust:
+• Teach at their pace, not yours
+• Ask if explanations make sense
+• Show, don't just tell
+• Celebrate their first success
+• Make it feel achievable, not overwhelming
+
+5. Provide Resources:
+• Share this course or similar resources
+• Recommend one AI tool to explore
+• Offer to answer future questions
+• Check in a week later
+
+Try These Variations:
+• Host a small AI literacy workshop for your community
+• Create a simple one-page guide for specific use cases
+• Share AI tips regularly on social media
+• Pair up with someone learning together
+• Volunteer to teach AI basics at local libraries or community centers`
+        }
+      },
+      28: {
+        title: "AI Career Opportunities",
+        subtitle: "Working With and Around AI",
+        content: `
+          <p>AI is creating entirely new job categories while transforming existing ones. Understanding career opportunities in this space helps you navigate the changing job market strategically.</p>
+          
+          <p><strong>Direct AI Careers (Technical)</strong><br/>
+          These require specialized training but offer strong demand and high compensation:</p>
+          
+          <p><strong>AI/ML Engineers:</strong> Build and train AI systems. Requires programming, mathematics, and machine learning expertise.</p>
+          
+          <p><strong>Data Scientists:</strong> Extract insights from data, often using AI tools. Needs statistics, programming, and domain knowledge.</p>
+          
+          <p><strong>AI Researchers:</strong> Advance AI capabilities through academic or industry research. Typically requires advanced degrees.</p>
+          
+          <p><strong>Robotics Engineers:</strong> Integrate AI with physical systems. Combines software and hardware expertise.</p>
+          
+          <p><strong>AI-Adjacent Careers (Less Technical)</strong><br/>
+          These involve AI without requiring deep technical expertise:</p>
+          
+          <p><strong>AI Product Managers:</strong> Guide AI product development. Requires understanding AI capabilities and user needs, not necessarily coding.</p>
+          
+          <p><strong>AI Ethics Specialists:</strong> Ensure responsible AI development and deployment. Backgrounds in philosophy, law, social science, or policy.</p>
+          
+          <p><strong>AI Trainers:</strong> Provide training data and feedback to improve AI systems. Requires domain expertise and attention to detail.</p>
+          
+          <p><strong>Prompt Engineers:</strong> Optimize how humans interact with AI systems. Needs excellent communication and creative problem-solving.</p>
+          
+          <p><strong>AI Sales/Business Development:</strong> Help companies adopt AI solutions. Requires tech-savviness and sales skills.</p>
+          
+          <p><strong>Transformed Existing Careers</strong><br/>
+          Nearly every profession now incorporates AI:</p>
+          
+          <p><strong>Healthcare:</strong> Doctors use AI for diagnosis assistance. Nurses use AI for patient monitoring. Researchers use AI for drug discovery.</p>
+          
+          <p><strong>Creative fields:</strong> Designers use AI for rapid prototyping. Writers use AI for research and editing. Musicians use AI for composition assistance.</p>
+          
+          <p><strong>Business:</strong> Marketers use AI for targeting and content. Analysts use AI for forecasting. HR uses AI for recruitment screening.</p>
+          
+          <p><strong>Law:</strong> Lawyers use AI for document review and legal research. Paralegals use AI for case analysis.</p>
+          
+          <p>The pattern: AI handles routine aspects, freeing professionals for complex judgment, strategy, and interpersonal work.</p>
+          
+          <p><strong>Skills That Matter</strong><br/>
+          Technical AI skills have obvious value, but equally important:</p>
+          
+          <p><strong>Critical thinking:</strong> Evaluating AI outputs, recognizing limitations, knowing when AI helps versus harms.</p>
+          
+          <p><strong>Creativity:</strong> AI augments creative work but doesn't generate original vision. Human imagination remains irreplaceable.</p>
+          
+          <p><strong>Emotional intelligence:</strong> Understanding people, building relationships, navigating complex social dynamics — AI struggles here.</p>
+          
+          <p><strong>Adaptability:</strong> AI evolves rapidly. Comfort with continuous learning matters more than specific current skills.</p>
+          
+          <p><strong>Domain expertise:</strong> AI is a tool. Deep understanding of your field (medicine, design, finance, education) makes you valuable regardless of technical AI skills.</p>
+          
+          <p><strong>Positioning Yourself</strong><br/>
+          Don't compete with AI — collaborate with it. Position yourself as someone who combines domain expertise with AI literacy. That combination is powerful and increasingly valuable.</p>
+          
+          <p>Stay curious. Experiment with new tools. Build AI into your workflows. Share what you learn. The people thriving in AI-augmented careers aren't necessarily the most technically skilled — they're the most adaptable.</p>
+        `,
+        handsOn: {
+          title: "Map Your AI Career Path",
+          description: "Identify opportunities in your field.",
+          affiliateLinks: [
+            {
+              text: "Explore AI Jobs on LinkedIn →",
+              url: "https://www.linkedin.com/jobs/search/?keywords=artificial%20intelligence"
+            }
+          ],
+          exercise: `Career Planning Exercise:
+
+1. Analyze Your Current Role:
+Ask ChatGPT:
+"I work as a [your role] in [industry]. How is AI currently being integrated into this field? What tasks might AI handle in 3-5 years? What human skills become more valuable?"
+
+2. Identify Your AI Integration Opportunities:
+List your current job tasks
+For each task, ask: Could AI help with this? How?
+Identify 3 tasks where AI would provide immediate value
+Plan how to integrate AI into those tasks this month
+
+3. Skills Gap Analysis:
+"Based on AI trends in [your industry], what skills should I develop to remain competitive? Prioritize by: importance, ease of learning, and time to proficiency."
+
+4. Explore Adjacent Opportunities:
+"What AI-related roles exist adjacent to [your profession]? What would I need to learn to transition? What's the typical career path?"
+
+5. Create Your Development Plan:
+Short-term (3 months):
+• Master 2-3 AI tools relevant to your work
+• Complete one AI course or certification
+• Demonstrate AI value in current role
+
+Mid-term (12 months):
+• Build portfolio of AI-enhanced projects
+• Develop one new complementary skill
+• Network with others working at AI intersection of your field
+
+Long-term (3 years):
+• Position as go-to person for AI in your domain
+• Consider specialized role or advancement
+• Mentor others on AI integration
+
+Try These Variations:
+• Research AI job postings in your field — note required skills
+• Connect with people in AI-adjacent roles — ask about their path
+• Join industry groups discussing AI integration
+• Build visible projects showcasing AI + your expertise`
+        }
+      },
+      29: {
+        title: "AI Regulation and Policy",
+        subtitle: "Who Controls the Future?",
+        content: `
+          <p>AI development is outpacing regulation. Governments worldwide grapple with questions that didn't exist five years ago. The policies decided now will shape AI's impact for decades.</p>
+          
+          <p><strong>Why Regulation Matters</strong><br/>
+          Without thoughtful regulation, market forces alone drive AI development. That creates problems: profit prioritized over safety, powerful AI concentrated in few companies, biases embedded without accountability, privacy eroded without consent.</p>
+          
+          <p>But over-regulation stifles innovation, creates barriers to entry benefiting incumbent companies, and pushes development to jurisdictions with lax rules. Finding balance is difficult but essential.</p>
+          
+          <p><strong>Key Regulatory Questions</strong><br/>
+          <strong>Liability:</strong> When AI causes harm, who's responsible? The developer? The deployer? The user? If an autonomous vehicle crashes, who's liable? Clear frameworks don't exist yet.</p>
+          
+          <p><strong>Transparency:</strong> Should companies disclose when AI makes significant decisions? Should AI be labeled as AI? Should algorithm details be public or proprietary? Different regions answer differently.</p>
+          
+          <p><strong>Data rights:</strong> Who owns data used to train AI? Can companies use your public posts without permission? Do you have rights to your AI-generated content? These questions are actively contested.</p>
+          
+          <p><strong>Bias and fairness:</strong> Should AI be required to meet fairness standards? How do you even define algorithmic fairness? Different definitions can be mutually exclusive.</p>
+          
+          <p><strong>Employment impact:</strong> Should governments restrict AI that replaces human workers? Mandate transition support? Tax AI-driven productivity to fund social programs?</p>
+          
+          <p><strong>Existential risk:</strong> Should advanced AI development be monitored or restricted? Who decides safety thresholds? How do we enforce international agreements?</p>
+          
+          <p><strong>Global Approaches</strong><br/>
+          Different regions are taking different paths:</p>
+          
+          <p><strong>European Union:</strong> Aggressive regulation focused on rights and safety. The AI Act categorizes AI by risk level, with strict requirements for high-risk applications. GDPR already restricts data use.</p>
+          
+          <p><strong>United States:</strong> More hands-off, with sector-specific regulations emerging gradually. Tech industry largely self-regulates, with growing calls for federal frameworks.</p>
+          
+          <p><strong>China:</strong> Heavy government oversight, with emphasis on national security and social control. Different values drive different priorities.</p>
+          
+          <p><strong>Global South:</strong> Often lacks resources for sophisticated AI regulation, risking exploitation by foreign companies and being excluded from development benefits.</p>
+          
+          <p><strong>Your Role in Policy</strong><br/>
+          "I'm not a policymaker" isn't an excuse for disengagement. Democracy requires informed citizens participating in debates about technology shaping society.</p>
+          
+          <p>You can:</p>
+          <ul>
+            <li>Contact representatives about AI policy priorities</li>
+            <li>Support organizations advocating for responsible AI</li>
+            <li>Participate in public comment periods on proposed regulations</li>
+            <li>Vote for candidates with informed AI positions</li>
+            <li>Educate your community about AI implications</li>
+            <li>Demand transparency from companies using AI</li>
+          </ul>
+          
+          <p>The worst outcome isn't too much regulation or too little — it's regulation shaped by ignorance or captured by narrow interests. Informed public participation produces better policy.</p>
+          
+          <p>AI governance isn't just for experts. It's for everyone affected by AI. Which means everyone.</p>
+        `,
+        handsOn: {
+          title: "Engage With AI Policy",
+          description: "Understand and participate in AI governance.",
+          affiliateLinks: [
+            {
+              text: "Read the EU AI Act →",
+              url: "https://artificialintelligenceact.eu"
+            }
+          ],
+          exercise: `Policy Engagement Activities:
+
+1. Understand Current Regulations:
+Ask ChatGPT:
+"Explain the EU AI Act in simple terms. What are the key requirements? How does it categorize AI risk? What are the penalties for non-compliance?"
+
+"What AI regulations currently exist in [your country]? What proposals are being debated?"
+
+2. Develop Your Position:
+Consider these scenarios and form opinions:
+• Should facial recognition be allowed in public spaces?
+• Should AI-generated content be required to carry labels?
+• Should companies be liable for AI bias in hiring?
+• Should advanced AI research require government approval?
+
+For each, ask yourself: Why? What's the trade-off? How would you implement it?
+
+3. Research Advocacy Groups:
+Find organizations working on AI policy:
+• AI Now Institute
+• Electronic Frontier Foundation
+• Future of Life Institute
+• Partnership on AI
+
+Read their positions. Do you agree?
+
+4. Find Local Action:
+• Are local government or schools discussing AI policies?
+• Are representatives holding town halls on tech issues?
+• Are community groups organizing around AI impacts?
+
+5. Make Your Voice Heard:
+• Write to your representatives about AI issues you care about
+• Participate in public comment on proposed regulations
+• Support organizations aligned with your values
+• Share informed perspectives with your network
+
+Try These Variations:
+• Attend or watch policy hearings on AI topics
+• Write an op-ed or blog post about AI regulation
+• Start conversations in your community about AI governance
+• Join online forums discussing AI policy
+• Follow policymakers and researchers on social media`
+        }
+      },
+      30: {
+        title: "Your AI Journey Continues",
+        subtitle: "From Learning to Living AI-Augmented",
+        content: `
+          <p>Congratulations. You've completed a comprehensive introduction to AI. But this isn't an ending — it's a beginning.</p>
+          
+          <p><strong>What You've Accomplished</strong><br/>
+          You understand what AI is and how it works. You can use AI tools effectively. You recognize opportunities and risks. You think critically about AI claims. You can teach others. That's significant.</p>
+          
+          <p>Most importantly: you're no longer intimidated by AI. It's a tool you can harness, not magic that mystifies or threatens you.</p>
+          
+          <p><strong>Where You Go Next</strong><br/>
+          AI literacy isn't static knowledge — it's ongoing engagement. Technology evolves. New tools emerge. Applications expand. Staying current requires continuous learning.</p>
+          
+          <p>Here's how to maintain momentum:</p>
+          
+          <p><strong>1. Daily Practice</strong><br/>
+          Use AI regularly for real tasks. Build habits. Integrate tools into workflows. The difference between knowing about AI and being AI-literate is consistent application.</p>
+          
+          <p><strong>2. Structured Learning</strong><br/>
+          Take deeper courses in areas that interest you. Specialize in applications relevant to your work or passions. Technical courses if you want to build. Ethics courses if you want to shape policy. Industry-specific courses for practical application.</p>
+          
+          <p><strong>3. Community Engagement</strong><br/>
+          Join AI communities. Follow researchers and practitioners. Participate in discussions. Share what you learn. Learning happens through connection, not just consumption.</p>
+          
+          <p><strong>4. Experimentation</strong><br/>
+          Try new tools as they emerge. Push boundaries of what you can create. Build projects combining AI with your skills. Failure teaches more than passive observation.</p>
+          
+          <p><strong>5. Critical Awareness</strong><br/>
+          Question AI hype. Recognize limitations. Notice biases. Consider impacts. Being AI-literate means being critically engaged, not uncritically enthusiastic.</p>
+          
+          <p><strong>6. Teaching Others</strong><br/>
+          Share knowledge. Help bridge the literacy gap. Teaching reinforces your own understanding while expanding others'.</p>
+          
+          <p><strong>The Bigger Picture</strong><br/>
+          AI is the most transformative technology of our time. It will change work, creativity, healthcare, education, communication, and society itself. That change is neither inherently good nor bad — it depends on how we shape it.</p>
+          
+          <p>Your engagement matters. Informed citizens influence how AI develops and deploys. Your voice in policy debates, your choices as a consumer, your expectations as a user, your example as someone using AI thoughtfully — these shape outcomes.</p>
+          
+          <p>The future with AI isn't predetermined. It's being written now, by people like you who take time to understand technology, think carefully about implications, and engage actively in shaping its trajectory.</p>
+          
+          <p><strong>Final Thought</strong><br/>
+          AI is powerful. But you know what's more powerful? Informed, thoughtful humans who understand AI, use it wisely, question it critically, and work together to ensure it serves human flourishing.</p>
+          
+          <p>You're now one of those humans. Use that knowledge well.</p>
+          
+          <p>The journey continues. Where it leads is up to you.</p>
+        `,
+        handsOn: {
+          title: "Create Your Ongoing AI Learning Plan",
+          description: "Map your continued AI journey.",
+          affiliateLinks: [
+            {
+              text: "Explore Advanced Courses →",
+              url: "https://www.deeplearning.ai"
+            }
+          ],
+          exercise: `Your Personal AI Roadmap:
+
+1. Reflect on Your Journey:
+• What surprised you most about AI?
+• Which concepts were hardest to grasp?
+• What tools do you use regularly now?
+• How has your perspective on AI changed?
+• What concerns you most about AI's future?
+• What excites you most?
+
+2. Define Your Next Steps:
+Short-term (Next Month):
+• 3 specific AI tools to integrate into daily life
+• 1 project to build using AI
+• 1 person to teach what you learned
+• 1 community or newsletter to join
+
+Mid-term (Next 6 Months):
+• 1 specialized course to take
+• 1 area to develop deeper expertise
+• 1 way to publicly demonstrate AI literacy
+• 1 policy issue to engage with
+
+Long-term (Next Year):
+• How will AI feature in your career?
+• What AI-enabled project would you love to create?
+• How will you contribute to responsible AI development?
+• How will you share AI literacy in your community?
+
+3. Build Your Resource List:
+Identify and bookmark:
+• 3 AI newsletters or blogs
+• 2 YouTube channels on AI topics
+• 1 podcast about AI
+• 5 Twitter/LinkedIn accounts to follow
+• 2 communities to join
+
+4. Schedule Your Learning:
+Block time in your calendar:
+• Daily AI tool use (15 min)
+• Weekly experimentation (1 hour)
+• Monthly deeper learning (3 hours)
+• Quarterly review and adjustment
+
+5. Commit Publicly:
+Share your AI learning goals:
+• Post on social media
+• Tell a friend who'll hold you accountable
+• Start a blog documenting your journey
+• Find a learning partner
+
+CONGRATULATIONS! 
+You've completed your Introduction to AI. 
+The real journey starts now. 
+Go build something amazing. 🚀`
+        }
+      }
+    };
+    
+    return {
+      day,
+      ...finalDays[day]
+    };
+  }
+
+  // This should never be reached as we now have all 30 days
   return {
     day,
-    title: `Day ${day}: Advanced AI Concepts`,
-    subtitle: `Learning module for day ${day}`,
-    content: `
-      <h2>📚 Learning Content</h2>
-      <p>
-        This is placeholder content for Day ${day}. The actual course content will be added soon.
-      </p>
-      <h3>Topics Covered:</h3>
-      <ul>
-        <li>AI concept ${day}.1</li>
-        <li>AI concept ${day}.2</li>
-        <li>Practical application</li>
-      </ul>
-      <p>
-        <em>Content coming soon! The instructor is preparing detailed materials for this lesson.</em>
-      </p>
-    `,
+    title: `Day ${day}: Course Complete`,
+    subtitle: `Congratulations!`,
+    content: `<p>You've completed the entire 30-day AI course! 🎉</p>`,
     handsOn: {
-      title: "🛠️ Hands-On Practice",
-      description: `Practical exercises for Day ${day} will be added soon.`,
-      exercise: `Complete the exercises for Day ${day}`
+      title: "Well Done!",
+      description: `You're now AI-literate!`,
+      exercise: `Keep learning and building!`
     }
   };
 });
