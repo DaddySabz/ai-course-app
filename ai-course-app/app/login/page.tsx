@@ -93,16 +93,16 @@ export default function LoginPage() {
                 </p>
               </div>
 
-              {/* Organization Access - Lavender Glass */}
+              {/* Enterprise Access - Lavender Glass */}
               <div className="w-full glass-lavender rounded-3xl p-8">
                 <div className="flex items-center justify-between mb-4">
-                  <h2 className="text-lg font-bold text-text-primary">Organization Access</h2>
+                  <h2 className="text-lg font-bold text-text-primary">Enterprise Access</h2>
                   <span className="badge-glass text-lavender">
                     Full Access
                   </span>
                 </div>
                 <button className="btn-neumorphic flex w-full items-center justify-center rounded-2xl px-6 py-4 text-base font-bold text-text-primary mb-3">
-                  Business Organizations
+                  Technology Partners
                 </button>
                 <p className="text-xs text-text-secondary text-center font-medium">
                   Access with your organization&apos;s code
