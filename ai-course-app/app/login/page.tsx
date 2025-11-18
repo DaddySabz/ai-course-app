@@ -7,13 +7,8 @@ export default function LoginPage() {
       <div className="flex h-full min-h-screen grow">
         <div className="grid flex-1 grid-cols-1 md:grid-cols-2">
           {/* Left Side - Hero Section with Warm Background */}
-          <div className="relative flex flex-col items-start justify-between p-8 md:p-12 lg:p-16">
-            
-            <header className="z-10 w-full">
-              {/* Empty header for spacing */}
-            </header>
-            
-            <main className="z-10 flex flex-col items-start justify-center text-left">
+          <div className="relative flex flex-col items-start justify-center p-8 md:p-12 lg:p-16">
+            <main className="z-10 flex flex-col items-start text-left">
               <h1 className="text-text-primary tracking-tight text-5xl font-black leading-tight pb-4">
                 Introduction to AI
               </h1>
@@ -21,10 +16,6 @@ export default function LoginPage() {
                 Sign in to begin your 30-day journey.
               </p>
             </main>
-            
-            <footer className="z-10 w-full text-left text-sm text-text-tertiary hidden">
-              {/* Copyright moved to bottom of page */}
-            </footer>
           </div>
 
           {/* Right Side - Login Forms with Glass Cards */}
