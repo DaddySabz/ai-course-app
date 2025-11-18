@@ -39,18 +39,41 @@ export async function POST(req: Request) {
       }
     }
 
-    // Insert or update progress
-    const { data, error } = await supabase
+    // Check if progress already exists
+    const { data: existing } = await supabase
       .from('user_progress')
-      .upsert({
-        user_id: session.user.id,
-        day_number: dayNumber,
-        completed_at: new Date().toISOString()
-      }, {
-        onConflict: 'user_id,day_number'
-      })
-      .select()
+      .select('id')
+      .eq('user_id', session.user.id)
+      .eq('day_number', dayNumber)
       .single()
+
+    let data, error
+
+    if (existing) {
+      // Update existing record
+      const result = await supabase
+        .from('user_progress')
+        .update({ completed_at: new Date().toISOString() })
+        .eq('user_id', session.user.id)
+        .eq('day_number', dayNumber)
+        .select()
+        .single()
+      data = result.data
+      error = result.error
+    } else {
+      // Insert new record
+      const result = await supabase
+        .from('user_progress')
+        .insert({
+          user_id: session.user.id,
+          day_number: dayNumber,
+          completed_at: new Date().toISOString()
+        })
+        .select()
+        .single()
+      data = result.data
+      error = result.error
+    }
 
     if (error) {
       console.error('Supabase error:', error)

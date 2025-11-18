@@ -15,14 +15,16 @@ export default async function DashboardPage() {
     process.env.SUPABASE_SECRET_KEY!
   )
 
-  const { data: progressData } = await supabase
+  const { data: progressData, error: progressError } = await supabase
     .from('user_progress')
     .select('day_number, completed_at')
     .eq('user_id', session.user.id)
     .order('day_number', { ascending: true })
 
-  const daysCompleted = progressData?.length || 0
-  const highestDay = daysCompleted > 0 ? Math.max(...(progressData?.map(p => p.day_number) || [])) : 0
+  // If table doesn't exist yet, default to empty (will be created when user completes first lesson)
+  const safeProgressData = progressError ? [] : (progressData || [])
+  const daysCompleted = safeProgressData.length
+  const highestDay = daysCompleted > 0 ? Math.max(...(safeProgressData.map(p => p.day_number))) : 0
   const nextDay = Math.min(highestDay + 1, 30)
   const totalDays = 30
   const progressPercent = Math.round((daysCompleted / totalDays) * 100)

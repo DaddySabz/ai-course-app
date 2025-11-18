@@ -33,13 +33,14 @@ export default async function ModulePage({
     process.env.SUPABASE_SECRET_KEY!
   )
 
-  const { data: progress } = await supabase
+  const { data: progress, error: progressError } = await supabase
     .from('user_progress')
     .select('day_number')
     .eq('user_id', session.user.id)
     .order('day_number')
 
-  const completedDays = progress?.map(p => p.day_number) || []
+  // If table doesn't exist yet, default to empty array (will be created when user completes first lesson)
+  const completedDays = progressError ? [] : (progress?.map(p => p.day_number) || [])
   const isCompleted = completedDays.includes(currentDay)
 
   return (
