@@ -62,7 +62,7 @@ export default function LoginPage() {
                     <div className="w-full border-t border-text-tertiary/20"></div>
                   </div>
                   <div className="relative flex justify-center text-sm">
-                    <span className="bg-surface px-3 text-text-secondary font-medium">or</span>
+                    <span className="text-text-secondary font-medium">or</span>
                   </div>
                 </div>
 
@@ -93,19 +93,19 @@ export default function LoginPage() {
                 </p>
               </div>
 
-              {/* Partner Organizations - Lavender/Blue Glass */}
+              {/* Organization Access - Lavender Glass */}
               <div className="w-full glass-lavender rounded-3xl p-8">
                 <div className="flex items-center justify-between mb-4">
-                  <h2 className="text-lg font-bold text-text-primary">Sponsor Access</h2>
+                  <h2 className="text-lg font-bold text-text-primary">Organization Access</h2>
                   <span className="badge-glass text-lavender">
                     Full Access
                   </span>
                 </div>
                 <button className="btn-neumorphic flex w-full items-center justify-center rounded-2xl px-6 py-4 text-base font-bold text-text-primary mb-3">
-                  Partner Organizations
+                  Business Organizations
                 </button>
                 <p className="text-xs text-text-secondary text-center font-medium">
-                  Access with your organization&apos;s sponsor code
+                  Access with your organization&apos;s code
                 </p>
               </div>
 
