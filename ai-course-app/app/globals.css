@@ -20,12 +20,12 @@
   --color-text-secondary: #5A534E;
   --color-text-tertiary: #7A736E;
   
-  /* Shadows for Neumorphism */
-  --shadow-neumorphic: 8px 8px 16px rgba(180, 160, 145, 0.3), 
-                       -8px -8px 16px rgba(255, 255, 255, 0.8);
-  --shadow-neumorphic-inset: inset 6px 6px 12px rgba(180, 160, 145, 0.25),
-                              inset -6px -6px 12px rgba(255, 255, 255, 0.9);
-  --shadow-subtle: 4px 4px 12px rgba(180, 160, 145, 0.2);
+  /* Shadows for Neumorphism - Light from top right */
+  --shadow-neumorphic: -8px 8px 16px rgba(180, 160, 145, 0.3), 
+                       8px -8px 16px rgba(255, 255, 255, 0.8);
+  --shadow-neumorphic-inset: inset -6px 6px 12px rgba(180, 160, 145, 0.25),
+                              inset 6px -6px 12px rgba(255, 255, 255, 0.9);
+  --shadow-subtle: -4px 4px 12px rgba(180, 160, 145, 0.2);
 }
 
 /* Global base styles */
@@ -130,6 +130,24 @@ body {
   transform: translateY(-2px);
   box-shadow: 10px 10px 20px rgba(180, 160, 145, 0.35), 
               -10px -10px 20px rgba(255, 255, 255, 0.85);
+}
+
+/* Blue Glass - For Google/General Access */
+.glass-blue {
+  background: linear-gradient(145deg, 
+    rgba(168, 200, 220, 0.6), 
+    rgba(190, 215, 235, 0.5));
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(168, 200, 220, 0.7);
+  box-shadow: var(--shadow-neumorphic);
+  transition: all 0.3s ease;
+}
+
+.glass-blue:hover {
+  background: linear-gradient(145deg, 
+    rgba(168, 200, 220, 0.7), 
+    rgba(190, 215, 235, 0.6));
 }
 
 /* Peach Glass - For Special Elements */

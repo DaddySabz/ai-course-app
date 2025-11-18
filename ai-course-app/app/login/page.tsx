@@ -9,9 +9,7 @@ export default function LoginPage() {
           <div className="relative flex flex-col items-start justify-between p-8 md:p-12 lg:p-16">
             
             <header className="z-10 w-full">
-              <div className="flex items-center gap-3">
-                <div className="text-3xl">📚</div>
-              </div>
+              {/* Empty header for spacing */}
             </header>
             
             <main className="z-10 flex flex-col items-start justify-center text-left">
@@ -32,8 +30,8 @@ export default function LoginPage() {
           <div className="flex flex-col items-center justify-center p-8 md:p-12 lg:p-16 overflow-y-auto">
             <div className="flex w-full max-w-md flex-col items-center gap-6">
               
-              {/* General Access Card - Frosted Glass */}
-              <div className="w-full card-neumorphic rounded-3xl p-8">
+              {/* General Access Card - Blue Frosted Glass */}
+              <div className="w-full glass-blue rounded-3xl p-8">
                 <div className="flex items-center justify-between mb-6">
                   <h2 className="text-lg font-bold text-text-primary">General Access</h2>
                 </div>
@@ -47,7 +45,7 @@ export default function LoginPage() {
                 >
                   <button
                     type="submit"
-                    className="glass-mint flex w-full items-center justify-center gap-3 rounded-2xl px-6 py-4 text-base font-bold text-text-primary"
+                    className="btn-neumorphic flex w-full items-center justify-center gap-3 rounded-2xl px-6 py-4 text-base font-bold text-text-primary"
                   >
                     <svg className="size-5" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                       <path d="M22.56 12.25C22.56 11.45 22.49 10.68 22.36 9.92H12V14.4H18.37C18.16 15.82 17.38 16.99 16.29 17.75V20.27H19.95C21.69 18.67 22.56 15.85 22.56 12.25Z"></path>
