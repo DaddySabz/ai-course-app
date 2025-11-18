@@ -2,6 +2,8 @@ import { auth } from "@/auth"
 import { redirect } from "next/navigation"
 import { courseData } from "@/data/course-data"
 import Link from "next/link"
+import LessonContent from "@/components/LessonContent"
+import { createClient } from '@supabase/supabase-js'
 
 // Force dynamic rendering to ensure searchParams work correctly
 export const dynamic = 'force-dynamic'
@@ -25,8 +27,19 @@ export default async function ModulePage({
     redirect("/dashboard")
   }
 
-  // TODO: Get from database
-  const completedDays = [1, 2, 3, 4, 5, 6, 7] // Hardcoded for now
+  // Fetch real progress from database
+  const supabase = createClient(
+    process.env.NEXT_PUBLIC_SUPABASE_URL!,
+    process.env.SUPABASE_SECRET_KEY!
+  )
+
+  const { data: progress } = await supabase
+    .from('user_progress')
+    .select('day_number')
+    .eq('user_id', session.user.id)
+    .order('day_number')
+
+  const completedDays = progress?.map(p => p.day_number) || []
   const isCompleted = completedDays.includes(currentDay)
 
   return (
@@ -103,125 +116,11 @@ export default async function ModulePage({
 
         {/* Right Content Area - Warm, Spacious Design */}
         <main className="flex-1">
-          {/* Header with Badges */}
-          <div className="mb-8">
-            <div className="flex items-center gap-3 mb-4">
-              <span className="badge-glass">
-                Day {currentDay} of 30
-              </span>
-              {isCompleted && (
-                <span className="badge-glass text-sage-green">
-                  ✓ Completed
-                </span>
-              )}
-            </div>
-            <h1 className="text-5xl font-black text-text-primary mb-3 leading-tight">
-              {lesson.title}
-            </h1>
-            <p className="text-xl text-text-secondary font-medium">
-              {lesson.subtitle}
-            </p>
-          </div>
-
-          {/* Learning Content - Frosted Glass Card */}
-          <div className="card-neumorphic rounded-3xl p-10 mb-6">
-            <div 
-              className="prose prose-lg max-w-none"
-              dangerouslySetInnerHTML={{ __html: lesson.content }}
-            />
-          </div>
-
-          {/* Hands-On Section - Mint Glass Card */}
-          {lesson.handsOn && (
-            <div className="glass-mint rounded-3xl p-10 mb-6">
-              <h2 className="text-3xl font-black text-text-primary mb-4 flex items-center gap-3">
-                <span className="text-4xl">🛠️</span>
-                {lesson.handsOn.title}
-              </h2>
-              <p className="text-text-secondary text-lg mb-8 leading-relaxed">
-                {lesson.handsOn.description}
-              </p>
-
-              {/* Affiliate Links - Neumorphic Buttons */}
-              {lesson.handsOn.affiliateLinks && lesson.handsOn.affiliateLinks.length > 0 && (
-                <div className="mb-8">
-                  <h3 className="text-lg font-bold text-text-primary mb-4 flex items-center gap-2">
-                    <span className="text-2xl">🔗</span>
-                    Tools You'll Need:
-                  </h3>
-                  <div className="flex flex-wrap gap-4">
-                    {lesson.handsOn.affiliateLinks.map((link, index) => (
-                      <a
-                        key={index}
-                        href={link.url}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="btn-neumorphic inline-flex items-center gap-2 px-6 py-4 text-text-primary rounded-2xl text-base"
-                      >
-                        {link.text}
-                        <span className="text-xl">→</span>
-                      </a>
-                    ))}
-                  </div>
-                </div>
-              )}
-
-              {/* Exercise - Peach Glass Card */}
-              {lesson.handsOn.exercise && (
-                <div className="glass-peach p-6 rounded-2xl">
-                  <h3 className="text-lg font-bold text-text-primary mb-3 flex items-center gap-2">
-                    <span className="text-2xl">📝</span>
-                    Your Task:
-                  </h3>
-                  <p className="text-text-secondary whitespace-pre-line leading-relaxed">
-                    {lesson.handsOn.exercise}
-                  </p>
-                </div>
-              )}
-            </div>
-          )}
-
-          {/* Mark Complete Button - Prominent Neumorphic CTA */}
-          {!isCompleted && (
-            <div className="card-neumorphic rounded-3xl p-8 mb-6">
-              <div className="flex flex-col md:flex-row items-center justify-between gap-6">
-                <div className="flex-1">
-                  <h3 className="text-2xl font-bold text-text-primary mb-2">
-                    Ready to continue?
-                  </h3>
-                  <p className="text-base text-text-secondary">
-                    Mark this lesson as complete to unlock the next day
-                  </p>
-                </div>
-                <button className="glass-mint px-8 py-4 rounded-2xl font-bold text-lg text-text-primary whitespace-nowrap">
-                  ✓ Mark as Complete
-                </button>
-              </div>
-            </div>
-          )}
-
-          {/* Navigation buttons for next/previous */}
-          <div className="flex justify-between items-center gap-4">
-            {currentDay > 1 && (
-              <Link
-                href={`/module?day=${currentDay - 1}`}
-                className="btn-neumorphic px-6 py-3 rounded-2xl font-semibold text-text-primary flex items-center gap-2"
-              >
-                <span className="text-lg">←</span>
-                Previous Day
-              </Link>
-            )}
-            
-            {currentDay < 30 && completedDays.includes(currentDay) && (
-              <Link
-                href={`/module?day=${currentDay + 1}`}
-                className="glass-mint ml-auto px-6 py-3 rounded-2xl font-semibold text-text-primary flex items-center gap-2"
-              >
-                Next Day
-                <span className="text-lg">→</span>
-              </Link>
-            )}
-          </div>
+          <LessonContent 
+            lesson={lesson} 
+            currentDay={currentDay}
+            userId={session.user.id}
+          />
         </main>
       </div>
     </div>
