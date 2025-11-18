@@ -72,9 +72,9 @@ body {
 }
 
 .card-neumorphic:hover {
-  box-shadow: 10px 10px 20px rgba(180, 160, 145, 0.35), 
-              -10px -10px 20px rgba(255, 255, 255, 0.85);
-  transform: translateY(-2px);
+  box-shadow: -10px 10px 24px rgba(180, 160, 145, 0.4), 
+              10px -10px 24px rgba(255, 255, 255, 0.95);
+  transform: translateY(-3px);
 }
 
 /* Sage Green Glass - For Completed/Available */
@@ -127,9 +127,9 @@ body {
   background: linear-gradient(145deg, 
     rgba(168, 212, 200, 0.7), 
     rgba(188, 227, 217, 0.6));
-  transform: translateY(-2px);
-  box-shadow: 10px 10px 20px rgba(180, 160, 145, 0.35), 
-              -10px -10px 20px rgba(255, 255, 255, 0.85);
+  transform: translateY(-3px) scale(1.02);
+  box-shadow: -10px 10px 24px rgba(180, 160, 145, 0.4), 
+              10px -10px 24px rgba(255, 255, 255, 0.95);
 }
 
 /* Blue Glass - For Google/General Access */
@@ -182,9 +182,9 @@ body {
 }
 
 .btn-neumorphic:hover {
-  box-shadow: 10px 10px 20px rgba(180, 160, 145, 0.35), 
-              -10px -10px 20px rgba(255, 255, 255, 0.85);
-  transform: translateY(-2px);
+  box-shadow: -10px 10px 24px rgba(180, 160, 145, 0.4), 
+              10px -10px 24px rgba(255, 255, 255, 0.95);
+  transform: translateY(-3px) scale(1.02);
 }
 
 .btn-neumorphic:active {
