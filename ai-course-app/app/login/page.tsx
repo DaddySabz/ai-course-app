@@ -1,4 +1,5 @@
 import { signIn } from "@/auth"
+import EmailAuthForm from "@/components/EmailAuthForm"
 
 export default function LoginPage() {
   return (
@@ -66,15 +67,7 @@ export default function LoginPage() {
                   </div>
                 </div>
 
-                <button
-                  disabled
-                  className="glass-inset flex w-full items-center justify-center gap-3 rounded-2xl px-6 py-4 text-base font-semibold text-text-tertiary cursor-not-allowed"
-                >
-                  <svg className="size-5" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M20 4H4C2.9 4 2.01 4.9 2.01 6L2 18C2 19.1 2.9 20 4 20H20C21.1 20 22 19.1 22 18V6C22 4.9 21.1 4 20 4ZM20 8L12 13L4 8V6L12 11L20 6V8Z"></path>
-                  </svg>
-                  <span>Email (Coming Soon)</span>
-                </button>
+                <EmailAuthForm />
               </div>
 
               {/* John Lewis & Waitrose Partners - Sage Green Glass */}

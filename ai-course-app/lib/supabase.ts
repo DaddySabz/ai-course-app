@@ -6,6 +6,15 @@ const supabaseKey = process.env.NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY!;
 export const supabase = createClient(supabaseUrl, supabaseKey);
 
 // Database types
+export interface User {
+  id: string;
+  email: string;
+  password_hash: string;
+  name?: string;
+  created_at?: string;
+  updated_at?: string;
+}
+
 export interface UserProgress {
   id?: string;
   user_id: string;
