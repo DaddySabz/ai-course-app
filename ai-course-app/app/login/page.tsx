@@ -22,8 +22,8 @@ export default function LoginPage() {
               </p>
             </main>
             
-            <footer className="z-10 w-full text-left text-sm text-text-tertiary hidden md:block">
-              <p>© 2026 Wacky Works Digital. All rights reserved.</p>
+            <footer className="z-10 w-full text-left text-sm text-text-tertiary hidden">
+              {/* Copyright moved to bottom of page */}
             </footer>
           </div>
 
