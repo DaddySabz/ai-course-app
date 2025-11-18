@@ -511,6 +511,344 @@ Try These Variations:
       }
     };
   }
+  
+  if (day === 8) {
+    return {
+      day: 8,
+      title: "AI for Research and Learning",
+      subtitle: "Your Personal Knowledge Assistant",
+      content: `
+        <p>Research used to mean hours in libraries, scanning indexes, reading dozens of sources to find relevant information. AI compresses this process dramatically while actually improving comprehension.</p>
+        
+        <p>Modern AI research tools don't just find information — they synthesize it, explain it in your preferred style, and help you understand complex topics faster than traditional methods ever could.</p>
+        
+        <p>Take NotebookLM, Google's AI research assistant. You upload PDFs, articles, or documents, and it becomes an expert on that specific content. Ask questions, and it answers using only your sources — with citations. Request a summary, and it creates one tailored to your needs. Want it explained differently? Just ask.</p>
+        
+        <p>This is fundamentally different from searching the internet. The AI has actually "read" your materials and can have a conversation about them. It's like having a study partner who's meticulously reviewed everything you're learning.</p>
+        
+        <p>For students, this is transformative. Struggling with dense academic papers? Ask AI to explain in simpler terms. Need to compare multiple theories? Request a comparison table. Writing a literature review? Get help organizing key themes across sources.</p>
+        
+        <p>For professionals, it accelerates learning new skills. Researching a new industry? Upload relevant reports and have AI brief you. Preparing for a presentation? Get key points extracted. Learning new software? Feed it documentation and ask practical questions.</p>
+        
+        <p>But there's an important distinction: AI research assistants should enhance understanding, not replace it. Using AI to write your essay without reading sources is cheating yourself. Using AI to better understand those sources so you can write a thoughtful essay? That's smart learning.</p>
+        
+        <p>The real magic happens when you combine AI with active learning. Ask it to quiz you on content. Request it explain concepts you're confused about. Have it generate examples. These approaches deepen understanding rather than bypassing it.</p>
+        
+        <p>One critical skill: verifying AI-provided information. AI can make mistakes, especially with specialized or recent information. Cross-reference important claims. Check citations. Treat AI as a knowledgeable assistant who might occasionally misremember details, not an infallible oracle.</p>
+        
+        <p>The best researchers and learners use AI as a thinking partner. They ask better questions because AI helps them identify gaps in understanding. They learn faster because AI removes friction from the research process. They understand deeper because they can explore tangential questions immediately.</p>
+      `,
+      handsOn: {
+        title: "Create Your Personal Research Assistant",
+        description: "Upload documents and have AI become an expert on them.",
+        affiliateLinks: [
+          {
+            text: "Try NotebookLM →",
+            url: "https://notebooklm.google.com"
+          }
+        ],
+        exercise: `1. Go to NotebookLM (free with Google account)
+2. Create a new notebook
+3. Upload sources - try a PDF, article, or even YouTube video
+4. Once uploaded, try these prompts:
+
+"Summarize the main arguments in 5 bullet points"
+"Explain the key concept as if I'm a complete beginner"
+"What are the three most important takeaways?"
+"Generate 5 quiz questions to test my understanding"
+
+Notice how it cites specific parts of your sources?
+
+5. Try the "Audio Overview" feature — it generates a podcast-style discussion about your sources!
+
+Try These Variations:
+• Upload multiple articles on the same topic - ask AI to compare them
+• Upload a textbook chapter - request practice problems
+• Add research papers - ask for a literature review
+• Upload meeting notes - get action items extracted`
+      }
+    };
+  }
+
+  if (day === 9) {
+    return {
+      day: 9,
+      title: "Natural Language Processing",
+      subtitle: "How AI Understands Human Language",
+      content: `
+        <p>When you ask Alexa to set a timer, translate a menu with your phone, or autocomplete a sentence, you're experiencing natural language processing — AI's ability to understand, interpret, and generate human language.</p>
+        
+        <p>Human language is messy. We use sarcasm, context-dependent meanings, cultural references, idioms, and ambiguous phrasing. "I'm feeling blue" doesn't mean you've changed color. "That's sick!" might be a compliment. "Bank" could mean a financial institution or a river's edge.</p>
+        
+        <p>For decades, computers struggled with this. Early systems relied on rigid rules: look for specific words, match patterns, follow scripts. They couldn't handle anything outside their programmed scenarios.</p>
+        
+        <p>Modern NLP changed everything. Instead of rules, AI learns language patterns from vast amounts of text. It doesn't "understand" language like humans do — it recognises statistical patterns in how words relate to each other. But those patterns are so sophisticated that the results feel remarkably human.</p>
+        
+        <p>NLP powers countless daily interactions:</p>
+        
+        <ul>
+          <li><strong>Machine translation</strong> — converting text between languages while preserving meaning</li>
+          <li><strong>Sentiment analysis</strong> — determining if text expresses positive, negative, or neutral feelings</li>
+          <li><strong>Text summarization</strong> — condensing long documents while retaining key information</li>
+          <li><strong>Named entity recognition</strong> — identifying people, places, organizations in text</li>
+          <li><strong>Question answering</strong> — extracting relevant information in response to queries</li>
+        </ul>
+        
+        <p>The breakthrough came with transformer models — the architecture behind ChatGPT, Gemini, and similar tools. These models process entire sentences simultaneously, understanding how each word relates to every other word. This captures context in ways previous approaches couldn't.</p>
+        
+        <p>Consider how transformers handle ambiguity. In "The bank can guarantee deposits will eventually cover all accountable losses," the word "bank" clearly refers to a financial institution based on surrounding context. In "The bank was muddy and slippery," it obviously means the river's edge. Transformers capture these contextual clues automatically.</p>
+        
+        <p>But NLP isn't perfect. AI can misinterpret subtle meanings, struggle with new slang, or fail to catch cultural nuances. It might not recognize when you're being sarcastic or detect deeply contextual humor. These remain active research areas.</p>
+        
+        <p>For users, the practical implication is simple: AI now handles language tasks that once required human intelligence. Customer service chatbots answer questions. Translation apps enable conversations across languages. Writing assistants catch grammatical errors. Voice assistants understand spoken requests.</p>
+        
+        <p>And this technology keeps improving. Each generation of models understands language better, handles more complex queries, and makes fewer mistakes. What seems impressive today will feel basic in a few years.</p>
+      `,
+      handsOn: {
+        title: "Test Translation and Sentiment Analysis",
+        description: "Experience how AI processes and understands language.",
+        affiliateLinks: [
+          {
+            text: "Try ChatGPT →",
+            url: "https://chat.openai.com"
+          }
+        ],
+        exercise: `Copy these experiments into ChatGPT:
+
+Experiment 1 - Sentiment Analysis:
+"Analyze the sentiment (positive, negative, neutral) of these reviews:
+1. 'Absolutely loved this product! Worth every penny.'
+2. 'It's okay, nothing special.'
+3. 'Complete waste of money. Very disappointed.'
+4. 'The quality is decent but overpriced.'"
+
+Experiment 2 - Entity Extraction:
+"Extract all people, places, and organizations from this text:
+'Apple CEO Tim Cook announced in San Francisco that the company will partner with Microsoft and Google to improve AI safety standards.'"
+
+Experiment 3 - Ambiguity Resolution:
+"Explain the different meanings of 'bank' in these sentences:
+1. 'I need to visit the bank tomorrow.'
+2. 'We sat on the river bank.'
+3. 'She's banking on getting that promotion.'"
+
+Try These Variations:
+• Have AI detect sarcasm in different phrases
+• Ask it to simplify complex legal or medical text
+• Request idiom explanations from different languages
+• Test its understanding of context-dependent words`
+      }
+    };
+  }
+
+  if (day === 10) {
+    return {
+      day: 10,
+      title: "AI for Brainstorming and Creativity",
+      subtitle: "Unlocking Ideas You Didn't Know You Had",
+      content: `
+        <p>Creativity often feels blocked by the same mental patterns. You keep returning to familiar ideas. You can't see beyond obvious solutions. Your internal critic shoots down concepts before they fully form.</p>
+        
+        <p>AI changes this dynamic entirely. It doesn't judge. It doesn't get tired. It can generate 100 variations in seconds. It combines concepts in ways you'd never think of. This makes it a remarkable brainstorming partner.</p>
+        
+        <p>The key is understanding what AI does well: it produces volume and variety. Ask for one business name and you get something predictable. Ask for 50 business names with different creative directions, and suddenly you're exploring territory you'd never have reached alone.</p>
+        
+        <p>Here's how creative professionals actually use AI:</p>
+        
+        <p><strong>Idea generation.</strong> Stuck on a project? Ask AI to generate 20 completely different approaches. You probably won't use any directly, but they spark associations that lead to your actual solution.</p>
+        
+        <p><strong>Perspective shifts.</strong> Request AI to approach your problem as different people would: how would a child solve this? A CEO? An artist? A scientist? These cognitive shifts reveal blindspots in your thinking.</p>
+        
+        <p><strong>Combination generation.</strong> AI excels at combining unrelated concepts. "Give me 10 business ideas combining cooking and technology" or "suggest products merging fitness and gaming." Some will be absurd, but absurdity often seeds innovation.</p>
+        
+        <p><strong>Constraint-based creativity.</strong> Creativity thrives with constraints. "Design a logo using only circles and the colour blue" or "write a story where the main character never speaks." AI helps you explore within these boundaries systematically.</p>
+        
+        <p><strong>Iteration speed.</strong> Generate a concept, refine it, try variations, merge elements. AI accelerates this iterative process dramatically. What might take weeks of traditional brainstorming happens in a conversation.</p>
+        
+        <p>But AI doesn't replace your creative judgment. It generates possibilities; you select what resonates. It suggests directions; you decide which to pursue. Think of it as a creativity amplifier, not a creativity replacement.</p>
+        
+        <p>The most valuable brainstorming sessions with AI involve back-and-forth dialogue. You propose, AI expands, you refine, AI varies, you combine elements. This collaborative process produces results neither human nor AI would reach independently.</p>
+        
+        <p>One powerful technique: ask AI to criticize its own ideas. Generate concepts, then request "what are the weaknesses of each idea?" This simulates having multiple people in the room with different perspectives.</p>
+        
+        <p>Professional creatives don't fear AI replacing them — they use it to think bigger, explore further, and escape creative ruts faster. The bottleneck was never generating ideas; it was generating enough good ideas. AI removes that bottleneck.</p>
+      `,
+      handsOn: {
+        title: "The Creative Explosion Exercise",
+        description: "Generate more ideas in 10 minutes than you typically would in an hour.",
+        affiliateLinks: [
+          {
+            text: "Try ChatGPT →",
+            url: "https://chat.openai.com"
+          }
+        ],
+        exercise: `Choose a creative challenge (naming a project, designing something, solving a problem) and try this progression:
+
+Step 1 - Volume:
+"Generate 30 different [names/ideas/approaches] for [your project]. Include diverse styles: professional, playful, descriptive, abstract, cultural references, and unexpected combinations."
+
+Step 2 - Perspective Shift:
+"Now approach the same challenge as if you were: 1) A sci-fi author, 2) A 5-year-old, 3) A minimalist designer, 4) A punk rock musician. Give 5 ideas from each perspective."
+
+Step 3 - Combination:
+"Take the 3 most interesting ideas from above and create 5 hybrid concepts combining elements from multiple approaches."
+
+Step 4 - Critique:
+"For each hybrid concept, list 2 strengths and 2 potential problems."
+
+You just generated 50+ ideas, explored multiple perspectives, and critically evaluated options — in minutes.
+
+Try These Variations:
+• Brainstorm gift ideas by describing the person's interests
+• Design a room layout by specifying constraints and preferences
+• Create workout routines combining different activity types
+• Develop recipe ideas using specific ingredients you have`
+      }
+    };
+  }
+  
+  if (day === 11) {
+    return {
+      day: 11,
+      title: "Speech-to-Text and Voice AI",
+      subtitle: "When Machines Listen",
+      content: `
+        <p>Dictate an email while walking. Have meeting notes transcribed automatically. Control your home with voice commands. Get real-time subtitles in multiple languages. Speech-to-text AI transforms how we interact with technology.</p>
+        
+        <p>The technology sounds straightforward — convert spoken words to written text — but it's remarkably complex. Human speech is filled with accents, background noise, mumbling, interruptions, and context-dependent meanings. "Their," "there," and "they're" sound identical but mean different things.</p>
+        
+        <p>Early speech recognition required training. You'd spend hours reading preset texts so the system learned your voice. It worked in quiet environments with clear speech and simple vocabulary. Real-world conversations broke it immediately.</p>
+        
+        <p>Modern AI speech recognition works differently. Trained on thousands of hours of diverse speech data, it handles multiple accents, noisy environments, and natural conversation. It uses context to disambiguate homophones. It even adds appropriate punctuation based on speech patterns.</p>
+        
+        <p>The accuracy is startling. Tools like Whisper (from OpenAI) achieve near-human transcription accuracy. They catch technical terminology, distinguish between speakers, and even note things like laughter or music in the background.</p>
+        
+        <p>This enables transformative applications:</p>
+        
+        <p><strong>Accessibility.</strong> Speech-to-text gives voice to people who can't type. It enables communication for those with physical disabilities. It provides captions for deaf users watching videos.</p>
+        
+        <p><strong>Productivity.</strong> Dictate instead of typing — often faster and more natural. Transcribe meetings automatically so everyone focuses on discussion rather than note-taking. Search audio content as easily as text documents.</p>
+        
+        <p><strong>Language learning.</strong> Practice pronunciation and get instant feedback. Have conversations transcribed and translated simultaneously. Listen to content while reading along.</p>
+        
+        <p><strong>Content creation.</strong> Podcasters get automatic transcripts. Video creators add captions effortlessly. Journalists interview and get searchable transcriptions.</p>
+        
+        <p>Voice AI extends beyond transcription. Voice assistants understand intent: "remind me to call Mom when I leave work" requires understanding location, timing, and relationships. Smart speakers process commands and respond conversationally. Some AI can even detect emotions in voice patterns.</p>
+        
+        <p>But voice tech raises privacy questions. Always-listening devices record conversations. Voice data can be stored and analyzed. Companies might use voice signatures for identification. These concerns require transparent policies and user control.</p>
+        
+        <p>The future of voice AI is multimodal: systems that combine speech with visual context, understand multiple speakers simultaneously, and translate in real-time during conversations. The technology already exists; it's becoming more accessible and accurate.</p>
+      `,
+      handsOn: {
+        title: "Experience Auto-Transcription",
+        description: "Convert speech to text with remarkable accuracy.",
+        affiliateLinks: [
+          {
+            text: "Try Otter.ai (Free) →",
+            url: "https://otter.ai"
+          }
+        ],
+        exercise: `1. Go to Otter.ai (free account available)
+2. Start a new recording or upload an audio file
+3. Watch it transcribe in real-time
+4. Try these tests:
+
+• Record yourself speaking naturally - include technical terms
+• Try speaking with background noise (music, TV)
+• Switch between fast and slow speech
+• Use different tones (excited, monotone, questioning)
+
+Notice how it:
+- Adds punctuation automatically
+- Handles technical vocabulary
+- Identifies speakers
+- Provides timestamps
+- Makes the transcription searchable
+
+5. Try the "Ask Otter" feature - ask questions about what was discussed!
+
+Try These Variations:
+• Dictate an email or text message using your phone's speech-to-text
+• Use voice commands to control your smart home or phone
+• Try Microsoft Word's built-in dictation feature
+• Record a voice note and have it transcribed automatically`
+      }
+    };
+  }
+
+  if (day === 12) {
+    return {
+      day: 12,
+      title: "AI in Daily Life",
+      subtitle: "The Invisible Intelligence Around You",
+      content: `
+        <p>You've probably used AI twenty times today without noticing. That's not an exaggeration — modern life is quietly saturated with artificial intelligence making thousands of micro-decisions on your behalf.</p>
+        
+        <p>Wake up. Your phone's alarm adapted to your sleep patterns. Check the weather — AI predicted that forecast. Scroll social media — AI curated every post you see. Navigate to work — AI optimised your route. Buy coffee — AI detected potential fraud on your card. All before 9 AM.</p>
+        
+        <p>This invisible AI doesn't feel futuristic because it's so seamlessly integrated. It's not dramatic or flashy. It just works, quietly improving experiences in ways you rarely think about.</p>
+        
+        <p><strong>Your phone</strong> — AI improves photos, suggests responses, predicts what you'll type next, identifies spam calls, transcribes voicemails, recognises faces, adjusts screen brightness, and manages battery life.</p>
+        
+        <p><strong>Your inbox</strong> — AI filters spam, categorises emails, suggests replies, flags important messages, and summarises long threads.</p>
+        
+        <p><strong>Your shopping</strong> — AI recommends products, optimises prices, detects fake reviews, manages inventory, personalises offers, and prevents fraud.</p>
+        
+        <p><strong>Your entertainment</strong> — AI recommends what to watch, creates playlists, suggests content, generates thumbnails, optimises streaming quality, and even helps create the content itself.</p>
+        
+        <p><strong>Your navigation</strong> — AI predicts traffic, suggests routes, estimates arrival times, finds parking, and adapts to real-time conditions.</p>
+        
+        <p><strong>Your health</strong> — AI tracks fitness, monitors heart rate, detects falls, suggests workouts, identifies skin conditions, and assists in medical diagnoses.</p>
+        
+        <p>The pattern? AI handles repetitive decisions, pattern recognition, and optimisation — tasks humans find tedious but machines excel at. This frees human attention for more meaningful work.</p>
+        
+        <p>But this ubiquity creates questions. Are recommendation algorithms showing you diverse perspectives or creating echo chambers? Is personalized pricing fair or discriminatory? Does AI-optimised content manipulate attention? These aren't hypothetical concerns — they affect daily life.</p>
+        
+        <p>Understanding AI in daily life means recognising when you're interacting with it. That awareness enables better decisions about privacy, helps you understand why certain things appear in your feed, and lets you use AI tools more effectively.</p>
+        
+        <p>The next time something "just works" — your photos look amazing, your playlist is perfect, your route avoids traffic — that's probably AI. Not magical. Just really, really capable pattern recognition working in the background.</p>
+        
+        <p>And this is still early. The AI you interact with today will seem primitive compared to what's coming. Systems will become more helpful, more intuitive, and more invisible. The challenge isn't whether AI will be present in daily life — it already is. The challenge is ensuring it serves human flourishing, not just corporate optimisation.</p>
+      `,
+      handsOn: {
+        title: "The AI Detection Challenge",
+        description: "Identify all the AI you interact with in one hour.",
+        affiliateLinks: [
+          {
+            text: "Learn more about AI ethics →",
+            url: "https://www.deeplearning.ai/courses/ai-for-everyone/"
+          }
+        ],
+        exercise: `For the next hour, consciously notice every AI interaction:
+
+Create a list tracking:
+1. What AI system you used
+2. What it did for you
+3. Whether you had control over it
+4. Whether you could opt out
+
+Examples to watch for:
+• Social media feeds (what appears and in what order)
+• Autocomplete and autocorrect
+• Photo enhancements
+• Spam filters
+• Recommendations (products, content, routes)
+• Facial recognition (unlocking devices)
+• Voice assistants
+• Targeted advertisements
+• Predictive text
+• Smart home automations
+
+At the end, you'll probably have 15-25 AI interactions logged. Most people are shocked by how much AI they use without thinking about it.
+
+Try These Variations:
+• Check your phone's settings — see what AI features you can control
+• Review a social media app — explore content ranking settings
+• Look at your email filters — understand what gets flagged and why
+• Check smart home device settings — see what data it collects`
+      }
+    };
+  }
 
   // Remaining days still need content
   return {
