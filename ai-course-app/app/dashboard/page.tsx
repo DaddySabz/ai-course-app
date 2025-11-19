@@ -64,6 +64,38 @@ export default async function DashboardPage() {
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
             {/* Left Column - Progress */}
             <aside className="lg:col-span-2 flex flex-col gap-6">
+              {/* Beta Tester Notice */}
+              <div className="card-neumorphic rounded-3xl p-8 border-2 border-sage-green/30">
+                <h3 className="text-xl font-bold text-text-primary mb-4">Hey!</h3>
+                <p className="text-text-secondary mb-4 leading-relaxed">
+                  Thanks for taking the time to beta test our app—we greatly appreciate it! This app is built from the ground up, so there may be bugs and glitches here and there. Please let us know if you spot something.
+                </p>
+                <p className="text-text-secondary mb-4 leading-relaxed">
+                  Also, let us know if you have any recommendations or if there's anything you'd change about the course content, links, apps, services, or websites we're recommending.
+                </p>
+                <p className="text-text-secondary mb-6 leading-relaxed">
+                  Just drop Saby an email or WhatsApp message—a screenshot also works!
+                </p>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                  <a 
+                    href="mailto:hello@wearewacky.com" 
+                    className="btn-neumorphic flex flex-col items-center justify-center gap-1 px-6 py-4 rounded-2xl text-text-primary"
+                  >
+                    <span className="text-xs font-semibold uppercase tracking-wider text-text-secondary">Email</span>
+                    <span className="font-bold">hello@wearewacky.com</span>
+                  </a>
+                  <a 
+                    href="https://wa.me/447460460318" 
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="btn-neumorphic flex flex-col items-center justify-center gap-1 px-6 py-4 rounded-2xl text-text-primary"
+                  >
+                    <span className="text-xs font-semibold uppercase tracking-wider text-text-secondary">WhatsApp</span>
+                    <span className="font-bold">+44 7460 460318</span>
+                  </a>
+                </div>
+              </div>
+
               {/* Course Progress Card - Neumorphic design */}
               <div className="card-neumorphic rounded-3xl p-10">
                 <h3 className="text-2xl font-bold mb-8 text-text-primary">
@@ -123,35 +155,6 @@ export default async function DashboardPage() {
                   >
                     <span>{daysCompleted === 0 ? 'Start with Day 1' : nextDay > 30 ? 'Course Complete!' : `Continue with Day ${nextDay}`}</span>
                     {nextDay <= 30 && <span className="text-xl">→</span>}
-                  </a>
-                </div>
-              </div>
-
-              {/* Beta Tester Notice */}
-              <div className="card-neumorphic rounded-3xl p-8 border-2 border-sage-green/30">
-                <h3 className="text-xl font-bold text-text-primary mb-4">Hey!</h3>
-                <p className="text-text-secondary mb-4 leading-relaxed">
-                  Thanks for taking the time to beta test our app—we greatly appreciate it! This app is built from the ground up, so there may be bugs and glitches here and there. Please let us know if you spot something.
-                </p>
-                <p className="text-text-secondary mb-6 leading-relaxed">
-                  Also, let us know if you have any recommendations or if there's anything you'd change about the course content, links, apps, services, or websites we're recommending.
-                </p>
-                <div className="flex flex-col sm:flex-row gap-4">
-                  <a 
-                    href="mailto:hello@wearewacky.com" 
-                    className="btn-neumorphic flex items-center justify-center gap-2 px-6 py-3 rounded-2xl font-semibold text-text-primary"
-                  >
-                    <span>Email</span>
-                    <span>hello@wearewacky.com</span>
-                  </a>
-                  <a 
-                    href="https://wa.me/447460460318" 
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="btn-neumorphic flex items-center justify-center gap-2 px-6 py-3 rounded-2xl font-semibold text-text-primary"
-                  >
-                    <span>WhatsApp</span>
-                    <span>+44 7460 460318</span>
                   </a>
                 </div>
               </div>
