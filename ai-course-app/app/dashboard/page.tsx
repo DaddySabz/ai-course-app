@@ -191,18 +191,18 @@ export default async function DashboardPage() {
                     <p className="text-xs text-text-tertiary font-semibold">Coming soon</p>
                   </div>
 
-                  {/* Course 3: AI Automations - 2026 */}
+                  {/* Course 3: Automations with AI - 2026 */}
                   <div className="glass-subtle rounded-2xl p-6 opacity-60">
-                    <h4 className="text-lg font-bold text-text-secondary mb-2">AI Automations</h4>
+                    <h4 className="text-lg font-bold text-text-secondary mb-2">Automations with AI</h4>
                     <div className="flex items-baseline gap-2 mb-3">
                       <span className="text-2xl font-bold text-text-tertiary">£129</span>
                     </div>
                     <p className="text-xs text-text-tertiary font-semibold">Coming in 2026</p>
                   </div>
 
-                  {/* Course 4: AI Video Creation - 2026 */}
+                  {/* Course 4: Video with AI - 2026 */}
                   <div className="glass-subtle rounded-2xl p-6 opacity-60">
-                    <h4 className="text-lg font-bold text-text-secondary mb-2">AI Video Creation</h4>
+                    <h4 className="text-lg font-bold text-text-secondary mb-2">Video with AI</h4>
                     <div className="flex items-baseline gap-2 mb-3">
                       <span className="text-2xl font-bold text-text-tertiary">£129</span>
                     </div>
