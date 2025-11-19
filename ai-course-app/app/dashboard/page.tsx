@@ -96,8 +96,8 @@ export default async function DashboardPage() {
                 </div>
               </div>
 
-              {/* Course Progress Card - Neumorphic design */}
-              <div className="card-neumorphic rounded-3xl p-10">
+              {/* Course Progress Card - Blue tint */}
+              <div className="glass-blue rounded-3xl p-10">
                 <h3 className="text-2xl font-bold mb-8 text-text-primary">
                   Course Progress
                 </h3>
@@ -159,8 +159,8 @@ export default async function DashboardPage() {
                 </div>
               </div>
 
-              {/* Course Access - Redesigned with 4 courses */}
-              <div className="card-neumorphic rounded-3xl p-8">
+              {/* Course Access - Lavender tint */}
+              <div className="glass-lavender rounded-3xl p-8">
                 <div className="flex items-center justify-between mb-6">
                   <h3 className="text-2xl font-bold text-text-primary">
                     Course Access
@@ -215,9 +215,9 @@ export default async function DashboardPage() {
               </div>
             </aside>
 
-            {/* Right Column - Profile - Warm card */}
+            {/* Right Column - Profile - Mint tint */}
             <section className="lg:col-span-1">
-              <div className="card-neumorphic rounded-3xl p-8 flex flex-col items-center text-center sticky top-24">
+              <div className="glass-mint rounded-3xl p-8 flex flex-col items-center text-center sticky top-24">
                 <div className="card-neumorphic rounded-3xl p-6 w-full mb-6">
                   <img 
                     src={session.user.image || "/placeholder-avatar.png"} 
