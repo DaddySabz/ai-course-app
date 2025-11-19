@@ -84,11 +84,18 @@ export default function ProfileEditor({ userId, defaultName, defaultAvatar, defa
       if (res.ok) {
         router.refresh()
       } else {
-        alert('Failed to save profile')
+        const errorData = await res.json()
+        console.error('Profile save error:', errorData)
+        // Check if it's a "table doesn't exist" error
+        if (errorData.error?.includes('relation') || errorData.error?.includes('does not exist')) {
+          alert('⚠️ Database table not set up yet!\n\nPlease run supabase-profile-schema.sql in Supabase first.')
+        } else {
+          alert(`Failed to save profile: ${errorData.error || 'Unknown error'}`)
+        }
       }
     } catch (error) {
       console.error('Error saving profile:', error)
-      alert('Failed to save profile')
+      alert('Failed to save profile: Network error')
     } finally {
       setIsSaving(false)
     }
