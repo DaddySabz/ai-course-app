@@ -218,7 +218,7 @@ export default async function DashboardPage() {
             {/* Right Column - Profile - Warm card */}
             <section className="lg:col-span-1">
               <div className="card-neumorphic rounded-3xl p-8 flex flex-col items-center text-center sticky top-24">
-                <div className="glass-subtle rounded-3xl p-6 w-full mb-6">
+                <div className="card-neumorphic rounded-3xl p-6 w-full mb-6">
                   <img 
                     src={session.user.image || "/placeholder-avatar.png"} 
                     alt="Profile" 
@@ -233,21 +233,14 @@ export default async function DashboardPage() {
                   Your name and picture will appear on your certificate
                 </p>
                 
-                <div className="w-full flex flex-col gap-3">
-                  <div className="p-4 glass-sage rounded-2xl">
-                    <p className="text-xs font-bold text-text-secondary mb-1 uppercase tracking-wider">Streak</p>
-                    <p className="text-2xl font-black text-text-primary">{daysCompleted} days</p>
-                  </div>
-                  
-                  <form action={async () => {
-                    "use server"
-                    await signOut({ redirectTo: "/" })
-                  }} className="w-full">
-                    <button className="btn-neumorphic w-full flex items-center justify-center gap-2 p-4 rounded-2xl text-red-600 font-bold">
-                      <span>Sign Out</span>
-                    </button>
-                  </form>
-                </div>
+                <form action={async () => {
+                  "use server"
+                  await signOut({ redirectTo: "/" })
+                }} className="w-full">
+                  <button className="btn-neumorphic w-full flex items-center justify-center gap-2 p-4 rounded-2xl text-red-600 font-bold">
+                    <span>Sign Out</span>
+                  </button>
+                </form>
               </div>
             </section>
           </div>
