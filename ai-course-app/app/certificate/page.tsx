@@ -3,6 +3,7 @@ import { auth } from "@/auth"
 import { redirect } from "next/navigation"
 import { createClient } from '@supabase/supabase-js'
 import Link from 'next/link'
+import CertificateActions from '@/components/CertificateActions'
 
 export default async function CertificatePage() {
   const session = await auth()
@@ -149,28 +150,7 @@ export default async function CertificatePage() {
           </div>
 
           {/* Action Buttons */}
-          <div className="mt-10 flex flex-col sm:flex-row gap-4 justify-center">
-            <Link 
-              href="/dashboard" 
-              className="btn-neumorphic px-8 py-4 rounded-2xl font-bold text-text-primary text-center flex items-center justify-center gap-2"
-            >
-              <span className="text-lg">←</span>
-              Back to Dashboard
-            </Link>
-            <button 
-              onClick={() => window.print()}
-              className="glass-mint px-8 py-4 rounded-2xl font-bold text-text-primary flex items-center justify-center gap-2"
-            >
-              <span className="text-xl">🖨️</span>
-              Print Certificate
-            </button>
-            <button 
-              className="glass-sage px-8 py-4 rounded-2xl font-bold text-text-primary flex items-center justify-center gap-2"
-            >
-              <span className="text-xl">📤</span>
-              Share on LinkedIn
-            </button>
-          </div>
+          <CertificateActions certificateId={certificate?.id} />
         </div>
       ) : (
         /* Not Completed Yet - Warm design */
