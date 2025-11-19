@@ -57,7 +57,7 @@ export default function LoginPage() {
                 <div className="flex items-center justify-between mb-4">
                   <h2 className="text-lg font-bold text-text-primary">Partner Benefits</h2>
                   <span className="badge-sticker text-sage-green">
-                    Exclusive
+                    Exclusive<br/>Discount
                   </span>
                 </div>
                 <button className="btn-neumorphic flex w-full items-center justify-center rounded-2xl px-6 py-4 text-base font-bold text-text-primary mb-3">
@@ -73,7 +73,7 @@ export default function LoginPage() {
                 <div className="flex items-center justify-between mb-4">
                   <h2 className="text-lg font-bold text-text-primary">Enterprise Access</h2>
                   <span className="badge-sticker text-lavender">
-                    Pro
+                    Full<br/>Access
                   </span>
                 </div>
                 <button className="btn-neumorphic flex w-full items-center justify-center rounded-2xl px-6 py-4 text-base font-bold text-text-primary mb-3">
