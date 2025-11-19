@@ -87,7 +87,6 @@ export default function LessonContent({ lesson, currentDay, userId }: LessonCont
   if (isLocked) {
     return (
       <div className="card-neumorphic rounded-3xl p-10 text-center">
-        <div className="text-6xl mb-4">🔒</div>
         <h2 className="text-3xl font-bold text-text-primary mb-4">
           Lesson Locked
         </h2>
@@ -114,7 +113,7 @@ export default function LessonContent({ lesson, currentDay, userId }: LessonCont
           </span>
           {isCompleted && (
             <span className="badge-glass text-sage-green">
-              ✓ Completed
+              Completed
             </span>
           )}
         </div>
@@ -137,25 +136,23 @@ export default function LessonContent({ lesson, currentDay, userId }: LessonCont
       {/* Hands-On Section - Mint Glass Card */}
       {lesson.handsOn && (
         <div className="glass-mint rounded-3xl p-10 mb-6">
-          <h2 className="text-3xl font-black text-text-primary mb-4 flex items-center gap-3">
-            <span className="text-4xl">🛠️</span>
+          <h2 className="text-3xl font-black text-text-primary mb-4">
             {lesson.handsOn.title}
           </h2>
           <p className="text-text-secondary text-lg mb-8 leading-relaxed">
             {lesson.handsOn.description}
           </p>
 
-          {/* Affiliate Links - Neumorphic Buttons */}
+          {/* Affiliate Links - White buttons on colored base */}
           {lesson.handsOn.affiliateLinks && lesson.handsOn.affiliateLinks.length > 0 && (
             <div className="mb-8">
-              <h3 className="text-lg font-bold text-text-primary mb-4 flex items-center gap-2">
-                <span className="text-2xl">🔗</span>
+              <h3 className="text-lg font-bold text-text-primary mb-4">
                 Tools You'll Need:
               </h3>
               {!isCompleted && (
-                <div className="glass-peach p-4 rounded-2xl mb-4">
+                <div className="glass p-4 rounded-2xl mb-4">
                   <p className="text-sm font-semibold text-text-primary">
-                    💡 Click the tool link below to mark this lesson complete and unlock the next day!
+                    Click the tool link below to mark this lesson complete and unlock the next day!
                   </p>
                 </div>
               )}
@@ -165,7 +162,7 @@ export default function LessonContent({ lesson, currentDay, userId }: LessonCont
                     key={index}
                     onClick={() => handleAffiliateClick(link.url)}
                     disabled={marking}
-                    className="btn-neumorphic inline-flex items-center gap-2 px-6 py-4 text-text-primary rounded-2xl text-base disabled:opacity-50"
+                    className="glass-clickable inline-flex items-center gap-2 px-6 py-4 text-text-primary rounded-2xl text-base disabled:opacity-50"
                   >
                     {link.text}
                     <span className="text-xl">→</span>
@@ -175,11 +172,10 @@ export default function LessonContent({ lesson, currentDay, userId }: LessonCont
             </div>
           )}
 
-          {/* Exercise - Peach Glass Card */}
+          {/* Exercise - White card on colored base */}
           {lesson.handsOn.exercise && (
-            <div className="glass-peach p-6 rounded-2xl">
-              <h3 className="text-lg font-bold text-text-primary mb-3 flex items-center gap-2">
-                <span className="text-2xl">📝</span>
+            <div className="glass p-6 rounded-2xl">
+              <h3 className="text-lg font-bold text-text-primary mb-3">
                 Your Task:
               </h3>
               <p className="text-text-secondary whitespace-pre-line leading-relaxed">
@@ -193,16 +189,13 @@ export default function LessonContent({ lesson, currentDay, userId }: LessonCont
       {/* Success Message when completed */}
       {isCompleted && (
         <div className="card-neumorphic rounded-3xl p-8 mb-6 bg-gradient-to-br from-sage-green/10 to-transparent">
-          <div className="flex items-center gap-4">
-            <div className="text-4xl">🎉</div>
-            <div>
-              <h3 className="text-2xl font-bold text-text-primary mb-1">
-                Lesson Complete!
-              </h3>
-              <p className="text-base text-text-secondary">
-                {currentDay < 30 ? 'Day ' + (currentDay + 1) + ' is now unlocked!' : 'You\'ve completed the entire course!'}
-              </p>
-            </div>
+          <div>
+            <h3 className="text-2xl font-bold text-text-primary mb-1">
+              Lesson Complete!
+            </h3>
+            <p className="text-base text-text-secondary">
+              {currentDay < 30 ? 'Day ' + (currentDay + 1) + ' is now unlocked!' : 'You\'ve completed the entire course!'}
+            </p>
           </div>
         </div>
       )}

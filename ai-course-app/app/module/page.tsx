@@ -49,9 +49,6 @@ export default async function ModulePage({
       <header className="glass sticky top-0 z-50">
         <div className="max-w-7xl mx-auto px-4 md:px-10 py-4 flex items-center justify-between">
           <div className="flex items-center gap-3">
-            <div className="text-2xl font-bold text-text-primary">
-              📚
-            </div>
             <h2 className="text-xl font-bold text-text-primary">Introduction to AI</h2>
           </div>
           <div className="flex items-center gap-6">
@@ -86,7 +83,6 @@ export default async function ModulePage({
                       key={day.day}
                       className="flex items-center gap-3 px-4 py-3 rounded-2xl text-text-tertiary cursor-not-allowed glass-subtle"
                     >
-                      <span className="flex-shrink-0 text-base">🔒</span>
                       <span className="text-sm font-semibold">Day {day.day}</span>
                     </div>
                   )
@@ -100,13 +96,10 @@ export default async function ModulePage({
                       isActive 
                         ? 'glass-lavender text-text-primary' 
                         : isDayCompleted
-                        ? 'glass-sage text-text-primary hover:scale-[1.02]'
-                        : 'glass-subtle text-text-secondary hover:scale-[1.02]'
+                        ? 'glass-sage text-text-primary hover:opacity-90'
+                        : 'glass-subtle text-text-secondary hover:opacity-90'
                     }`}
                   >
-                    <span className="flex-shrink-0 text-sm font-bold">
-                      {isDayCompleted ? '✓' : '●'}
-                    </span>
                     <span className="text-sm font-semibold">Day {day.day}</span>
                   </Link>
                 )
