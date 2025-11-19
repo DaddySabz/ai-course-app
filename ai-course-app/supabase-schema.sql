@@ -1,6 +1,13 @@
 -- Create users table for email/password authentication
 -- Note: We use NextAuth (not Supabase Auth) for authentication
-CREATE TABLE IF NOT EXISTS public.users (
+
+-- Drop existing objects if they exist (for clean reinstall)
+DROP TRIGGER IF EXISTS set_updated_at ON public.users;
+DROP FUNCTION IF EXISTS public.handle_updated_at();
+DROP TABLE IF EXISTS public.users CASCADE;
+
+-- Create the users table
+CREATE TABLE public.users (
   id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
   email VARCHAR(255) UNIQUE NOT NULL,
   password_hash TEXT NOT NULL,
