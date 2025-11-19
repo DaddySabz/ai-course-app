@@ -226,8 +226,12 @@ export default async function DashboardPage() {
                   defaultEmail={session.user.email}
                 />
                 
-                <p className="text-xs text-text-secondary mb-6">
+                <p className="text-xs text-text-secondary mb-4">
                   Click your name to edit or hover over your picture to change it
+                </p>
+                
+                <p className="text-xs text-text-secondary mb-6">
+                  Your name and picture will appear on your certificate
                 </p>
                 
                 <form action={async () => {
