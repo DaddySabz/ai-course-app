@@ -105,26 +105,6 @@ export default function LessonContent({ lesson, currentDay, userId }: LessonCont
 
   return (
     <>
-      {/* Header with Badges */}
-      <div className="mb-8">
-        <div className="flex items-center gap-3 mb-4">
-          <span className="badge-glass">
-            Day {currentDay} of 30
-          </span>
-          {isCompleted && (
-            <span className="badge-glass text-sage-green">
-              Completed
-            </span>
-          )}
-        </div>
-        <h1 className="text-5xl font-black text-text-primary mb-3 leading-tight">
-          {lesson.title}
-        </h1>
-        <p className="text-xl text-text-secondary font-medium">
-          {lesson.subtitle}
-        </p>
-      </div>
-
       {/* Learning Content - Frosted Glass Card */}
       <div className="card-neumorphic rounded-3xl p-10 mb-6">
         <div 

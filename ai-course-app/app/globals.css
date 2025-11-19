@@ -161,6 +161,31 @@ body {
     rgba(212, 200, 232, 0.6));
 }
 
+/* Clickable Lavender Glass - Lifts on hover */
+.glass-lavender-clickable {
+  background: linear-gradient(145deg, 
+    rgba(184, 168, 212, 0.6), 
+    rgba(212, 200, 232, 0.5));
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(184, 168, 212, 0.7);
+  box-shadow: var(--shadow-neumorphic);
+  transition: all 0.3s ease;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  backface-visibility: hidden;
+  will-change: transform, box-shadow;
+}
+
+.glass-lavender-clickable:hover {
+  background: linear-gradient(145deg, 
+    rgba(184, 168, 212, 0.7), 
+    rgba(212, 200, 232, 0.6));
+  box-shadow: -10px 10px 24px rgba(180, 160, 145, 0.4), 
+              10px -10px 24px rgba(255, 255, 255, 0.95);
+  transform: translate3d(0, -3px, 0) scale(1.02);
+}
+
 /* Mint Glass - For content cards that darken on hover */
 .glass-mint {
   background: linear-gradient(145deg, 

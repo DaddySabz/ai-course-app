@@ -92,15 +92,16 @@ export default async function ModulePage({
                   <Link
                     key={day.day}
                     href={`/module?day=${day.day}`}
-                    className={`flex items-center gap-3 px-4 py-3 rounded-2xl transition-all duration-300 ${
+                    className={`flex flex-col gap-1 px-4 py-3 rounded-2xl transition-all duration-300 ${
                       isActive 
-                        ? 'glass-lavender text-text-primary' 
+                        ? 'glass-lavender-clickable text-text-primary' 
                         : isDayCompleted
-                        ? 'glass-sage text-text-primary hover:opacity-90'
-                        : 'glass-subtle text-text-secondary hover:opacity-90'
+                        ? 'glass-sage-clickable text-text-primary'
+                        : 'glass-clickable text-text-secondary'
                     }`}
                   >
-                    <span className="text-sm font-semibold">Day {day.day}</span>
+                    <span className="text-xs font-bold uppercase tracking-wider text-text-tertiary">Day {day.day}</span>
+                    <span className="text-sm font-semibold leading-tight">{day.title}</span>
                   </Link>
                 )
               })}
@@ -110,6 +111,34 @@ export default async function ModulePage({
 
         {/* Right Content Area - Warm, Spacious Design */}
         <main className="flex-1">
+          {/* Hero Image with Title Overlay */}
+          <div className="relative rounded-3xl overflow-hidden mb-8 h-[400px] card-neumorphic">
+            <img 
+              src="/images/course/day-1-hero-image.jpg" 
+              alt={lesson.title}
+              className="w-full h-full object-cover"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent" />
+            <div className="absolute bottom-0 left-0 right-0 p-10">
+              <div className="flex items-center gap-3 mb-3">
+                <span className="badge-glass backdrop-blur-md bg-white/20 text-white border-white/30">
+                  Day {currentDay} of 30
+                </span>
+                {completedDays.includes(currentDay) && (
+                  <span className="badge-glass backdrop-blur-md bg-sage-green/30 text-white border-sage-green/40">
+                    Completed
+                  </span>
+                )}
+              </div>
+              <h1 className="text-5xl font-black text-white mb-2 leading-tight drop-shadow-lg">
+                {lesson.title}
+              </h1>
+              <p className="text-xl text-white/90 font-medium drop-shadow-md">
+                {lesson.subtitle}
+              </p>
+            </div>
+          </div>
+
           <LessonContent 
             lesson={lesson} 
             currentDay={currentDay}
