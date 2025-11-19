@@ -6,9 +6,10 @@ DROP VIEW IF EXISTS public.user_progress_summary CASCADE;
 DROP TABLE IF EXISTS public.user_progress CASCADE;
 
 -- Create the progress table
+-- Note: We use text for user_id since we're using NextAuth (not Supabase Auth)
 CREATE TABLE public.user_progress (
   id uuid PRIMARY KEY DEFAULT gen_random_uuid(),
-  user_id uuid NOT NULL REFERENCES auth.users(id) ON DELETE CASCADE,
+  user_id text NOT NULL,
   day_number integer NOT NULL,
   completed_at timestamp with time zone DEFAULT now() NOT NULL,
   created_at timestamp with time zone DEFAULT now() NOT NULL,
@@ -20,20 +21,9 @@ CREATE TABLE public.user_progress (
   CONSTRAINT valid_day_number CHECK (day_number >= 1 AND day_number <= 30)
 );
 
--- Enable Row Level Security
-ALTER TABLE public.user_progress ENABLE ROW LEVEL SECURITY;
-
--- Policy: Users can view their own progress
-CREATE POLICY "Users can view own progress" ON public.user_progress
-  FOR SELECT USING (auth.uid() = user_id);
-
--- Policy: Users can insert their own progress
-CREATE POLICY "Users can insert own progress" ON public.user_progress
-  FOR INSERT WITH CHECK (auth.uid() = user_id);
-
--- Policy: Users can update their own progress (e.g., re-complete a day)
-CREATE POLICY "Users can update own progress" ON public.user_progress
-  FOR UPDATE USING (auth.uid() = user_id);
+-- Disable Row Level Security since we're using NextAuth + server-side API routes
+-- All authentication/authorization is handled in our Next.js API routes
+ALTER TABLE public.user_progress DISABLE ROW LEVEL SECURITY;
 
 -- Create index for faster queries
 CREATE INDEX IF NOT EXISTS idx_user_progress_user_id ON public.user_progress(user_id);
@@ -51,5 +41,4 @@ GROUP BY user_id;
 
 -- Grant access to the view
 ALTER VIEW public.user_progress_summary OWNER TO postgres;
-GRANT SELECT ON public.user_progress_summary TO authenticated;
 
