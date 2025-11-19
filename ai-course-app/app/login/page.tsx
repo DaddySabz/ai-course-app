@@ -54,7 +54,7 @@ export default function LoginPage() {
                     <div className="w-full border-t border-text-tertiary/20"></div>
                   </div>
                   <div className="relative flex justify-center text-sm">
-                    <span className="text-text-secondary font-medium">or</span>
+                    <span className="bg-background px-3 text-text-secondary font-medium">or</span>
                   </div>
                 </div>
 

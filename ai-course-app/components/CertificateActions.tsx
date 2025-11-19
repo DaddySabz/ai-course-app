@@ -33,14 +33,14 @@ export default function CertificateActions({ certificateId }: CertificateActions
       </Link>
       <button 
         onClick={handlePrint}
-        className="glass-mint px-8 py-4 rounded-2xl font-bold text-text-primary flex items-center justify-center gap-2"
+        className="btn-neumorphic px-8 py-4 rounded-2xl font-bold text-text-primary flex items-center justify-center gap-2"
       >
         <span className="text-xl">🖨️</span>
         Print Certificate
       </button>
       <button 
         onClick={handleLinkedInShare}
-        className="glass-sage px-8 py-4 rounded-2xl font-bold text-text-primary flex items-center justify-center gap-2"
+        className="btn-neumorphic px-8 py-4 rounded-2xl font-bold text-text-primary flex items-center justify-center gap-2"
       >
         <span className="text-xl">📤</span>
         Share on LinkedIn

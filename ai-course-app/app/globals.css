@@ -61,7 +61,7 @@ body {
   border: 1px solid rgba(255, 255, 255, 0.3);
 }
 
-/* Neumorphic Cards */
+/* Neumorphic Cards - Content cards that only darken on hover */
 .card-neumorphic {
   background: linear-gradient(145deg, rgba(255, 255, 255, 0.7), rgba(240, 230, 220, 0.6));
   backdrop-filter: blur(10px);
@@ -73,13 +73,13 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   backface-visibility: hidden;
-  will-change: transform, box-shadow;
+  will-change: background, box-shadow;
 }
 
 .card-neumorphic:hover {
+  background: linear-gradient(145deg, rgba(255, 255, 255, 0.75), rgba(240, 230, 220, 0.65));
   box-shadow: -10px 10px 24px rgba(180, 160, 145, 0.4), 
               10px -10px 24px rgba(255, 255, 255, 0.95);
-  transform: translate3d(0, -3px, 0);
 }
 
 /* Sage Green Glass - For Completed/Available */
@@ -116,7 +116,7 @@ body {
     rgba(212, 200, 232, 0.6));
 }
 
-/* Mint Glass - For CTAs/Buttons */
+/* Mint Glass - For content cards that darken on hover */
 .glass-mint {
   background: linear-gradient(145deg, 
     rgba(168, 212, 200, 0.6), 
@@ -126,20 +126,12 @@ body {
   border: 1px solid rgba(168, 212, 200, 0.7);
   box-shadow: var(--shadow-neumorphic);
   transition: all 0.3s ease;
-  /* Prevent text blur during transforms */
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  backface-visibility: hidden;
-  will-change: transform, box-shadow;
 }
 
 .glass-mint:hover {
   background: linear-gradient(145deg, 
     rgba(168, 212, 200, 0.7), 
     rgba(188, 227, 217, 0.6));
-  transform: translate3d(0, -3px, 0) scale(1.02);
-  box-shadow: -10px 10px 24px rgba(180, 160, 145, 0.4), 
-              10px -10px 24px rgba(255, 255, 255, 0.95);
 }
 
 /* Blue Glass - For Google/General Access */
@@ -207,13 +199,12 @@ body {
   transform: translateY(0);
 }
 
-/* Badges with Glass Effect */
+/* Badges with Glass Effect - No shadow (not clickable) */
 .badge-glass {
   background: rgba(255, 255, 255, 0.5);
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
   border: 1px solid rgba(255, 255, 255, 0.6);
-  box-shadow: var(--shadow-subtle);
   padding: 0.5rem 1rem;
   border-radius: 20px;
   font-size: 0.875rem;

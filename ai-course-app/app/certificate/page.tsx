@@ -174,7 +174,7 @@ export default async function CertificatePage() {
             </p>
             <Link 
               href="/dashboard" 
-              className="glass-mint inline-flex items-center gap-2 px-8 py-4 rounded-2xl font-bold text-text-primary"
+              className="btn-neumorphic inline-flex items-center gap-2 px-8 py-4 rounded-2xl font-bold text-text-primary"
             >
               Continue Learning
               <span className="text-xl">→</span>

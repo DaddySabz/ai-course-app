@@ -123,7 +123,7 @@ export default async function DashboardPage() {
                 <div className="w-full flex pt-8 justify-center">
                   <a 
                     href={`/module?day=${nextDay}`}
-                    className="glass-mint flex items-center justify-center gap-3 rounded-2xl h-14 px-8 flex-1 max-w-[480px] text-text-primary font-bold text-lg"
+                    className="btn-neumorphic flex items-center justify-center gap-3 rounded-2xl h-14 px-8 flex-1 max-w-[480px] text-text-primary font-bold text-lg"
                   >
                     <span>{daysCompleted === 0 ? 'Start with Day 1' : nextDay > 30 ? 'Course Complete! 🎉' : `Continue with Day ${nextDay}`}</span>
                     {nextDay <= 30 && <span className="text-xl">→</span>}
