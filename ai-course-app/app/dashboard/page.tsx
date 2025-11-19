@@ -80,7 +80,7 @@ export default async function DashboardPage() {
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                   <a 
                     href="mailto:hello@wearewacky.com" 
-                    className="glass-blue flex flex-col items-center justify-center gap-1 px-6 py-4 rounded-2xl text-text-primary hover:opacity-90 transition-opacity"
+                    className="glass-blue-clickable flex flex-col items-center justify-center gap-1 px-6 py-4 rounded-2xl text-text-primary"
                   >
                     <span className="text-xs font-semibold uppercase tracking-wider text-text-secondary">Email</span>
                     <span className="font-bold">hello@wearewacky.com</span>
@@ -89,7 +89,7 @@ export default async function DashboardPage() {
                     href="https://wa.me/447460460318" 
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="glass-sage flex flex-col items-center justify-center gap-1 px-6 py-4 rounded-2xl text-text-primary hover:opacity-90 transition-opacity"
+                    className="glass-sage-clickable flex flex-col items-center justify-center gap-1 px-6 py-4 rounded-2xl text-text-primary"
                   >
                     <span className="text-xs font-semibold uppercase tracking-wider text-text-secondary">WhatsApp</span>
                     <span className="font-bold">+44 7460 460318</span>
@@ -135,15 +135,15 @@ export default async function DashboardPage() {
                   <div className="w-full flex flex-wrap gap-4 flex-1">
                     <div className="flex min-w-[120px] flex-1 flex-col gap-3 rounded-2xl p-5 glass">
                       <p className="text-text-secondary text-sm font-semibold">Completed</p>
-                      <p className="text-3xl font-black text-text-primary">{daysCompleted} days</p>
+                      <p className="text-3xl font-black text-text-primary">{daysCompleted} <span className="text-lg font-normal">days</span></p>
                     </div>
                     <div className="flex min-w-[120px] flex-1 flex-col gap-3 rounded-2xl p-5 glass">
                       <p className="text-text-secondary text-sm font-semibold">Remaining</p>
-                      <p className="text-3xl font-black text-text-primary">{totalDays - daysCompleted} days</p>
+                      <p className="text-3xl font-black text-text-primary">{totalDays - daysCompleted} <span className="text-lg font-normal">days</span></p>
                     </div>
                     <div className="flex min-w-[120px] flex-1 flex-col gap-3 rounded-2xl p-5 glass">
                       <p className="text-text-secondary text-sm font-semibold">Streak</p>
-                      <p className="text-3xl font-black text-text-primary">{daysCompleted} days</p>
+                      <p className="text-3xl font-black text-text-primary">{daysCompleted} <span className="text-lg font-normal">days</span></p>
                     </div>
                   </div>
                 </div>
@@ -152,7 +152,7 @@ export default async function DashboardPage() {
                 <div className="w-full flex pt-8 justify-center">
                   <a 
                     href={`/module?day=${nextDay}`}
-                    className="glass flex items-center justify-center gap-3 rounded-2xl h-14 px-8 flex-1 max-w-[480px] text-text-primary font-bold text-lg hover:opacity-90 transition-opacity"
+                    className="glass-clickable flex items-center justify-center gap-3 rounded-2xl h-14 px-8 flex-1 max-w-[480px] text-text-primary font-bold text-lg"
                   >
                     <span>{daysCompleted === 0 ? 'Start with Day 1' : nextDay > 30 ? 'Course Complete!' : `Continue with Day ${nextDay}`}</span>
                     {nextDay <= 30 && <span className="text-xl">→</span>}
@@ -173,14 +173,14 @@ export default async function DashboardPage() {
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   {/* Course 1: Introduction to AI - Current */}
-                  <div className="glass rounded-2xl p-6">
+                  <a href="/module?day=1" className="glass-clickable rounded-2xl p-6 block cursor-pointer">
                     <h4 className="text-lg font-bold text-text-primary mb-2">Introduction to AI</h4>
                     <div className="flex items-baseline gap-2 mb-3">
-                      <span className="text-3xl font-black text-sage-green">FREE</span>
+                      <span className="text-3xl font-black" style={{color: '#6B9B6B'}}>FREE</span>
                       <span className="text-lg font-bold text-text-tertiary line-through">£49</span>
                     </div>
                     <p className="text-xs text-text-secondary">30-day beginner course</p>
-                  </div>
+                  </a>
 
                   {/* Course 2: Adventures with AI - Coming Soon */}
                   <div className="glass-subtle rounded-2xl p-6 opacity-75">
