@@ -17,13 +17,15 @@ export default async function CertificatePage() {
     process.env.SUPABASE_SECRET_KEY!
   )
 
-  const { data: progressData } = await supabase
+  const { data: progressData, error: progressError } = await supabase
     .from('user_progress')
-    .select('lesson_id, completed')
-    .eq('user_id', session.user.email)
-    .eq('completed', true)
+    .select('day_number')
+    .eq('user_id', session.user.id)
 
-  const completedLessons = progressData?.length || 0
+  // Handle case where table doesn't exist yet
+  const safeProgressData = progressError ? [] : (progressData || [])
+  
+  const completedLessons = safeProgressData.length
   const totalLessons = 30
   const hasCompleted = completedLessons >= totalLessons
 
@@ -33,7 +35,7 @@ export default async function CertificatePage() {
     const { data: existingCert } = await supabase
       .from('certificates')
       .select('*')
-      .eq('user_id', session.user.email)
+      .eq('user_id', session.user.id)
       .single()
 
     if (existingCert) {
@@ -41,7 +43,7 @@ export default async function CertificatePage() {
     } else {
       // Create new certificate
       const newCert = {
-        user_id: session.user.email!,
+        user_id: session.user.id!,
         user_name: session.user.name || 'AI Learner',
         user_email: session.user.email!,
         completion_date: new Date().toISOString().split('T')[0],
