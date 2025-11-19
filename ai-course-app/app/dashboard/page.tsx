@@ -80,7 +80,7 @@ export default async function DashboardPage() {
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                   <a 
                     href="mailto:hello@wearewacky.com" 
-                    className="btn-neumorphic flex flex-col items-center justify-center gap-1 px-6 py-4 rounded-2xl text-text-primary"
+                    className="glass-blue flex flex-col items-center justify-center gap-1 px-6 py-4 rounded-2xl text-text-primary hover:opacity-90 transition-opacity"
                   >
                     <span className="text-xs font-semibold uppercase tracking-wider text-text-secondary">Email</span>
                     <span className="font-bold">hello@wearewacky.com</span>
@@ -89,7 +89,7 @@ export default async function DashboardPage() {
                     href="https://wa.me/447460460318" 
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="btn-neumorphic flex flex-col items-center justify-center gap-1 px-6 py-4 rounded-2xl text-text-primary"
+                    className="glass-sage flex flex-col items-center justify-center gap-1 px-6 py-4 rounded-2xl text-text-primary hover:opacity-90 transition-opacity"
                   >
                     <span className="text-xs font-semibold uppercase tracking-wider text-text-secondary">WhatsApp</span>
                     <span className="font-bold">+44 7460 460318</span>
@@ -131,28 +131,28 @@ export default async function DashboardPage() {
                     </div>
                   </div>
 
-                  {/* Stats - Frosted glass cards */}
+                  {/* Stats - White frosted cards */}
                   <div className="w-full flex flex-wrap gap-4 flex-1">
-                    <div className="flex min-w-[120px] flex-1 flex-col gap-3 rounded-2xl p-5 glass-sage">
-                      <p className="text-text-secondary text-sm font-semibold">Days Completed</p>
-                      <p className="text-3xl font-black text-text-primary">{daysCompleted}</p>
+                    <div className="flex min-w-[120px] flex-1 flex-col gap-3 rounded-2xl p-5 glass">
+                      <p className="text-text-secondary text-sm font-semibold">Completed</p>
+                      <p className="text-3xl font-black text-text-primary">{daysCompleted} days</p>
                     </div>
-                    <div className="flex min-w-[120px] flex-1 flex-col gap-3 rounded-2xl p-5 glass-mint">
-                      <p className="text-text-secondary text-sm font-semibold">Days Remaining</p>
-                      <p className="text-3xl font-black text-text-primary">{totalDays - daysCompleted}</p>
+                    <div className="flex min-w-[120px] flex-1 flex-col gap-3 rounded-2xl p-5 glass">
+                      <p className="text-text-secondary text-sm font-semibold">Remaining</p>
+                      <p className="text-3xl font-black text-text-primary">{totalDays - daysCompleted} days</p>
                     </div>
-                    <div className="flex min-w-[120px] flex-1 flex-col gap-3 rounded-2xl p-5 glass-peach">
+                    <div className="flex min-w-[120px] flex-1 flex-col gap-3 rounded-2xl p-5 glass">
                       <p className="text-text-secondary text-sm font-semibold">Streak</p>
                       <p className="text-3xl font-black text-text-primary">{daysCompleted} days</p>
                     </div>
                   </div>
                 </div>
 
-                {/* Continue Button - Prominent CTA */}
+                {/* Continue Button - White frosted */}
                 <div className="w-full flex pt-8 justify-center">
                   <a 
                     href={`/module?day=${nextDay}`}
-                    className="btn-neumorphic flex items-center justify-center gap-3 rounded-2xl h-14 px-8 flex-1 max-w-[480px] text-text-primary font-bold text-lg"
+                    className="glass flex items-center justify-center gap-3 rounded-2xl h-14 px-8 flex-1 max-w-[480px] text-text-primary font-bold text-lg hover:opacity-90 transition-opacity"
                   >
                     <span>{daysCompleted === 0 ? 'Start with Day 1' : nextDay > 30 ? 'Course Complete!' : `Continue with Day ${nextDay}`}</span>
                     {nextDay <= 30 && <span className="text-xl">→</span>}
@@ -160,8 +160,8 @@ export default async function DashboardPage() {
                 </div>
               </div>
 
-              {/* Course Access - Lavender tint */}
-              <div className="glass-lavender rounded-3xl p-8">
+              {/* Course Access - Green tint */}
+              <div className="glass-sage rounded-3xl p-8">
                 <div className="flex items-center justify-between mb-6">
                   <h3 className="text-2xl font-bold text-text-primary">
                     Course Access
@@ -173,7 +173,7 @@ export default async function DashboardPage() {
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   {/* Course 1: Introduction to AI - Current */}
-                  <div className="glass-sage rounded-2xl p-6">
+                  <div className="glass rounded-2xl p-6">
                     <h4 className="text-lg font-bold text-text-primary mb-2">Introduction to AI</h4>
                     <div className="flex items-baseline gap-2 mb-3">
                       <span className="text-3xl font-black text-sage-green">FREE</span>
@@ -216,9 +216,9 @@ export default async function DashboardPage() {
               </div>
             </aside>
 
-            {/* Right Column - Profile - Mint tint */}
+            {/* Right Column - Profile - Lavender tint */}
             <section className="lg:col-span-1">
-              <div className="glass-mint rounded-3xl p-8 flex flex-col items-center text-center sticky top-24">
+              <div className="glass-lavender rounded-3xl p-8 flex flex-col items-center text-center sticky top-24">
                 <ProfileEditor
                   userId={session.user.id!}
                   defaultName={session.user.name}
