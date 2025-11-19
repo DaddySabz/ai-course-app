@@ -81,9 +81,10 @@ export default async function ModulePage({
                   return (
                     <div
                       key={day.day}
-                      className="flex items-center gap-3 px-4 py-3 rounded-2xl text-text-tertiary cursor-not-allowed glass-subtle"
+                      className="flex flex-col gap-1 px-4 py-3 rounded-2xl text-text-tertiary cursor-not-allowed glass-subtle"
                     >
-                      <span className="text-sm font-semibold">Day {day.day}</span>
+                      <span className="text-xs font-bold uppercase tracking-wider text-text-tertiary">Day {day.day}</span>
+                      <span className="text-sm font-semibold leading-tight opacity-60">{day.title}</span>
                     </div>
                   )
                 }
