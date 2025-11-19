@@ -1,4 +1,5 @@
 -- Create users table for email/password authentication
+-- Note: We use NextAuth (not Supabase Auth) for authentication
 CREATE TABLE IF NOT EXISTS public.users (
   id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
   email VARCHAR(255) UNIQUE NOT NULL,
@@ -11,23 +12,9 @@ CREATE TABLE IF NOT EXISTS public.users (
 -- Create index on email for faster lookups
 CREATE INDEX IF NOT EXISTS idx_users_email ON public.users(email);
 
--- Enable Row Level Security
-ALTER TABLE public.users ENABLE ROW LEVEL SECURITY;
-
--- Create policy: Users can only read their own data
-CREATE POLICY "Users can view own data" ON public.users
-  FOR SELECT
-  USING (auth.uid()::text = id::text);
-
--- Create policy: Anyone can insert (for signup)
-CREATE POLICY "Anyone can signup" ON public.users
-  FOR INSERT
-  WITH CHECK (true);
-
--- Create policy: Users can update their own data
-CREATE POLICY "Users can update own data" ON public.users
-  FOR UPDATE
-  USING (auth.uid()::text = id::text);
+-- Disable Row Level Security since we're using NextAuth + server-side API routes
+-- All authentication/authorization is handled in our Next.js API routes
+ALTER TABLE public.users DISABLE ROW LEVEL SECURITY;
 
 -- Add updated_at trigger function
 CREATE OR REPLACE FUNCTION public.handle_updated_at()
