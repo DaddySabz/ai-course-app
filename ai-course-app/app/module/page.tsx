@@ -120,7 +120,7 @@ export default async function ModulePage({
           <LessonContent 
             lesson={lesson} 
             currentDay={currentDay}
-            userId={session.user.id}
+            userId={session.user.id!}
           />
         </main>
       </div>
