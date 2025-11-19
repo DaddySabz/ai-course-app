@@ -212,6 +212,21 @@ body {
   color: var(--color-text-secondary);
 }
 
+/* Product Sticker Badge - Like ecommerce tags */
+.badge-sticker {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.95), rgba(245, 240, 235, 0.9));
+  border: 2px solid rgba(255, 255, 255, 0.8);
+  padding: 0.375rem 0.875rem;
+  border-radius: 12px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--color-text-primary);
+  transform: rotate(-2deg);
+  display: inline-block;
+}
+
 /* Smooth transitions */
 * {
   transition-property: background, box-shadow, transform, border-color;

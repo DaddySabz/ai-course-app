@@ -49,15 +49,6 @@ export default function LoginPage() {
                   </button>
                 </form>
 
-                <div className="relative mb-4">
-                  <div className="absolute inset-0 flex items-center">
-                    <div className="w-full border-t border-text-tertiary/20"></div>
-                  </div>
-                  <div className="relative flex justify-center text-sm">
-                    <span className="bg-background px-3 text-text-secondary font-medium">or</span>
-                  </div>
-                </div>
-
                 <EmailAuthForm />
               </div>
 
@@ -65,8 +56,8 @@ export default function LoginPage() {
               <div className="w-full glass-sage rounded-3xl p-8">
                 <div className="flex items-center justify-between mb-4">
                   <h2 className="text-lg font-bold text-text-primary">Partner Benefits</h2>
-                  <span className="badge-glass text-sage-green">
-                    Exclusive Discount
+                  <span className="badge-sticker text-sage-green">
+                    Exclusive
                   </span>
                 </div>
                 <button className="btn-neumorphic flex w-full items-center justify-center rounded-2xl px-6 py-4 text-base font-bold text-text-primary mb-3">
@@ -81,8 +72,8 @@ export default function LoginPage() {
               <div className="w-full glass-lavender rounded-3xl p-8">
                 <div className="flex items-center justify-between mb-4">
                   <h2 className="text-lg font-bold text-text-primary">Enterprise Access</h2>
-                  <span className="badge-glass text-lavender">
-                    Full Access
+                  <span className="badge-sticker text-lavender">
+                    Pro
                   </span>
                 </div>
                 <button className="btn-neumorphic flex w-full items-center justify-center rounded-2xl px-6 py-4 text-base font-bold text-text-primary mb-3">
