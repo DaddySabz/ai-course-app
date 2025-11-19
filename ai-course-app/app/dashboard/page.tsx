@@ -1,6 +1,7 @@
 import { auth, signOut } from "@/auth"
 import { redirect } from "next/navigation"
 import { createClient } from '@supabase/supabase-js'
+import ProfileEditor from '@/components/ProfileEditor'
 
 export default async function DashboardPage() {
   const session = await auth()
@@ -218,19 +219,15 @@ export default async function DashboardPage() {
             {/* Right Column - Profile - Mint tint */}
             <section className="lg:col-span-1">
               <div className="glass-mint rounded-3xl p-8 flex flex-col items-center text-center sticky top-24">
-                <div className="card-neumorphic rounded-3xl p-6 w-full mb-6">
-                  <img 
-                    src={session.user.image || "/placeholder-avatar.png"} 
-                    alt="Profile" 
-                    className="size-24 rounded-full border-4 border-white shadow-lg mx-auto mb-4"
-                  />
-                  <h3 className="text-xl font-bold text-text-primary">
-                    {session.user.name || session.user.email || "AI Learner"}
-                  </h3>
-                </div>
+                <ProfileEditor
+                  userId={session.user.id!}
+                  defaultName={session.user.name}
+                  defaultAvatar={session.user.image}
+                  defaultEmail={session.user.email}
+                />
                 
                 <p className="text-xs text-text-secondary mb-6">
-                  Your name and picture will appear on your certificate
+                  Click your name to edit or hover over your picture to change it
                 </p>
                 
                 <form action={async () => {
