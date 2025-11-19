@@ -1,10 +1,14 @@
 -- Progress Tracking Schema for AI Course
 -- This tracks which lessons users have completed
 
+-- Drop existing objects if they exist (for clean reinstall)
+DROP VIEW IF EXISTS public.user_progress_summary CASCADE;
+DROP TABLE IF EXISTS public.user_progress CASCADE;
+
 -- Create the progress table
-CREATE TABLE IF NOT EXISTS public.user_progress (
+CREATE TABLE public.user_progress (
   id uuid PRIMARY KEY DEFAULT gen_random_uuid(),
-  user_id uuid NOT NULL,
+  user_id uuid NOT NULL REFERENCES auth.users(id) ON DELETE CASCADE,
   day_number integer NOT NULL,
   completed_at timestamp with time zone DEFAULT now() NOT NULL,
   created_at timestamp with time zone DEFAULT now() NOT NULL,
