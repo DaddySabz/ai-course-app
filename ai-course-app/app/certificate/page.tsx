@@ -23,14 +23,16 @@ export default async function CertificatePage() {
     process.env.SUPABASE_SECRET_KEY!
   )
 
-  // Check if user is a tech partner (they get full access for review)
+  // Check if user is a tech partner and fetch profile info
   const { data: profileData } = await supabase
     .from('user_profiles')
-    .select('partner_type')
+    .select('partner_type, display_name, avatar_url')
     .eq('user_id', session.user.id)
     .single()
 
   const isTechPartner = profileData?.partner_type === 'tech'
+  const displayName = profileData?.display_name || session.user.name || session.user.email?.split('@')[0] || 'AI Learner'
+  const profileAvatar = profileData?.avatar_url || session.user.image || null
 
   const { data: progressData, error: progressError } = await supabase
     .from('user_progress')
@@ -58,10 +60,10 @@ export default async function CertificatePage() {
     if (existingCert) {
       certificate = existingCert
     } else {
-      // Create new certificate
+      // Create new certificate with display name from profile
       const newCert = {
         user_id: session.user.id!,
-        user_name: session.user.name || 'AI Learner',
+        user_name: displayName,
         user_email: session.user.email!,
         completion_date: new Date().toISOString().split('T')[0],
       }
@@ -102,16 +104,24 @@ export default async function CertificatePage() {
               
               {/* Profile Picture */}
               <div className="flex justify-center mb-6">
-                <img 
-                  src={session.user.image || "/placeholder-avatar.png"} 
-                  alt="Profile" 
-                  className="w-20 h-20 rounded-full ring-4 ring-sage-green/30 shadow-lg"
-                />
+                {profileAvatar ? (
+                  <img 
+                    src={profileAvatar} 
+                    alt="Profile" 
+                    className="w-20 h-20 rounded-full ring-4 ring-sage-green/30 shadow-lg object-cover"
+                  />
+                ) : (
+                  <div className="w-20 h-20 rounded-full ring-4 ring-sage-green/30 shadow-lg flex items-center justify-center bg-gradient-to-br from-sage-green/30 to-lavender/30">
+                    <span className="text-3xl font-black text-text-primary">
+                      {displayName[0]?.toUpperCase() || 'U'}
+                    </span>
+                  </div>
+                )}
               </div>
 
               {/* Name */}
               <h1 className="text-4xl sm:text-5xl font-black tracking-tight text-text-primary">
-                {certificate?.user_name || session.user.name}
+                {certificate?.user_name || displayName}
               </h1>
             </div>
 
