@@ -26,13 +26,14 @@ export default async function CertificatePage() {
   // Check if user is a tech partner and fetch profile info
   const { data: profileData } = await supabase
     .from('user_profiles')
-    .select('partner_type, display_name, avatar_url')
+    .select('partner_type, display_name, avatar_url, organization')
     .eq('user_id', session.user.id)
     .single()
 
   const isTechPartner = profileData?.partner_type === 'tech'
   const displayName = profileData?.display_name || session.user.name || session.user.email?.split('@')[0] || 'AI Learner'
   const profileAvatar = profileData?.avatar_url || session.user.image || null
+  const organization = profileData?.organization || null
 
   const { data: progressData, error: progressError } = await supabase
     .from('user_progress')
@@ -119,10 +120,17 @@ export default async function CertificatePage() {
                 )}
               </div>
 
-              {/* Name */}
-              <h1 className="text-4xl sm:text-5xl font-black tracking-tight text-text-primary">
-                {certificate?.user_name || displayName}
-              </h1>
+              {/* Name and Organization */}
+              <div className="space-y-2">
+                <h1 className="text-4xl sm:text-5xl font-black tracking-tight text-text-primary">
+                  {certificate?.user_name || displayName}
+                </h1>
+                {organization && (
+                  <p className="text-xl font-normal text-text-secondary">
+                    {organization}
+                  </p>
+                )}
+              </div>
             </div>
 
             {/* Description */}
