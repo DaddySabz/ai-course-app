@@ -1,5 +1,7 @@
 import { signIn } from "@/auth"
 import EmailAuthForm from "@/components/EmailAuthForm"
+import WaitroseAuthForm from "@/components/WaitroseAuthForm"
+import TechPartnerAuthForm from "@/components/TechPartnerAuthForm"
 
 export default function LoginPage() {
   return (
@@ -60,11 +62,9 @@ export default function LoginPage() {
                     Exclusive<br/>Discount
                   </span>
                 </div>
-                <button className="btn-neumorphic flex w-full items-center justify-center rounded-2xl px-6 py-4 text-base font-bold text-text-primary mb-3">
-                  John Lewis & Waitrose Partners
-                </button>
-                <p className="text-xs text-text-secondary text-center font-medium">
-                  Special pricing for our retail partners
+                <WaitroseAuthForm />
+                <p className="text-xs text-text-secondary text-center font-medium mt-3">
+                  Special £19 pricing for Waitrose partners
                 </p>
               </div>
 
@@ -76,11 +76,9 @@ export default function LoginPage() {
                     Full<br/>Access
                   </span>
                 </div>
-                <button className="btn-neumorphic flex w-full items-center justify-center rounded-2xl px-6 py-4 text-base font-bold text-text-primary mb-3">
-                  Technology Partners
-                </button>
-                <p className="text-xs text-text-secondary text-center font-medium">
-                  Access with your organization&apos;s code
+                <TechPartnerAuthForm />
+                <p className="text-xs text-text-secondary text-center font-medium mt-3">
+                  Free access for tech partners and affiliates
                 </p>
               </div>
 

@@ -22,6 +22,17 @@ export default async function DashboardPage() {
     .eq('user_id', session.user.id)
     .order('day_number', { ascending: true })
 
+  // Fetch user profile to check partner status
+  const { data: profileData } = await supabase
+    .from('user_profiles')
+    .select('partner_type, partner_code')
+    .eq('user_id', session.user.id)
+    .single()
+
+  const partnerType = profileData?.partner_type || null
+  const isWaitrosePartner = partnerType === 'waitrose'
+  const isTechPartner = partnerType === 'tech'
+
   // If table doesn't exist yet, default to empty (will be created when user completes first lesson)
   const safeProgressData = progressError ? [] : (progressData || [])
   const daysCompleted = safeProgressData.length
@@ -176,8 +187,22 @@ export default async function DashboardPage() {
                   <a href="/module?day=1" className="glass-clickable rounded-2xl p-6 block cursor-pointer">
                     <h4 className="text-lg font-bold text-text-primary mb-2">Introduction to AI</h4>
                     <div className="flex items-baseline gap-2 mb-3">
-                      <span className="text-3xl font-black" style={{color: '#6B9B6B'}}>FREE</span>
-                      <span className="text-lg font-bold text-text-tertiary line-through">£49</span>
+                      {isWaitrosePartner ? (
+                        <>
+                          <span className="text-3xl font-black text-sage-green">£19</span>
+                          <span className="text-lg font-bold text-text-tertiary line-through">£49</span>
+                        </>
+                      ) : isTechPartner ? (
+                        <>
+                          <span className="text-3xl font-black" style={{color: '#6B9B6B'}}>FREE</span>
+                          <span className="text-xs text-text-tertiary">(Tech Partner)</span>
+                        </>
+                      ) : (
+                        <>
+                          <span className="text-3xl font-black" style={{color: '#6B9B6B'}}>FREE</span>
+                          <span className="text-lg font-bold text-text-tertiary line-through">£49</span>
+                        </>
+                      )}
                     </div>
                     <p className="text-xs text-text-secondary">30-day beginner course</p>
                   </a>

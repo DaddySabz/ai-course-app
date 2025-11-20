@@ -10,6 +10,9 @@ CREATE TABLE public.user_profiles (
   user_id text UNIQUE NOT NULL,
   display_name text,
   avatar_url text,
+  partner_type text, -- 'waitrose', 'tech', or null for regular users
+  partner_code text, -- 'waitrose19' or custom codes for verification
+  organization text, -- For tech partners only
   updated_at timestamp with time zone DEFAULT now() NOT NULL,
   created_at timestamp with time zone DEFAULT now() NOT NULL
 );
