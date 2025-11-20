@@ -22,7 +22,7 @@ export default async function CertificatePage() {
     process.env.SUPABASE_SECRET_KEY!
   )
 
-  // Check if user is a tech partner (they also get full access)
+  // Check if user is a tech partner (they get full access for review)
   const { data: profileData } = await supabase
     .from('user_profiles')
     .select('partner_type')
@@ -39,6 +39,8 @@ export default async function CertificatePage() {
   // Handle case where table doesn't exist yet
   const safeProgressData = progressError ? [] : (progressData || [])
   
+  // Only admins and tech partners get instant certificate (for review purposes)
+  // Waitrose partners and regular users must complete all 30 days
   const completedLessons = (isAdmin || isTechPartner) ? 30 : safeProgressData.length
   const totalLessons = 30
   const hasCompleted = completedLessons >= totalLessons
