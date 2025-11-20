@@ -12,11 +12,24 @@ export default async function CertificatePage() {
     redirect("/")
   }
 
+  // Admin emails get FULL course access (no restrictions)
+  const ADMIN_EMAILS = ['admin@wearewacky.com', 'saby@wearewacky.com', 'wackyworksdigital@gmail.com']
+  const isAdmin = session.user.email && ADMIN_EMAILS.includes(session.user.email)
+
   // Fetch user progress from Supabase
   const supabase = createClient(
     process.env.NEXT_PUBLIC_SUPABASE_URL!,
     process.env.SUPABASE_SECRET_KEY!
   )
+
+  // Check if user is a tech partner (they also get full access)
+  const { data: profileData } = await supabase
+    .from('user_profiles')
+    .select('partner_type')
+    .eq('user_id', session.user.id)
+    .single()
+
+  const isTechPartner = profileData?.partner_type === 'tech'
 
   const { data: progressData, error: progressError } = await supabase
     .from('user_progress')
@@ -26,7 +39,7 @@ export default async function CertificatePage() {
   // Handle case where table doesn't exist yet
   const safeProgressData = progressError ? [] : (progressData || [])
   
-  const completedLessons = safeProgressData.length
+  const completedLessons = (isAdmin || isTechPartner) ? 30 : safeProgressData.length
   const totalLessons = 30
   const hasCompleted = completedLessons >= totalLessons
 
