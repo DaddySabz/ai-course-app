@@ -118,8 +118,6 @@ export default function WaitroseAuthForm() {
     )
   }
 
-  const [emailChecked, setEmailChecked] = useState(false)
-
   const handleCheckEmail = async () => {
     if (!email || !email.includes("@")) {
       setError("Please enter a valid email address")
