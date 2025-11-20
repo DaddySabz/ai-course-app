@@ -26,7 +26,6 @@ export async function POST(request: NextRequest) {
         .from('user_profiles')
         .update({
           display_name: name,
-          name: name,
           contact_email: email,
           updated_at: new Date().toISOString()
         })
