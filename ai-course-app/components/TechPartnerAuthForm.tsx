@@ -32,12 +32,15 @@ export default function TechPartnerAuthForm() {
   const [email, setEmail] = useState("")
   const [error, setError] = useState("")
   const [loading, setLoading] = useState(false)
-  const [validatingCode, setValidatingCode] = useState(false)
 
-  const validateCode = () => {
-    if (!code.trim()) return
+  const validateCode = (e: React.FormEvent) => {
+    e.preventDefault()
+    
+    if (!code.trim()) {
+      setError("Please enter a partner code")
+      return
+    }
 
-    setValidatingCode(true)
     setError("")
 
     // Check if code is valid
@@ -51,8 +54,6 @@ export default function TechPartnerAuthForm() {
     } else {
       setError("Invalid partner code. Please contact us for access.")
     }
-
-    setValidatingCode(false)
   }
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -121,110 +122,127 @@ export default function TechPartnerAuthForm() {
 
   return (
     <div className="animate-slideDown">
-      <div className="glass-inset rounded-2xl p-6 mb-4">
-        {/* Info Message */}
-        <div className="glass-blue p-4 rounded-xl mb-4">
-          <p className="text-sm font-semibold text-text-primary">
-            For affiliate partners and organizations considering partnerships. 
-            Get full, free access to review all course materials.
-          </p>
-        </div>
+      {/* Info Message */}
+      <div className="glass-blue p-4 rounded-xl mb-4">
+        <p className="text-sm font-semibold text-text-primary">
+          For affiliate partners and organizations considering partnerships. 
+          Get full, free access to review all course materials.
+        </p>
+      </div>
 
-        <form onSubmit={handleSubmit} className="space-y-4">
-          {/* Partner Code Field - Always visible */}
-          <div>
-            <label className="block text-sm font-semibold text-text-secondary mb-2">
-              Partner Code
-            </label>
-            <input
-              type="text"
-              value={code}
-              onChange={(e) => setCode(e.target.value)}
-              onBlur={validateCode}
-              disabled={loading || codeValidated}
-              className="w-full px-4 py-3 rounded-xl glass-inset text-text-primary focus:outline-none focus:ring-2 focus:ring-lavender"
-              placeholder="Enter your partner code"
-              required
-            />
-            {validatingCode && (
-              <p className="text-xs text-text-tertiary mt-1">Validating...</p>
-            )}
-            {codeValidated && (
-              <p className="text-xs text-sage-green mt-1">✓ Code validated</p>
-            )}
-          </div>
-
-          {/* Expanded fields after code validation */}
-          {codeValidated && (
-            <div className="animate-slideDown space-y-4">
-              {/* Organization Field (pre-filled, read-only) */}
-              <div>
-                <label className="block text-sm font-semibold text-text-secondary mb-2">
-                  Organization
-                </label>
-                <input
-                  type="text"
-                  value={organization}
-                  disabled
-                  className="w-full px-4 py-3 rounded-xl glass-inset text-text-primary bg-white/50 cursor-not-allowed"
-                  required
-                />
-              </div>
-
-              {/* Name Field */}
-              <div>
-                <label className="block text-sm font-semibold text-text-secondary mb-2">
-                  Your Name
-                </label>
-                <input
-                  type="text"
-                  value={name}
-                  onChange={(e) => setName(e.target.value)}
-                  disabled={loading}
-                  className="w-full px-4 py-3 rounded-xl glass-inset text-text-primary focus:outline-none focus:ring-2 focus:ring-lavender"
-                  placeholder="Full Name"
-                  required
-                />
-              </div>
-
-              {/* Email Field */}
-              <div>
-                <label className="block text-sm font-semibold text-text-secondary mb-2">
-                  Email Address
-                </label>
-                <input
-                  type="email"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                  disabled={loading}
-                  className="w-full px-4 py-3 rounded-xl glass-inset text-text-primary focus:outline-none focus:ring-2 focus:ring-lavender"
-                  placeholder="your@company.com"
-                  required
-                />
-              </div>
+      <div className="glass-inset rounded-2xl p-6">
+        {!codeValidated ? (
+          /* Step 1: Code Entry Form */
+          <form onSubmit={validateCode} className="space-y-4">
+            <div>
+              <label className="block text-sm font-semibold text-text-secondary mb-2">
+                Partner Code
+              </label>
+              <input
+                type="text"
+                value={code}
+                onChange={(e) => setCode(e.target.value)}
+                disabled={loading}
+                className="w-full px-4 py-3 rounded-xl glass-inset text-text-primary focus:outline-none focus:ring-2 focus:ring-lavender"
+                placeholder="Enter your partner code"
+                required
+              />
             </div>
-          )}
 
-          {/* Error Message */}
-          {error && (
-            <div className="glass-peach p-3 rounded-xl">
-              <p className="text-sm font-semibold text-red-600">{error}</p>
+            {/* Error Message */}
+            {error && (
+              <div className="glass-peach p-3 rounded-xl">
+                <p className="text-sm font-semibold text-red-600">{error}</p>
+              </div>
+            )}
+
+            {/* Continue Button */}
+            <button
+              type="submit"
+              disabled={loading || !code.trim()}
+              className="btn-neumorphic w-full py-3 rounded-xl font-semibold disabled:opacity-50"
+            >
+              Continue
+            </button>
+
+            <button
+              type="button"
+              onClick={() => setIsExpanded(false)}
+              className="w-full text-sm text-text-tertiary hover:text-text-primary"
+            >
+              Cancel
+            </button>
+          </form>
+        ) : (
+          /* Step 2: Contact Info Form */
+          <form onSubmit={handleSubmit} className="space-y-4 animate-slideDown">
+            <div className="glass-sage p-3 rounded-xl mb-4">
+              <p className="text-xs text-sage-green">✓ Code validated</p>
             </div>
-          )}
 
-          {/* Submit Button - Only show after code validated */}
-          {codeValidated && (
+            {/* Organization Field (pre-filled, read-only) */}
+            <div>
+              <label className="block text-sm font-semibold text-text-secondary mb-2">
+                Organization
+              </label>
+              <input
+                type="text"
+                value={organization}
+                disabled
+                className="w-full px-4 py-3 rounded-xl glass-inset text-text-primary bg-white/50 cursor-not-allowed"
+                required
+              />
+            </div>
+
+            {/* Name Field */}
+            <div>
+              <label className="block text-sm font-semibold text-text-secondary mb-2">
+                Your Name
+              </label>
+              <input
+                type="text"
+                value={name}
+                onChange={(e) => setName(e.target.value)}
+                disabled={loading}
+                className="w-full px-4 py-3 rounded-xl glass-inset text-text-primary focus:outline-none focus:ring-2 focus:ring-lavender"
+                placeholder="Full Name"
+                required
+              />
+            </div>
+
+            {/* Email Field */}
+            <div>
+              <label className="block text-sm font-semibold text-text-secondary mb-2">
+                Email Address
+              </label>
+              <input
+                type="email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                disabled={loading}
+                className="w-full px-4 py-3 rounded-xl glass-inset text-text-primary focus:outline-none focus:ring-2 focus:ring-lavender"
+                placeholder="your@company.com"
+                required
+              />
+            </div>
+
+            {/* Error Message */}
+            {error && (
+              <div className="glass-peach p-3 rounded-xl">
+                <p className="text-sm font-semibold text-red-600">{error}</p>
+              </div>
+            )}
+
+            {/* Submit Button */}
             <button
               type="submit"
               disabled={loading}
               className="btn-neumorphic w-full py-3 rounded-xl font-semibold disabled:opacity-50"
             >
-              {loading ? "Setting up your access..." : "Get Free Access"}
+              {loading ? "Setting up your access..." : "Log In"}
             </button>
-          )}
 
-          {/* Reset button if code validated */}
-          {codeValidated && (
+            {/* Reset button */}
             <button
               type="button"
               onClick={handleReset}
@@ -232,16 +250,7 @@ export default function TechPartnerAuthForm() {
             >
               Use different code
             </button>
-          )}
-        </form>
-
-        {!codeValidated && (
-          <button
-            onClick={() => setIsExpanded(false)}
-            className="w-full mt-3 text-sm text-text-tertiary hover:text-text-primary"
-          >
-            Cancel
-          </button>
+          </form>
         )}
       </div>
     </div>
