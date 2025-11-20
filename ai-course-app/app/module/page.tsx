@@ -19,6 +19,10 @@ export default async function ModulePage({
     redirect("/")
   }
 
+  // Admin emails get FULL course access (no restrictions)
+  const ADMIN_EMAILS = ['admin@wearewacky.com', 'saby@wearewacky.com', 'wackyworksdigital@gmail.com']
+  const isAdmin = session.user.email && ADMIN_EMAILS.includes(session.user.email)
+
   const params = await searchParams
   const currentDay = Number(params.day) || 1
   const lesson = courseData.find(m => m.day === currentDay)
@@ -39,8 +43,11 @@ export default async function ModulePage({
     .eq('user_id', session.user.id)
     .order('day_number')
 
+  // If admin, mark all days as completed (full access)
   // If table doesn't exist yet, default to empty array (will be created when user completes first lesson)
-  const completedDays = progressError ? [] : (progress?.map(p => p.day_number) || [])
+  const completedDays = isAdmin 
+    ? Array.from({ length: 30 }, (_, i) => i + 1) // Admin sees all days as completed
+    : (progressError ? [] : (progress?.map(p => p.day_number) || []))
   const isCompleted = completedDays.includes(currentDay)
 
   return (

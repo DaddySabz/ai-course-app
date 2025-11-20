@@ -1,17 +1,10 @@
 import { NextResponse } from 'next/server'
-import { auth } from '@/auth'
 import { createClient } from '@supabase/supabase-js'
 import bcrypt from 'bcryptjs'
 
-const ADMIN_EMAILS = ['wackyworksdigital@gmail.com', 'hello@wearewacky.com']
-
 export async function GET() {
   try {
-    const session = await auth()
-    
-    if (!session?.user?.email || !ADMIN_EMAILS.includes(session.user.email)) {
-      return NextResponse.json({ error: 'Unauthorized' }, { status: 401 })
-    }
+    // No auth check - portal handles authentication
 
     const supabase = createClient(
       process.env.NEXT_PUBLIC_SUPABASE_URL!,
@@ -35,12 +28,7 @@ export async function GET() {
 
 export async function POST(request: Request) {
   try {
-    const session = await auth()
-    
-    if (!session?.user?.email || !ADMIN_EMAILS.includes(session.user.email)) {
-      return NextResponse.json({ error: 'Unauthorized' }, { status: 401 })
-    }
-
+    // No auth check - portal handles authentication
     const { code, organization } = await request.json()
 
     if (!code || !organization) {

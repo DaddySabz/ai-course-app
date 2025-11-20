@@ -1,17 +1,9 @@
 import { NextResponse } from 'next/server'
-import { auth } from '@/auth'
 import { createClient } from '@supabase/supabase-js'
-
-const ADMIN_EMAILS = ['wackyworksdigital@gmail.com', 'hello@wearewacky.com']
 
 export async function GET() {
   try {
-    const session = await auth()
-    
-    // Check if user is admin
-    if (!session?.user?.email || !ADMIN_EMAILS.includes(session.user.email)) {
-      return NextResponse.json({ error: 'Unauthorized' }, { status: 401 })
-    }
+    // No auth check - portal handles authentication
 
     const supabase = createClient(
       process.env.NEXT_PUBLIC_SUPABASE_URL!,

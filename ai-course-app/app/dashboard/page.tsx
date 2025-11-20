@@ -10,6 +10,10 @@ export default async function DashboardPage() {
     redirect("/")
   }
 
+  // Admin emails get FULL course access (no restrictions)
+  const ADMIN_EMAILS = ['admin@wearewacky.com', 'saby@wearewacky.com', 'wackyworksdigital@gmail.com']
+  const isAdmin = session.user.email && ADMIN_EMAILS.includes(session.user.email)
+
   // Fetch user progress from Supabase
   const supabase = createClient(
     process.env.NEXT_PUBLIC_SUPABASE_URL!,
@@ -33,8 +37,11 @@ export default async function DashboardPage() {
   const isWaitrosePartner = partnerType === 'waitrose'
   const isTechPartner = partnerType === 'tech'
 
+  // If admin, show full progress (100% complete)
   // If table doesn't exist yet, default to empty (will be created when user completes first lesson)
-  const safeProgressData = progressError ? [] : (progressData || [])
+  const safeProgressData = isAdmin 
+    ? Array.from({ length: 30 }, (_, i) => ({ day_number: i + 1, completed_at: new Date().toISOString() })) // Admin sees all days complete
+    : (progressError ? [] : (progressData || []))
   const daysCompleted = safeProgressData.length
   const highestDay = daysCompleted > 0 ? Math.max(...(safeProgressData.map(p => p.day_number))) : 0
   const nextDay = Math.min(highestDay + 1, 30)
