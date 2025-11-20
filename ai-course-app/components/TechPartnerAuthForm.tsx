@@ -70,61 +70,29 @@ export default function TechPartnerAuthForm() {
     }
 
     try {
-      // Use predictable password for tech partners so they can return
-      const techPassword = `tech-${code.toLowerCase()}-partner`
-      
-      // Create tech partner account with instant access
-      const signupRes = await fetch("/api/auth/signup-partner", {
+      // Log the contact info for analytics (optional - just track who's using it)
+      await fetch("/api/auth/track-partner", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ 
-          email, 
-          password: techPassword,
           name,
-          partnerType: "tech",
-          partnerCode: code,
-          organization
+          email,
+          organization,
+          partnerCode: code
         })
-      })
+      }).catch(() => {}) // Don't block if tracking fails
 
-      const signupData = await signupRes.json()
-
-      // If user already exists (returning tech partner), show success
-      if (!signupRes.ok && signupData.existing) {
-        // They already have access - just redirect them
-        window.location.href = "/dashboard"
-        return
-      }
-
-      if (!signupRes.ok) {
-        setError(signupData.error || "Access request failed")
-        setLoading(false)
-        return
-      }
-
-      // New user - wait a moment for database to sync, then sign in
-      await new Promise(resolve => setTimeout(resolve, 1500))
-      
+      // Sign in using Organization as username and Code as password
       const result = await signIn("credentials", {
-        email,
-        password: techPassword,
+        email: organization, // Use organization as "email/username"
+        password: code.toLowerCase(), // Use code as password
         redirect: false
       })
 
       if (result?.error) {
-        // Login failed after account creation - try one more time
-        await new Promise(resolve => setTimeout(resolve, 1000))
-        const retryResult = await signIn("credentials", {
-          email,
-          password: techPassword,
-          redirect: false
-        })
-        
-        if (retryResult?.error) {
-          setError("Setup complete! Please refresh the page and log in again.")
-          setLoading(false)
-          return
-        }
+        setError("Invalid partner code. Please check your code and try again.")
+        setLoading(false)
+        return
       }
 
       // Success! Redirect to dashboard
