@@ -19,6 +19,7 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
       },
       async authorize(credentials) {
         if (!credentials?.email || !credentials?.password) {
+          console.log('Missing credentials')
           return null
         }
 
@@ -34,7 +35,14 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
           .eq('email', credentials.email as string)
           .single()
 
+        console.log('User lookup result:', { 
+          email: credentials.email, 
+          found: !!user, 
+          error: error?.message 
+        })
+
         if (error || !user) {
+          console.log('User not found or error:', error)
           return null
         }
 
@@ -44,11 +52,15 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
           user.password_hash
         )
 
+        console.log('Password validation:', { isValid })
+
         if (!isValid) {
+          console.log('Invalid password')
           return null
         }
 
         // Return user object
+        console.log('Authentication successful for:', user.email)
         return {
           id: user.id,
           email: user.email,

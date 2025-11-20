@@ -83,14 +83,17 @@ export default function TechPartnerAuthForm() {
       }).catch(() => {}) // Don't block if tracking fails
 
       // Sign in using Organization as username and Code as password
+      console.log('Attempting login with:', { email: organization, password: code.toLowerCase() })
       const result = await signIn("credentials", {
         email: organization, // Use organization as "email/username"
         password: code.toLowerCase(), // Use code as password
         redirect: false
       })
 
+      console.log('SignIn result:', result)
+
       if (result?.error) {
-        setError("Invalid partner code. Please check your code and try again.")
+        setError(`Login failed: ${result.error}. The account may not exist yet. Try creating it in the admin portal first.`)
         setLoading(false)
         return
       }
