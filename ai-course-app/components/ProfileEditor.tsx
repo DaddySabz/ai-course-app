@@ -17,12 +17,19 @@ export default function ProfileEditor({ userId, defaultName, defaultAvatar, defa
   const isTechPartner = partnerType === 'tech'
   const [displayName, setDisplayName] = useState(defaultName || defaultEmail?.split('@')[0] || 'AI Learner')
   const [displayOrg, setDisplayOrg] = useState(organization || '')
+  const [displayEmail, setDisplayEmail] = useState(defaultEmail || '')
   const [avatarUrl, setAvatarUrl] = useState<string | null>(defaultAvatar || null)
   const [isEditingName, setIsEditingName] = useState(false)
   const [isEditingOrg, setIsEditingOrg] = useState(false)
+  const [isEditingEmail, setIsEditingEmail] = useState(false)
+  const [isEditingPassword, setIsEditingPassword] = useState(false)
   const [isSaving, setIsSaving] = useState(false)
   const [tempName, setTempName] = useState(displayName)
   const [tempOrg, setTempOrg] = useState(displayOrg)
+  const [tempEmail, setTempEmail] = useState(defaultEmail || '')
+  const [currentPassword, setCurrentPassword] = useState('')
+  const [newPassword, setNewPassword] = useState('')
+  const [confirmPassword, setConfirmPassword] = useState('')
 
   // Fetch user profile on mount
   useEffect(() => {
@@ -88,6 +95,38 @@ export default function ProfileEditor({ userId, defaultName, defaultAvatar, defa
     setDisplayOrg(tempOrg)
     setIsEditingOrg(false)
     await saveProfile(displayName, avatarUrl)
+  }
+
+  const handleEmailSave = async () => {
+    if (!tempEmail.trim() || !tempEmail.includes('@')) {
+      alert('Please enter a valid email')
+      return
+    }
+    setDisplayEmail(tempEmail)
+    setIsEditingEmail(false)
+    // TODO: Implement email change in backend
+    alert('Email change functionality coming soon. This will require email verification.')
+  }
+
+  const handlePasswordSave = async () => {
+    if (!currentPassword || !newPassword || !confirmPassword) {
+      alert('Please fill in all password fields')
+      return
+    }
+    if (newPassword !== confirmPassword) {
+      alert('New passwords do not match')
+      return
+    }
+    if (newPassword.length < 8) {
+      alert('Password must be at least 8 characters')
+      return
+    }
+    setIsEditingPassword(false)
+    setCurrentPassword('')
+    setNewPassword('')
+    setConfirmPassword('')
+    // TODO: Implement password change in backend
+    alert('Password change functionality coming soon.')
   }
 
   const saveProfile = async (name: string, avatar: string | null) => {
@@ -260,27 +299,113 @@ export default function ProfileEditor({ userId, defaultName, defaultAvatar, defa
         </div>
       )}
 
-      {/* Email Field (Read-only) */}
+      {/* Email Field */}
       <div>
         <label className="text-xs font-bold text-text-secondary uppercase tracking-wider mb-2 block">
           Email
         </label>
-        <div className="px-4 py-3 rounded-xl bg-white/20 text-text-secondary">
-          {defaultEmail}
-        </div>
+        {isEditingEmail ? (
+          <div className="space-y-2">
+            <input
+              type="email"
+              value={tempEmail}
+              onChange={(e) => setTempEmail(e.target.value)}
+              className="w-full px-4 py-3 rounded-xl bg-white/50 border-2 border-sage-green focus:outline-none text-text-primary font-semibold"
+              autoFocus
+            />
+            <div className="flex items-center gap-2">
+              <button
+                onClick={handleEmailSave}
+                disabled={isSaving}
+                className="flex-1 px-4 py-2 bg-sage-green text-white rounded-xl font-bold hover:opacity-90 text-sm"
+              >
+                Save
+              </button>
+              <button
+                onClick={() => {
+                  setTempEmail(displayEmail)
+                  setIsEditingEmail(false)
+                }}
+                className="flex-1 px-4 py-2 bg-text-tertiary/20 text-text-secondary rounded-xl font-bold hover:opacity-90 text-sm"
+              >
+                Cancel
+              </button>
+            </div>
+            <p className="text-xs text-text-tertiary">
+              Changing your email will require verification
+            </p>
+          </div>
+        ) : (
+          <div 
+            onClick={() => setIsEditingEmail(true)}
+            className="px-4 py-3 rounded-xl bg-white/50 text-text-primary font-semibold cursor-pointer hover:bg-white/70 transition-colors"
+          >
+            {displayEmail}
+          </div>
+        )}
       </div>
 
-      {/* Password Field (Placeholder) */}
+      {/* Password Field */}
       <div>
         <label className="text-xs font-bold text-text-secondary uppercase tracking-wider mb-2 block">
           Password
         </label>
-        <div className="px-4 py-3 rounded-xl bg-white/20 text-text-secondary">
-          ••••••••••
-        </div>
-        <p className="text-xs text-text-tertiary mt-1">
-          Password management coming soon
-        </p>
+        {isEditingPassword ? (
+          <div className="space-y-2">
+            <input
+              type="password"
+              placeholder="Current Password"
+              value={currentPassword}
+              onChange={(e) => setCurrentPassword(e.target.value)}
+              className="w-full px-4 py-3 rounded-xl bg-white/50 border-2 border-sage-green focus:outline-none text-text-primary font-semibold"
+              autoFocus
+            />
+            <input
+              type="password"
+              placeholder="New Password"
+              value={newPassword}
+              onChange={(e) => setNewPassword(e.target.value)}
+              className="w-full px-4 py-3 rounded-xl bg-white/50 border-2 border-sage-green focus:outline-none text-text-primary font-semibold"
+            />
+            <input
+              type="password"
+              placeholder="Confirm New Password"
+              value={confirmPassword}
+              onChange={(e) => setConfirmPassword(e.target.value)}
+              className="w-full px-4 py-3 rounded-xl bg-white/50 border-2 border-sage-green focus:outline-none text-text-primary font-semibold"
+            />
+            <div className="flex items-center gap-2">
+              <button
+                onClick={handlePasswordSave}
+                disabled={isSaving}
+                className="flex-1 px-4 py-2 bg-sage-green text-white rounded-xl font-bold hover:opacity-90 text-sm"
+              >
+                Save
+              </button>
+              <button
+                onClick={() => {
+                  setCurrentPassword('')
+                  setNewPassword('')
+                  setConfirmPassword('')
+                  setIsEditingPassword(false)
+                }}
+                className="flex-1 px-4 py-2 bg-text-tertiary/20 text-text-secondary rounded-xl font-bold hover:opacity-90 text-sm"
+              >
+                Cancel
+              </button>
+            </div>
+            <p className="text-xs text-text-tertiary">
+              Password must be at least 8 characters
+            </p>
+          </div>
+        ) : (
+          <div 
+            onClick={() => setIsEditingPassword(true)}
+            className="px-4 py-3 rounded-xl bg-white/50 text-text-primary font-semibold cursor-pointer hover:bg-white/70 transition-colors"
+          >
+            ••••••••••
+          </div>
+        )}
       </div>
 
       {/* Membership Type (Read-only) */}
