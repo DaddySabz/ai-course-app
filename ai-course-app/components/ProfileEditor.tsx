@@ -104,92 +104,148 @@ export default function ProfileEditor({ userId, defaultName, defaultAvatar, defa
     }
   }
 
+  const membershipType = isTechPartner 
+    ? 'Technology Partner' 
+    : partnerType === 'waitrose' 
+    ? 'Waitrose Partner' 
+    : 'General Access'
+
   return (
-    <div className="card-neumorphic rounded-3xl p-6 w-full mb-6">
-      <div className="relative group mb-4">
-        {avatarUrl ? (
-          <img 
-            src={avatarUrl}
-            alt="Profile" 
-            className="size-24 rounded-full border-4 border-white shadow-lg mx-auto object-cover"
-          />
-        ) : (
-          <div className="size-24 rounded-full border-4 border-white shadow-lg mx-auto flex items-center justify-center bg-gradient-to-br from-sage-green/30 to-lavender/30">
-            <span className="text-4xl font-black text-text-primary">
-              {(defaultName || defaultEmail)?.[0]?.toUpperCase() || 'U'}
-            </span>
-          </div>
-        )}
-        <label className="absolute inset-0 flex items-center justify-center bg-black/40 rounded-full opacity-0 group-hover:opacity-100 transition-all duration-300 backdrop-blur-sm cursor-pointer">
-          <span className="text-white text-xs font-semibold">Change</span>
-          <input 
-            type="file" 
-            accept="image/*"
-            className="hidden"
-            onChange={handleAvatarUpload}
-            disabled={isSaving}
-          />
-        </label>
-      </div>
-      
-      {isTechPartner ? (
-        /* Tech Partner Display - Not Editable */
-        <div className="text-center">
-          <h3 className="text-2xl font-black text-text-primary mb-1">
-            {displayName}
-          </h3>
-          {organization && (
-            <p className="text-base font-normal text-text-secondary">
-              {organization}
-            </p>
+    <div className="w-full space-y-6">
+      {/* Profile Picture */}
+      <div className="flex flex-col items-center">
+        <div className="relative group mb-2">
+          {avatarUrl ? (
+            <img 
+              src={avatarUrl}
+              alt="Profile" 
+              className="size-32 rounded-full border-4 border-white shadow-lg object-cover"
+            />
+          ) : (
+            <div className="size-32 rounded-full border-4 border-white shadow-lg flex items-center justify-center bg-gradient-to-br from-sage-green/30 to-lavender/30">
+              <span className="text-5xl font-black text-text-primary">
+                {(defaultName || defaultEmail)?.[0]?.toUpperCase() || 'U'}
+              </span>
+            </div>
           )}
+          <label className="absolute inset-0 flex items-center justify-center bg-black/40 rounded-full opacity-0 group-hover:opacity-100 transition-all duration-300 backdrop-blur-sm cursor-pointer">
+            <span className="text-white text-sm font-semibold">Change Photo</span>
+            <input 
+              type="file" 
+              accept="image/*"
+              className="hidden"
+              onChange={handleAvatarUpload}
+              disabled={isSaving}
+            />
+          </label>
         </div>
-      ) : (
-        /* Regular User Display - Editable */
-        <>
-          {isEditingName ? (
-            <div className="flex items-center gap-2">
-              <input
-                type="text"
-                value={tempName}
-                onChange={(e) => setTempName(e.target.value)}
-                className="text-xl font-bold text-center w-full bg-transparent border-b-2 border-sage-green focus:outline-none px-2 py-2 text-text-primary"
-                autoFocus
-                onKeyDown={(e) => {
-                  if (e.key === 'Enter') handleNameSave()
-                  if (e.key === 'Escape') {
-                    setTempName(displayName)
-                    setIsEditingName(false)
-                  }
-                }}
-              />
-              <button
-                onClick={handleNameSave}
-                disabled={isSaving}
-                className="text-sage-green font-bold text-sm"
-              >
-                Save
-              </button>
-              <button
-                onClick={() => {
+        <p className="text-xs text-text-secondary text-center">
+          Your photo will appear on your certificate
+        </p>
+      </div>
+
+      {/* Name Field */}
+      <div>
+        <label className="text-xs font-bold text-text-secondary uppercase tracking-wider mb-2 block">
+          Name
+        </label>
+        {isEditingName ? (
+          <div className="flex items-center gap-2">
+            <input
+              type="text"
+              value={tempName}
+              onChange={(e) => setTempName(e.target.value)}
+              className="flex-1 px-4 py-3 rounded-xl bg-white/50 border-2 border-sage-green focus:outline-none text-text-primary font-semibold"
+              autoFocus
+              onKeyDown={(e) => {
+                if (e.key === 'Enter') handleNameSave()
+                if (e.key === 'Escape') {
                   setTempName(displayName)
                   setIsEditingName(false)
-                }}
-                className="text-text-tertiary font-bold text-sm"
-              >
-                Cancel
-              </button>
-            </div>
-          ) : (
-            <h3 
-              className="text-2xl font-black text-text-primary cursor-pointer hover:text-sage-green transition-colors"
-              onClick={() => setIsEditingName(true)}
+                }
+              }}
+            />
+            <button
+              onClick={handleNameSave}
+              disabled={isSaving}
+              className="px-4 py-3 bg-sage-green text-white rounded-xl font-bold hover:opacity-90"
             >
-              {displayName}
-            </h3>
-          )}
-        </>
+              Save
+            </button>
+            <button
+              onClick={() => {
+                setTempName(displayName)
+                setIsEditingName(false)
+              }}
+              className="px-4 py-3 bg-text-tertiary/20 text-text-secondary rounded-xl font-bold hover:opacity-90"
+            >
+              Cancel
+            </button>
+          </div>
+        ) : (
+          <div 
+            onClick={() => setIsEditingName(true)}
+            className="px-4 py-3 rounded-xl bg-white/50 text-text-primary font-semibold cursor-pointer hover:bg-white/70 transition-colors"
+          >
+            {displayName}
+          </div>
+        )}
+      </div>
+
+      {/* Organization/Company Field */}
+      {organization && (
+        <div>
+          <label className="text-xs font-bold text-text-secondary uppercase tracking-wider mb-2 block">
+            Organization
+          </label>
+          <div className="px-4 py-3 rounded-xl bg-white/50 text-text-primary font-semibold">
+            {organization}
+          </div>
+        </div>
       )}
+
+      {/* Email Field (Read-only) */}
+      <div>
+        <label className="text-xs font-bold text-text-secondary uppercase tracking-wider mb-2 block">
+          Email
+        </label>
+        <div className="px-4 py-3 rounded-xl bg-white/30 text-text-secondary font-semibold">
+          {defaultEmail}
+        </div>
+      </div>
+
+      {/* Password Field (Placeholder) */}
+      <div>
+        <label className="text-xs font-bold text-text-secondary uppercase tracking-wider mb-2 block">
+          Password
+        </label>
+        <div className="px-4 py-3 rounded-xl bg-white/30 text-text-secondary font-semibold">
+          ••••••••••
+        </div>
+        <p className="text-xs text-text-secondary mt-1">
+          Password management coming soon
+        </p>
+      </div>
+
+      {/* Membership Type (Read-only) */}
+      <div>
+        <label className="text-xs font-bold text-text-secondary uppercase tracking-wider mb-2 block">
+          Membership Type
+        </label>
+        <div className="px-4 py-3 rounded-xl bg-white/30 text-text-secondary font-semibold">
+          {membershipType}
+        </div>
+      </div>
+
+      {/* Sign Out Button */}
+      <div className="pt-4">
+        <a
+          href="/api/auth/signout"
+          className="btn-neumorphic w-full rounded-2xl px-6 py-4 text-base font-bold text-red-600 hover:scale-[1.02] transition-transform block text-center"
+        >
+          Sign Out
+        </a>
+      </div>
     </div>
   )
 }

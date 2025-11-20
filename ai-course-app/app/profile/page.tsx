@@ -39,68 +39,16 @@ export default async function ProfilePage() {
             <p className="text-text-secondary text-lg font-medium">Manage your account and preferences.</p>
           </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-            {/* Left Column - Profile Editor */}
-            <div className="glass-lavender rounded-3xl p-8 h-fit">
-              <h2 className="text-2xl font-bold text-text-primary mb-6">Your Profile</h2>
-              <ProfileEditor
-                userId={session.user.id!}
-                defaultName={session.user.name}
-                defaultAvatar={session.user.image}
-                defaultEmail={session.user.email}
-                partnerType={partnerType}
-                organization={organization}
-              />
-              <p className="text-xs text-text-secondary text-center mt-4">
-                Your name and picture will appear on your certificate
-              </p>
-            </div>
-
-            {/* Right Column - Account Info */}
-            <div className="flex flex-col gap-6">
-              {/* Account Details */}
-              <div className="glass-blue rounded-3xl p-8">
-                <h2 className="text-2xl font-bold text-text-primary mb-6">Account Details</h2>
-                <div className="space-y-4">
-                  <div>
-                    <p className="text-xs font-bold text-text-secondary uppercase tracking-wider mb-1">Email</p>
-                    <p className="text-base font-semibold text-text-primary">{session.user.email}</p>
-                  </div>
-                  {partnerType && (
-                    <div>
-                      <p className="text-xs font-bold text-text-secondary uppercase tracking-wider mb-1">Account Type</p>
-                      <p className="text-base font-semibold text-text-primary">
-                        {partnerType === 'tech' ? 'Technology Partner' : partnerType === 'waitrose' ? 'Waitrose Partner' : 'General Access'}
-                      </p>
-                    </div>
-                  )}
-                  {organization && (
-                    <div>
-                      <p className="text-xs font-bold text-text-secondary uppercase tracking-wider mb-1">Organization</p>
-                      <p className="text-base font-semibold text-text-primary">{organization}</p>
-                    </div>
-                  )}
-                </div>
-              </div>
-
-              {/* Sign Out */}
-              <div className="glass-sage rounded-3xl p-8">
-                <h2 className="text-2xl font-bold text-text-primary mb-4">Session</h2>
-                <form
-                  action={async () => {
-                    "use server"
-                    await signOut({ redirectTo: "/" })
-                  }}
-                >
-                  <button
-                    type="submit"
-                    className="btn-neumorphic w-full rounded-2xl px-6 py-4 text-base font-bold text-red-600 hover:scale-[1.02] transition-transform"
-                  >
-                    Sign Out
-                  </button>
-                </form>
-              </div>
-            </div>
+          {/* Single Unified Profile Tile */}
+          <div className="max-w-2xl mx-auto w-full glass-lavender rounded-3xl p-8">
+            <ProfileEditor
+              userId={session.user.id!}
+              defaultName={session.user.name}
+              defaultAvatar={session.user.image}
+              defaultEmail={session.user.email}
+              partnerType={partnerType}
+              organization={organization}
+            />
           </div>
 
           {/* Back to Dashboard */}
