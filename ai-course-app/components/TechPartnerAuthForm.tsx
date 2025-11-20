@@ -89,34 +89,22 @@ export default function TechPartnerAuthForm() {
 
       const signupData = await signupRes.json()
 
-      // If user already exists (returning tech partner), just log them in
+      // If user already exists (returning tech partner), show success
       if (!signupRes.ok && signupData.existing) {
-        // Try to sign in with the tech partner password
-        const result = await signIn("credentials", {
-          email,
-          password: techPassword,
-          redirect: false
-        })
-
-        if (result?.error) {
-          // If login fails, show friendly message
-          setError("You already have access! Please use the regular email login or contact support.")
-          setLoading(false)
-          return
-        }
-
-        // Success! Redirect
+        // They already have access - just redirect them
         window.location.href = "/dashboard"
         return
       }
 
       if (!signupRes.ok) {
-        setError(signupData.error || "Sign up failed")
+        setError(signupData.error || "Access request failed")
         setLoading(false)
         return
       }
 
-      // New user - sign them in
+      // New user - wait a moment for database to sync, then sign in
+      await new Promise(resolve => setTimeout(resolve, 1000))
+      
       const result = await signIn("credentials", {
         email,
         password: techPassword,
@@ -124,7 +112,8 @@ export default function TechPartnerAuthForm() {
       })
 
       if (result?.error) {
-        setError("Account created but login failed. Please contact support.")
+        // Account created, but need to try again
+        setError("Account created! Please click 'Log In' again to access the course.")
         setLoading(false)
         return
       }
@@ -159,13 +148,15 @@ export default function TechPartnerAuthForm() {
 
   return (
     <div className="animate-slideDown">
-      {/* Info Message */}
-      <div className="glass-blue p-4 rounded-xl mb-4">
-        <p className="text-sm font-semibold text-text-primary">
-          For affiliate partners and organizations considering partnerships. 
-          Get full, free access to review all course materials.
-        </p>
-      </div>
+      {/* Info Message - only show before code validation */}
+      {!codeValidated && (
+        <div className="glass-blue p-4 rounded-xl mb-4">
+          <p className="text-sm font-semibold text-text-primary">
+            For affiliate partners and organizations considering partnerships. 
+            Get full, free access to review all course materials.
+          </p>
+        </div>
+      )}
 
       <div className="glass-inset rounded-2xl p-6">
         {!codeValidated ? (
