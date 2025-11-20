@@ -11,27 +11,28 @@ export default function NavigationBar() {
     { name: "Dashboard", path: "/dashboard" },
     { name: "Course", path: "/module" },
     { name: "Certificate", path: "/certificate" },
+    { name: "Profile", path: "/profile" },
   ]
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 glass-mint border-b border-text-tertiary/10">
+    <nav className="fixed top-0 left-0 right-0 z-50 card-neumorphic border-b border-text-tertiary/10">
       <div className="max-w-7xl mx-auto px-6 py-4">
         <div className="flex items-center justify-between">
           {/* Logo/Title */}
           <h1 className="text-xl font-bold text-text-primary">Introduction to AI</h1>
 
           {/* Navigation Links */}
-          <div className="flex items-center gap-8">
+          <div className="flex items-center gap-3">
             {navItems.map((item) => {
               const isActive = pathname === item.path
               return (
                 <a
                   key={item.path}
                   href={item.path}
-                  className={`text-base font-semibold transition-colors ${
+                  className={`px-4 py-2 rounded-xl text-base font-semibold transition-all ${
                     isActive
-                      ? "text-text-primary border-b-2 border-sage-green pb-1"
-                      : "text-text-secondary hover:text-text-primary"
+                      ? "glass-blue text-text-primary shadow-md"
+                      : "text-text-secondary hover:text-text-primary hover:bg-white/30"
                   }`}
                 >
                   {item.name}
@@ -39,9 +40,12 @@ export default function NavigationBar() {
               )
             })}
 
-            {/* User Profile Picture */}
+            {/* User Profile Picture - Clickable */}
             {session?.user && (
-              <div className="relative w-10 h-10 rounded-full overflow-hidden glass-mint border-2 border-text-tertiary/20">
+              <a 
+                href="/profile"
+                className="relative w-10 h-10 rounded-full overflow-hidden border-2 border-text-tertiary/20 hover:border-sage-green/50 transition-all cursor-pointer hover:scale-110"
+              >
                 {session.user.image ? (
                   <img
                     src={session.user.image}
@@ -55,7 +59,7 @@ export default function NavigationBar() {
                     </span>
                   </div>
                 )}
-              </div>
+              </a>
             )}
           </div>
         </div>
