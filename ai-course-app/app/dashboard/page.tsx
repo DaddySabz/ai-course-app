@@ -1,7 +1,6 @@
 import { auth, signOut } from "@/auth"
 import { redirect } from "next/navigation"
 import { createClient } from '@supabase/supabase-js'
-import ProfileEditor from '@/components/ProfileEditor'
 import NavigationBar from '@/components/NavigationBar'
 
 export default async function DashboardPage() {
@@ -233,31 +232,56 @@ export default async function DashboardPage() {
               </div>
             </aside>
 
-            {/* Right Column - Profile - Lavender tint */}
+            {/* Right Column - Profile Quick View - Lavender tint */}
             <section className="lg:col-span-1">
               <div className="glass-lavender rounded-3xl p-8 flex flex-col items-center text-center sticky top-24">
-                <ProfileEditor
-                  userId={session.user.id!}
-                  defaultName={session.user.name}
-                  defaultAvatar={session.user.image}
-                  defaultEmail={session.user.email}
-                  partnerType={partnerType}
-                  organization={organization}
-                />
+                <h3 className="text-2xl font-bold text-text-primary mb-6">Profile</h3>
                 
-                <p className="text-xs text-text-secondary mb-4">
-                  Click your name to edit or hover over your picture to change it
-                </p>
-                
+                {/* Profile Picture */}
+                <div className="relative mb-4">
+                  {session.user.image ? (
+                    <img 
+                      src={session.user.image}
+                      alt="Profile" 
+                      className="size-24 rounded-full border-4 border-white shadow-lg object-cover"
+                    />
+                  ) : (
+                    <div className="size-24 rounded-full border-4 border-white shadow-lg flex items-center justify-center bg-gradient-to-br from-sage-green/30 to-lavender/30">
+                      <span className="text-4xl font-black text-text-primary">
+                        {(session.user.name || session.user.email)?.[0]?.toUpperCase() || 'U'}
+                      </span>
+                    </div>
+                  )}
+                </div>
+
+                {/* Name and Organization */}
+                <h4 className="text-2xl font-black text-text-primary mb-1">
+                  {session.user.name || session.user.email?.split('@')[0] || 'AI Learner'}
+                </h4>
+                {organization && (
+                  <p className="text-base font-normal text-text-secondary mb-4">
+                    {organization}
+                  </p>
+                )}
+
                 <p className="text-xs text-text-secondary mb-6">
                   Your name and picture will appear on your certificate
                 </p>
+
+                {/* View Profile Button */}
+                <a 
+                  href="/profile"
+                  className="btn-neumorphic w-full flex items-center justify-center gap-2 p-4 rounded-2xl text-text-primary font-bold hover:scale-[1.02] transition-transform mb-4"
+                >
+                  <span>View Profile</span>
+                </a>
                 
+                {/* Sign Out Button */}
                 <form action={async () => {
                   "use server"
                   await signOut({ redirectTo: "/" })
                 }} className="w-full">
-                  <button className="btn-neumorphic w-full flex items-center justify-center gap-2 p-4 rounded-2xl text-red-600 font-bold">
+                  <button className="btn-neumorphic w-full flex items-center justify-center gap-2 p-4 rounded-2xl text-red-600 font-bold hover:scale-[1.02] transition-transform">
                     <span>Sign Out</span>
                   </button>
                 </form>
