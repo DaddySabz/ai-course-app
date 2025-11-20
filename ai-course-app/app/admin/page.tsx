@@ -4,8 +4,11 @@ import { useState, useEffect } from "react"
 import { useSession } from "next-auth/react"
 import { useRouter } from "next/navigation"
 
+// Disable static generation for this page
+export const dynamic = 'force-dynamic'
+
 export default function AdminPage() {
-  const { data: session, status } = useSession()
+  const session = useSession()
   const router = useRouter()
   const [activeTab, setActiveTab] = useState<'overview' | 'partners' | 'users' | 'content'>('overview')
   const [adminPassword, setAdminPassword] = useState("")
@@ -19,7 +22,7 @@ export default function AdminPage() {
   ]
 
   // Check if user is admin
-  const isAdmin = session?.user?.email && ADMIN_EMAILS.includes(session.user.email)
+  const isAdmin = session?.data?.user?.email && ADMIN_EMAILS.includes(session.data.user.email)
 
   // Simple password for non-logged-in admin access
   const handlePasswordSubmit = (e: React.FormEvent) => {
@@ -32,7 +35,7 @@ export default function AdminPage() {
   }
 
   // Redirect if not admin and not authenticated
-  if (status === 'loading') {
+  if (session.status === 'loading') {
     return (
       <div className="min-h-screen bg-gradient-to-br from-peach via-cream to-sage-green flex items-center justify-center">
         <div className="text-text-primary font-semibold">Loading...</div>
@@ -47,7 +50,7 @@ export default function AdminPage() {
         <div className="card-neumorphic p-8 rounded-3xl max-w-md w-full">
           <h1 className="text-3xl font-black text-text-primary mb-6">Admin Access</h1>
           
-          {!session ? (
+          {!session.data ? (
             <div>
               <p className="text-text-secondary mb-4">Please sign in with an admin account first.</p>
               <button
