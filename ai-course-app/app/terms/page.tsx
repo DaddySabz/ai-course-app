@@ -123,8 +123,10 @@ export default function TermsPage() {
                 If you have any questions about these Terms of Service, please contact us at:
               </p>
               <p className="text-text-secondary leading-relaxed mt-4">
-                <strong>Email:</strong> hello@wearewacky.com<br/>
-                <strong>Website:</strong> wearewacky.com
+                <strong>Email:</strong>{' '}
+                <a href="mailto:hello@wearewacky.com" className="text-text-primary font-bold underline hover:text-sage-green transition-colors">hello@wearewacky.com</a><br/>
+                <strong>Website:</strong>{' '}
+                <a href="https://wearewacky.com" target="_blank" rel="noopener noreferrer" className="text-text-primary font-bold underline hover:text-sage-green transition-colors">wearewacky.com</a>
               </p>
             </section>
           </div>

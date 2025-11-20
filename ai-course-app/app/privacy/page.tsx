@@ -57,20 +57,20 @@ export default function PrivacyPage() {
               <h3 className="text-xl font-semibold mb-3 mt-4">4.1 Authentication</h3>
               <p className="text-text-secondary leading-relaxed">
                 We use <strong>Google OAuth</strong> for authentication. When you sign in with Google, we receive basic profile 
-                information (name, email, profile picture) as authorized by you. Please review 
-                <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer" className="text-sage-green hover:underline"> Google's Privacy Policy</a>.
+                information (name, email, profile picture) as authorized by you. Please review{' '}
+                <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer" className="text-text-primary font-bold underline hover:text-sage-green transition-colors">Google's Privacy Policy</a>.
               </p>
 
               <h3 className="text-xl font-semibold mb-3 mt-4">4.2 Database and Storage</h3>
               <p className="text-text-secondary leading-relaxed">
                 We use <strong>Supabase</strong> for data storage and management. Your data is stored securely with encryption. 
-                Please review <a href="https://supabase.com/privacy" target="_blank" rel="noopener noreferrer" className="text-sage-green hover:underline">Supabase's Privacy Policy</a>.
+                Please review{' '}
+                <a href="https://supabase.com/privacy" target="_blank" rel="noopener noreferrer" className="text-text-primary font-bold underline hover:text-sage-green transition-colors">Supabase's Privacy Policy</a>.
               </p>
 
               <h3 className="text-xl font-semibold mb-3 mt-4">4.3 Hosting</h3>
               <p className="text-text-secondary leading-relaxed">
-                Our Service is hosted on <strong>Vercel</strong>. Please review 
-                <a href="https://vercel.com/legal/privacy-policy" target="_blank" rel="noopener noreferrer" className="text-sage-green hover:underline"> Vercel's Privacy Policy</a>.
+                Our Service is hosted at <strong>wearewacky.com</strong>. All data is transmitted securely over HTTPS.
               </p>
 
               <h3 className="text-xl font-semibold mb-3 mt-4">4.4 Affiliate Links</h3>
@@ -120,7 +120,8 @@ export default function PrivacyPage() {
                 <li><strong>Data Portability:</strong> Request your data in a portable format</li>
               </ul>
               <p className="text-text-secondary leading-relaxed mt-4">
-                To exercise these rights, contact us at <strong>hello@wearewacky.com</strong>
+                To exercise these rights, contact us at{' '}
+                <a href="mailto:hello@wearewacky.com" className="text-text-primary font-bold underline hover:text-sage-green transition-colors">hello@wearewacky.com</a>
               </p>
             </section>
 
@@ -172,9 +173,12 @@ export default function PrivacyPage() {
                 If you have questions or concerns about this Privacy Policy, please contact us:
               </p>
               <p className="text-text-secondary leading-relaxed mt-4">
-                <strong>Email:</strong> hello@wearewacky.com<br/>
-                <strong>WhatsApp:</strong> +44 7460 460318<br/>
-                <strong>Website:</strong> wearewacky.com
+                <strong>Email:</strong>{' '}
+                <a href="mailto:hello@wearewacky.com" className="text-text-primary font-bold underline hover:text-sage-green transition-colors">hello@wearewacky.com</a><br/>
+                <strong>WhatsApp:</strong>{' '}
+                <a href="https://wa.me/447460460318" target="_blank" rel="noopener noreferrer" className="text-text-primary font-bold underline hover:text-sage-green transition-colors">+44 7460 460318</a><br/>
+                <strong>Website:</strong>{' '}
+                <a href="https://wearewacky.com" target="_blank" rel="noopener noreferrer" className="text-text-primary font-bold underline hover:text-sage-green transition-colors">wearewacky.com</a>
               </p>
             </section>
 
