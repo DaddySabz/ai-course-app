@@ -64,7 +64,7 @@ export default function LoginPage() {
                 </div>
                 <WaitroseAuthForm />
                 <p className="text-xs text-text-secondary text-center font-medium mt-3">
-                  Special £19 pricing for Waitrose partners
+                  Special pricing for our retail partners
                 </p>
               </div>
 
@@ -78,7 +78,7 @@ export default function LoginPage() {
                 </div>
                 <TechPartnerAuthForm />
                 <p className="text-xs text-text-secondary text-center font-medium mt-3">
-                  Free access for tech partners and affiliates
+                  Access with your organization's partner code
                 </p>
               </div>
 

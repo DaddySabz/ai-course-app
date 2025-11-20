@@ -112,7 +112,7 @@ export default function WaitroseAuthForm() {
         onClick={() => setIsExpanded(true)}
         className="btn-neumorphic w-full py-4 rounded-2xl font-semibold text-lg"
       >
-        Waitrose Partner Access
+        Waitrose & John Lewis Partners
       </button>
     )
   }
@@ -120,10 +120,6 @@ export default function WaitroseAuthForm() {
   return (
     <div className="animate-slideDown">
       <div className="glass-inset rounded-2xl p-6 mb-4">
-        <h3 className="text-lg font-bold text-text-primary mb-3">
-          {isNewUser ? "Create Waitrose Partner Account" : "Waitrose Partner Login"}
-        </h3>
-        
         {/* Warning Message */}
         <div className="glass-peach p-4 rounded-xl mb-4">
           <p className="text-sm font-semibold text-text-primary">
@@ -133,7 +129,7 @@ export default function WaitroseAuthForm() {
         </div>
 
         <form onSubmit={handleSubmit} className="space-y-4">
-          {/* Email Field */}
+          {/* Email Field - Always show first */}
           <div>
             <label className="block text-sm font-semibold text-text-secondary mb-2">
               Personal Email
@@ -227,7 +223,7 @@ export default function WaitroseAuthForm() {
             disabled={loading || checkingEmail}
             className="btn-neumorphic w-full py-3 rounded-xl font-semibold disabled:opacity-50"
           >
-            {loading ? "Please wait..." : isNewUser ? "Create Account (£19)" : "Sign In"}
+            {loading ? "Please wait..." : isNewUser ? "Create Account" : "Sign In"}
           </button>
         </form>
 

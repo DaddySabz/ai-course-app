@@ -1,42 +1,58 @@
 "use client"
 
 import { useState } from "react"
-import { signIn } from "next-auth/react"
+
+// Predefined partner codes with organization names
+const PARTNER_CODES: Record<string, string> = {
+  'chatgpt': 'OpenAI',
+  'openai': 'OpenAI',
+  'claude': 'Anthropic',
+  'anthropic': 'Anthropic',
+  'gemini': 'Google',
+  'google': 'Google',
+  'notion': 'Notion',
+  'adobe': 'Adobe',
+  'microsoft': 'Microsoft',
+  'meta': 'Meta',
+  'apple': 'Apple',
+  'amazon': 'Amazon',
+  'tesla': 'Tesla',
+  'nvidia': 'NVIDIA',
+  'salesforce': 'Salesforce',
+  'demo': 'Demo Company',
+  'test': 'Test Organization'
+}
 
 export default function TechPartnerAuthForm() {
   const [isExpanded, setIsExpanded] = useState(false)
-  const [isNewUser, setIsNewUser] = useState(false)
-  const [organization, setOrganization] = useState("")
+  const [codeValidated, setCodeValidated] = useState(false)
   const [code, setCode] = useState("")
-  const [email, setEmail] = useState("")
-  const [password, setPassword] = useState("")
-  const [confirmPassword, setConfirmPassword] = useState("")
+  const [organization, setOrganization] = useState("")
   const [name, setName] = useState("")
-  const [showPassword, setShowPassword] = useState(false)
+  const [email, setEmail] = useState("")
   const [error, setError] = useState("")
   const [loading, setLoading] = useState(false)
-  const [checkingEmail, setCheckingEmail] = useState(false)
+  const [validatingCode, setValidatingCode] = useState(false)
 
-  const checkEmailExists = async () => {
-    if (!email || !email.includes("@")) return
-    
-    setCheckingEmail(true)
+  const validateCode = () => {
+    if (!code.trim()) return
+
+    setValidatingCode(true)
     setError("")
-    
-    try {
-      const res = await fetch("/api/auth/check-email", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ email })
-      })
-      
-      const data = await res.json()
-      setIsNewUser(!data.exists)
-    } catch (err) {
-      console.error("Error checking email:", err)
-    } finally {
-      setCheckingEmail(false)
+
+    // Check if code is valid
+    const normalizedCode = code.toLowerCase().trim()
+    const orgName = PARTNER_CODES[normalizedCode]
+
+    if (orgName) {
+      setOrganization(orgName)
+      setCodeValidated(true)
+      setError("")
+    } else {
+      setError("Invalid partner code. Please contact us for access.")
     }
+
+    setValidatingCode(false)
   }
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -45,68 +61,51 @@ export default function TechPartnerAuthForm() {
     setLoading(true)
 
     // Validation
-    if (!organization || !code || !email || !password) {
+    if (!code || !organization || !name || !email) {
       setError("Please fill in all fields")
       setLoading(false)
       return
     }
 
-    if (isNewUser && !name) {
-      setError("Please enter your name")
-      setLoading(false)
-      return
-    }
-
-    if (isNewUser && password !== confirmPassword) {
-      setError("Passwords do not match")
-      setLoading(false)
-      return
-    }
-
     try {
-      if (isNewUser) {
-        // Sign up new tech partner
-        const signupRes = await fetch("/api/auth/signup-partner", {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ 
-            email, 
-            password, 
-            name,
-            partnerType: "tech",
-            partnerCode: code,
-            organization
-          })
+      // Create tech partner account with instant access
+      const signupRes = await fetch("/api/auth/signup-partner", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ 
+          email, 
+          password: `tech-${code}-${Date.now()}`, // Auto-generated password
+          name,
+          partnerType: "tech",
+          partnerCode: code,
+          organization
         })
-
-        const signupData = await signupRes.json()
-
-        if (!signupRes.ok) {
-          setError(signupData.error || "Sign up failed")
-          setLoading(false)
-          return
-        }
-      }
-
-      // Sign in
-      const result = await signIn("credentials", {
-        email,
-        password,
-        redirect: false
       })
 
-      if (result?.error) {
-        setError("Invalid email or password")
+      const signupData = await signupRes.json()
+
+      if (!signupRes.ok) {
+        setError(signupData.error || "Sign up failed")
         setLoading(false)
         return
       }
 
-      // Success! Redirect to dashboard
+      // Success! Show success message and redirect
+      alert(`Welcome ${name}! You now have full FREE access to all course materials.`)
       window.location.href = "/dashboard"
     } catch (err) {
       setError("Something went wrong. Please try again.")
       setLoading(false)
     }
+  }
+
+  const handleReset = () => {
+    setCodeValidated(false)
+    setCode("")
+    setOrganization("")
+    setName("")
+    setEmail("")
+    setError("")
   }
 
   if (!isExpanded) {
@@ -115,7 +114,7 @@ export default function TechPartnerAuthForm() {
         onClick={() => setIsExpanded(true)}
         className="btn-neumorphic w-full py-4 rounded-2xl font-semibold text-lg"
       >
-        Technology Partner Access
+        Technology Partners
       </button>
     )
   }
@@ -123,10 +122,6 @@ export default function TechPartnerAuthForm() {
   return (
     <div className="animate-slideDown">
       <div className="glass-inset rounded-2xl p-6 mb-4">
-        <h3 className="text-lg font-bold text-text-primary mb-3">
-          {isNewUser ? "Create Tech Partner Account" : "Tech Partner Login"}
-        </h3>
-        
         {/* Info Message */}
         <div className="glass-blue p-4 rounded-xl mb-4">
           <p className="text-sm font-semibold text-text-primary">
@@ -136,23 +131,7 @@ export default function TechPartnerAuthForm() {
         </div>
 
         <form onSubmit={handleSubmit} className="space-y-4">
-          {/* Organization Field */}
-          <div>
-            <label className="block text-sm font-semibold text-text-secondary mb-2">
-              Organization Name
-            </label>
-            <input
-              type="text"
-              value={organization}
-              onChange={(e) => setOrganization(e.target.value)}
-              disabled={loading}
-              className="w-full px-4 py-3 rounded-xl glass-inset text-text-primary focus:outline-none focus:ring-2 focus:ring-lavender"
-              placeholder="Your Company Name"
-              required
-            />
-          </div>
-
-          {/* Partner Code Field */}
+          {/* Partner Code Field - Always visible */}
           <div>
             <label className="block text-sm font-semibold text-text-secondary mb-2">
               Partner Code
@@ -161,91 +140,68 @@ export default function TechPartnerAuthForm() {
               type="text"
               value={code}
               onChange={(e) => setCode(e.target.value)}
-              disabled={loading}
+              onBlur={validateCode}
+              disabled={loading || codeValidated}
               className="w-full px-4 py-3 rounded-xl glass-inset text-text-primary focus:outline-none focus:ring-2 focus:ring-lavender"
               placeholder="Enter your partner code"
               required
             />
-          </div>
-
-          {/* Email Field */}
-          <div>
-            <label className="block text-sm font-semibold text-text-secondary mb-2">
-              Email Address
-            </label>
-            <input
-              type="email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              onBlur={checkEmailExists}
-              disabled={loading || checkingEmail}
-              className="w-full px-4 py-3 rounded-xl glass-inset text-text-primary focus:outline-none focus:ring-2 focus:ring-lavender"
-              placeholder="your@company.com"
-              required
-            />
-            {checkingEmail && (
-              <p className="text-xs text-text-tertiary mt-1">Checking...</p>
+            {validatingCode && (
+              <p className="text-xs text-text-tertiary mt-1">Validating...</p>
+            )}
+            {codeValidated && (
+              <p className="text-xs text-sage-green mt-1">✓ Code validated</p>
             )}
           </div>
 
-          {/* Name Field (only for new users) */}
-          {isNewUser && (
-            <div className="animate-slideDown">
-              <label className="block text-sm font-semibold text-text-secondary mb-2">
-                Full Name
-              </label>
-              <input
-                type="text"
-                value={name}
-                onChange={(e) => setName(e.target.value)}
-                disabled={loading}
-                className="w-full px-4 py-3 rounded-xl glass-inset text-text-primary focus:outline-none focus:ring-2 focus:ring-lavender"
-                placeholder="Your Name"
-                required
-              />
-            </div>
-          )}
+          {/* Expanded fields after code validation */}
+          {codeValidated && (
+            <div className="animate-slideDown space-y-4">
+              {/* Organization Field (pre-filled, read-only) */}
+              <div>
+                <label className="block text-sm font-semibold text-text-secondary mb-2">
+                  Organization
+                </label>
+                <input
+                  type="text"
+                  value={organization}
+                  disabled
+                  className="w-full px-4 py-3 rounded-xl glass-inset text-text-primary bg-white/50 cursor-not-allowed"
+                  required
+                />
+              </div>
 
-          {/* Password Field */}
-          <div>
-            <label className="block text-sm font-semibold text-text-secondary mb-2">
-              Password
-            </label>
-            <div className="relative">
-              <input
-                type={showPassword ? "text" : "password"}
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-                disabled={loading}
-                className="w-full px-4 py-3 rounded-xl glass-inset text-text-primary focus:outline-none focus:ring-2 focus:ring-lavender"
-                placeholder="••••••••"
-                required
-              />
-              <button
-                type="button"
-                onClick={() => setShowPassword(!showPassword)}
-                className="absolute right-3 top-1/2 -translate-y-1/2 text-text-tertiary hover:text-text-primary"
-              >
-                {showPassword ? "Hide" : "Show"}
-              </button>
-            </div>
-          </div>
+              {/* Name Field */}
+              <div>
+                <label className="block text-sm font-semibold text-text-secondary mb-2">
+                  Your Name
+                </label>
+                <input
+                  type="text"
+                  value={name}
+                  onChange={(e) => setName(e.target.value)}
+                  disabled={loading}
+                  className="w-full px-4 py-3 rounded-xl glass-inset text-text-primary focus:outline-none focus:ring-2 focus:ring-lavender"
+                  placeholder="Full Name"
+                  required
+                />
+              </div>
 
-          {/* Confirm Password (only for new users) */}
-          {isNewUser && (
-            <div className="animate-slideDown">
-              <label className="block text-sm font-semibold text-text-secondary mb-2">
-                Confirm Password
-              </label>
-              <input
-                type={showPassword ? "text" : "password"}
-                value={confirmPassword}
-                onChange={(e) => setConfirmPassword(e.target.value)}
-                disabled={loading}
-                className="w-full px-4 py-3 rounded-xl glass-inset text-text-primary focus:outline-none focus:ring-2 focus:ring-lavender"
-                placeholder="••••••••"
-                required
-              />
+              {/* Email Field */}
+              <div>
+                <label className="block text-sm font-semibold text-text-secondary mb-2">
+                  Email Address
+                </label>
+                <input
+                  type="email"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  disabled={loading}
+                  className="w-full px-4 py-3 rounded-xl glass-inset text-text-primary focus:outline-none focus:ring-2 focus:ring-lavender"
+                  placeholder="your@company.com"
+                  required
+                />
+              </div>
             </div>
           )}
 
@@ -256,24 +212,38 @@ export default function TechPartnerAuthForm() {
             </div>
           )}
 
-          {/* Submit Button */}
-          <button
-            type="submit"
-            disabled={loading || checkingEmail}
-            className="btn-neumorphic w-full py-3 rounded-xl font-semibold disabled:opacity-50"
-          >
-            {loading ? "Please wait..." : isNewUser ? "Create Account (FREE)" : "Sign In"}
-          </button>
+          {/* Submit Button - Only show after code validated */}
+          {codeValidated && (
+            <button
+              type="submit"
+              disabled={loading}
+              className="btn-neumorphic w-full py-3 rounded-xl font-semibold disabled:opacity-50"
+            >
+              {loading ? "Setting up your access..." : "Get Free Access"}
+            </button>
+          )}
+
+          {/* Reset button if code validated */}
+          {codeValidated && (
+            <button
+              type="button"
+              onClick={handleReset}
+              className="w-full text-sm text-text-tertiary hover:text-text-primary"
+            >
+              Use different code
+            </button>
+          )}
         </form>
 
-        <button
-          onClick={() => setIsExpanded(false)}
-          className="w-full mt-3 text-sm text-text-tertiary hover:text-text-primary"
-        >
-          Cancel
-        </button>
+        {!codeValidated && (
+          <button
+            onClick={() => setIsExpanded(false)}
+            className="w-full mt-3 text-sm text-text-tertiary hover:text-text-primary"
+          >
+            Cancel
+          </button>
+        )}
       </div>
     </div>
   )
 }
-
