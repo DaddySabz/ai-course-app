@@ -18,17 +18,32 @@ export default function NavigationBar() {
 
   // Fetch updated profile avatar
   useEffect(() => {
-    if (session?.user) {
-      fetch('/api/profile')
-        .then(res => res.json())
-        .then(data => {
-          if (data.profile?.avatar_url) {
-            setProfileAvatar(data.profile.avatar_url)
-          } else if (data.defaultAvatar) {
-            setProfileAvatar(data.defaultAvatar)
-          }
-        })
-        .catch(err => console.error('Error fetching profile:', err))
+    const fetchAvatar = () => {
+      if (session?.user) {
+        fetch('/api/profile')
+          .then(res => res.json())
+          .then(data => {
+            if (data.profile?.avatar_url) {
+              setProfileAvatar(data.profile.avatar_url)
+            } else if (data.defaultAvatar) {
+              setProfileAvatar(data.defaultAvatar)
+            }
+          })
+          .catch(err => console.error('Error fetching profile:', err))
+      }
+    }
+
+    fetchAvatar()
+
+    // Listen for profile updates
+    const handleProfileUpdate = () => {
+      fetchAvatar()
+    }
+    
+    window.addEventListener('profileUpdated', handleProfileUpdate)
+    
+    return () => {
+      window.removeEventListener('profileUpdated', handleProfileUpdate)
     }
   }, [session])
 

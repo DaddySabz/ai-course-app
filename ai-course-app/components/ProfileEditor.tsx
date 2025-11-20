@@ -81,7 +81,9 @@ export default function ProfileEditor({ userId, defaultName, defaultAvatar, defa
       const base64 = event.target?.result as string
       setAvatarUrl(base64)
       await saveProfile(displayName, base64)
-      // Refresh the page to update server-side components (nav bar, dashboard)
+      // Notify NavigationBar to update
+      window.dispatchEvent(new Event('profileUpdated'))
+      // Refresh the page to update server-side components (dashboard)
       router.refresh()
     }
     reader.readAsDataURL(file)
@@ -95,7 +97,9 @@ export default function ProfileEditor({ userId, defaultName, defaultAvatar, defa
     setDisplayName(tempName)
     setIsEditingName(false)
     await saveProfile(tempName, avatarUrl)
-    // Refresh to update nav bar and dashboard
+    // Notify NavigationBar to update
+    window.dispatchEvent(new Event('profileUpdated'))
+    // Refresh to update dashboard
     router.refresh()
   }
 
