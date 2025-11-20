@@ -103,7 +103,7 @@ export default function TechPartnerAuthForm() {
       }
 
       // New user - wait a moment for database to sync, then sign in
-      await new Promise(resolve => setTimeout(resolve, 1000))
+      await new Promise(resolve => setTimeout(resolve, 1500))
       
       const result = await signIn("credentials", {
         email,
@@ -112,10 +112,19 @@ export default function TechPartnerAuthForm() {
       })
 
       if (result?.error) {
-        // Account created, but need to try again
-        setError("Account created! Please click 'Log In' again to access the course.")
-        setLoading(false)
-        return
+        // Login failed after account creation - try one more time
+        await new Promise(resolve => setTimeout(resolve, 1000))
+        const retryResult = await signIn("credentials", {
+          email,
+          password: techPassword,
+          redirect: false
+        })
+        
+        if (retryResult?.error) {
+          setError("Setup complete! Please refresh the page and log in again.")
+          setLoading(false)
+          return
+        }
       }
 
       // Success! Redirect to dashboard
@@ -204,8 +213,18 @@ export default function TechPartnerAuthForm() {
         ) : (
           /* Step 2: Contact Info Form */
           <form onSubmit={handleSubmit} className="space-y-4 animate-slideDown">
-            <div className="glass-sage p-3 rounded-xl mb-4">
-              <p className="text-xs text-sage-green">✓ Code validated</p>
+            {/* Show Partner Code */}
+            <div>
+              <label className="block text-sm font-semibold text-text-secondary mb-2">
+                Partner Code
+              </label>
+              <input
+                type="text"
+                value={code}
+                disabled
+                className="w-full px-4 py-3 rounded-xl glass-inset text-text-primary bg-white/50 cursor-not-allowed"
+              />
+              <p className="text-xs text-sage-green mt-1">✓ Code validated</p>
             </div>
 
             {/* Organization Field (pre-filled, read-only) */}
