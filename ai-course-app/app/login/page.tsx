@@ -56,12 +56,7 @@ export default function LoginPage() {
 
               {/* John Lewis & Waitrose Partners - Sage Green Glass */}
               <div className="w-full glass-sage rounded-3xl p-8">
-                <div className="flex items-center justify-between mb-4">
-                  <h2 className="text-lg font-bold text-text-primary">Partner Benefits</h2>
-                  <span className="badge-sticker text-sage-green">
-                    Exclusive<br/>Discount
-                  </span>
-                </div>
+                <h2 className="text-lg font-bold text-text-primary mb-4">Partner Benefits</h2>
                 <WaitroseAuthForm />
                 <p className="text-xs text-text-secondary text-center font-medium mt-3">
                   Special pricing for our retail partners
@@ -70,12 +65,7 @@ export default function LoginPage() {
 
               {/* Enterprise Access - Lavender Glass */}
               <div className="w-full glass-lavender rounded-3xl p-8">
-                <div className="flex items-center justify-between mb-4">
-                  <h2 className="text-lg font-bold text-text-primary">Enterprise Access</h2>
-                  <span className="badge-sticker text-lavender">
-                    Full<br/>Access
-                  </span>
-                </div>
+                <h2 className="text-lg font-bold text-text-primary mb-4">Enterprise Access</h2>
                 <TechPartnerAuthForm />
                 <p className="text-xs text-text-secondary text-center font-medium mt-3">
                   Access with your organization's partner code
