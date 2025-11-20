@@ -16,7 +16,7 @@ export default function ProfileEditor({ userId, defaultName, defaultAvatar, defa
   const router = useRouter()
   const isTechPartner = partnerType === 'tech'
   const [displayName, setDisplayName] = useState(defaultName || defaultEmail?.split('@')[0] || 'AI Learner')
-  const [avatarUrl, setAvatarUrl] = useState(defaultAvatar)
+  const [avatarUrl, setAvatarUrl] = useState<string | null>(defaultAvatar || null)
   const [isEditingName, setIsEditingName] = useState(false)
   const [isSaving, setIsSaving] = useState(false)
   const [tempName, setTempName] = useState(displayName)
@@ -33,7 +33,7 @@ export default function ProfileEditor({ userId, defaultName, defaultAvatar, defa
         const data = await res.json()
         if (data.profile) {
           setDisplayName(data.profile.display_name || data.defaultName || data.defaultEmail || 'AI Learner')
-          setAvatarUrl(data.profile.avatar_url || data.defaultAvatar || '/placeholder-avatar.png')
+          setAvatarUrl(data.profile.avatar_url || data.defaultAvatar || null)
           setTempName(data.profile.display_name || data.defaultName || data.defaultEmail || 'AI Learner')
         }
       }
@@ -72,7 +72,7 @@ export default function ProfileEditor({ userId, defaultName, defaultAvatar, defa
     await saveProfile(tempName, avatarUrl)
   }
 
-  const saveProfile = async (name: string, avatar: string) => {
+  const saveProfile = async (name: string, avatar: string | null) => {
     setIsSaving(true)
     try {
       const res = await fetch('/api/profile', {
