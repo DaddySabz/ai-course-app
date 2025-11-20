@@ -352,7 +352,7 @@ export default function ProfileEditor({ userId, defaultName, defaultAvatar, defa
             onClick={() => setIsEditingEmail(true)}
             className="px-4 py-3 rounded-xl bg-white/50 text-text-primary font-semibold cursor-pointer hover:bg-white/70 transition-colors"
           >
-            {displayEmail}
+            {displayEmail || contactEmail || defaultEmail || 'No email set'}
           </div>
         )}
       </div>
