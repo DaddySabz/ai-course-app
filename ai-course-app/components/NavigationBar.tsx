@@ -2,10 +2,12 @@
 
 import { usePathname } from "next/navigation"
 import { useSession } from "next-auth/react"
+import { useState, useEffect } from "react"
 
 export default function NavigationBar() {
   const pathname = usePathname()
   const { data: session } = useSession()
+  const [profileAvatar, setProfileAvatar] = useState<string | null>(null)
 
   const navItems = [
     { name: "Dashboard", path: "/dashboard" },
@@ -13,6 +15,22 @@ export default function NavigationBar() {
     { name: "Certificate", path: "/certificate" },
     { name: "Profile", path: "/profile" },
   ]
+
+  // Fetch updated profile avatar
+  useEffect(() => {
+    if (session?.user) {
+      fetch('/api/profile')
+        .then(res => res.json())
+        .then(data => {
+          if (data.profile?.avatar_url) {
+            setProfileAvatar(data.profile.avatar_url)
+          } else if (data.defaultAvatar) {
+            setProfileAvatar(data.defaultAvatar)
+          }
+        })
+        .catch(err => console.error('Error fetching profile:', err))
+    }
+  }, [session])
 
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 card-neumorphic border-b border-text-tertiary/10">
@@ -46,9 +64,9 @@ export default function NavigationBar() {
                 href="/profile"
                 className="relative w-10 h-10 rounded-full overflow-hidden border-2 border-text-tertiary/20 hover:border-sage-green/50 transition-all cursor-pointer hover:scale-110"
               >
-                {session.user.image ? (
+                {(profileAvatar || session.user.image) ? (
                   <img
-                    src={session.user.image}
+                    src={profileAvatar || session.user.image || ''}
                     alt={session.user.name || "User"}
                     className="w-full h-full object-cover"
                   />
