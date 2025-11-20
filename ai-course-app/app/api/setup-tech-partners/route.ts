@@ -28,7 +28,10 @@ export async function POST(request: Request) {
     // Simple authentication - require a setup key
     const { setupKey } = await request.json()
     
-    if (setupKey !== process.env.SETUP_KEY) {
+    // Use env var or fallback to hardcoded key for setup
+    const validSetupKey = process.env.SETUP_KEY || 'ai-course-setup-2024'
+    
+    if (setupKey !== validSetupKey) {
       return NextResponse.json(
         { error: 'Unauthorized' },
         { status: 401 }
