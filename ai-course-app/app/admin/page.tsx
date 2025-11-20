@@ -14,6 +14,20 @@ export default function AdminPage() {
   const [adminPassword, setAdminPassword] = useState("")
   const [isAuthenticated, setIsAuthenticated] = useState(false)
   const [loading, setLoading] = useState(false)
+  const [mounted, setMounted] = useState(false)
+
+  // Ensure we're only rendering on client
+  useEffect(() => {
+    setMounted(true)
+  }, [])
+
+  if (!mounted) {
+    return (
+      <div className="min-h-screen bg-gradient-to-br from-peach via-cream to-sage-green flex items-center justify-center">
+        <div className="text-text-primary font-semibold">Loading...</div>
+      </div>
+    )
+  }
 
   // Admin emails (add your email here)
   const ADMIN_EMAILS = [
@@ -34,8 +48,8 @@ export default function AdminPage() {
     }
   }
 
-  // Redirect if not admin and not authenticated
-  if (session.status === 'loading') {
+  // Guard against SSR - session might be undefined
+  if (!session || session.status === 'loading') {
     return (
       <div className="min-h-screen bg-gradient-to-br from-peach via-cream to-sage-green flex items-center justify-center">
         <div className="text-text-primary font-semibold">Loading...</div>
@@ -84,8 +98,8 @@ export default function AdminPage() {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-peach via-cream to-sage-green p-8">
-      <div className="max-w-7xl mx-auto">
+    <div className="min-h-screen bg-gradient-to-br from-peach via-cream to-sage-green p-8" suppressHydrationWarning>
+      <div className="max-w-7xl mx-auto" suppressHydrationWarning>
         {/* Header */}
         <div className="card-neumorphic p-6 rounded-3xl mb-8">
           <h1 className="text-4xl font-black text-text-primary mb-2">Admin Dashboard</h1>
