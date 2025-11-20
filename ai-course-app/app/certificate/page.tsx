@@ -60,6 +60,17 @@ export default async function CertificatePage() {
 
     if (existingCert) {
       certificate = existingCert
+      
+      // Update certificate name if it's outdated (doesn't match current display_name)
+      if (existingCert.user_name !== displayName) {
+        await supabase
+          .from('certificates')
+          .update({ user_name: displayName })
+          .eq('user_id', session.user.id)
+        
+        // Update local certificate object
+        certificate.user_name = displayName
+      }
     } else {
       // Create new certificate with display name from profile
       const newCert = {
