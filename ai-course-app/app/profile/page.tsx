@@ -36,7 +36,6 @@ export default async function ProfilePage() {
           {/* Hero Section */}
           <div className="flex flex-col gap-3">
             <h1 className="text-5xl font-black tracking-tight text-text-primary">Profile Settings</h1>
-            <p className="text-text-secondary text-lg font-medium">Manage your account and preferences.</p>
           </div>
 
           {/* Single Unified Profile Tile */}

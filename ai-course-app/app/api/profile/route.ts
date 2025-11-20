@@ -28,7 +28,8 @@ export async function GET() {
     return NextResponse.json({ 
       profile: data || null,
       defaultName: session.user.name,
-      defaultAvatar: session.user.image
+      defaultAvatar: session.user.image,
+      defaultEmail: session.user.email
     })
   } catch (error) {
     console.error('Get profile error:', error)

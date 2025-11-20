@@ -16,10 +16,13 @@ export default function ProfileEditor({ userId, defaultName, defaultAvatar, defa
   const router = useRouter()
   const isTechPartner = partnerType === 'tech'
   const [displayName, setDisplayName] = useState(defaultName || defaultEmail?.split('@')[0] || 'AI Learner')
+  const [displayOrg, setDisplayOrg] = useState(organization || '')
   const [avatarUrl, setAvatarUrl] = useState<string | null>(defaultAvatar || null)
   const [isEditingName, setIsEditingName] = useState(false)
+  const [isEditingOrg, setIsEditingOrg] = useState(false)
   const [isSaving, setIsSaving] = useState(false)
   const [tempName, setTempName] = useState(displayName)
+  const [tempOrg, setTempOrg] = useState(displayOrg)
 
   // Fetch user profile on mount
   useEffect(() => {
@@ -32,9 +35,14 @@ export default function ProfileEditor({ userId, defaultName, defaultAvatar, defa
       if (res.ok) {
         const data = await res.json()
         if (data.profile) {
-          setDisplayName(data.profile.display_name || data.defaultName || data.defaultEmail || 'AI Learner')
+          const profileName = data.profile.display_name || data.profile.name || data.defaultName || data.defaultEmail?.split('@')[0] || 'AI Learner'
+          setDisplayName(profileName)
+          setTempName(profileName)
           setAvatarUrl(data.profile.avatar_url || data.defaultAvatar || null)
-          setTempName(data.profile.display_name || data.defaultName || data.defaultEmail || 'AI Learner')
+          if (data.profile.organization) {
+            setDisplayOrg(data.profile.organization)
+            setTempOrg(data.profile.organization)
+          }
         }
       }
     } catch (error) {
@@ -70,6 +78,16 @@ export default function ProfileEditor({ userId, defaultName, defaultAvatar, defa
     setDisplayName(tempName)
     setIsEditingName(false)
     await saveProfile(tempName, avatarUrl)
+  }
+
+  const handleOrgSave = async () => {
+    if (!tempOrg.trim()) {
+      alert('Organization cannot be empty')
+      return
+    }
+    setDisplayOrg(tempOrg)
+    setIsEditingOrg(false)
+    await saveProfile(displayName, avatarUrl)
   }
 
   const saveProfile = async (name: string, avatar: string | null) => {
@@ -193,14 +211,52 @@ export default function ProfileEditor({ userId, defaultName, defaultAvatar, defa
       </div>
 
       {/* Organization/Company Field */}
-      {organization && (
+      {displayOrg && (
         <div>
           <label className="text-xs font-bold text-text-secondary uppercase tracking-wider mb-2 block">
             Organization
           </label>
-          <div className="px-4 py-3 rounded-xl bg-white/50 text-text-primary font-semibold">
-            {organization}
-          </div>
+          {isEditingOrg ? (
+            <div className="flex items-center gap-2">
+              <input
+                type="text"
+                value={tempOrg}
+                onChange={(e) => setTempOrg(e.target.value)}
+                className="flex-1 px-4 py-3 rounded-xl bg-white/50 border-2 border-sage-green focus:outline-none text-text-primary font-semibold"
+                autoFocus
+                onKeyDown={(e) => {
+                  if (e.key === 'Enter') handleOrgSave()
+                  if (e.key === 'Escape') {
+                    setTempOrg(displayOrg)
+                    setIsEditingOrg(false)
+                  }
+                }}
+              />
+              <button
+                onClick={handleOrgSave}
+                disabled={isSaving}
+                className="px-4 py-3 bg-sage-green text-white rounded-xl font-bold hover:opacity-90"
+              >
+                Save
+              </button>
+              <button
+                onClick={() => {
+                  setTempOrg(displayOrg)
+                  setIsEditingOrg(false)
+                }}
+                className="px-4 py-3 bg-text-tertiary/20 text-text-secondary rounded-xl font-bold hover:opacity-90"
+              >
+                Cancel
+              </button>
+            </div>
+          ) : (
+            <div 
+              onClick={() => setIsEditingOrg(true)}
+              className="px-4 py-3 rounded-xl bg-white/50 text-text-primary font-semibold cursor-pointer hover:bg-white/70 transition-colors"
+            >
+              {displayOrg}
+            </div>
+          )}
         </div>
       )}
 
@@ -209,7 +265,7 @@ export default function ProfileEditor({ userId, defaultName, defaultAvatar, defa
         <label className="text-xs font-bold text-text-secondary uppercase tracking-wider mb-2 block">
           Email
         </label>
-        <div className="px-4 py-3 rounded-xl bg-white/30 text-text-secondary font-semibold">
+        <div className="px-4 py-3 rounded-xl bg-white/20 text-text-secondary">
           {defaultEmail}
         </div>
       </div>
@@ -219,10 +275,10 @@ export default function ProfileEditor({ userId, defaultName, defaultAvatar, defa
         <label className="text-xs font-bold text-text-secondary uppercase tracking-wider mb-2 block">
           Password
         </label>
-        <div className="px-4 py-3 rounded-xl bg-white/30 text-text-secondary font-semibold">
+        <div className="px-4 py-3 rounded-xl bg-white/20 text-text-secondary">
           ••••••••••
         </div>
-        <p className="text-xs text-text-secondary mt-1">
+        <p className="text-xs text-text-tertiary mt-1">
           Password management coming soon
         </p>
       </div>
@@ -232,7 +288,7 @@ export default function ProfileEditor({ userId, defaultName, defaultAvatar, defa
         <label className="text-xs font-bold text-text-secondary uppercase tracking-wider mb-2 block">
           Membership Type
         </label>
-        <div className="px-4 py-3 rounded-xl bg-white/30 text-text-secondary font-semibold">
+        <div className="px-4 py-3 rounded-xl bg-white/20 text-text-secondary">
           {membershipType}
         </div>
       </div>
