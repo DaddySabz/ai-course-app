@@ -29,7 +29,7 @@ export default function ProfileEditor({ userId, defaultName, defaultAvatar, defa
   const [isSaving, setIsSaving] = useState(false)
   const [tempName, setTempName] = useState(displayName)
   const [tempOrg, setTempOrg] = useState(displayOrg)
-  const [tempEmail, setTempEmail] = useState(defaultEmail || '')
+  const [tempEmail, setTempEmail] = useState('')
   const [currentPassword, setCurrentPassword] = useState('')
   const [newPassword, setNewPassword] = useState('')
   const [confirmPassword, setConfirmPassword] = useState('')
