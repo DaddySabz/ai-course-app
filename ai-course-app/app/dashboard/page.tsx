@@ -37,10 +37,10 @@ export default async function DashboardPage() {
   const isWaitrosePartner = partnerType === 'waitrose'
   const isTechPartner = partnerType === 'tech'
 
-  // If admin, show full progress (100% complete)
+  // If admin OR tech partner, show full progress (100% complete)
   // If table doesn't exist yet, default to empty (will be created when user completes first lesson)
-  const safeProgressData = isAdmin 
-    ? Array.from({ length: 30 }, (_, i) => ({ day_number: i + 1, completed_at: new Date().toISOString() })) // Admin sees all days complete
+  const safeProgressData = (isAdmin || isTechPartner)
+    ? Array.from({ length: 30 }, (_, i) => ({ day_number: i + 1, completed_at: new Date().toISOString() })) // Full access
     : (progressError ? [] : (progressData || []))
   const daysCompleted = safeProgressData.length
   const highestDay = daysCompleted > 0 ? Math.max(...(safeProgressData.map(p => p.day_number))) : 0

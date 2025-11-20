@@ -37,16 +37,25 @@ export default async function ModulePage({
     process.env.SUPABASE_SECRET_KEY!
   )
 
+  // Check if user is a tech partner (they also get full access)
+  const { data: profileData } = await supabase
+    .from('user_profiles')
+    .select('partner_type')
+    .eq('user_id', session.user.id)
+    .single()
+
+  const isTechPartner = profileData?.partner_type === 'tech'
+
   const { data: progress, error: progressError } = await supabase
     .from('user_progress')
     .select('day_number')
     .eq('user_id', session.user.id)
     .order('day_number')
 
-  // If admin, mark all days as completed (full access)
+  // If admin OR tech partner, mark all days as completed (full access)
   // If table doesn't exist yet, default to empty array (will be created when user completes first lesson)
-  const completedDays = isAdmin 
-    ? Array.from({ length: 30 }, (_, i) => i + 1) // Admin sees all days as completed
+  const completedDays = (isAdmin || isTechPartner)
+    ? Array.from({ length: 30 }, (_, i) => i + 1) // Full access
     : (progressError ? [] : (progress?.map(p => p.day_number) || []))
   const isCompleted = completedDays.includes(currentDay)
 
