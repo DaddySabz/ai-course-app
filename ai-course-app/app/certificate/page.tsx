@@ -107,24 +107,26 @@ export default async function CertificatePage() {
             <div className="absolute bottom-4 left-4 w-12 h-12 border-b-4 border-l-4 border-sage-green/40 rounded-bl-xl"></div>
             <div className="absolute bottom-4 right-4 w-12 h-12 border-b-4 border-r-4 border-sage-green/40 rounded-br-xl"></div>
             
-            {/* Profile Picture */}
-            <div className="flex justify-center mb-8">
-              <img 
-                src={session.user.image || "/placeholder-avatar.png"} 
-                alt="Profile" 
-                className="w-24 h-24 rounded-full ring-4 ring-sage-green/30 shadow-lg"
-              />
-            </div>
-
             {/* Title */}
             <div className="text-center mb-12">
               <h2 className="text-3xl sm:text-4xl font-black text-text-primary">Certificate of Completion</h2>
             </div>
 
-            {/* Name */}
+            {/* This certifies that + Profile Picture + Name */}
             <div className="text-center mb-12">
               <p className="text-xl text-text-secondary mb-6 font-semibold">This certifies that</p>
-              <h1 className="text-5xl sm:text-6xl md:text-7xl font-black tracking-tight text-text-primary">
+              
+              {/* Profile Picture */}
+              <div className="flex justify-center mb-6">
+                <img 
+                  src={session.user.image || "/placeholder-avatar.png"} 
+                  alt="Profile" 
+                  className="w-20 h-20 rounded-full ring-4 ring-sage-green/30 shadow-lg"
+                />
+              </div>
+
+              {/* Name */}
+              <h1 className="text-4xl sm:text-5xl font-black tracking-tight text-text-primary">
                 {certificate?.user_name || session.user.name}
               </h1>
             </div>
@@ -139,13 +141,6 @@ export default async function CertificatePage() {
               </h3>
               <p className="text-xl text-text-secondary font-medium">
                 course and demonstrated dedication and commitment to mastering AI fundamentals
-              </p>
-            </div>
-
-            {/* Stats - No boxes, just text */}
-            <div className="text-center mb-12">
-              <p className="text-lg text-text-secondary">
-                <span className="font-bold text-text-primary">{totalLessons} Lessons</span> • <span className="font-bold text-text-primary">100% Achievement</span>
               </p>
             </div>
 
