@@ -194,7 +194,7 @@ export default function LessonContent({ lesson, currentDay, userId, hasFullAcces
           </Link>
         )}
         
-        {currentDay < 30 && completedDays.includes(currentDay) && (
+        {currentDay < 30 && (hasFullAccess || completedDays.includes(currentDay)) && (
           <Link
             href={`/module?day=${currentDay + 1}`}
             className="btn-neumorphic ml-auto px-6 py-3 rounded-2xl font-semibold text-text-primary flex items-center gap-2"
