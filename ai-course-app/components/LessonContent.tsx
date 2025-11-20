@@ -8,9 +8,10 @@ interface LessonContentProps {
   lesson: any
   currentDay: number
   userId: string
+  hasFullAccess?: boolean
 }
 
-export default function LessonContent({ lesson, currentDay, userId }: LessonContentProps) {
+export default function LessonContent({ lesson, currentDay, userId, hasFullAccess = false }: LessonContentProps) {
   const router = useRouter()
   const [completedDays, setCompletedDays] = useState<number[]>([])
   const [isCompleted, setIsCompleted] = useState(false)
@@ -74,7 +75,8 @@ export default function LessonContent({ lesson, currentDay, userId }: LessonCont
     }
   }
 
-  const isLocked = currentDay > 1 && !completedDays.includes(currentDay - 1)
+  // Admins and tech partners have full access (never locked)
+  const isLocked = hasFullAccess ? false : (currentDay > 1 && !completedDays.includes(currentDay - 1))
 
   if (loading) {
     return (

@@ -160,6 +160,7 @@ export default async function ModulePage({
             lesson={lesson} 
             currentDay={currentDay}
             userId={session.user.id!}
+            hasFullAccess={isAdmin || isTechPartner}
           />
         </main>
       </div>
