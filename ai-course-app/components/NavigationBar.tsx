@@ -2,7 +2,6 @@
 
 import { usePathname } from "next/navigation"
 import { useSession } from "next-auth/react"
-import Image from "next/image"
 
 export default function NavigationBar() {
   const pathname = usePathname()
@@ -44,11 +43,10 @@ export default function NavigationBar() {
             {session?.user && (
               <div className="relative w-10 h-10 rounded-full overflow-hidden glass-mint border-2 border-text-tertiary/20">
                 {session.user.image ? (
-                  <Image
+                  <img
                     src={session.user.image}
                     alt={session.user.name || "User"}
-                    fill
-                    className="object-cover"
+                    className="w-full h-full object-cover"
                   />
                 ) : (
                   <div className="w-full h-full flex items-center justify-center bg-gradient-to-br from-sage-green/20 to-lavender/20">
