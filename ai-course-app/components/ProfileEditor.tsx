@@ -95,6 +95,8 @@ export default function ProfileEditor({ userId, defaultName, defaultAvatar, defa
     setDisplayName(tempName)
     setIsEditingName(false)
     await saveProfile(tempName, avatarUrl)
+    // Refresh to update nav bar and dashboard
+    router.refresh()
   }
 
   const handleOrgSave = async () => {
