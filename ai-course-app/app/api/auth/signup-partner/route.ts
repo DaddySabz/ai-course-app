@@ -50,6 +50,16 @@ export async function POST(request: NextRequest) {
       .eq('email', email)
       .single()
 
+    // For tech partners with valid codes, allow returning users
+    if (existingUser && partnerType === 'tech') {
+      // User exists and has valid code - they can proceed to login
+      return NextResponse.json({ 
+        success: true,
+        existing: true,
+        message: 'Welcome back! Please proceed to log in.'
+      })
+    }
+
     if (existingUser) {
       return NextResponse.json(
         { error: 'Email already registered' },

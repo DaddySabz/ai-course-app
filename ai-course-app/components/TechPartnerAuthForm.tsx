@@ -1,6 +1,7 @@
 "use client"
 
 import { useState } from "react"
+import { signIn } from "next-auth/react"
 
 // Predefined partner codes with organization names
 const PARTNER_CODES: Record<string, string> = {
@@ -69,13 +70,16 @@ export default function TechPartnerAuthForm() {
     }
 
     try {
+      // Use predictable password for tech partners so they can return
+      const techPassword = `tech-${code.toLowerCase()}-partner`
+      
       // Create tech partner account with instant access
       const signupRes = await fetch("/api/auth/signup-partner", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ 
           email, 
-          password: `tech-${code}-${Date.now()}`, // Auto-generated password
+          password: techPassword,
           name,
           partnerType: "tech",
           partnerCode: code,
@@ -85,8 +89,42 @@ export default function TechPartnerAuthForm() {
 
       const signupData = await signupRes.json()
 
+      // If user already exists (returning tech partner), just log them in
+      if (!signupRes.ok && signupData.existing) {
+        // Try to sign in with the tech partner password
+        const result = await signIn("credentials", {
+          email,
+          password: techPassword,
+          redirect: false
+        })
+
+        if (result?.error) {
+          // If login fails, show friendly message
+          setError("You already have access! Please use the regular email login or contact support.")
+          setLoading(false)
+          return
+        }
+
+        // Success! Redirect
+        window.location.href = "/dashboard"
+        return
+      }
+
       if (!signupRes.ok) {
         setError(signupData.error || "Sign up failed")
+        setLoading(false)
+        return
+      }
+
+      // New user - sign them in
+      const result = await signIn("credentials", {
+        email,
+        password: techPassword,
+        redirect: false
+      })
+
+      if (result?.error) {
+        setError("Account created but login failed. Please contact support.")
         setLoading(false)
         return
       }
