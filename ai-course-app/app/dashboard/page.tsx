@@ -29,13 +29,14 @@ export default async function DashboardPage() {
   // Fetch user profile to check partner status and get display name
   const { data: profileData } = await supabase
     .from('user_profiles')
-    .select('partner_type, partner_code, organization, display_name')
+    .select('partner_type, partner_code, organization, display_name, avatar_url')
     .eq('user_id', session.user.id)
     .single()
 
   const partnerType = profileData?.partner_type || null
   const organization = profileData?.organization || null
   const displayName = profileData?.display_name || session.user.name || session.user.email?.split('@')[0] || 'AI Learner'
+  const profileAvatar = profileData?.avatar_url || session.user.image || null
   const isWaitrosePartner = partnerType === 'waitrose'
   const isTechPartner = partnerType === 'tech'
 
@@ -240,9 +241,9 @@ export default async function DashboardPage() {
                 
                 {/* Profile Picture */}
                 <div className="relative mb-4">
-                  {session.user.image ? (
+                  {profileAvatar ? (
                     <img 
-                      src={session.user.image}
+                      src={profileAvatar}
                       alt="Profile" 
                       className="size-24 rounded-full border-4 border-white shadow-lg object-cover"
                     />
