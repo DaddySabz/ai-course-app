@@ -80,7 +80,7 @@ export default function LoginPage() {
                   <span className="text-text-tertiary">·</span>
                   <a className="font-semibold text-text-primary hover:text-sage-green transition-colors" href="/privacy">Privacy Policy</a>
                 </div>
-                <p className="text-text-tertiary mt-4">© 2026 Wacky Works Digital. All rights reserved.</p>
+                <p className="text-text-tertiary mt-4">© 2025 Wacky Works Digital. All rights reserved.</p>
               </div>
             </div>
           </div>
