@@ -26,15 +26,16 @@ export default async function DashboardPage() {
     .eq('user_id', session.user.id)
     .order('day_number', { ascending: true })
 
-  // Fetch user profile to check partner status
+  // Fetch user profile to check partner status and get display name
   const { data: profileData } = await supabase
     .from('user_profiles')
-    .select('partner_type, partner_code, organization')
+    .select('partner_type, partner_code, organization, display_name')
     .eq('user_id', session.user.id)
     .single()
 
   const partnerType = profileData?.partner_type || null
   const organization = profileData?.organization || null
+  const displayName = profileData?.display_name || session.user.name || session.user.email?.split('@')[0] || 'AI Learner'
   const isWaitrosePartner = partnerType === 'waitrose'
   const isTechPartner = partnerType === 'tech'
 
@@ -248,7 +249,7 @@ export default async function DashboardPage() {
                   ) : (
                     <div className="size-24 rounded-full border-4 border-white shadow-lg flex items-center justify-center bg-gradient-to-br from-sage-green/30 to-lavender/30">
                       <span className="text-4xl font-black text-text-primary">
-                        {(session.user.name || session.user.email)?.[0]?.toUpperCase() || 'U'}
+                        {(displayName || session.user.email)?.[0]?.toUpperCase() || 'U'}
                       </span>
                     </div>
                   )}
@@ -256,7 +257,7 @@ export default async function DashboardPage() {
 
                 {/* Name and Organization */}
                 <h4 className="text-2xl font-black text-text-primary mb-1">
-                  {session.user.name || session.user.email?.split('@')[0] || 'AI Learner'}
+                  {displayName}
                 </h4>
                 {organization && (
                   <p className="text-base font-normal text-text-secondary mb-4">
