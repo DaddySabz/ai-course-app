@@ -15,9 +15,12 @@ interface ProfileEditorProps {
 export default function ProfileEditor({ userId, defaultName, defaultAvatar, defaultEmail, partnerType, organization }: ProfileEditorProps) {
   const router = useRouter()
   const isTechPartner = partnerType === 'tech'
+  // For tech partners, organization is their username, defaultEmail is from session
+  // We need to fetch their actual contact email from the profile
   const [displayName, setDisplayName] = useState(defaultName || defaultEmail?.split('@')[0] || 'AI Learner')
   const [displayOrg, setDisplayOrg] = useState(organization || '')
-  const [displayEmail, setDisplayEmail] = useState(defaultEmail || '')
+  const [displayEmail, setDisplayEmail] = useState('')
+  const [contactEmail, setContactEmail] = useState('')
   const [avatarUrl, setAvatarUrl] = useState<string | null>(defaultAvatar || null)
   const [isEditingName, setIsEditingName] = useState(false)
   const [isEditingOrg, setIsEditingOrg] = useState(false)
@@ -50,6 +53,11 @@ export default function ProfileEditor({ userId, defaultName, defaultAvatar, defa
             setDisplayOrg(data.profile.organization)
             setTempOrg(data.profile.organization)
           }
+          // Set contact email (actual email) or fallback to default email
+          const actualEmail = data.profile.contact_email || data.defaultEmail
+          setContactEmail(actualEmail || '')
+          setDisplayEmail(actualEmail || '')
+          setTempEmail(actualEmail || '')
         }
       }
     } catch (error) {
@@ -73,6 +81,8 @@ export default function ProfileEditor({ userId, defaultName, defaultAvatar, defa
       const base64 = event.target?.result as string
       setAvatarUrl(base64)
       await saveProfile(displayName, base64)
+      // Refresh the page to update server-side components (nav bar, dashboard)
+      router.refresh()
     }
     reader.readAsDataURL(file)
   }

@@ -54,7 +54,7 @@ export default async function ProfilePage() {
           <div className="text-center">
             <a 
               href="/dashboard"
-              className="inline-flex items-center gap-2 text-text-secondary hover:text-text-primary font-semibold transition-colors"
+              className="btn-neumorphic inline-flex items-center justify-center gap-2 rounded-2xl px-6 py-3 text-base font-bold text-text-primary hover:scale-[1.02] transition-transform"
             >
               ← Back to Dashboard
             </a>
