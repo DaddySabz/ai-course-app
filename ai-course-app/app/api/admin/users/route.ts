@@ -1,13 +1,12 @@
 import { NextResponse } from 'next/server'
-import { getServerSession } from 'next-auth'
-import { authOptions } from '@/auth'
+import { auth } from '@/auth'
 import { createClient } from '@supabase/supabase-js'
 
 const ADMIN_EMAILS = ['wackyworksdigital@gmail.com', 'hello@wearewacky.com']
 
 export async function GET() {
   try {
-    const session = await getServerSession(authOptions)
+    const session = await auth()
     
     if (!session?.user?.email || !ADMIN_EMAILS.includes(session.user.email)) {
       return NextResponse.json({ error: 'Unauthorized' }, { status: 401 })
