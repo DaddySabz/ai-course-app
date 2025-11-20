@@ -2,6 +2,7 @@ import { auth, signOut } from "@/auth"
 import { redirect } from "next/navigation"
 import { createClient } from '@supabase/supabase-js'
 import ProfileEditor from '@/components/ProfileEditor'
+import NavigationBar from '@/components/NavigationBar'
 
 export default async function DashboardPage() {
   const session = await auth()
@@ -29,11 +30,12 @@ export default async function DashboardPage() {
   // Fetch user profile to check partner status
   const { data: profileData } = await supabase
     .from('user_profiles')
-    .select('partner_type, partner_code')
+    .select('partner_type, partner_code, organization')
     .eq('user_id', session.user.id)
     .single()
 
   const partnerType = profileData?.partner_type || null
+  const organization = profileData?.organization || null
   const isWaitrosePartner = partnerType === 'waitrose'
   const isTechPartner = partnerType === 'tech'
 
@@ -49,25 +51,8 @@ export default async function DashboardPage() {
   const progressPercent = Math.round((daysCompleted / totalDays) * 100)
 
   return (
-    <div className="min-h-screen">
-      {/* Header - Frosted Glass */}
-      <header className="glass sticky top-0 z-50">
-        <div className="max-w-7xl mx-auto px-4 md:px-10 py-4 flex items-center justify-between">
-          <div className="flex items-center gap-3">
-            <h2 className="text-xl font-bold text-text-primary">Introduction to AI</h2>
-          </div>
-          <div className="flex items-center gap-6">
-            <a href="/dashboard" className="text-sm font-semibold text-text-primary">Dashboard</a>
-            <a href="/module?day=1" className="text-sm font-semibold text-text-secondary hover:text-text-primary transition-colors">Course</a>
-            <a href="/certificate" className="text-sm font-semibold text-text-secondary hover:text-text-primary transition-colors">Certificate</a>
-            <img 
-              src={session.user.image || "/placeholder-avatar.png"} 
-              alt="User avatar" 
-              className="size-10 rounded-full ring-2 ring-white/50 shadow-md"
-            />
-          </div>
-        </div>
-      </header>
+    <div className="min-h-screen pt-20">
+      <NavigationBar />
 
       {/* Main Content */}
       <div className="max-w-7xl mx-auto px-4 md:px-10 py-10">
@@ -256,6 +241,8 @@ export default async function DashboardPage() {
                   defaultName={session.user.name}
                   defaultAvatar={session.user.image}
                   defaultEmail={session.user.email}
+                  partnerType={partnerType}
+                  organization={organization}
                 />
                 
                 <p className="text-xs text-text-secondary mb-4">

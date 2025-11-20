@@ -70,7 +70,8 @@ export default function PrivacyPage() {
 
               <h3 className="text-xl font-semibold mb-3 mt-4">4.3 Hosting</h3>
               <p className="text-text-secondary leading-relaxed">
-                Our Service is hosted at <strong>wearewacky.com</strong>. All data is transmitted securely over HTTPS.
+                Our Service is hosted on <strong>Vercel</strong>. Please review{' '}
+                <a href="https://vercel.com/legal/privacy-policy" target="_blank" rel="noopener noreferrer" className="text-text-primary font-bold underline hover:text-sage-green transition-colors">Vercel's Privacy Policy</a>.
               </p>
 
               <h3 className="text-xl font-semibold mb-3 mt-4">4.4 Affiliate Links</h3>

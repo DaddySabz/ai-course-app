@@ -4,6 +4,7 @@ import { redirect } from "next/navigation"
 import { createClient } from '@supabase/supabase-js'
 import Link from 'next/link'
 import CertificateActions from '@/components/CertificateActions'
+import NavigationBar from '@/components/NavigationBar'
 
 export default async function CertificatePage() {
   const session = await auth()
@@ -76,25 +77,8 @@ export default async function CertificatePage() {
   }
 
   return (
-    <div className="min-h-screen">
-      {/* Navigation Header - Frosted Glass */}
-      <header className="glass sticky top-0 z-50">
-        <div className="max-w-7xl mx-auto px-4 md:px-10 py-4 flex items-center justify-between">
-          <div className="flex items-center gap-3">
-            <h2 className="text-xl font-bold text-text-primary">Introduction to AI</h2>
-          </div>
-          <div className="flex items-center gap-6">
-            <a href="/dashboard" className="text-sm font-semibold text-text-secondary hover:text-text-primary transition-colors">Dashboard</a>
-            <a href="/module?day=1" className="text-sm font-semibold text-text-secondary hover:text-text-primary transition-colors">Course</a>
-            <a href="/certificate" className="text-sm font-semibold text-text-primary">Certificate</a>
-            <img 
-              src={session.user.image || "/placeholder-avatar.png"} 
-              alt="User avatar" 
-              className="size-10 rounded-full ring-2 ring-white/50 shadow-md"
-            />
-          </div>
-        </div>
-      </header>
+    <div className="min-h-screen pt-20">
+      <NavigationBar />
 
       <div className="flex flex-col items-center justify-center p-4 py-12">
       {hasCompleted ? (
