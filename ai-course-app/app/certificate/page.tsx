@@ -81,9 +81,6 @@ export default async function CertificatePage() {
       <header className="glass sticky top-0 z-50">
         <div className="max-w-7xl mx-auto px-4 md:px-10 py-4 flex items-center justify-between">
           <div className="flex items-center gap-3">
-            <div className="text-2xl font-bold text-text-primary">
-              📚
-            </div>
             <h2 className="text-xl font-bold text-text-primary">Introduction to AI</h2>
           </div>
           <div className="flex items-center gap-6">
@@ -102,64 +99,65 @@ export default async function CertificatePage() {
       <div className="flex flex-col items-center justify-center p-4 py-12">
       {hasCompleted ? (
         <div className="w-full max-w-5xl">
-          {/* Certificate Card - Warm Neumorphic Design */}
-          <div className="card-neumorphic rounded-3xl shadow-2xl p-8 sm:p-16">
+          {/* Certificate Card - Clean Design with Profile Picture */}
+          <div id="certificate-content" className="card-neumorphic rounded-3xl shadow-2xl p-8 sm:p-16 relative">
             {/* Decorative corners */}
             <div className="absolute top-4 left-4 w-12 h-12 border-t-4 border-l-4 border-sage-green/40 rounded-tl-xl"></div>
             <div className="absolute top-4 right-4 w-12 h-12 border-t-4 border-r-4 border-sage-green/40 rounded-tr-xl"></div>
             <div className="absolute bottom-4 left-4 w-12 h-12 border-b-4 border-l-4 border-sage-green/40 rounded-bl-xl"></div>
             <div className="absolute bottom-4 right-4 w-12 h-12 border-b-4 border-r-4 border-sage-green/40 rounded-br-xl"></div>
             
-            {/* Header Logo */}
+            {/* Profile Picture */}
             <div className="flex justify-center mb-8">
-              <div className="text-6xl">📚</div>
+              <img 
+                src={session.user.image || "/placeholder-avatar.png"} 
+                alt="Profile" 
+                className="w-24 h-24 rounded-full ring-4 ring-sage-green/30 shadow-lg"
+              />
             </div>
 
             {/* Title */}
-            <div className="text-center mb-10">
-              <h2 className="text-3xl sm:text-4xl font-black text-text-primary mb-4">Certificate of Completion</h2>
-              <div className="h-1.5 w-40 bg-gradient-to-r from-sage-green via-mint to-lavender mx-auto rounded-full"></div>
+            <div className="text-center mb-12">
+              <h2 className="text-3xl sm:text-4xl font-black text-text-primary">Certificate of Completion</h2>
             </div>
 
             {/* Name */}
-            <div className="text-center mb-10">
+            <div className="text-center mb-12">
               <p className="text-xl text-text-secondary mb-6 font-semibold">This certifies that</p>
-              <h1 className="text-5xl sm:text-6xl md:text-7xl font-black tracking-tight text-text-primary mb-2">
+              <h1 className="text-5xl sm:text-6xl md:text-7xl font-black tracking-tight text-text-primary">
                 {certificate?.user_name || session.user.name}
               </h1>
-              <div className="flex justify-center mt-4">
-                <div className="h-0.5 w-64 bg-gradient-to-r from-transparent via-sage-green to-transparent"></div>
-              </div>
             </div>
 
             {/* Description */}
-            <div className="text-center mb-10">
-              <p className="text-xl text-text-secondary mb-3 font-medium">has successfully completed the</p>
-              <h3 className="text-3xl sm:text-4xl font-black text-text-primary mb-6">30-Day AI Onboarding Course</h3>
-              <p className="text-lg text-text-secondary font-medium">Demonstrating dedication and commitment to mastering AI fundamentals</p>
+            <div className="text-center mb-12">
+              <p className="text-xl text-text-secondary mb-3 font-medium">
+                has successfully completed the
+              </p>
+              <h3 className="text-3xl sm:text-4xl font-black text-text-primary mb-4">
+                Introduction to AI
+              </h3>
+              <p className="text-xl text-text-secondary font-medium">
+                course and demonstrated dedication and commitment to mastering AI fundamentals
+              </p>
             </div>
 
-            {/* Badges */}
-            <div className="flex justify-center gap-6 mb-10">
-              <div className="glass-sage px-6 py-3 rounded-2xl">
-                <p className="text-xs text-text-secondary font-bold uppercase tracking-wider">Lessons</p>
-                <p className="text-2xl font-black text-text-primary">{totalLessons}</p>
-              </div>
-              <div className="glass-mint px-6 py-3 rounded-2xl">
-                <p className="text-xs text-text-secondary font-bold uppercase tracking-wider">Achievement</p>
-                <p className="text-2xl font-black text-text-primary">100%</p>
-              </div>
+            {/* Stats - No boxes, just text */}
+            <div className="text-center mb-12">
+              <p className="text-lg text-text-secondary">
+                <span className="font-bold text-text-primary">{totalLessons} Lessons</span> • <span className="font-bold text-text-primary">100% Achievement</span>
+              </p>
             </div>
 
             {/* Date and ID */}
             <div className="flex flex-col sm:flex-row justify-between items-center gap-6 pt-8 border-t-2 border-text-tertiary/20">
               <div className="text-center sm:text-left">
-                <p className="text-sm text-text-secondary font-bold uppercase tracking-wider mb-1">Completion Date</p>
-                <p className="text-lg font-black text-text-primary">{certificate?.completion_date ? new Date(certificate.completion_date).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' }) : ''}</p>
+                <p className="text-sm text-text-secondary font-semibold uppercase tracking-wider mb-1">Completion Date</p>
+                <p className="text-lg font-semibold text-text-primary">{certificate?.completion_date ? new Date(certificate.completion_date).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' }) : ''}</p>
               </div>
               <div className="text-center sm:text-right">
-                <p className="text-sm text-text-secondary font-bold uppercase tracking-wider mb-1">Certificate ID</p>
-                <p className="font-mono text-sm font-bold text-text-primary">{certificate?.id || 'Generating...'}</p>
+                <p className="text-sm text-text-secondary font-semibold uppercase tracking-wider mb-1">Certificate ID</p>
+                <p className="text-lg font-semibold text-text-primary">AI-{String(certificate?.id).slice(0, 8).toUpperCase() || 'XXXXXXXX'}</p>
               </div>
             </div>
           </div>
@@ -171,8 +169,7 @@ export default async function CertificatePage() {
         /* Not Completed Yet - Warm design */
         <div className="w-full max-w-2xl">
           <div className="card-neumorphic rounded-3xl p-10 text-center">
-            <div className="text-7xl mb-6">🎓</div>
-            <h1 className="text-4xl font-black text-text-primary mb-4">Certificate Not Available Yet</h1>
+            <h1 className="text-4xl font-black text-text-primary mb-6">Certificate Not Available Yet</h1>
             <p className="text-xl text-text-secondary mb-8 font-medium">
               You've completed <span className="font-black text-sage-green text-2xl">{completedLessons}</span> out of <span className="font-black text-2xl text-text-primary">{totalLessons}</span> lessons.
             </p>
