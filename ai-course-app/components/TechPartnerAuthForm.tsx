@@ -91,8 +91,7 @@ export default function TechPartnerAuthForm() {
         return
       }
 
-      // Success! Show success message and redirect
-      alert(`Welcome ${name}! You now have full FREE access to all course materials.`)
+      // Success! Redirect to dashboard
       window.location.href = "/dashboard"
     } catch (err) {
       setError("Something went wrong. Please try again.")
