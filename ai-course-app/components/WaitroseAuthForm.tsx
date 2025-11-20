@@ -5,6 +5,7 @@ import { signIn } from "next-auth/react"
 
 export default function WaitroseAuthForm() {
   const [isExpanded, setIsExpanded] = useState(false)
+  const [emailChecked, setEmailChecked] = useState(false)
   const [isNewUser, setIsNewUser] = useState(false)
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
@@ -117,122 +118,181 @@ export default function WaitroseAuthForm() {
     )
   }
 
+  const [emailChecked, setEmailChecked] = useState(false)
+
+  const handleCheckEmail = async () => {
+    if (!email || !email.includes("@")) {
+      setError("Please enter a valid email address")
+      return
+    }
+    
+    await checkEmailExists()
+    setEmailChecked(true)
+  }
+
   return (
     <div className="animate-slideDown">
-      <div className="glass-inset rounded-2xl p-6 mb-4">
-        {/* Warning Message */}
-        <div className="glass-peach p-4 rounded-xl mb-4">
-          <p className="text-sm font-semibold text-text-primary">
-            ⚠️ <strong>Important:</strong> Use your personal email address, not your Waitrose work email. 
-            Most Waitrose work emails cannot receive verification messages.
-          </p>
-        </div>
+      {/* Warning Message */}
+      <div className="glass-peach p-4 rounded-xl mb-4">
+        <p className="text-sm font-semibold text-text-primary">
+          ⚠️ <strong>Important:</strong> Use your personal email address, not your Waitrose work email. 
+          Most Waitrose work emails cannot receive verification messages.
+        </p>
+      </div>
 
-        <form onSubmit={handleSubmit} className="space-y-4">
-          {/* Email Field - Always show first */}
-          <div>
-            <label className="block text-sm font-semibold text-text-secondary mb-2">
-              Personal Email
-            </label>
-            <input
-              type="email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              onBlur={checkEmailExists}
-              disabled={loading || checkingEmail}
-              className="w-full px-4 py-3 rounded-xl glass-inset text-text-primary focus:outline-none focus:ring-2 focus:ring-sage-green"
-              placeholder="your.personal@email.com"
-              required
-            />
-            {checkingEmail && (
-              <p className="text-xs text-text-tertiary mt-1">Checking...</p>
+      <div className="glass-inset rounded-2xl p-6">
+        {!emailChecked ? (
+          /* Step 1: Email Entry */
+          <div className="space-y-4">
+            <div>
+              <label className="block text-sm font-semibold text-text-secondary mb-2">
+                Personal Email
+              </label>
+              <input
+                type="email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                disabled={checkingEmail}
+                className="w-full px-4 py-3 rounded-xl glass-inset text-text-primary focus:outline-none focus:ring-2 focus:ring-sage-green"
+                placeholder="your.personal@email.com"
+                onKeyDown={(e) => {
+                  if (e.key === 'Enter') {
+                    e.preventDefault()
+                    handleCheckEmail()
+                  }
+                }}
+              />
+              {checkingEmail && (
+                <p className="text-xs text-text-tertiary mt-1">Checking...</p>
+              )}
+            </div>
+
+            {error && !emailChecked && (
+              <div className="glass-peach p-3 rounded-xl">
+                <p className="text-sm font-semibold text-red-600">{error}</p>
+              </div>
             )}
-          </div>
 
-          {/* Name Field (only for new users) */}
-          {isNewUser && (
-            <div className="animate-slideDown">
+            <button
+              onClick={handleCheckEmail}
+              disabled={checkingEmail || !email.trim()}
+              className="btn-neumorphic w-full py-3 rounded-xl font-semibold disabled:opacity-50"
+            >
+              {checkingEmail ? "Checking..." : "Continue"}
+            </button>
+
+            <button
+              onClick={() => setIsExpanded(false)}
+              className="w-full text-sm text-text-tertiary hover:text-text-primary"
+            >
+              Cancel
+            </button>
+          </div>
+        ) : (
+          /* Step 2: Password/Signup Form */
+          <form onSubmit={handleSubmit} className="space-y-4 animate-slideDown">
+            {/* Show email (read-only) */}
+            <div>
               <label className="block text-sm font-semibold text-text-secondary mb-2">
-                Full Name
+                Personal Email
               </label>
               <input
-                type="text"
-                value={name}
-                onChange={(e) => setName(e.target.value)}
-                disabled={loading}
-                className="w-full px-4 py-3 rounded-xl glass-inset text-text-primary focus:outline-none focus:ring-2 focus:ring-sage-green"
-                placeholder="Your Name"
-                required
+                type="email"
+                value={email}
+                disabled
+                className="w-full px-4 py-3 rounded-xl glass-inset text-text-primary bg-white/50 cursor-not-allowed"
               />
             </div>
-          )}
 
-          {/* Password Field */}
-          <div>
-            <label className="block text-sm font-semibold text-text-secondary mb-2">
-              Password
-            </label>
-            <div className="relative">
-              <input
-                type={showPassword ? "text" : "password"}
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-                disabled={loading}
-                className="w-full px-4 py-3 rounded-xl glass-inset text-text-primary focus:outline-none focus:ring-2 focus:ring-sage-green"
-                placeholder="••••••••"
-                required
-              />
-              <button
-                type="button"
-                onClick={() => setShowPassword(!showPassword)}
-                className="absolute right-3 top-1/2 -translate-y-1/2 text-text-tertiary hover:text-text-primary"
-              >
-                {showPassword ? "Hide" : "Show"}
-              </button>
-            </div>
-          </div>
+            {/* Name Field (only for new users) */}
+            {isNewUser && (
+              <div className="animate-slideDown">
+                <label className="block text-sm font-semibold text-text-secondary mb-2">
+                  Full Name
+                </label>
+                <input
+                  type="text"
+                  value={name}
+                  onChange={(e) => setName(e.target.value)}
+                  disabled={loading}
+                  className="w-full px-4 py-3 rounded-xl glass-inset text-text-primary focus:outline-none focus:ring-2 focus:ring-sage-green"
+                  placeholder="Your Name"
+                  required
+                />
+              </div>
+            )}
 
-          {/* Confirm Password (only for new users) */}
-          {isNewUser && (
-            <div className="animate-slideDown">
+            {/* Password Field */}
+            <div>
               <label className="block text-sm font-semibold text-text-secondary mb-2">
-                Confirm Password
+                Password
               </label>
-              <input
-                type={showPassword ? "text" : "password"}
-                value={confirmPassword}
-                onChange={(e) => setConfirmPassword(e.target.value)}
-                disabled={loading}
-                className="w-full px-4 py-3 rounded-xl glass-inset text-text-primary focus:outline-none focus:ring-2 focus:ring-sage-green"
-                placeholder="••••••••"
-                required
-              />
+              <div className="relative">
+                <input
+                  type={showPassword ? "text" : "password"}
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
+                  disabled={loading}
+                  className="w-full px-4 py-3 rounded-xl glass-inset text-text-primary focus:outline-none focus:ring-2 focus:ring-sage-green"
+                  placeholder="••••••••"
+                  required
+                />
+                <button
+                  type="button"
+                  onClick={() => setShowPassword(!showPassword)}
+                  className="absolute right-3 top-1/2 -translate-y-1/2 text-text-tertiary hover:text-text-primary"
+                >
+                  {showPassword ? "Hide" : "Show"}
+                </button>
+              </div>
             </div>
-          )}
 
-          {/* Error Message */}
-          {error && (
-            <div className="glass-peach p-3 rounded-xl">
-              <p className="text-sm font-semibold text-red-600">{error}</p>
-            </div>
-          )}
+            {/* Confirm Password (only for new users) */}
+            {isNewUser && (
+              <div className="animate-slideDown">
+                <label className="block text-sm font-semibold text-text-secondary mb-2">
+                  Confirm Password
+                </label>
+                <input
+                  type={showPassword ? "text" : "password"}
+                  value={confirmPassword}
+                  onChange={(e) => setConfirmPassword(e.target.value)}
+                  disabled={loading}
+                  className="w-full px-4 py-3 rounded-xl glass-inset text-text-primary focus:outline-none focus:ring-2 focus:ring-sage-green"
+                  placeholder="••••••••"
+                  required
+                />
+              </div>
+            )}
 
-          {/* Submit Button */}
-          <button
-            type="submit"
-            disabled={loading || checkingEmail}
-            className="btn-neumorphic w-full py-3 rounded-xl font-semibold disabled:opacity-50"
-          >
-            {loading ? "Please wait..." : isNewUser ? "Create Account" : "Sign In"}
-          </button>
-        </form>
+            {/* Error Message */}
+            {error && emailChecked && (
+              <div className="glass-peach p-3 rounded-xl">
+                <p className="text-sm font-semibold text-red-600">{error}</p>
+              </div>
+            )}
 
-        <button
-          onClick={() => setIsExpanded(false)}
-          className="w-full mt-3 text-sm text-text-tertiary hover:text-text-primary"
-        >
-          Cancel
-        </button>
+            {/* Submit Button */}
+            <button
+              type="submit"
+              disabled={loading}
+              className="btn-neumorphic w-full py-3 rounded-xl font-semibold disabled:opacity-50"
+            >
+              {loading ? "Please wait..." : isNewUser ? "Create Account" : "Sign In"}
+            </button>
+
+            <button
+              type="button"
+              onClick={() => {
+                setEmailChecked(false)
+                setError("")
+              }}
+              className="w-full text-sm text-text-tertiary hover:text-text-primary"
+            >
+              Use different email
+            </button>
+          </form>
+        )}
       </div>
     </div>
   )
