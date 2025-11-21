@@ -397,3 +397,22 @@ body {
 .prose ul li {
   color: var(--color-text-secondary);
 }
+
+/* Inset Input Fields - Pressed in look for forms */
+.glass-inset {
+  background: linear-gradient(145deg, rgba(220, 210, 200, 0.3), rgba(255, 255, 255, 0.4));
+  box-shadow: 
+    inset 4px 4px 8px rgba(180, 160, 145, 0.2),
+    inset -4px -4px 8px rgba(255, 255, 255, 0.5);
+  border: 1px solid rgba(200, 190, 180, 0.2);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  transition: all 0.3s ease;
+}
+
+.glass-inset:focus {
+  box-shadow: 
+    inset 4px 4px 10px rgba(180, 160, 145, 0.25),
+    inset -4px -4px 10px rgba(255, 255, 255, 0.6),
+    0 0 0 2px rgba(184, 206, 184, 0.3);
+}

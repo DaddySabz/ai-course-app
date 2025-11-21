@@ -228,7 +228,7 @@ export default function ProfileEditor({ userId, defaultName, defaultAvatar, defa
               type="text"
               value={tempName}
               onChange={(e) => setTempName(e.target.value)}
-              className="w-full px-4 py-3 rounded-xl bg-white/50 border-2 border-sage-green focus:outline-none text-text-primary font-semibold"
+              className="w-full px-4 py-3 rounded-xl glass-inset text-text-primary font-semibold focus:outline-none"
               autoFocus
               onKeyDown={(e) => {
                 if (e.key === 'Enter') handleNameSave()
@@ -279,7 +279,7 @@ export default function ProfileEditor({ userId, defaultName, defaultAvatar, defa
                 type="text"
                 value={tempOrg}
                 onChange={(e) => setTempOrg(e.target.value)}
-                className="w-full px-4 py-3 rounded-xl bg-white/50 border-2 border-sage-green focus:outline-none text-text-primary font-semibold"
+                className="w-full px-4 py-3 rounded-xl glass-inset text-text-primary font-semibold focus:outline-none"
                 autoFocus
                 onKeyDown={(e) => {
                   if (e.key === 'Enter') handleOrgSave()
@@ -330,7 +330,7 @@ export default function ProfileEditor({ userId, defaultName, defaultAvatar, defa
               type="email"
               value={tempEmail}
               onChange={(e) => setTempEmail(e.target.value)}
-              className="w-full px-4 py-3 rounded-xl bg-white/50 border-2 border-sage-green focus:outline-none text-text-primary font-semibold"
+              className="w-full px-4 py-3 rounded-xl glass-inset text-text-primary font-semibold focus:outline-none"
               autoFocus
             />
             <div className="flex items-center gap-2">
@@ -377,7 +377,7 @@ export default function ProfileEditor({ userId, defaultName, defaultAvatar, defa
               placeholder="Current Password"
               value={currentPassword}
               onChange={(e) => setCurrentPassword(e.target.value)}
-              className="w-full px-4 py-3 rounded-xl bg-white/50 border-2 border-sage-green focus:outline-none text-text-primary font-semibold"
+              className="w-full px-4 py-3 rounded-xl glass-inset text-text-primary font-semibold focus:outline-none placeholder-text-tertiary"
               autoFocus
             />
             <input
@@ -385,14 +385,14 @@ export default function ProfileEditor({ userId, defaultName, defaultAvatar, defa
               placeholder="New Password"
               value={newPassword}
               onChange={(e) => setNewPassword(e.target.value)}
-              className="w-full px-4 py-3 rounded-xl bg-white/50 border-2 border-sage-green focus:outline-none text-text-primary font-semibold"
+              className="w-full px-4 py-3 rounded-xl glass-inset text-text-primary font-semibold focus:outline-none placeholder-text-tertiary"
             />
             <input
               type="password"
               placeholder="Confirm New Password"
               value={confirmPassword}
               onChange={(e) => setConfirmPassword(e.target.value)}
-              className="w-full px-4 py-3 rounded-xl bg-white/50 border-2 border-sage-green focus:outline-none text-text-primary font-semibold"
+              className="w-full px-4 py-3 rounded-xl glass-inset text-text-primary font-semibold focus:outline-none placeholder-text-tertiary"
             />
             <div className="flex items-center gap-2">
               <button

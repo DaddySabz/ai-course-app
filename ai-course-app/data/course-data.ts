@@ -1323,667 +1323,19 @@ Bonus: Try adding "--ar 16:9" to the end of your prompt to get a widescreen form
 2. Type: "Generate an image of a cozy reading nook with bookshelves, warm lighting, a comfy chair, and a rainy window view."
 3. Refine: "Make the chair darker brown and add a sleeping cat."
 4. Download and use as a blog header.`
-    }
-  },
-
-  // DAY 13: Suno
-  {
-    day: 13,
-    title: "The Composer",
-    subtitle: "Suno and AI-Generated Music",
-    content: `
-  <p>We've generated text and images. Now let's tackle <strong>sound</strong>.</p>
-
-  <p><strong>Suno</strong> creates full songs—vocals, instruments, melody, lyrics—in under 2 minutes. And I'm not talking about elevator music. I'm talking about tracks you could legitimately put on Spotify.</p>
-
-    <h3>The "Spotify for Creators" Moment</h3>
-
-      <p>Imagine you're making a YouTube video about productivity. You need background music. Your options used to be:</p>
-
-        <ol>
-        <li>Use the same royalty-free track everyone else uses (boring)</li>
-          <li>Pay a musician $500 for a custom track (expensive)</li>
-            <li>Risk copyright strikes with popular music (illegal)</li>
-              </ol>
-
-              <p>Suno is option #4: Generate a unique, royalty-free track in 90 seconds for free.</p>
-
-                <h3>Suno v5: "The World's Best Music Model"</h3>
-
-                  <p>In late 2025, Suno released v5, and it's genuinely jaw-dropping. Here's what changed:</p>
-
-                    <ul>
-                    <li><strong>8-Minute Tracks:</strong> Up from 4 minutes. You can now create full songs with intro, verses, chorus, bridge, outro.</li>
-                      <li><strong>Human-Like Vocals:</strong> The vocals are eerily realistic, especially in acoustic and indie folk genres. You'll forget it's AI.</li>
-                        <li><strong>1,200+ Genres:</strong> From lo-fi hip hop to death metal to Bollywood fusion. If it exists musically, Suno can generate it.</li>
-                          <li><strong>Genre Blending:</strong> Want classical piano meets trap beats? Done. Jazz saxophone over techno? Sure.</li>
-                            </ul>
-
-                            <h3>How It Actually Works</h3>
-
-                              <p>Suno needs two things from you:</p>
-
-                                <ul>
-                                <li><strong>Genre/Style:</strong> "80s synthwave," "acoustic folk," "epic cinematic orchestral"</li>
-                                  <li><strong>Lyrics (optional):</strong> Write your own or let Suno's AI generate them based on a theme</li>
-                                    </ul>
-
-                                    <p><strong>Example prompt:</strong> "Upbeat indie rock song about coffee addiction. Male vocals, energetic drums, catchy chorus."</p>
-
-                                      <p>90 seconds later, you get <em>two</em> complete song variations to choose from. Pick your favorite, or regenerate for more options.</p>
-
-                                        <h3>The "Sound-to-Song" Magic</h3>
-
-                                          <p>This is where it gets wild. Suno v5 has a feature where you can:</p>
-
-                                            <ol>
-                                            <li>Record yourself humming a melody (even badly)</li>
-                                              <li>Upload to Suno</li>
-                                                <li>Tell it "Make this into a full song, indie pop style"</li>
-                                                  </ol>
-
-                                                  <p>It will take your terrible humming and transform it into a professional-sounding track with instruments, drums, bass, and polished vocals.</p>
-
-                                                    <p>Songwriters have been using this to prototype ideas without needing a full studio session.</p>
-
-                                                      <h3>The "Add Vocals" Feature (Game Changer)</h3>
-
-                                                        <p>New in 2025: You can upload an instrumental track (even one you made, or one Suno generated) and ask Suno to add AI vocals to it.</p>
-
-                                                          <p>Conversely, record yourself singing, upload it, and say "add backing track in the style of 90s R&B." Suno will generate drums, bass, keys—everything except your voice.</p>
-
-                                                            <p>This is how solo creators are making full albums without ever hiring a band.</p>
-
-                                                              <h3>Copyright & Licensing (The Fine Print)</h3>
-
-                                                                <p>If you're on Suno's paid plan ($10/month), you get commercial rights. Use it in YouTube videos, podcasts, sell it on iTunes, whatever.</p>
-
-                                                                  <p><strong>Catch:</strong> The music isn't <em>exclusive</em>. Someone else could theoretically generate something similar (though unlikely with how varied the outputs are).</p>
-
-                                                                    <p>For truly unique compositions where you need to own 100% of the rights, hire a human composer. For everything else, Suno is unbeatable on cost and speed.</p>
-
-                                                                      <h3>The WavTool Acquisition</h3>
-
-                                                                        <p>In June 2025, Suno acquired WavTool, an AI-powered digital audio workstation (DAW). This means Suno is moving beyond just generation—they're building a full production suite.</p>
-
-                                                                          <p>Soon, you'll be able to generate a track in Suno, then edit it (adjust EQ, add effects, layer vocals) all in one platform. No more exporting to Logic Pro or Ableton.</p>
-
-                                                                            <h3>Real Use Cases</h3>
-
-                                                                              <ul>
-                                                                              <li><strong>YouTubers:</strong> Custom intros/outros that match your brand personality</li>
-                                                                                <li><strong>Podcasters:</strong> Unique theme music (no more generic stock tracks)</li>
-                                                                                  <li><strong>Indie Game Devs:</strong> Background music for levels without hiring a composer</li>
-                                                                                    <li><strong>Social Media Creators:</strong> TikTok/Reels tracks that stand out</li>
-                                                                                      <li><strong>Just for Fun:</strong> Making a song about your dog's obsession with squirrels (yes, people do this)</li>
-                                                                                        </ul>
-
-                                                                                        <h3>The "Extend" Feature</h3>
-
-                                                                                          <p>Songs default to 2 minutes. If you love one, click <strong>"Extend"</strong>. Suno will intelligently add a bridge, another verse, maybe a guitar solo, and stretch it to 4-8 minutes.</p>
-
-                                                                                            <p>It doesn't just loop—it actually composes new sections that fit the vibe.</p>
-
-                                                                                              <h3>Ethics: The Elephant in the Room</h3>
-
-                                                                                                <p>Suno was trained on existing music, which has sparked lawsuits from record labels. The legal status is murky as of 2025.</p>
-
-                                                                                                  <p><strong>How to use it ethically:</strong></p>
-
-                                                                                                    <ul>
-                                                                                                    <li>Don't try to replicate specific artists ("Make it sound like Taylor Swift")</li>
-                                                                                                      <li>Use it for background tracks, not as a replacement for hiring musicians on passion projects</li>
-                                                                                                        <li>Credit the tool when appropriate ("Music generated with Suno AI")</li>
-                                                                                                          </ul>
-
-                                                                                                          <h3>The Bottom Line</h3>
-
-                                                                                                            <p>Suno democratizes music production. You don't need to play an instrument, read sheet music, or even sing on-key.</p>
-
-                                                                                                              <p>Will it replace Beethoven? No. Will it replace "Royalty-Free Corporate Upbeat Track #47"? Absolutely.</p>
-
-                                                                                                                <p>And that's the point. Not perfection—<em>velocity</em>. Ship your video with custom music today, not next month after you find a composer.</p>
-                                                                                                                  `,
-    handsOn: {
-      title: "Your First Custom Song",
-      description: "2-minute track in 90 seconds.",
-      affiliateLinks: [
-        {
-          text: "Try Suno →",
-          url: "https://suno.ai"
-        }
-      ],
-      exercise: `1. Sign up for Suno (free tier available).
-2. Click "Create."
-3. Prompt: "Upbeat lo-fi hip hop instrumental, studying vibes, no lyrics."
-4. Listen to both versions.
-5. Download favorite. Use as video/presentation background.`
-    }
-  },
-
-  // DAY 14: ElevenLabs
-  {
-    day: 14,
-    title: "The Voice",
-    subtitle: "ElevenLabs and Voice Cloning",
-    content: `
-  <p>What if you could clone your voice and have it read anything? Or speak 29 languages fluently—even if you only know English?</p>
-
-  <p><strong>ElevenLabs</strong> does exactly that. Upload 1 minute of audio, and it creates a digital twin of your voice that's eerily indistinguishable from the real you.</p>
-
-    <h3>The Podcast Revolution</h3>
-
-      <p>Here's a real scenario: You record a 30-minute podcast episode. You export it, upload it, and then—<em>ugh</em>—you realize you mispronounced a guest's name. Five times.</p>
-
-        <p><strong>Old way:</strong> Re-record the entire segment, hope you match the energy, edit it back in (3 hours of work).</p>
-
-          <p><strong>ElevenLabs way:</strong> Type the correction. Generate it in your cloned voice. Splice it in. Done in 2 minutes.</p>
-
-            <p>This is the difference between "I'll fix it later" and "I'll fix it now."</p>
-
-              <h3>Text-to-Speech, But Actually Human</h3>
-
-                <p>Remember the old GPS voice? "Turn. Left. In. Five hundred. Feet." Robotic. Lifeless.</p>
-
-                  <p>ElevenLabs is the opposite. It captures:</p>
-
-                    <ul>
-                    <li><strong>Emotion:</strong> Happy, sad, excited, sarcastic—it adjusts tone naturally</li>
-                      <li><strong>Pacing:</strong> It knows when to pause for emphasis, when to speed up for excitement</li>
-                        <li><strong>Accent & Inflection:</strong> Your unique speech patterns, not a generic "AI voice"</li>
-                          <li><strong>Breathing:</strong> Yes, it even adds subtle breath sounds between sentences for realism</li>
-                            </ul>
-
-                            <p>The result? Listeners can't tell it's AI. That's both amazing and <em>slightly terrifying</em>.</p>
-
-                              <h3>The "Instant Voice Cloning"  Process (2025 Update)</h3>
-
-                                <p>In 2025, ElevenLabs made instant cloning even faster. Here's how it works now:</p>
-
-                                  <ol>
-                                  <li><strong>Record 1 minute of audio</strong> - Read a paragraph from a book, speak naturally</li>
-                                    <li><strong>Upload to Voice Lab</strong> - ElevenLabs analyzes pitch, tone, cadence, accent</li>
-                                      <li><strong>Get preview in 30 seconds</strong> (improved from 2 minutes in 2024)</li>
-                                        <li><strong>Test it</strong> - Type any sentence, hear it in "your" voice</li>
-                                          <li><strong>Refine if needed</strong> - Upload more samples to improve accuracy</li>
-                                            </ol>
-
-                                            <p>The quality? Shockingly good. Family members won't know the difference.</p>
-
-                                              <h3>The "Instant Dub" Game Changer</h3>
-
-                                                <p>This is where ElevenLabs becomes supernatural:</p>
-
-                                                  <p>You upload a video of yourself speaking English. You click "Dub." Select Spanish. Wait 2 minutes.</p>
-
-                                                    <p>The output? A video where YOU appear to be speaking fluent Spanish—with your voice,  your intonation, your emotion—perfectly lip-synced.</p>
-
-                                                      <p><strong>It supports 29 languages:</strong> Spanish, French, German, Mandarin, Japanese, Hindi, Arabic... even regional dialects.</p>
-
-                                                        <p><strong>Real-world use case:</strong> A YouTuber with 100K English subscribers wants to reach Spanish-speaking audiences. Instead of hiring a translator and voice actor, they run their videos through ElevenL abs. Instant global reach.</p>
-
-                                                          <h3>Audiobook Narration (The $5,000 Savings)</h3>
-
-                                                            <p>Professional audiobook narration costs $200-$300 <em>per finished hour</em>. A 50,000-word book = ~5 hours of audio = $1,000-$1,500.</p>
-
-                                                              <p>With ElevenLabs? Upload your manuscript. Generate the entire audiobook in your cloned voice. Cost? $10-$30.</p>
-
-                                                                <p><strong>Catch:</strong> You still need to edit out mistakes, add chapter markers, and ensure it doesn't sound flat. But the savings? Massive.</p>
-
-                                                                  <h3>The Voice Library</h3>
-
-                                                                    <p>ElevenLabs offers a library of pre-made voices: professional narrators, character voices, accents (British, Australian, Southern US, etc.).</p>
-
-                                                                      <p><strong>Perfect for:</strong></p>
-
-                                                                        <ul>
-                                                                        <li>YouTube explainer videos (use a "professional narrator" voice)</li>
-                                                                          <li>Fiction podcasts (different voices for different characters)</li>
-                                                                            <li>E-learning courses (warm, friendly "teacher" voice)</li>
-                                                                              </ul>
-
-                                                                              <p>You don't even need to clone your own voice if you just need <em>a</em> voice.</p>
-
-                                                                                <h3>Ethics & The Deepfake Problem</h3>
-
-                                                                                  <p>Voice cloning is powerful. It's also dangerous.</p>
-
-                                                                                    <p><strong>What could go wrong:</strong></p>
-
-                                                                                      <ul>
-                                                                                      <li><strong>Scams:</strong> "Hi Mom, it's me. I'm in trouble, I need $500 wired now." (Not actually your child)</li>
-                                                                                        <li><strong>Misinformation:</strong> Fake audio of politicians saying things they never said</li>
-                                                                                          <li><strong>Impers onation:</strong> Cloning celebrities or public figures without consent</li>
-                                                                                            </ul>
-
-                                                                                            <p><strong>Your ethical obligations:</strong></p>
-
-                                                                                              <ol>
-                                                                                              <li>Only clone YOUR voice (or get explicit written permission)</li>
-                                                                                                <li>Never impersonate public figures or commit fraud</li>
-                                                                                                  <li>Always disclose: "This content uses AI voice synthesis" or "Narrated with ElevenLabs"</li>
-                                                                                                    <li>If someone asks you to clone a voice for suspicious purposes, refuse</li>
-                                                                                                      </ol>
-
-                                                                                                      <p>ElevenLabs has safeguards (voice verification, abuse monitoring), but ultimate responsibility is on <em>you</em>.</p>
-
-                                                                                                        <h3>Commercial Use & Licensing</h3>
-
-                                                                                                          <p>On the paid tier ($11/month Creator plan or higher), you get full commercial rights. This means:</p>
-
-                                                                                                            <ul>
-                                                                                                            <li>YouTube monetization ✅</li>
-                                                                                                              <li>Client work (voiceovers for ads, explainers) ✅</li>
-                                                                                                                <li>Audiobook sales on Audible ✅</li>
-                                                                                                                  <li>Podcast sponsorships ✅</li>
-                                                                                                                    </ul>
-
-                                                                                                                    <p>Free tier? Personal use only. Can't monetize.</p>
-
-                                                                                                                      <h3>Comparison: ElevenLabs vs. Native TTS</h3>
-
-                                                                                                                        <p>Why not just use Mac's built-in "Siri" voice or Google's TTS?</p>
-
-                                                                                                                          <ul>
-                                                                                                                          <li><strong>Emotion:</strong> Native TTS is monotone. ElevenLabs adapts to context.</li>
-                                                                                                                            <li><strong>Customization:</strong> You can't clone your voice with Siri.</li>
-                                                                                                                              <li><strong>Quality:</strong> ElevenLabs sounds human. Native TTS sounds like a robot trying to pass a Turing test.</li>
-                                                                                                                                </ul>
-
-                                                                                                                                <p>The difference is night and day.</p>
-
-                                                                                                                                  <h3>The Bottom Line</h3>
-
-                                                                                                                                    <p>ElevenLabs isn't just a tool—it's a <strong>superpower</strong>. It lets you:</p>
-
-                                                                                                                                      <ul>
-                                                                                                                                      <li>Speak 29 languages you don't know</li>
-                                                                                                                                        <li>Narrate books without recording booths</li>
-                                                                                                                                          <li>Fix podcast mistakes in seconds</li>
-                                                                                                                                            <li>Scale video content globally</li>
-                                                                                                                                              </ul>
-
-                                                                                                                                              <p>Use it wisely. Disclose when appropriate. And never, ever use it to scam your grandma.</p>
-                                                                                                                                                `,
-    handsOn: {
-      title: "Clone Your Voice",
-      description: "Create a digital voice twin.",
-      affiliateLinks: [
-        {
-          text: "Try ElevenLabs →",
-          url: "https://elevenlabs.io"
-        }
-      ],
-      exercise: `1. Sign up for ElevenLabs.
-2. Record 1 minute of you reading (use a book paragraph).
-3. Upload to "Voice Lab" → "Instant Voice Cloning."
-4. Type a test sentence: "This is my AI voice reading custom text."
-5. Generate. Listen. Be amazed/terrified.`
-    }
-  },
-
-  // DAY 15: Runway
-  {
-    day: 15,
-    title: "The Director",
-    subtitle: "Runway and Text-to-Video",
-    content: `
-  <p>Images are powerful. Videos are <em>transformative</em>.</p>
-
-  <p><strong>Runway</strong> is the leading AI video generator. Type a description → get a 4-10 second video clip that looks like it came from a film set.</p>
-
-    <h3>The Video Revolution Nobody Expected</h3>
-
-      <p>In 2023, AI video was a meme—warped faces, melting hands, bizarre physics. By 2025? It's genuinely usable for professional work.</p>
-
-        <p>What changed? <strong>Gen-3 Alpha</strong>.</p>
-
-          <h3>Gen-3 Alpha: The 40% Leap</h3>
-
-            <p>Runway's Gen-3 Alpha model (released mid-2024, refined through 2025) represents a <strong>40% improvement in visual fidelity</strong> over Gen-2.</p>
-
-              <p>What does that mean in practice?</p>
-
-                <ul>
-                <li><strong>Near-Photorealistic Humans:</strong> Faces don't melt. Expressions are natural. You can generate a person walking, smiling, talking—and it looks <em>real</em>.</li>
-                  <li><strong>Consistent Motion:</strong> Objects move logically. A car drives forward, not sideways. Water flows like water, not jelly.</li>
-                    <li><strong>Natural Lighting:</strong> Shadows, reflections, and ambient light behave correctly. No more "AI uncanny valley" glow.</li>
-                      <li><strong>2x Speed:</strong> Generates clips twice as fast as Gen-2 while maintaining (or exceeding) quality.</li>
-                        </ul>
-
-                        <h3>Three Ways to Create</h3>
-
-                          <p><strong>1. Text-to-Video:</strong> Pure imagination to screen.</p>
-
-                            <p><em>Example prompt:</em> "A cat walking through a neon-lit Tokyo alley at night, rain falling softly, cinematic lighting, slow motion."</p>
-
-                              <p>Output: A 5-second clip that looks like a scene from Blade Runner.</p>
-
-                                <p><strong>2. Image-to-Video:</strong> Animate a still photo.</p>
-
-                                  <p>Upload a photo of your dog sitting. Runway makes it stand up, wag its tail, and walk toward the camera.</p>
-
-                                    <p><strong>3. Video-to-Video:</strong> Style transfer for existing footage.</p>
-
-                                      <p>Take a clip of yourself walking. Run it through Runway with "turn this into an anime style." Output: You, but drawn like a Studio Ghibli character.</p>
-
-                                        <h3>The "Motion Brush" Superpower</h3>
-
-                                          <p>This is where Runway becomes a director's tool:</p>
-
-                                            <ol>
-                                            <li>Upload a still image (e.g., a photo of an ocean)</li>
-                                              <li>Use the Motion Brush to "paint" where you want movement</li>
-                                                <li>Paint over the waves → they animate realistically</li>
-                                                  <li>Paint over clouds → they drift slowly</li>
-                                                    <li>Leave the horizon still → it stays static</li>
-                                                      </ol>
-
-                                                      <p>It's like Photoshop's healing brush, but for <em>motion</em>.</p>
-
-                                                        <p><strong>Pro use case:</strong> Photographers use this to turn portfolio images into animated pieces for Instagram Reels. Zero video skills required.</p>
-
-                                                          <h3>Advanced Camera Controls</h3>
-
-                                                            <p>Gen-3 Alpha lets you specify camera movement in your prompts:</p>
-
-                                                              <ul>
-                                                              <li>"Crane shot rising above a forest"</li>
-                                                                <li>"Dolly zoom on a person's face, Hitchcock style"</li>
-                                                                  <li>"Handheld shaky cam running through a hallway"</li>
-                                                                    <li>"Smooth tracking shot following a car"</li>
-                                                                      </ul>
-
-                                                                      <p>Filmmakers are using this to previsualize shots before they rent expensive equipment.</p>
-
-                                                                        <h3>Real-World Use Cases</h3>
-
-                                                                          <ul>
-                                                                          <li><strong>Social Media:</strong> TikTok/Instagram creators generate eye-catching B-roll in seconds instead of shooting for hours.</li>
-                                                                            <li><strong>Advertising:</strong> Product concept videos (show a phone in 10 different fantasy environments without a photoshoot).</li>
-                                                                              <li><strong>Storyboarding:</strong> Directors visualize scenes before filming. "What if we shot this at golden hour instead of midday?"</li>
-                                                                                <li><strong>Music Videos:</strong> Abstract, surreal visuals that would be impossible (or prohibitively expensive) to film practically.</li>
-                                                                                  <li><strong>Game Development:</strong> Quick concept trailers before the game exists.</li>
-                                                                                    </ul>
-
-                                                                                    <h3>The "Director Mode" Coming Soon</h3>
-
-                                                                                      <p>Runway is testing a feature where you can specify <em>every</em> element:</p>
-
-                                                                                        <ul>
-                                                                                        <li>Character A does X</li>
-                                                                                          <li>Camera moves this way</li>
-                                                                                            <li>Lighting looks like Y</li>
-                                                                                              <li>Duration: exactly 8 seconds</li>
-                                                                                                </ul>
-
-                                                                                                <p>This level of control would make it a legitimate filmmaking tool, not just a toy.</p>
-
-                                                                                                  <h3>Limitations (Let's Be Real)</h3>
-
-                                                                                                    <p>Gen-3 Alpha is incredible, but not perfect:</p>
-
-                                                                                                      <ul>
-                                                                                                      <li><strong>Length:</strong> Max 10 seconds per clip. Want 30 seconds? Generate 3 clips and stitch them (but transitions are tricky).</li>
-                                                                                                        <li><strong>"Dream Logic" Glitches:</strong> Sometimes objects morph or physics breaks mid-clip. Like a dream where stairs suddenly become a waterfall.</li>
-                                                                                                          <li><strong>Text in Video:</strong> Still can't reliably generate readable text/signs in scenes.</li>
-                                                                                                            <li><strong>Fine Details:</strong> Hands and fingers occasionally do weird things (though much better than Gen-2).</li>
-                                                                                                              <li><strong>Cost:</strong> Each 5-second clip costs credits. Heavy users can burn through $50/month easily.</li>
-                                                                                                                </ul>
-
-                                                                                                                <h3>Copyright & Ownership</h3>
-
-                                                                                                                  <p>On paid plans ($12-$76/month), you get commercial rights to generated videos.</p>
-
-                                                                                                                    <p><strong>Catch:</strong> Videos aren't exclusive. Someone else could theoretically generate something similar. For truly unique work, combine AI with custom footage.</p>
-
-                                                                                                                      <h3>The Film Industry Panic</h3>
-
-                                                                                                                        <p>Hollywood is <em>terrified</em>. AI video threatens:</p>
-
-                                                                                                                          <ul>
-                                                                                                                          <li>VFX artists (background plates, visual effects)</li>
-                                                                                                                            <li>Stock footage companies (why buy stock when you can generate?)</li>
-                                                                                                                              <li>B-roll videographers</li>
-                                                                                                                                </ul>
-
-                                                                                                                                <p><strong>My take:</strong> AI will replace commodity work (generic B-roll, simple ads). It won't replace high-end cinematography, at least not for 5-10 years.</p>
-
-                                                                                                                                  <p>Use Runway for mockups, concepts, and content creation. For client work with real stakes: combine AI + human expertise.</p>
-
-                                                                                                                                    <h3>The Future: Full AI Films?</h3>
-
-                                                                                                                                      <p>We're probably:</p>
-
-                                                                                                                                        <ul>
-                                                                                                                                        <li><strong>2-3 years away:</strong> Consistent 30-second clips with full narrative control</li>
-                                                                                                                                          <li><strong>5-7 years away:</strong> AI-generated short films (5-10 minutes)</li>
-                                                                                                                                            <li><strong>10+ years away:</strong> Feature-length AI movies that audiences can't distinguish from traditional films</li>
-                                                                                                                                              </ul>
-
-                                                                                                                                              <p><strong>Today's advantage:</strong> Learn these tools <em>now</em>. By the time AI video is mainstream, you'll have years of experience directing AI "actors" and "cameras."</p>
-
-                                                                                                                                                <h3>The Bottom Line</h3>
-
-                                                                                                                                                  <p>Runway isn't replacing Spielberg. But it <em>is</em> making video creation accessible to anyone with an idea and $12/month.</p>
-
-                                                                                                                                                    <p>Ten years ago, you needed a film crew. Today? You need a prompt.</p>
-
-                                                                                                                                                      <p>Tomorrow? You'll direct entire movies from your laptop. The future is wild.</p>
-                                                                                                                                                        `,
-    handsOn: {
-      title: "Your First AI Video",
-      description: "Generate a 4-second cinematic clip.",
-      affiliateLinks: [
-        {
-          text: "Try Runway →",
-          url: "https://runwayml.com"
-        }
-      ],
-      exercise: `1. Sign up for Runway (free credits available).
-2. Choose "Text to Video."
-3. Prompt: "A drone shot flying over a misty forest at sunrise, cinematic, slow motion, golden hour lighting."
-4. Generate. Wait 1-2 minutes.
-5. Download. Post to social media with #AIvideo tag.`
-    }
-  },
-
-  // DAY 16: HeyGen
-  {
-    day: 16,
-    title: "The Avatar",
-    subtitle: "HeyGen and AI Presenters",
-    content: `
-  <p>What if you could create a video presentation without being on camera?</p>
-
-  <p><strong>HeyGen</strong> generates AI avatars that speak your script with realistic lip-sync, gestures, and expressions.</p>
-
-    <h3>The "Digital Twin" Concept</h3>
-
-      <p>You can create an avatar that looks like you, or choose from HeyGen's library of professional presenters.</p>
-
-        <p>Use cases: Training videos, product demos, YouTube explainers—all without recording yourself.</p>
-
-          <h3>How It Works</h3>
-
-            <ol>
-            <li>Choose an avatar (or create your own)</li>
-              <li>Write or paste your script</li>
-                <li>Select voice and language</li>
-                  <li>Generate → 2-minute video in 5 minutes</li>
-                    </ol>
-
-                    <h3>The Multilingual Advantage</h3>
-
-                      <p>HeyGen avatars can speak 40+ languages. Record once in English, generate versions in Spanish, French, Mandarin.</p>
-
-                        <p>Perfect for global teams, e-learning, international marketing.</p>
-
-                          <h3>Ethics & Transparency</h3>
-
-                            <p>Always disclose AI-generated content. Viewers deserve to know.</p>
-
-                              <p>Don't impersonate real people without permission.</p>
-                                `,
-    handsOn: {
-      title: "Create Your First AI Presenter",
-      description: "Generate a 30-second video.",
-      affiliateLinks: [
-        {
-          text: "Try HeyGen →",
-          url: "https://www.heygen.com"
-        }
-      ],
-      exercise: `1. Sign up for HeyGen.
-2. Choose an avatar from the library.
-3. Write a 30-second script about your favorite hobby.
-4. Generate the video.
-5. Download and share (with "Created with HeyGen" disclosure).`
-    }
-  },
-
-  // DAY 17: Gamma
-  {
-    day: 17,
-    title: "The Presenter",
-    subtitle: "Gamma and AI-Powered Slides",
-    content: `
-  <p>PowerPoint is dead. Long live AI presentations.</p>
-
-  <p><strong>Gamma</strong> creates beautiful slide decks from a simple outline or prompt.</p>
-
-    <h3>The "One-Prompt Deck"</h3>
-
-      <p>Type: "Create a 10-slide pitch deck for a coffee subscription service targeting remote workers."</p>
-
-        <p>90 seconds later: fully designed deck with layout, imagery, and text.</p>
-
-          <h3>Why Gamma Wins Over PowerPoint</h3>
-
-            <ul>
-            <li><strong>Speed:</strong> 10x faster than manual design</li>
-              <li><strong>Design:</strong> Professional layouts automatically</li>
-                <li><strong>Collaboration:</strong> Web-based, shareable links</li>
-                  <li><strong>Responsive:</strong> Works on any device</li>
-                    </ul>
-
-                    <h3>The "Narrative Mode"</h3>
-
-                      <p>Unlike static slides, Gamma presentations can be scrollable web pages. More engaging storytelling format.</p>
-
-                        <h3>Best For</h3>
-
-                          <ul>
-                          <li>Startup pitch decks</li>
-                            <li>Team presentations</li>
-                              <li>Client proposals</li>
-                                <li>Educational content</li>
-                                  </ul>
-                                    `,
-    handsOn: {
-      title: "Generate a Pitch Deck in 60 Seconds",
-      description: "AI-powered slides.",
-      affiliateLinks: [
-        {
-          text: "Try Gamma →",
-          url: "https://gamma.app"
-        }
-      ],
-      exercise: `1. Sign up for Gamma.
-2. Click "Create with AI."
-3. Prompt: "Create a 5-slide presentation about the benefits of AI in education."
-4. Review generated deck.
-5. Export as PDF or share link.`
-    }
-  },
-
-  // DAY 18: Beautiful.ai
-  {
-    day: 18,
-    title: "The Designer",
-    subtitle: "Beautiful.ai and Smart Templates",
-    content: `
-  <p>If Gamma is the "quick draft," <strong>Beautiful.ai</strong> is the "polished final version."</p>
-
-    <h3>Intelligent Design Engine</h3>
-
-      <p>As you add content, Beautiful.ai automatically adjusts layouts, spacing, colors to maintain visual harmony.</p>
-
-        <p>No design skills needed. It's like having a designer watching over your shoulder.</p>
-
-          <h3>Team Collaboration Features</h3>
-
-            <p>Unlike Gamma (individual-focused), Beautiful.ai is built for teams:</p>
-            <ul>
-            <li>Brand kits (upload logos, colors, fonts)</li>
-              <li>Slide libraries (reuse approved content)</li>
-                <li>Real-time co-editing</li>
-                  </ul>
-
-                  <h3>When to Use What</h3>
-
-                    <ul>
-                    <li><strong>Gamma:</strong> Solo creators, quick drafts, web presentations</li>
-                      <li><strong>Beautiful.ai:</strong> Teams, client-facing decks, brand consistency</li>
-                        </ul>
-                          `,
-    handsOn: {
-      title: "Create a Brand-Aligned Deck",
-      description: "Professional presentation design.",
-      affiliateLinks: [
-        {
-          text: "Try Beautiful.ai →",
-          url: "https://www.beautiful.ai"
-        }
-      ],
-      exercise: `1. Sign up for Beautiful.ai.
-2. Create a new presentation.
-3. Add your company colors/logo (or use defaults).
-4. Create 3 slides about a product/service.
-5. Notice how design auto-adjusts as you add content.`
-    }
-  },
-
-  // DAY 19: Descript
-  {
-    day: 19,
-    title: "The Editor",
-    subtitle: "Descript and Text-Based Video Editing",
-    content: `
-  <p>Editing video is painful. Until now.</p>
-
-  <p><strong>Descript</strong> lets you edit video by editing text. Delete a word from the transcript → that word disappears from the video.</p>
-
-    <h3>The "Edit Video Like a Doc" Revolution</h3>
-
-      <p>Traditional editing: scrub timeline, find bad takes, cut manually.</p>
-
-        <p>Descript: read transcript, delete mistakes like typos. Done.</p>
-
-          <h3>Killer Features</h3>
-
-            <ul>
-            <li><strong>Overdub:</strong> Clone your voice, fix mistakes without re-recording</li>
-              <li><strong>Studio Sound:</strong> Remove background noise, enhance voice</li>
-                <li><strong>Filler Word Removal:</strong> Auto-delete all "um" and "uh"</li>
-                  <li><strong>Multi-track Audio:</strong> Edit podcast interviews easily</li>
-                    </ul>
-
-                    <h3>Perfect For</h3>
-
-                      <ul>
-                      <li>Podcasters</li>
-                        <li>YouTubers</li>
-                          <li>Online course creators</li>
-                            <li>Anyone who talks on camera</li>
-                              </ul>
-
-                              <h3>The Workflow Revolution</h3>
-
-                                <p>Record messy → Descript transcribes → Delete filler words → Export polished video.</p>
-
-                                  <p>What took 3 hours now takes 20 minutes.</p>
-                                    `,
+        < ul >
+        <li>Podcasters </li>
+        < li > YouTubers </li>
+        < li > Online course creators</ li >
+      <li>Anyone who talks on camera</ li >
+  </ul>
+
+  < h3 > The Workflow Revolution </h3>
+
+  < p > Record messy → Descript transcribes → Delete filler words → Export polished video.</p>
+
+  < p > What took 3 hours now takes 20 minutes.</p>
+    `,
     handsOn: {
       title: "Edit a Video by Editing Text",
       description: "The future of video editing.",
@@ -1993,11 +1345,11 @@ Bonus: Try adding "--ar 16:9" to the end of your prompt to get a widescreen form
           url: "https://www.descript.com"
         }
       ],
-      exercise: `1. Record a 1-minute video of yourself talking (use your phone).
+      exercise: `1. Record a 1 - minute video of yourself talking(use your phone).
 2. Upload to Descript.
 3. Let it transcribe.
 4. Find a mistake in the transcript and delete it.
-5. Watch the video update automatically. Magic.`
+5. Watch the video update automatically.Magic.`
     }
   },
 
@@ -2007,42 +1359,42 @@ Bonus: Try adding "--ar 16:9" to the end of your prompt to get a widescreen form
     title: "The Swiss Army Knife",
     subtitle: "Canva's AI Design Ecosystem",
     content: `
-  <p>We end Phase 2 with the tool you probably already know: <strong>Canva</strong>.</p>
+  < p > We end Phase 2 with the tool you probably already know: <strong>Canva < /strong>.</p >
 
-  <p>But you might not know about its AI superpowers.</p>
+    <p>But you might not know about its AI superpowers.</p>
 
-    <h3>Canva's AI Arsenal</h3>
+      < h3 > Canva's AI Arsenal</h3>
 
-      <ul>
-      <li><strong>Magic Write:</strong> Generate text for social posts, captions</li>
-        <li><strong>Magic Design:</strong> Upload content → auto-generate designs</li>
-          <li><strong>Magic Eraser:</strong> Remove objects from photos</li>
-            <li><strong>Background Remover:</strong> Instant cutouts</li>
-              <li><strong>Text to Image:</strong> Built-in image generation</li>
-                </ul>
+        < ul >
+        <li><strong>Magic Write: </strong> Generate text for social posts, captions</li >
+          <li><strong>Magic Design: </strong> Upload content → auto-generate designs</li >
+            <li><strong>Magic Eraser: </strong> Remove objects from photos</li >
+              <li><strong>Background Remover: </strong> Instant cutouts</li >
+                <li><strong>Text to Image: </strong> Built-in image generation</li >
+                  </ul>
 
-                <h3>The "Brand Kit" Integration</h3>
+                  < h3 > The "Brand Kit" Integration </h3>
 
-                  <p>Upload your logo, colors, fonts once. Every design auto-uses your brand.</p>
+                    < p > Upload your logo, colors, fonts once.Every design auto - uses your brand.</p>
 
-                    <h3>Why Canva Stays Relevant</h3>
+                      < h3 > Why Canva Stays Relevant </h3>
 
-                      <p>While specialized tools are better at specific tasks, Canva is the "do everything decently" platform.</p>
+                        < p > While specialized tools are better at specific tasks, Canva is the "do everything decently" platform.</p>
 
-                        <p>One subscription = presentations, social graphics, videos, websites, docs.</p>
+                          < p > One subscription = presentations, social graphics, videos, websites, docs.</p>
 
-                          <h3>The Team Workflow</h3>
+                            < h3 > The Team Workflow </h3>
 
-                            <p>Canva teams can create brand templates that non-designers can customize without breaking the design.</p>
+                              < p > Canva teams can create brand templates that non - designers can customize without breaking the design.</p>
 
-                              <p>Perfect for scaling content across marketing, sales, HR.</p>
+                                < p > Perfect for scaling content across marketing, sales, HR.</p>
 
-                                <h3>Phase 2 Complete!</h3>
+                                  < h3 > Phase 2 Complete! </h3>
 
-                                  <p>You've now mastered: Images (MJ, Gemini), Music (Suno), Voice (ElevenLabs), Video (Runway, HeyGen), Presentations (Gamma, Beautiful.ai), Editing (Descript), and Design (Canva).</p>
+                                    < p > You've now mastered: Images (MJ, Gemini), Music (Suno), Voice (ElevenLabs), Video (Runway, HeyGen), Presentations (Gamma, Beautiful.ai), Editing (Descript), and Design (Canva).</p>
 
-                                    <p><strong>Next:</strong> Phase 3 - Automation & Workflows (Days 21-30)</p>
-                                      `,
+                                      < p > <strong>Next: </strong> Phase 3 - Automation & Workflows (Days 21-30)</p >
+                                        `,
     handsOn: {
       title: "Create a Complete Social Media Kit",
       description: "One design, 5 formats.",
@@ -2057,7 +1409,7 @@ Bonus: Try adding "--ar 16:9" to the end of your prompt to get a widescreen form
 3. Use "Resize" to create: Instagram Story, Facebook post, LinkedIn banner, Pinterest pin.
 4. Download all 5 formats.
 
-Notice how one design became 5 platform-specific graphics in 2 minutes. This is the power of design automation.`
+Notice how one design became 5 platform - specific graphics in 2 minutes.This is the power of design automation.`
     }
   },
 
@@ -2067,32 +1419,32 @@ Notice how one design became 5 platform-specific graphics in 2 minutes. This is 
     title: "The Automator",
     subtitle: "Zapier and AI Workflows",
     content: `
-  <p>Welcome to Phase 3: Workflows & Integration.</p>
+  < p > Welcome to Phase 3: Workflows & Integration.</p>
 
-  <p><strong>Zapier</strong> connects your AI tools together. Think of it as the "nervous system" of your digital workspace.</p>
+    < p > <strong>Zapier < /strong> connects your AI tools together. Think of it as the "nervous system" of your digital workspace.</p >
 
-    <h3>What is a "Zap"?</h3>
+    <h3>What is a "Zap" ? </h3>
 
-      <p>A Zap is an automated workflow: "When X happens, do Y."</p>
+      < p > A Zap is an automated workflow: "When X happens, do Y." </p>
 
-        <p><strong>Example:</strong> When someone fills out a Google Form → Send data to ChatGPT → Generate personalized email → Send via Gmail.</p>
+        < p > <strong>Example: </strong> When someone fills out a Google Form → Send data to ChatGPT → Generate personalized email → Send via Gmail.</p >
 
-          <h3>AI-Powered Zaps</h3>
+          <h3>AI - Powered Zaps </h3>
 
-            <p>Zapier now integrates with ChatGPT, Claude, and other AI tools.</p>
+            < p > Zapier now integrates with ChatGPT, Claude, and other AI tools.</p>
 
-              <p><strong>Use case:</strong> Auto-summarize every new Slack message and save to Notion.</p>
+              < p > <strong>Use case: </strong> Auto-summarize every new Slack message and save to Notion.</p >
 
-                <h3>No-Code Automation</h3>
+                <h3>No - Code Automation </h3>
 
-                  <p>You don't need to be a programmer. Zapier is drag-and-drop building blocks.</p>
+                  < p > You don't need to be a programmer. Zapier is drag-and-drop building blocks.</p>
 
-                    <h3>Top Workflows</h3>
+                    < h3 > Top Workflows </h3>
 
-                      <ul>
-                      <li>Auto-respond to emails using AI</li>
-                        <li>Transcribe voice memos → Generate to-do lists</li>
-                          <li>Monitor competitors → Get AI summaries</li>
+                      < ul >
+                      <li>Auto - respond to emails using AI</li>
+                        < li > Transcribe voice memos → Generate to -do lists </li>
+                          < li > Monitor competitors → Get AI summaries </li>
                             </ul>
                               `,
     handsOn: {
@@ -2117,29 +1469,29 @@ Notice how one design became 5 platform-specific graphics in 2 minutes. This is 
     title: "The Coder",
     subtitle: "Cursor and AI-Powered Coding",
     content: `
-  <p>You don't need to be a developer to code anymore.</p>
+  < p > You don't need to be a developer to code anymore.</p>
 
-  <p><strong>Cursor</strong> is an AI-first code editor. You describe what you want in plain English, and it writes the code.</p>
+    < p > <strong>Cursor < /strong> is an AI-first code editor. You describe what you want in plain English, and it writes the code.</p >
 
-    <h3>The "Pair Programming" Experience</h3>
+    <h3>The "Pair Programming" Experience </h3>
 
-      <p>Cursor feels like coding with an expert sitting next to you.</p>
+      < p > Cursor feels like coding with an expert sitting next to you.</p>
 
-        <p>You type a comment: <code>// Create a button that changes color when clicked</code></p>
+        < p > You type a comment: <code>// Create a button that changes color when clicked</code></p>
 
           <p>Cursor generates the entire code block.</p>
 
-            <h3>Best For</h3>
+            < h3 > Best For </h3>
 
-              <ul>
-              <li>Non-coders building simple tools</li>
-                <li>Developers speeding up workflows</li>
-                  <li>Learning to code (it explains as it writes)</li>
+              < ul >
+              <li>Non - coders building simple tools </li>
+                < li > Developers speeding up workflows </li>
+                  < li > Learning to code(it explains as it writes) </li>
                     </ul>
 
-                    <h3>Beyond Autocomplete</h3>
+                    < h3 > Beyond Autocomplete </h3>
 
-                      <p>Cursor understands your entire codebase. Ask: "Add a dark mode to this app" → It edits multiple files automatically.</p>
+                      < p > Cursor understands your entire codebase.Ask: "Add a dark mode to this app" → It edits multiple files automatically.</p>
                         `,
     handsOn: {
       title: "Build a Simple Web App",
@@ -2150,11 +1502,11 @@ Notice how one design became 5 platform-specific graphics in 2 minutes. This is 
           url: "https://cursor.sh"
         }
       ],
-      exercise: `1. Download Cursor (free).
+      exercise: `1. Download Cursor(free).
 2. Create a new HTML file.
 3. Type: "Create a calculator that adds two numbers."
 4. Let Cursor generate the code.
-5. Open the file in a browser. You just built your first app.`
+5. Open the file in a browser.You just built your first app.`
     }
   },
 
@@ -2164,25 +1516,25 @@ Notice how one design became 5 platform-specific graphics in 2 minutes. This is 
     title: "The Builder",
     subtitle: "Replit and Instant App Deployment",
     content: `
-  <p><strong>Replit</strong> combines coding + AI + instant deployment.</p>
+  < p > <strong>Replit < /strong> combines coding + AI + instant deployment.</p >
 
-  <p>Build an app, deploy it to the web, all from your browser. No setup required.</p>
+  <p>Build an app, deploy it to the web, all from your browser.No setup required.</p>
 
-    <h3>The "Ghostwriter" AI</h3>
+    < h3 > The "Ghostwriter" AI </h3>
 
-      <p>Replit's AI (Ghostwriter) helps you code, debug, and explain complex logic.</p>
+      < p > Replit's AI (Ghostwriter) helps you code, debug, and explain complex logic.</p>
 
-        <h3>Perfect For</h3>
+        < h3 > Perfect For </h3>
 
-          <ul>
-          <li>Prototyping ideas fast</li>
-            <li>Learning by building</li>
-              <li>Sharing live demos with clients</li>
-                </ul>
+          < ul >
+          <li>Prototyping ideas fast </li>
+            < li > Learning by building </li>
+              < li > Sharing live demos with clients </li>
+              </ul>
 
-                <h3>From Idea to URL in Minutes</h3>
+              < h3 > From Idea to URL in Minutes </h3>
 
-                  <p>Just describe your app idea. Replit's AI generates it, and you get a shareable link instantly.</p>
+                < p > Just describe your app idea.Replit's AI generates it, and you get a shareable link instantly.</p>
                     `,
     handsOn: {
       title: "Deploy Your First Web App",
@@ -2207,22 +1559,22 @@ Notice how one design became 5 platform-specific graphics in 2 minutes. This is 
     title: "The Researcher",
     subtitle: "NotebookLM and AI-Powered Research",
     content: `
-  <p><strong>NotebookLM</strong> (by Google) is your personal research assistant.</p>
+  < p > <strong>NotebookLM < /strong> (by Google) is your personal research assistant.</p >
 
-  <p>Upload documents, and it generates summaries, timelines, FAQs, and even podcast-style audio discussions about your content.</p>
+  <p>Upload documents, and it generates summaries, timelines, FAQs, and even podcast - style audio discussions about your content.</p>
 
-    <h3>The "Audio Overview" Feature</h3>
+    < h3 > The "Audio Overview" Feature </h3>
 
-      <p>This is wild: Upload a research paper → NotebookLM generates a 10-minute podcast-style conversation between two AI hosts discussing the paper.</p>
+      < p > This is wild: Upload a research paper → NotebookLM generates a 10 - minute podcast - style conversation between two AI hosts discussing the paper.</p>
 
-        <p>Perfect for learning complex topics while commuting.</p>
+        < p > Perfect for learning complex topics while commuting.</p>
 
-          <h3>Best For</h3>
+          < h3 > Best For </h3>
 
-            <ul>
-            <li>Students researching essays</li>
-              <li>Professionals analyzing reports</li>
-                <li>Anyone drowning in PDFs</li>
+            < ul >
+            <li>Students researching essays </li>
+              < li > Professionals analyzing reports </li>
+                < li > Anyone drowning in PDFs </li>
                   </ul>
                     `,
     handsOn: {
@@ -2235,7 +1587,7 @@ Notice how one design became 5 platform-specific graphics in 2 minutes. This is 
         }
       ],
       exercise: `1. Open NotebookLM.
-2. Upload a PDF (research paper, article, or manual).
+2. Upload a PDF(research paper, article, or manual).
 3. Click "Generate Audio Overview."
 4. Listen to the AI hosts discuss your document.
 5. Mind = blown.`
@@ -2248,28 +1600,28 @@ Notice how one design became 5 platform-specific graphics in 2 minutes. This is 
     title: "The Scribe",
     subtitle: "Otter.ai and Meeting Intelligence",
     content: `
-  <p><strong>Otter.ai</strong> records, transcribes, and summarizes meetings automatically.</p>
+  < p > <strong>Otter.ai < /strong> records, transcribes, and summarizes meetings automatically.</p >
 
-    <h3>The End of Manual Notes</h3>
+  <h3>The End of Manual Notes </h3>
 
-      <p>Join a Zoom call → Otter listens → Generates transcript + summary + action items.</p>
+    < p > Join a Zoom call → Otter listens → Generates transcript + summary + action items.</p>
 
-        <p>Never miss a detail. Never scramble to remember who said what.</p>
+      < p > Never miss a detail.Never scramble to remember who said what.</p>
 
-          <h3>The "AI Chat" Feature</h3>
+        < h3 > The "AI Chat" Feature </h3>
 
-            <p>After a meeting, ask Otter: "What decisions were made?" or "List all action items for Sarah."</p>
+          < p > After a meeting, ask Otter: "What decisions were made?" or "List all action items for Sarah." </p>
 
-              <p>It answers based on the transcript.</p>
+            < p > It answers based on the transcript.</p>
 
-                <h3>Best For</h3>
+              < h3 > Best For </h3>
 
-                  <ul>
-                  <li>Remote teams</li>
-                    <li>Consultants</li>
-                      <li>Anyone in back-to-back meetings</li>
-                        </ul>
-                          `,
+                < ul >
+                <li>Remote teams </li>
+                  < li > Consultants </li>
+                  < li > Anyone in back - to - back meetings </li>
+                    </ul>
+                      `,
     handsOn: {
       title: "Record and Summarize a Meeting",
       description: "AI meeting notes.",
@@ -2280,7 +1632,7 @@ Notice how one design became 5 platform-specific graphics in 2 minutes. This is 
         }
       ],
       exercise: `1. Sign up for Otter.ai.
-2. Join a Zoom/Google Meet call and invite Otter.
+2. Join a Zoom / Google Meet call and invite Otter.
 3. After the meeting, review the transcript and AI summary.
 4. Ask Otter a question about the meeting content.`
     }
@@ -2292,22 +1644,22 @@ Notice how one design became 5 platform-specific graphics in 2 minutes. This is 
     title: "The Browser",
     subtitle: "Arc Search and AI-Powered Browsing",
     content: `
-  <p><strong>Arc Search</strong> isn't just a browser—it's an AI research partner.</p>
+  < p > <strong>Arc Search < /strong> isn't just a browser—it's an AI research partner.</p >
 
-    <h3>"Browse for Me"</h3>
+    <h3>"Browse for Me" </h3>
 
-      <p>Instead of clicking 10 links, Arc's AI visits them for you, reads them, and generates a single synthesized answer.</p>
+    < p > Instead of clicking 10 links, Arc's AI visits them for you, reads them, and generates a single synthesized answer.</p>
 
-        <p><strong>Example:</strong> Search "Best laptop for video editing 2025" → Arc reads reviews from 6 sites → Gives you a custom summary with pros/cons.</p>
+      < p > <strong>Example: </strong> Search "Best laptop for video editing 2025" → Arc reads reviews from 6 sites → Gives you a custom summary with pros/cons.</p>
 
-          <h3>The Future of Search</h3>
+        < h3 > The Future of Search </h3>
 
-            <p>This is what search will become: not a list of links, but instant answers with sources.</p>
+          < p > This is what search will become: not a list of links, but instant answers with sources.</p>
 
-              <h3>Privacy Note</h3>
+          < h3 > Privacy Note </h3>
 
-                <p>Arc is privacy-focused. No tracking, no ads.</p>
-                  `,
+            < p > Arc is privacy - focused.No tracking, no ads.</p>
+              `,
     handsOn: {
       title: "Let AI Browse for You",
       description: "Stop clicking. Start asking.",
@@ -2318,7 +1670,7 @@ Notice how one design became 5 platform-specific graphics in 2 minutes. This is 
         }
       ],
       exercise: `1. Download Arc browser.
-2. Use Arc Search (not Google).
+2. Use Arc Search(not Google).
 3. Search: "What are the best productivity tips for remote workers?"
 4. Watch Arc read multiple sources and synthesize an answer.`
     }
@@ -2330,21 +1682,21 @@ Notice how one design became 5 platform-specific graphics in 2 minutes. This is 
     title: "The Empath",
     subtitle: "Hume AI and Emotional Intelligence",
     content: `
-  <p><strong>Hume AI</strong> analyzes tone, emotion, and sentiment in voice and text.</p>
+  < p > <strong>Hume AI < /strong> analyzes tone, emotion, and sentiment in voice and text.</p >
 
-    <h3>Why Emotion Matters</h3>
+    <h3>Why Emotion Matters </h3>
 
-      <p>Most AI understands *what* you say. Hume understands *how* you feel when you say it.</p>
+      < p > Most AI understands * what * you say.Hume understands * how * you feel when you say it.</p>
 
-        <p>This unlocks new use cases: mental health screening, customer service quality, even dating app matching.</p>
+        < p > This unlocks new use cases: mental health screening, customer service quality, even dating app matching.</p>
 
-          <h3>The "Empathic Voice" API</h3>
+          < h3 > The "Empathic Voice" API </h3>
 
-            <p>Hume can detect if someone sounds stressed, happy, frustrated, or confused—and respond accordingly.</p>
+            < p > Hume can detect if someone sounds stressed, happy, frustrated, or confused—and respond accordingly.</p>
 
-              <h3>Ethical Considerations</h3>
+              < h3 > Ethical Considerations </h3>
 
-                <p>Emotion AI is powerful but controversial. Always get consent before analyzing someone's emotional state.</p>
+                < p > Emotion AI is powerful but controversial.Always get consent before analyzing someone's emotional state.</p>
                   `,
     handsOn: {
       title: "Analyze Your Emotional Tone",
@@ -2355,10 +1707,10 @@ Notice how one design became 5 platform-specific graphics in 2 minutes. This is 
           url: "https://hume.ai"
         }
       ],
-      exercise: `1. Record a 30-second voice memo about your day.
+      exercise: `1. Record a 30 - second voice memo about your day.
 2. Upload to Hume AI's demo tool.
-3. Review the emotional analysis (happiness, stress, energy levels).
-4. Reflect: Does it match how you felt?`
+3. Review the emotional analysis(happiness, stress, energy levels).
+4. Reflect: Does it match how you felt ? `
     }
   },
 
@@ -2368,23 +1720,23 @@ Notice how one design became 5 platform-specific graphics in 2 minutes. This is 
     title: "The Networker",
     subtitle: "AI for Career Growth",
     content: `
-  <p>AI is changing how we work. Let's talk about how AI changes how we *find* work.</p>
+  < p > AI is changing how we work.Let's talk about how AI changes how we *find* work.</p>
 
-    <h3>LinkedIn's AI Features</h3>
+    < h3 > LinkedIn's AI Features</h3>
 
-      <ul>
-      <li><strong>AI-Powered Job Matching:</strong> Get personalized job recommendations</li>
-        <li><strong>Resume Optimization:</strong> AI suggests improvements</li>
-          <li><strong>AI Job Applications:</strong> Auto-fill cover letters (with your input)</li>
+      < ul >
+      <li><strong>AI - Powered Job Matching: </strong> Get personalized job recommendations</li >
+        <li><strong>Resume Optimization: </strong> AI suggests improvements</li >
+          <li><strong>AI Job Applications: </strong> Auto-fill cover letters (with your input)</li >
             </ul>
 
-            <h3>Using ChatGPT for Career</h3>
+            < h3 > Using ChatGPT for Career </h3>
 
-              <p><strong>Template:</strong> "I'm a [role] with [X years] experience in [industry]. I want to transition into [new field]. Write me a LinkedIn headline."</p>
+              < p > <strong>Template: </strong> "I'm a [role] with [X years] experience in [industry]. I want to transition into [new field]. Write me a LinkedIn headline."</p >
 
-                <h3>The  "Portfolio Era"</h3>
+                <h3>The  "Portfolio Era" </h3>
 
-                  <p>In 2025, your portfolio matters more than your resume. Use AI to build projects fast, then showcase them.</p>
+                  < p > In 2025, your portfolio matters more than your resume.Use AI to build projects fast, then showcase them.</p>
                     `,
     handsOn: {
       title: "Optimize Your LinkedIn Profile",
@@ -2408,29 +1760,29 @@ Notice how one design became 5 platform-specific graphics in 2 minutes. This is 
     title: "The Guardian",
     subtitle: "AI, Security, and Privacy",
     content: `
-  <p>Before we finish, let's talk about staying safe.</p>
+  < p > Before we finish, let's talk about staying safe.</p>
 
-    <h3>The Golden Rules</h3>
+    < h3 > The Golden Rules </h3>
 
-      <ul>
-      <li><strong>Never upload sensitive data</strong> to free AI tools (passwords, SSNs, trade secrets)</li>
-        <li><strong>Assume everything is training data</strong> unless explicitly stated otherwise</li>
-          <li><strong>Use enterprise tiers</strong> for business-critical work</li>
-            <li><strong>Review AI outputs</strong> before sharing—hallucinations happen</li>
+      < ul >
+      <li><strong>Never upload sensitive data < /strong> to free AI tools (passwords, SSNs, trade secrets)</li >
+        <li><strong>Assume everything is training data < /strong> unless explicitly stated otherwise</li >
+          <li><strong>Use enterprise tiers < /strong> for business-critical work</li >
+            <li><strong>Review AI outputs < /strong> before sharing—hallucinations happen</li >
               </ul>
 
-              <h3>Deepfakes & Misinformation</h3>
+              < h3 > Deepfakes & Misinformation </h3>
 
-                <p>Voice cloning and video generation can be misused. Always disclose AI-generated content.</p>
+              < p > Voice cloning and video generation can be misused.Always disclose AI - generated content.</p>
 
-                  <h3>Data Privacy Tools</h3>
+                < h3 > Data Privacy Tools </h3>
 
-                    <ul>
-                    <li><strong>Local AI (Ollama):</strong> Run models offline</li>
-                      <li><strong>PrivateGPT:</strong> Chat with documents privately</li>
-                        <li><strong>DuckDuckGo AI Chat:</strong> Anonymous AI queries</li>
-                          </ul>
-                            `,
+                  < ul >
+                  <li><strong>Local AI(Ollama): </strong> Run models offline</li >
+                    <li><strong>PrivateGPT: </strong> Chat with documents privately</li >
+                      <li><strong>DuckDuckGo AI Chat: </strong> Anonymous AI queries</li >
+                        </ul>
+                          `,
     handsOn: {
       title: "Audit Your AI Footprint",
       description: "Check your privacy settings.",
@@ -2447,43 +1799,43 @@ Notice how one design became 5 platform-specific graphics in 2 minutes. This is 
     title: "The Horizon",
     subtitle: "What's Next in AI",
     content: `
-  <p>Congratulations. You've completed the 30-day challenge.</p>
+  < p > Congratulations.You've completed the 30-day challenge.</p>
 
-  <p>You're no longer a beginner. You're a practitioner.</p>
+    < p > You're no longer a beginner. You're a practitioner.</p>
 
-    <h3>What You've Mastered</h3>
+      < h3 > What You've Mastered</h3>
 
-      <ul>
-      <li><strong>Phase 1:</strong> The Tools (ChatGPT, Claude, Gemini, Perplexity, DeepSeek, Voice, PDFs, Jasper, Meta, Notion)</li>
-        <li><strong>Phase 2:</strong> The Media (Midjourney, Suno, ElevenLabs, Runway, HeyGen, Gamma, Beautiful.ai, Descript, Canva)</li>
-          <li><strong>Phase 3:</strong> The Workflows (Zapier, Cursor, Replit, NotebookLM, Otter, Arc, Hume, Career, Security)</li>
-            </ul>
+        < ul >
+        <li><strong>Phase 1: </strong> The Tools (ChatGPT, Claude, Gemini, Perplexity, DeepSeek, Voice, PDFs, Jasper, Meta, Notion)</li >
+          <li><strong>Phase 2: </strong> The Media (Midjourney, Suno, ElevenLabs, Runway, HeyGen, Gamma, Beautiful.ai, Descript, Canva)</li >
+            <li><strong>Phase 3: </strong> The Workflows (Zapier, Cursor, Replit, NotebookLM, Otter, Arc, Hume, Career, Security)</li >
+              </ul>
 
-            <h3>Where AI is Headed (2025-2030)</h3>
+              < h3 > Where AI is Headed(2025 - 2030) </h3>
 
-              <ul>
-              <li><strong>Agents:</strong> AI that takes actions for you (book flights, send emails, manage calendars)</li>
-                <li><strong>Multimodal Everything:</strong> One prompt → Text + Image + Video + Sound</li>
-                  <li><strong>Personalized Models:</strong> AI trained specifically on YOUR data</li>
-                    <li><strong>Real-Time Collaboration:</strong> AI teammates in Slack/Zoom</li>
-                      </ul>
+                < ul >
+                <li><strong>Agents: </strong> AI that takes actions for you (book flights, send emails, manage calendars)</li >
+                  <li><strong>Multimodal Everything: </strong> One prompt → Text + Image + Video + Sound</li >
+                    <li><strong>Personalized Models: </strong> AI trained specifically on YOUR data</li >
+                      <li><strong>Real - Time Collaboration: </strong> AI teammates in Slack/Zoom </li>
+                        </ul>
 
-                      <h3>Your Next Steps</h3>
+                        < h3 > Your Next Steps </h3>
 
-                        <ol>
-                        <li><strong>Build a Prompt Library</strong> in Notion</li>
-                          <li><strong>Create 1 project</strong> using AI (write, design, code—anything)</li>
-                            <li><strong>Teach someone else</strong> (best way to solidify knowledge)</li>
-                              </ol>
+                          < ol >
+                          <li><strong>Build a Prompt Library < /strong> in Notion</li >
+                            <li><strong>Create 1 project < /strong> using AI (write, design, code—anything)</li >
+                              <li><strong>Teach someone else </strong> (best way to solidify knowledge)</li >
+                                </ol>
 
-                              <h3>The Final Truth</h3>
+                                < h3 > The Final Truth </h3>
 
-                                <p>AI won't replace you. But someone using AI will.</p>
+                                  < p > AI won't replace you. But someone using AI will.</p>
 
-                                  <p>You're now that someone.</p>
+                                    < p > You're now that someone.</p>
 
-                                    <p>Go build the future.</p>
-                                      `,
+                                      < p > Go build the future.</p>
+                                        `,
     handsOn: {
       title: "Share Your Journey",
       description: "Document what you learned.",
@@ -2493,7 +1845,7 @@ Notice how one design became 5 platform-specific graphics in 2 minutes. This is 
 4. Post it.
 5. Tag #30DayAIChallenge
 
-Welcome to the other side. You made it. 🚀`
+Welcome to the other side.You made it. 🚀`
     }
   }
 ];
