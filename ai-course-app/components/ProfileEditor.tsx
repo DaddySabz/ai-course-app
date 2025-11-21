@@ -337,7 +337,7 @@ export default function ProfileEditor({ userId, defaultName, defaultAvatar, defa
               <button
                 onClick={handleEmailSave}
                 disabled={isSaving}
-                className="flex-1 px-4 py-2 bg-sage-green text-white rounded-xl font-bold hover:opacity-90 text-sm"
+                className="flex-1 px-4 py-3 glass-sage-clickable rounded-xl font-bold text-text-primary"
               >
                 Save
               </button>
@@ -346,7 +346,7 @@ export default function ProfileEditor({ userId, defaultName, defaultAvatar, defa
                   setTempEmail(displayEmail)
                   setIsEditingEmail(false)
                 }}
-                className="flex-1 px-4 py-2 bg-text-tertiary/20 text-text-secondary rounded-xl font-bold hover:opacity-90 text-sm"
+                className="flex-1 px-4 py-3 glass-clickable rounded-xl font-bold text-text-secondary"
               >
                 Cancel
               </button>
@@ -398,7 +398,7 @@ export default function ProfileEditor({ userId, defaultName, defaultAvatar, defa
               <button
                 onClick={handlePasswordSave}
                 disabled={isSaving}
-                className="flex-1 px-4 py-2 bg-sage-green text-white rounded-xl font-bold hover:opacity-90 text-sm"
+                className="flex-1 px-4 py-3 glass-sage-clickable rounded-xl font-bold text-text-primary"
               >
                 Save
               </button>
@@ -409,7 +409,7 @@ export default function ProfileEditor({ userId, defaultName, defaultAvatar, defa
                   setConfirmPassword('')
                   setIsEditingPassword(false)
                 }}
-                className="flex-1 px-4 py-2 bg-text-tertiary/20 text-text-secondary rounded-xl font-bold hover:opacity-90 text-sm"
+                className="flex-1 px-4 py-3 glass-clickable rounded-xl font-bold text-text-secondary"
               >
                 Cancel
               </button>
