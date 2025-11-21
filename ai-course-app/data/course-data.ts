@@ -1308,123 +1308,133 @@ Bonus: Try adding "--ar 16:9" to the end of your prompt to get a widescreen form
 
                                                                                                       <p>Gemini Imagen won't replace professional illustrators. But it <em>will</em> replace that awkward stock photo you were about to use.</p>
 
-                                                                                                        <p>It's not about perfection. It's about <strong>velocity</strong>. And in the age of content overload, shipping beats perfection every time.</p>
-                                                                                                          `,
-    handsOn: {
-      title: "The Blog Header Generator",
-      description: "Create a custom image in 30 seconds.",
-      affiliateLinks: [
-        {
-          text: "Use Gemini →",
-          url: "https://gemini.google.com"
-        }
-    day: 20,
-        title: "The Swiss Army Knife",
-        subtitle: "Canva's AI Design Ecosystem",
-        content: `
-  <p>We end Phase 2 with the tool you probably already know: <strong>Canva</strong>.</p>
+                                                                                                      <p>It's not about perfection. It's about <strong>velocity</strong>. And in the age of content overload, shipping beats perfection every time.</p>
+                                                                                                        `,
+  handsOn: {
+    title: "The Blog Header Generator",
+    description: "Create a custom image in 30 seconds.",
+    affiliateLinks: [
+      {
+        text: "Use Gemini →",
+        url: "https://gemini.google.com"
+      }
+    ],
+    exercise: `1. Open Gemini (gemini.google.com).
+2. Type: "Generate a professional blog header image: [your topic], modern, clean, no text"
+3. Pick your favorite from the 4 options.
+4. Download and use it.`
+  }
+},
 
-    <p>But you might not know about its AI superpowers.</p>
+// DAY 20: Canva
+{
+  day: 20,
+  title: "The Swiss Army Knife",
+  subtitle: "Canva's AI Design Ecosystem",
+  content: `
+<p>We end Phase 2 with the tool you probably already know: <strong>Canva</strong>.</p>
 
-      <h3>Canva's AI Arsenal</h3>
+<p>But you might not know about its AI superpowers.</p>
 
-        <ul>
-        <li><strong>Magic Write:</strong> Generate text for social posts, captions</li>
-          <li><strong>Magic Design:</strong> Upload content → auto-generate designs</li>
-            <li><strong>Magic Eraser:</strong> Remove objects from photos</li>
-              <li><strong>Background Remover: </strong> Instant cutouts</li >
-                <li><strong>Text to Image: </strong> Built-in image generation</li >
-                  </ul>
+<h3>Canva's AI Arsenal</h3>
 
-                  < h3 > The "Brand Kit" Integration </h3>
+<ul>
+<li><strong>Magic Write:</strong> Generate text for social posts, captions</li>
+<li><strong>Magic Design:</strong> Upload content → auto-generate designs</li>
+<li><strong>Magic Eraser:</strong> Remove objects from photos</li>
+<li><strong>Background Remover:</strong> Instant cutouts</li>
+<li><strong>Text to Image:</strong> Built-in image generation</li>
+</ul>
 
-                    < p > Upload your logo, colors, fonts once.Every design auto - uses your brand.</p>
+<h3>The "Brand Kit" Integration</h3>
 
-                      < h3 > Why Canva Stays Relevant </h3>
+<p>Upload your logo, colors, fonts once. Every design auto-uses your brand.</p>
 
-                        < p > While specialized tools are better at specific tasks, Canva is the "do everything decently" platform.</p>
+<h3>Why Canva Stays Relevant</h3>
 
-                          < p > One subscription = presentations, social graphics, videos, websites, docs.</p>
+<p>While specialized tools are better at specific tasks, Canva is the "do everything decently" platform.</p>
 
-                            < h3 > The Team Workflow </h3>
+<p>One subscription = presentations, social graphics, videos, websites, docs.</p>
 
-                              < p > Canva teams can create brand templates that non - designers can customize without breaking the design.</p>
+<h3>The Team Workflow</h3>
 
-                                < p > Perfect for scaling content across marketing, sales, HR.</p>
+<p>Canva teams can create brand templates that non-designers can customize without breaking the design.</p>
 
-                                  < h3 > Phase 2 Complete! </h3>
+<p>Perfect for scaling content across marketing, sales, HR.</p>
 
-                                    < p > You've now mastered: Images (MJ, Gemini), Music (Suno), Voice (ElevenLabs), Video (Runway, HeyGen), Presentations (Gamma, Beautiful.ai), Editing (Descript), and Design (Canva).</p>
+<h3>Phase 2 Complete!</h3>
 
-                                      < p > <strong>Next: </strong> Phase 3 - Automation & Workflows (Days 21-30)</p >
-                                        `,
-        handsOn: {
-          title: "Create a Complete Social Media Kit",
-          description: "One design, 5 formats.",
-          affiliateLinks: [
-            {
-              text: "Try Canva →",
-              url: "https://www.canva.com"
-            }
-          ],
-          exercise: `1. Open Canva.
+<p>You've now mastered: Images (MJ, Gemini), Music (Suno), Voice (ElevenLabs), Video (Runway, HeyGen), Presentations (Gamma, Beautiful.ai), Editing (Descript), and Design (Canva).</p>
+
+<p><strong>Next:</strong> Phase 3 - Automation & Workflows (Days 21-30)</p>
+`,
+  handsOn: {
+    title: "Create a Complete Social Media Kit",
+    description: "One design, 5 formats.",
+    affiliateLinks: [
+      {
+        text: "Try Canva →",
+        url: "https://www.canva.com"
+      }
+    ],
+    exercise: `1. Open Canva.
 2. Use "Magic Design" to create an Instagram post.
 3. Use "Resize" to create: Instagram Story, Facebook post, LinkedIn banner, Pinterest pin.
 4. Download all 5 formats.
 
-Notice how one design became 5 platform - specific graphics in 2 minutes.This is the power of design automation.`
-        }
-  },
+Notice how one design became 5 platform-specific graphics in 2 minutes. This is the power of design automation.`
+  }
+},
 
-  // DAY 21: Zapier
-  {
-    day: 21,
-    title: "The Automator",
-    subtitle: "Zapier and AI Workflows",
-    content: `
-  < p > Welcome to Phase 3: Workflows & Integration.</p>
+// DAY 21: Zapier
+{
+  day: 21,
+  title: "The Automator",
+  subtitle: "Zapier and AI Workflows",
+  content: `
+<p>Welcome to Phase 3: Workflows & Integration.</p>
 
-    < p > <strong>Zapier < /strong> connects your AI tools together. Think of it as the "nervous system" of your digital workspace.</p >
+<p><strong>Zapier</strong> connects your AI tools together. Think of it as the "nervous system" of your digital workspace.</p>
 
-    <h3>What is a "Zap" ? </h3>
+<h3>What is a "Zap"?</h3>
 
-      < p > A Zap is an automated workflow: "When X happens, do Y." </p>
+<p>A Zap is an automated workflow: "When X happens, do Y."</p>
 
-        < p > <strong>Example: </strong> When someone fills out a Google Form → Send data to ChatGPT → Generate personalized email → Send via Gmail.</p >
+<p><strong>Example:</strong> When someone fills out a Google Form → Send data to ChatGPT → Generate personalized email → Send via Gmail.</p>
 
-          <h3>AI - Powered Zaps </h3>
+<h3>AI-Powered Zaps</h3>
 
-            < p > Zapier now integrates with ChatGPT, Claude, and other AI tools.</p>
+<p>Zapier now integrates with ChatGPT, Claude, and other AI tools.</p>
 
-              < p > <strong>Use case: </strong> Auto-summarize every new Slack message and save to Notion.</p >
+<p><strong>Use case:</strong> Auto-summarize every new Slack message and save to Notion.</p>
 
-                <h3>No - Code Automation </h3>
+<h3>No-Code Automation</h3>
 
-                  < p > You don't need to be a programmer. Zapier is drag-and-drop building blocks.</p>
+<p>You don't need to be a programmer. Zapier is drag-and-drop building blocks.</p>
 
-                    < h3 > Top Workflows </h3>
+<h3>Top Workflows</h3>
 
-                      < ul >
-                      <li>Auto - respond to emails using AI</li>
-                        < li > Transcribe voice memos → Generate to -do lists </li>
-                          < li > Monitor competitors → Get AI summaries </li>
-                            </ul>
-                              `,
-    handsOn: {
-      title: "Build Your First AI Workflow",
-      description: "Automate a repetitive task.",
-      affiliateLinks: [
-        {
-          text: "Try Zapier →",
-          url: "https://zapier.com"
-        }
-      ],
-      exercise: `1. Sign up for Zapier.
+<ul>
+<li>Auto-respond to emails using AI</li>
+<li>Transcribe voice memos → Generate to-do lists</li>
+<li>Monitor competitors → Get AI summaries</li>
+</ul>
+`,
+  handsOn: {
+    title: "Build Your First AI Workflow",
+    description: "Automate a repetitive task.",
+    affiliateLinks: [
+      {
+        text: "Try Zapier →",
+        url: "https://zapier.com"
+      }
+    ],
+    exercise: `1. Sign up for Zapier.
 2. Create a Zap: "When I star an email in Gmail → Send subject line to ChatGPT → Generate 3-sentence summary → Save to Google Doc."
 3. Test it by starring an email.
 4. Check your Google Doc for the AI summary.`
-    }
-  },
+  }
+},
 
   // DAY 22: Cursor
   {
