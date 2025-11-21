@@ -242,7 +242,7 @@ export default function ProfileEditor({ userId, defaultName, defaultAvatar, defa
               <button
                 onClick={handleNameSave}
                 disabled={isSaving}
-                className="flex-1 px-4 py-3 bg-sage-green text-white rounded-xl font-bold hover:opacity-90"
+                className="flex-1 px-4 py-3 glass-sage-clickable rounded-xl font-bold text-text-primary"
               >
                 Save
               </button>
@@ -251,7 +251,7 @@ export default function ProfileEditor({ userId, defaultName, defaultAvatar, defa
                   setTempName(displayName)
                   setIsEditingName(false)
                 }}
-                className="flex-1 px-4 py-3 bg-text-tertiary/20 text-text-secondary rounded-xl font-bold hover:opacity-90"
+                className="flex-1 px-4 py-3 glass-clickable rounded-xl font-bold text-text-secondary"
               >
                 Cancel
               </button>
@@ -293,7 +293,7 @@ export default function ProfileEditor({ userId, defaultName, defaultAvatar, defa
                 <button
                   onClick={handleOrgSave}
                   disabled={isSaving}
-                  className="flex-1 px-4 py-3 bg-sage-green text-white rounded-xl font-bold hover:opacity-90"
+                  className="flex-1 px-4 py-3 glass-sage-clickable rounded-xl font-bold text-text-primary"
                 >
                   Save
                 </button>
@@ -302,7 +302,7 @@ export default function ProfileEditor({ userId, defaultName, defaultAvatar, defa
                     setTempOrg(displayOrg)
                     setIsEditingOrg(false)
                   }}
-                  className="flex-1 px-4 py-3 bg-text-tertiary/20 text-text-secondary rounded-xl font-bold hover:opacity-90"
+                  className="flex-1 px-4 py-3 glass-clickable rounded-xl font-bold text-text-secondary"
                 >
                   Cancel
                 </button>
