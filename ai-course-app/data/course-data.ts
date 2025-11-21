@@ -29,44 +29,85 @@ export const courseData: CourseModule[] = [
         <li>Did you open Netflix and instantly find something you actually wanted to watch?</li>
         <li>Did Google Maps alert you about traffic before you saw a single brake light?</li>
         <li>Did your phone magically brighten your photos, blur the background, or remove noise?</li>
+        <li>Did your bank automatically flag a suspicious transaction?</li>
       </ul>
 
-      <p>None of that was luck. That was <strong>Narrow AI</strong>—systems designed to do <em>one specific thing</em> incredibly well.</p>
+      <p>None of that was luck. That was <strong>Narrow AI</strong>—systems designed to do <em>one specific thing</em> incredibly well. They are specialists. A chess AI can beat the world champion at chess, but it can't drive a car or write a poem.</p>
 
       <p>But what we are talking about today—and what you will master over the next 30 days—is different. It’s the shift from <strong>Narrow AI</strong> (tools that <em>do</em> things for you) to <strong>Generative AI</strong> (tools that <em>create</em> things with you).</p>
 
-      <h3>Why Now? The "Generative" Shift</h3>
+      <h3>The "iPhone Moment" for Intelligence</h3>
 
-      <p>For decades, computers were like calculators. They were perfect at following rules. If you told a computer "2 + 2", it would always say "4". But if you asked it "Write a funny poem about a cat," it would crash. It didn't understand humor, cats, or poetry. It only understood rules.</p>
+      <p>When ChatGPT launched in late 2022, it wasn't just another tech update. It was a platform shift. For the first time in history, we taught computers to speak <em>our</em> language, rather than forcing humans to learn <em>their</em> language (code).</p>
 
-      <p><strong>Generative AI</strong> changed the game.</p>
+      <p>This is why this course exists. You don't need a Computer Science degree to use these tools. You just need to know how to ask.</p>
 
-      <p>Instead of following rigid rules, these new models (like ChatGPT, Claude, and Gemini) have "read" effectively the entire internet. They have learned the <em>patterns</em> of human creativity, logic, and language.</p>
+      <h3>The 3 Stages of AI Adoption</h3>
+
+      <p>As you start this journey, you will likely go through three emotional stages. I want to warn you about them now so you don't get stuck.</p>
+
+      <ol>
+        <li><strong>The Magic Trick (Days 1-3):</strong> You'll be blown away. "It wrote a poem! It planned my trip!" You'll feel like a wizard.</li>
+        <li><strong>The Trough of Disillusionment (Days 4-10):</strong> You'll hit a wall. It will give you a wrong answer. It will hallucinate. You'll think, "This thing is stupid, I could do it faster myself." <em>Most people quit here.</em></li>
+        <li><strong>The Fluency (Days 11+):</strong> You learn <em>when</em> to use it and <em>how</em> to fix it. You stop treating it like a magic wand and start treating it like a junior intern. This is where the real productivity happens.</li>
+      </ol>
+
+
+      <h3>A Brief History of "Thinking Machines"</h3>
+
+      <p>To understand where we are, we have to look back. This isn't the first time we've been promised thinking machines.</p>
 
       <ul>
-        <li>They don't just spell-check your email; they <strong>write</strong> the email.</li>
-        <li>They don't just search for an image; they <strong>paint</strong> the image.</li>
-        <li>They don't just execute code; they <strong>write</strong> the code.</li>
+        <li><strong>1950: The Turing Test.</strong> Alan Turing asks, "Can machines think?" and proposes a test: if a human can't tell they are talking to a machine, the machine is intelligent.</li>
+        <li><strong>1997: Deep Blue.</strong> IBM's supercomputer beats Garry Kasparov at chess. It was "smart," but it was brute force. It calculated millions of moves per second. It didn't "know" chess; it just did math.</li>
+        <li><strong>2016: AlphaGo.</strong> Google's AI beat the world champion at Go, a game with more possible moves than atoms in the universe. This was different. It showed "intuition."</li>
+        <li><strong>2017: The Transformer.</strong> Google researchers published a paper called "Attention Is All You Need." This invented the architecture that runs ChatGPT (the "T" in GPT stands for Transformer).</li>
       </ul>
 
-      <p>This is the "Industrial Revolution for Brain Work." Just as the steam engine amplified our physical muscle, AI amplifies our mental muscle.</p>
+      <p>We are now in the age of <strong>Generative Pre-trained Transformers (GPT)</strong>. They have read the entire internet, and they are learning to speak.</p>
 
-      <h3>Your Goal for the Next 30 Days</h3>
+      <h3>The Elephant in the Room: Will I Be Replaced?</h3>
 
-      <p>This course is not about memorizing technical terms. You don't need to know the math behind a "neural network" to use it, just like you don't need to know how a combustion engine works to drive a car.</p>
+      <p>Let's address the fear. You see headlines about AI taking jobs. You see writers striking. You worry about your own career.</p>
 
-      <p>Your goal is <strong>Fluency</strong>.</p>
+      <p>Here is the reality: <strong>AI will not replace you. A person using AI will replace you.</strong></p>
 
-      <p>By Day 30, you won't just be "using" AI. You will be <em>thinking</em> with AI. You will look at a boring task—writing a report, planning a trip, organizing data—and immediately know: <em>"I can have AI do 80% of this for me in 30 seconds."</em></p>
+      <p>The lawyers who refused to use email in the 90s didn't lose their jobs to email; they lost their jobs to lawyers who could communicate faster. The designers who refused to use Photoshop didn't lose their jobs to software; they lost them to designers who could iterate 10x faster.</p>
 
-      <p>That is the superpower. And it starts right now.</p>
+      <p>You are here to be that person. You are here to be the pilot, not the passenger.</p>
+
+      <h3>The Golden Rule: The "Intern" Mindset</h3>
+
+      <p>Here is the single most important mental model for this entire course:</p>
+
+      <p><strong>Treat AI like a smart, eager, but inexperienced intern.</strong></p>
+
+      <p>If you had an intern on their first day, would you say: "Write a report"?</p>
+      <p>No. They would panic. They would write a terrible report. They don't know the format, the tone, or the data.</p>
+
+      <p>Instead, you would say:</p>
+      <blockquote>"Act as a marketing analyst. I need a 1-page summary of these 3 PDF documents. Focus on the financial risks. Use bullet points. Don't use jargon."</blockquote>
+
+      <p>See the difference? You gave them a <strong>Role</strong>, a <strong>Task</strong>, and a <strong>Format</strong>. This is the secret to Prompt Engineering.</p>
+
+      <h3>Your First Framework: R-T-F</h3>
+
+      <p>Whenever you talk to ChatGPT (or any AI), use the <strong>R-T-F Framework</strong>:</p>
+
+      <ul>
+        <li><strong>R - Role:</strong> Who should the AI be? (e.g., "Expert Copywriter", "Python Tutor", "Travel Agent")</li>
+        <li><strong>T - Task:</strong> What exactly do you want it to do? (Use an active verb: "Draft", "Summarize", "Debug")</li>
+        <li><strong>F - Format:</strong> How do you want the output? (e.g., "Table", "Bullet points", "Code block", "Email")</li>
+      </ul>
+
+      <p>If you skip one of these, you get average results. If you nail all three, you get magic.</p>
     `,
     handsOn: {
-      title: "Your First 'Hello World'",
-      description: "We are going to start with the tool that started the fire: ChatGPT.",
+      title: "The 'Pep Talk' Prompt",
+      description: "Your first lesson in Prompt Engineering.",
       affiliateLinks: [
         {
-          text: "Try ChatGPT Free →",
+          text: "Try ChatGPT →",
           url: "https://chat.openai.com"
         }
       ],
@@ -77,7 +118,13 @@ export const courseData: CourseModule[] = [
 
 3. Hit Enter.
 
-Why this prompt? You didn't just ask for information. You gave it a Role ("high-energy coach") and a specific Task ("pep talk + nickname"). Notice how the tone changes? That is your first lesson in Prompt Engineering.`
+<strong>Why this prompt?</strong>
+You didn't just ask for information. You used the <strong>R-T-F Framework</strong>:
+- <strong>Role:</strong> "High-energy coach" (Sets the tone)
+- <strong>Task:</strong> "Give me a pep talk" (The action)
+- <strong>Format:</strong> "3 sentences + nickname" (The constraint)
+
+Notice how the tone changes? That is your first lesson in Prompt Engineering.`
     }
   },
 
@@ -110,13 +157,43 @@ Why this prompt? You didn't just ask for information. You gave it a Role ("high-
 
       <p>For the next 30 days, this is your new rule: <strong>Use ChatGPT for logic and code. Use Claude for writing and reading.</strong></p>
 
+
+      <h3>When NOT to Use Claude</h3>
+
+      <p>I love Claude, but I don't use it for everything. It has weaknesses.</p>
+
+      <ul>
+        <li><strong>Math:</strong> If you ask it to calculate a mortgage payment, it might get it right, or it might be off by $50. Use ChatGPT (with Python) or a calculator for hard math.</li>
+        <li><strong>Live Data:</strong> As of this writing, Claude doesn't browse the live web as well as Google Gemini or Perplexity. If you need today's stock price, don't ask Claude.</li>
+        <li><strong>Strict Logic:</strong> For complex coding logic where one wrong character breaks the app, ChatGPT (GPT-4) or DeepSeek are often slightly sharper.</li>
+      </ul>
+
+      <p>Claude is for <strong>Words, Ideas, and Synthesis</strong>.</p>
+
+      <h3>The "Tone Slider" Technique</h3>
+
+      <p>One of the best ways to control Claude is to give it a "slider." Instead of just saying "write a blog post," try this:</p>
+
+      <blockquote>"Write a blog post about remote work.
+      Tone settings:
+      - Professionalism: 7/10
+      - Humor: 4/10
+      - Empathy: 9/10"</blockquote>
+
+      <p>This gives the model exact coordinates for the style you want. If it comes back too stiff, you just say: "Lower Professionalism to 4/10 and raise Humor to 8/10."</p>
+
+      <p>It’s like mixing audio. You are the DJ, and Claude is the sound system.</p>
+
       <h3>Superpower #1: The Massive Context Window</h3>
 
       <p>The biggest reason to use Claude isn't just the style—it's the <strong>Memory</strong>.</p>
 
-      <p>In AI terms, "Context Window" is how much information the model can hold in its head at one time.
-      <br/>- <strong>ChatGPT (Free)</strong> gets overwhelmed after a long conversation. It forgets what you said 10 minutes ago.
-      <br/>- <strong>Claude</strong> has a massive context window. You can upload an entire book, a 50-page legal contract, or a transcript of a 2-hour meeting.</p>
+      <p>In AI terms, "Context Window" is how much information the model can hold in its head at one time.</p>
+      <br />
+      <ul>
+        <li><strong>ChatGPT (Free):</strong> Gets overwhelmed after a long conversation. It forgets what you said 10 minutes ago. It has a "backpack" of memory.</li>
+        <li><strong>Claude:</strong> Has a "moving truck" of memory. You can upload an entire book, a 50-page legal contract, or a transcript of a 2-hour meeting.</li>
+      </ul>
 
       <p><strong>Try this mental shift:</strong> Don't just ask Claude questions. <em>Give it homework.</em> Upload a PDF and say, "Read this and tell me the 3 biggest risks." It actually reads the whole thing.</p>
 
@@ -131,6 +208,18 @@ Why this prompt? You didn't just ask for information. You gave it a Role ("high-
       <p>You'll notice immediately that Claude "feels" calmer. It doesn't lecture you. It doesn't moralize as much. It just... writes.</p>
 
       <p>For writers, marketers, and anyone communicating professionally, this is gold. You spend less time editing out the "AI flavor" because Claude writes with a more natural cadence from the start.</p>
+
+      <h3>The "Editor" Workflow</h3>
+
+      <p>Don't just treat Claude as a writer. Treat it as an <strong>Editor</strong>. Here is a workflow used by professional copywriters:</p>
+
+      <ol>
+        <li><strong>Brainstorm:</strong> Ask ChatGPT for 10 ideas (it's better at volume).</li>
+        <li><strong>Draft:</strong> Write a messy first draft yourself (or have ChatGPT do it).</li>
+        <li><strong>Refine:</strong> Paste that draft into Claude and say: "Act as a senior editor. Critique this piece for clarity and tone. Then, rewrite it to be punchier."</li>
+      </ol>
+
+      <p>This "Sandwich Method" (AI -> Human -> AI) usually produces the best results.</p>
 
       <blockquote>
         <strong>Pro Tip:</strong> If you want Claude to sound exactly like you, upload 3 examples of your previous emails and say: "Analyze my writing style (tone, sentence length, vocabulary). Then, write this new email using that exact style."
@@ -171,9 +260,10 @@ Compare the two. Which one would you actually send to a human?`
 
       <p>Gemini is also "Multimodal." That’s a fancy word meaning it understands more than just text. It can see images, watch videos, and listen to audio natively.</p>
 
-      <p>Imagine you are shopping for a new chair.
-      <br/><strong>Old way:</strong> Search "mid-century modern chair," scroll through 50 links, compare prices in tabs.
-      <br/><strong>Gemini way:</strong> Upload a photo of your living room and ask, "Find me a chair that matches this rug, costs under $200, and is available near me."</p>
+      <p>Imagine you are shopping for a new chair.</p>
+      <br />
+      <p><strong>Old way:</strong> Search "mid-century modern chair," scroll through 50 links, compare prices in tabs.</p>
+      <p><strong>Gemini way:</strong> Upload a photo of your living room and ask, "Find me a chair that matches this rug, costs under $200, and is available near me."</p>
 
       <p>This is the shift from <strong>Searching</strong> to <strong>Finding</strong>.</p>
     `,
@@ -222,7 +312,7 @@ Compare the two. Which one would you actually send to a human?`
     `,
     handsOn: {
       title: "The Fact Checker",
-      description: " debunk a myth or find a specific obscure fact.",
+      description: "Debunk a myth or find a specific obscure fact.",
       affiliateLinks: [
         {
           text: "Try Perplexity →",
@@ -231,7 +321,7 @@ Compare the two. Which one would you actually send to a human?`
       ],
       exercise: `1. Think of a topic you are curious about but don't know the details of (e.g., "What is the actual health impact of blue light glasses?").
 2. Ask Perplexity.
-3. Look at the answer. Click the little numbers [1] [2] to see the actual articles it read.
+3. Look at the answer. Click the little numbers [1][2] to see the actual articles it read.
 4. Ask a follow-up: "Are there any studies that disagree?"`
     }
   },
@@ -250,11 +340,14 @@ Compare the two. Which one would you actually send to a human?`
 
       <p>"But I'm not a coder!" you say.</p>
 
-      <p>Logic isn't just for code. It's for <strong>Structure</strong>.
-      <br/>- Creating a complex Excel formula.
-      <br/>- Structuring a legal argument.
-      <br/>- Breaking down a project into dependencies.
-      <br/>- Solving a scheduling conflict.</p>
+      <p>Logic isn't just for code. It's for <strong>Structure</strong>.</p>
+      <br />
+      <ul>
+        <li>Creating a complex Excel formula.</li>
+        <li>Structuring a legal argument.</li>
+        <li>Breaking down a project into dependencies.</li>
+        <li>Solving a scheduling conflict.</li>
+      </ul>
 
       <p>These are "reasoning" tasks. Models like DeepSeek excel here because they are less likely to get "distracted" by creative writing fluff and more likely to follow a strict set of rules.</p>
     `,
@@ -287,8 +380,9 @@ Compare the two. Which one would you actually send to a human?`
 
       <h3>The "Venting" Machine</h3>
 
-      <p>Why would you want an AI that just talks?
-      <br/>Because sometimes you need to "rubber duck" a problem. You need to talk through a difficult conversation you're about to have with your boss. You need to brainstorm without feeling judged. You need to vent about a stressful day.</p>
+      <p>Why would you want an AI that just talks?</p>
+      <br />
+      <p>Because sometimes you need to "rubber duck" a problem. You need to talk through a difficult conversation you're about to have with your boss. You need to brainstorm without feeling judged. You need to vent about a stressful day.</p>
 
       <p>Pi asks questions. It remembers details about your life ("How did that meeting go yesterday?"). It feels less like a tool and more like a sounding board.</p>
     `,
@@ -321,10 +415,13 @@ Compare the two. Which one would you actually send to a human?`
 
       <h3>The "Ctrl+F" of the Future</h3>
 
-      <p>Instead of searching for keywords, you ask questions:
-      <br/>- "Does this lease allow pets?"
-      <br/>- "What are the limitations of this study?"
-      <br/>- "Summarize the 3 main arguments in bullet points."</p>
+      <p>Instead of searching for keywords, you ask questions:</p>
+      <br />
+      <ul>
+        <li>"Does this lease allow pets?"</li>
+        <li>"What are the limitations of this study?"</li>
+        <li>"Summarize the 3 main arguments in bullet points."</li>
+      </ul>
 
       <p>It answers based <em>only</em> on that document. This eliminates hallucinations because it's grounded in your data.</p>
     `,
@@ -334,7 +431,7 @@ Compare the two. Which one would you actually send to a human?`
       affiliateLinks: [
         {
           text: "Try PDF.ai (Free Trial) →",
-          url: "https://pdf.ai" // USER_AFFILIATE_LINK_HERE
+          url: "https://pdf.ai"
         }
       ],
       exercise: `1. Find a long PDF (a user manual, a contract, a report).
@@ -366,7 +463,7 @@ Compare the two. Which one would you actually send to a human?`
       affiliateLinks: [
         {
           text: "Try Jasper →",
-          url: "https://www.jasper.ai" // USER_AFFILIATE_LINK_HERE
+          url: "https://www.jasper.ai"
         }
       ],
       exercise: `1. Go to Jasper (or use their free trial).
@@ -432,7 +529,7 @@ Compare the two. Which one would you actually send to a human?`
       affiliateLinks: [
         {
           text: "Get Notion →",
-          url: "https://www.notion.so" // USER_AFFILIATE_LINK_HERE
+          url: "https://www.notion.so"
         }
       ],
       exercise: `1. Create a new Page in Notion called "My AI Brain".
