@@ -1323,18 +1323,6 @@ Bonus: Try adding "--ar 16:9" to the end of your prompt to get a widescreen form
 2. Type: "Generate an image of a cozy reading nook with bookshelves, warm lighting, a comfy chair, and a rainy window view."
 3. Refine: "Make the chair darker brown and add a sleeping cat."
 4. Download and use as a blog header.`
-        < ul >
-        <li>Podcasters </li>
-        < li > YouTubers </li>
-        < li > Online course creators</ li >
-      <li>Anyone who talks on camera</ li >
-  </ul>
-
-  < h3 > The Workflow Revolution </h3>
-
-  < p > Record messy → Descript transcribes → Delete filler words → Export polished video.</p>
-
-  < p > What took 3 hours now takes 20 minutes.</p>
     `,
     handsOn: {
       title: "Edit a Video by Editing Text",
