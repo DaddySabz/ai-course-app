@@ -236,8 +236,23 @@ Notice how the tone changes ? That is your first lesson in Prompt Engineering.`
 
 Compare the two.Which one would you actually send to a human ? `
     }
+  },
 
-      < h3 > The YouTube Superpower</ h3 >
+  // DAY 3: Google Gemini
+  {
+    day: 3,
+    title: "The Swiss Army Knife",
+    subtitle: "Google Gemini and Live Data",
+    content: `
+  <p>Day 3. You've met ChatGPT (the generalist) and Claude (the writer). Today, you're meeting Google's answer to the AI race: <strong>Gemini</strong>.</p>
+
+  <p>Here's what makes Gemini different: <strong>It has access to the real world, right now.</strong></p>
+
+  <p>While ChatGPT and Claude are trained on data with a "knowledge cutoff" (meaning they don't know what happened after a certain date), Gemini can <strong>search the live web</strong>. It can tell you today's weather, stock prices, breaking news, or flight availability.</p>
+
+  <p>Think of it as the bridge between "AI brain" and "search engine."</p>
+
+  <h3>The YouTube Superpower</h3>
 
   <p>Here is a trick that feels illegal.Gemini can watch YouTube videos for you.</p>
 
@@ -298,30 +313,30 @@ Compare the two.Which one would you actually send to a human ? `
                                                         < li > <strong>Use ChatGPT when: </strong> You need complex reasoning, coding help, or data analysis on static files.</li >
                                                           </ul>
                                                             `,
-  handsOn: {
-  title: "The Live Planner",
-    description: "Plan a trip using real-time data.",
+    handsOn: {
+      title: "The Live Planner",
+      description: "Plan a trip using real-time data.",
       affiliateLinks: [
         {
           text: "Try Google Gemini →",
           url: "https://gemini.google.com"
         }
       ],
-        exercise: `1. Go to Gemini.
+      exercise: `1. Go to Gemini.
 2. Give it a prompt that requires live data:
 
 "I want to fly from [Your City] to [Dream Destination] next month for a 3-day weekend. Find me the cheapest flights, a highly-rated hotel under $150/night, and list 3 events happening in that city during those dates."
 
 3. Watch it pull real flight prices and real events.Try doing that with a standard chatbot!`
-}
+    }
   },
 
-// DAY 4: Perplexity
-{
-  day: 4,
+  // DAY 4: Perplexity
+  {
+    day: 4,
     title: "The Truth Engine",
-      subtitle: "Perplexity and the End of Googling",
-        content: `
+    subtitle: "Perplexity and the End of Googling",
+    content: `
   < p > We've all heard the horror stories: AI making up court cases, inventing historical facts, or lying about medical advice. These are called "Hallucinations."</p>
 
     < p > If you need < strong > facts < /strong>, you need <strong>Perplexity</strong >.</p>
@@ -414,28 +429,28 @@ Compare the two.Which one would you actually send to a human ? `
 
                                                                                                     < p > <strong>Pro Tip: </strong> Use Perplexity for "Research Mode" and Claude/ChatGPT for "Creation Mode." </p>
                                                                                                       `,
-          handsOn: {
-    title: "The Fact Checker",
+    handsOn: {
+      title: "The Fact Checker",
       description: "Debunk a myth or find a specific obscure fact.",
-        affiliateLinks: [
-          {
-            text: "Try Perplexity →",
-            url: "https://www.perplexity.ai"
-          }
-        ],
-          exercise: `1. Think of a topic you are curious about but don't know the details of (e.g., "What is the actual health impact of blue light glasses?").
+      affiliateLinks: [
+        {
+          text: "Try Perplexity →",
+          url: "https://www.perplexity.ai"
+        }
+      ],
+      exercise: `1. Think of a topic you are curious about but don't know the details of (e.g., "What is the actual health impact of blue light glasses?").
 2. Ask Perplexity.
 3. Look at the answer.Click the little numbers[1][2] to see the actual articles it read.
 4. Ask a follow - up: "Are there any studies that disagree?"`
-  }
-},
+    }
+  },
 
-// DAY 5: DeepSeek
-{
-  day: 5,
+  // DAY 5: DeepSeek
+  {
+    day: 5,
     title: "The Logic Engine",
-      subtitle: "DeepSeek and the Power of Reasoning",
-        content: `
+    subtitle: "DeepSeek and the Power of Reasoning",
+    content: `
   < p > So far, we've looked at generalists (ChatGPT), writers (Claude), and researchers (Gemini/Perplexity). Now let's look at a specialist in <strong>Logic < /strong>.</p >
 
     <p><strong>DeepSeek < /strong> represents a new wave of models that prioritize "Reasoning" over "Chatting." While ChatGPT is great at conversation, DeepSeek is trained heavily on code and mathematics.</p >
@@ -528,31 +543,31 @@ Compare the two.Which one would you actually send to a human ? `
                                                                                             < li > Solving a riddle or logic puzzle.</li>
                                                                                               </ul>
                                                                                                 `,
-          handsOn: {
-    title: "The Logic Puzzle",
+    handsOn: {
+      title: "The Logic Puzzle",
       description: "Test AI's reasoning capabilities.",
-        affiliateLinks: [
-          {
-            text: "Try DeepSeek →",
-            url: "https://chat.deepseek.com"
-          }
-        ],
-          exercise: `1. Give DeepSeek a classic logic puzzle:
+      affiliateLinks: [
+        {
+          text: "Try DeepSeek →",
+          url: "https://chat.deepseek.com"
+        }
+      ],
+      exercise: `1. Give DeepSeek a classic logic puzzle:
 
 "I have a 3-gallon jug and a 5-gallon jug. I need exactly 4 gallons of water. How do I do it? Explain step-by-step."
 
 2. Then, try a work task: "I have 5 employees with different shift preferences [list them]. Create a schedule for next week that keeps everyone happy."
 
 3. Compare the answer to a standard chatbot.Did the chatbot hallucinate a solution ? Did DeepSeek find the logical path ? `
-  }
-},
+    }
+  },
 
-// DAY 6: ChatGPT Advanced Voice
-{
-  day: 6,
+  // DAY 6: ChatGPT Advanced Voice
+  {
+    day: 6,
     title: "The Voice",
-      subtitle: "ChatGPT Advanced Voice Mode",
-        content: `
+    subtitle: "ChatGPT Advanced Voice Mode",
+    content: `
   < p > Welcome to Day 6. Today, we stop typing and start talking.</p>
 
     < p > For the last five days, you’ve been interacting with AI through text.You type a prompt, you wait, you read the response.It’s transactional.It feels like using a very smart search engine.</p>
@@ -597,453 +612,881 @@ Compare the two.Which one would you actually send to a human ? `
 
                                               < h3 > The "Custom Instructions" Hack </h3>
                                                 < p > You can customize how ChatGPT sounds.In your settings, you can add "Custom Instructions" specifically for voice.</p>
-  day: 7,
+
+                                                  <p><strong>Example Custom Instruction:</strong> "When in voice mode, be casual and conversational. Use contractions. Speak like you're chatting with a friend over coffee. If I sound rushed, give me short answers. If I sound engaged, dive deeper."</p>
+
+                                                    <h3>The Future: Voice-First Interfaces</h3>
+
+                                                      <p>This is where the industry is heading. In 5 years, typing will feel as outdated as fax machines. Voice is the natural interface for AI because it mirrors how humans actually think and communicate.</p>
+
+                                                        <p>Today's exercise isn't just a novelty—it's training you for the future of work.</p>
+                                                          `,
+    handsOn: {
+      title: "The Voice Brainstorm",
+      description: "Use your voice to think through a complex problem.",
+      affiliateLinks: [
+        {
+          text: "Try ChatGPT Voice →",
+          url: "https://chat.openai.com"
+        }
+      ],
+      exercise: `1. Open ChatGPT on your phone and enable Advanced Voice Mode (the headphone icon).
+2. Give it this prompt (spoken out loud):
+
+"I need to brainstorm ideas for [a project/problem you're working on]. I'm going to talk for 2 minutes straight. Just listen and say 'mhmm' occasionally. Then, summarize my core idea back to me in one sentence and suggest 3 ways to improve it."
+
+3. Start talking. Don't overthink it. Just ramble.
+4. Notice how different this feels from typing.`
+    }
+  },
+
+  // DAY 7: PDF.ai
+  {
+    day: 7,
     title: "The Analyst",
-      subtitle: "Chatting with Your Data",
-        content: `
-          < p > We have reached the end of the "Chatbots." Now we enter the world of < strong > Tools < /strong>.</p >
+    subtitle: "Chatting with Your Data",
+    content: `
+      < p > We have reached the end of the "Chatbots." Now we enter the world of<strong> Tools< / strong >.</p >
 
-            <p>One of the most powerful use cases for AI is "Summarization." But pasting text into ChatGPT is annoying, especially if you have a 50 - page PDF contract, a research paper, or a user manual.You hit character limits, or the model gets confused.</p>
+  < p > One of the most powerful use cases for AI is "Summarization." But pasting text into ChatGPT is annoying, especially if you have a 50 - page PDF contract, a research paper, or a user manual.You hit character limits, or the model gets confused.</p>
 
-              < p > <strong>PDF.ai < /strong> (and similar tools like ChatPDF) solves this. You upload a document, and it turns that document into a chatbot.</p >
+    < p > <strong>PDF.ai < /strong> (and similar tools like ChatPDF) solves this. You upload a document, and it turns that document into a chatbot.</p >
 
-              <h3>The "Ctrl+F" of the Future </h3>
+    <h3>The "Ctrl+F" of the Future </h3>
 
-                < p > Instead of searching for keywords, you ask questions.This is the difference between "Search" and "Retrieval." </p>
-                  < br />
-                  <ul>
-                  <li><strong>Search(Ctrl + F): </strong> Finds the word "pet" 45 times in the lease.</li >
-                    <li><strong>Retrieval(AI): </strong> Reads the lease and answers: "Yes, pets are allowed, but you need to pay a $500 deposit, and no dogs over 50lbs."</li >
-                      </ul>
+      < p > Instead of searching for keywords, you ask questions.This is the difference between "Search" and "Retrieval." </p>
+        < br />
+        <ul>
+        <li><strong>Search(Ctrl + F): </strong> Finds the word "pet" 45 times in the lease.</li >
+          <li><strong>Retrieval(AI): </strong> Reads the lease and answers: "Yes, pets are allowed, but you need to pay a $500 deposit, and no dogs over 50lbs."</li >
+            </ul>
 
-                      < h3 > The Tech: RAG(Retrieval - Augmented Generation) </h3>
+            < h3 > The Tech: RAG(Retrieval - Augmented Generation) </h3>
 
-                        < p > You don't need to be an engineer, but you should know this acronym: <strong>RAG</strong>.</p>
+              < p > You don't need to be an engineer, but you should know this acronym: <strong>RAG</strong>.</p>
 
-                          < p > It works like an open - book exam.When you ask a question, the AI: </p>
-                            < ol >
-                            <li>Scans your document for relevant paragraphs.</li>
-                              < li > "Retrieves" those paragraphs.</li>
-                                < li > Feeds them to the AI model along with your question.</li>
-                                  < li > Generates an answer based < em > only < /em> on that text.</li >
-                                    </ol>
+                < p > It works like an open - book exam.When you ask a question, the AI: </p>
+                  < ol >
+                  <li>Scans your document for relevant paragraphs.</li>
+                    < li > "Retrieves" those paragraphs.</li>
+                      < li > Feeds them to the AI model along with your question.</li>
+                        < li > Generates an answer based < em > only < /em> on that text.</li >
+                          </ol>
 
-                                    < p > This drastically reduces hallucinations because the AI isn't making things up from its training data; it is reading the text you gave it.</p>
+                          < p > This drastically reduces hallucinations because the AI isn't making things up from its training data; it is reading the text you gave it.</p>
 
-                                      < h3 > The "Hallucination Control" Mechanism </h3>
+                            < h3 > The "Hallucination Control" Mechanism </h3>
 
-                                        < p > The biggest fear with AI is that it will lie to you.In a contract, a lie is expensive.</p>
+                              < p > The biggest fear with AI is that it will lie to you.In a contract, a lie is expensive.</p>
 
-                                          < p > PDF.ai mitigates this by providing < strong > Citations < /strong>. When it answers "Yes, pets are allowed," it adds a little clickable number [Page 12]. You click it, and it jumps to the exact paragraph.</p >
+                                < p > PDF.ai mitigates this by providing < strong > Citations < /strong>. When it answers "Yes, pets are allowed," it adds a little clickable number [Page 12]. You click it, and it jumps to the exact paragraph.</p >
 
-                                            <p><strong>The Golden Rule of AI Reading: </strong> Trust, but verify. Always click the citation.</p >
+                                  <p><strong>The Golden Rule of AI Reading: </strong> Trust, but verify. Always click the citation.</p >
 
-                                              <h3>Enterprise Security: Is it Safe ? </h3>
+                                    <h3>Enterprise Security: Is it Safe ? </h3>
 
-                                                < p > If you are a lawyer or a doctor, you might be worried about uploading confidential files.Valid concern.</p>
+                                      < p > If you are a lawyer or a doctor, you might be worried about uploading confidential files.Valid concern.</p>
 
-                                                  < p > Most "Chat with PDF" tools use the API of major providers(like OpenAI).This means your data is processed by them.For highly sensitive documents, look for tools that offer "Zero Data Retention" policies or run locally(like "PrivateGPT").</p>
+                                        < p > Most "Chat with PDF" tools use the API of major providers(like OpenAI).This means your data is processed by them.For highly sensitive documents, look for tools that offer "Zero Data Retention" policies or run locally(like "PrivateGPT").</p>
 
-                                                    < p > For 99 % of users(reading manuals, school papers, public contracts), standard tools are fine.For the 1 % (state secrets), use local tools.</p>
+                                          < p > For 99 % of users(reading manuals, school papers, public contracts), standard tools are fine.For the 1 % (state secrets), use local tools.</p>
 
-                                                      < h3 > Advanced Strategy: "Cross-Examination" </h3>
+                                            < h3 > Advanced Strategy: "Cross-Examination" </h3>
 
-                                                        < p > Don't just ask one question. Grill the document.</p>
+                                              < p > Don't just ask one question. Grill the document.</p>
 
-                                                          < p > <strong>The Prompt Chain: </strong></p >
-                                                            <ol>
-                                                            <li>"Summarize the main argument." </li>
-                                                            < li > "What evidence do they provide to support this?" </li>
-                                                            < li > "Are there any contradictions in their logic?" </li>
-                                                            < li > "What is missing from this document?" </li>
-                                                            </ol>
+                                                < p > <strong>The Prompt Chain: </strong></p >
+                                                  <ol>
+                                                  <li>"Summarize the main argument." </li>
+                                                  < li > "What evidence do they provide to support this?" </li>
+                                                  < li > "Are there any contradictions in their logic?" </li>
+                                                  < li > "What is missing from this document?" </li>
+                                                  </ol>
 
-                                                            < p > This forces the AI to look deeper than just the surface - level summary.</p>
+                                                  < p > This forces the AI to look deeper than just the surface - level summary.</p>
 
-                                                              < h3 > The "Legal" Angle: A Disclaimer </h3>
+                                                    < h3 > The "Legal" Angle: A Disclaimer </h3>
 
-                                                                < p > While PDF.ai is powerful, it is not a lawyer.It can miss things.</p>
+                                                      < p > While PDF.ai is powerful, it is not a lawyer.It can miss things.</p>
 
-                                                                  < p > <strong>Use it for: </strong> First-pass review, finding clauses, summarizing risks.</p >
-                                                                    <p><strong>Do NOT use it for: </strong> Final legal advice. If you are signing a million-dollar deal, hire a human to read what the AI flagged.</p >
+                                                        < p > <strong>Use it for: </strong> First-pass review, finding clauses, summarizing risks.</p >
+                                                          <p><strong>Do NOT use it for: </strong> Final legal advice. If you are signing a million-dollar deal, hire a human to read what the AI flagged.</p >
 
-                                                                      <h3>Pro Tip: The "Summary" Trap </h3>
+                                                            <h3>Pro Tip: The "Summary" Trap </h3>
 
-                                                                        < p > A common mistake is asking: "Summarize this document." </p>
+                                                              < p > A common mistake is asking: "Summarize this document." </p>
 
-                                                                          < p > This is bad because "Summary" is vague.A summary for a CEO is different from a summary for an engineer.</p>
+                                                                < p > This is bad because "Summary" is vague.A summary for a CEO is different from a summary for an engineer.</p>
 
-                                                                            < p > <strong>Better Prompt: </strong> "Summarize this document for a [Role]. Focus on [Topic]. Format it as a [Format]."</p >
+                                                                  < p > <strong>Better Prompt: </strong> "Summarize this document for a [Role]. Focus on [Topic]. Format it as a [Format]."</p >
 
-                                                                              <p>Example: "Summarize this lease for a tenant. Focus on hidden fees and termination clauses. Format it as a bulleted list of warnings." </p>
+                                                                    <p>Example: "Summarize this lease for a tenant. Focus on hidden fees and termination clauses. Format it as a bulleted list of warnings." </p>
 
-                                                                                < h3 > The Future of "Chatting with Data" </h3>
+                                                                      < h3 > The Future of "Chatting with Data" </h3>
 
-                                                                                  < p > This technology is moving fast.Soon, you won't just upload one PDF. You will upload your entire hard drive.</p>
+                                                                        < p > This technology is moving fast.Soon, you won't just upload one PDF. You will upload your entire hard drive.</p>
 
-                                                                                    < p > Imagine asking: "Find every invoice from 2023 that was over $500 and make a spreadsheet." That reality is already here with tools like Microsoft Copilot and Google Gemini Advanced, but PDF.ai is the best place to start learning the behavior of "RAG" systems.</p>
+                                                                          < p > Imagine asking: "Find every invoice from 2023 that was over $500 and make a spreadsheet." That reality is already here with tools like Microsoft Copilot and Google Gemini Advanced, but PDF.ai is the best place to start learning the behavior of "RAG" systems.</p>
 
-                                                                                      < h3 > Use Case 1: The "Contract Killer" </h3>
+                                                                            < h3 > Use Case 1: The "Contract Killer" </h3>
 
-                                                                                        < p > Upload a lease, a freelance contract, or a terms of service agreement.</p>
-                                                                                          < p > <strong>Prompt: </strong> "I am the tenant. What are the 3 biggest risks in this contract for me? Quote the specific clauses."</p >
+                                                                              < p > Upload a lease, a freelance contract, or a terms of service agreement.</p>
+                                                                                < p > <strong>Prompt: </strong> "I am the tenant. What are the 3 biggest risks in this contract for me? Quote the specific clauses."</p >
 
-                                                                                            <h3>Use Case 2: The "Academic Accelerator" </h3>
+                                                                                  <h3>Use Case 2: The "Academic Accelerator" </h3>
 
-                                                                                              < p > Upload a dense 20 - page scientific paper.</p>
-                                                                                                < p > <strong>Prompt: </strong> "Explain the methodology of this study to me like I'm a 12-year-old. What was their conclusion?"</p >
+                                                                                    < p > Upload a dense 20 - page scientific paper.</p>
+                                                                                      < p > <strong>Prompt: </strong> "Explain the methodology of this study to me like I'm a 12-year-old. What was their conclusion?"</p >
 
-                                                                                                  <h3>Use Case 3: The "Manual Master" </h3>
+                                                                                        <h3>Use Case 3: The "Manual Master" </h3>
 
-                                                                                                    < p > Upload the user manual for your fridge / car / software.</p>
-                                                                                                      < p > <strong>Prompt: </strong> "The red light is blinking three times. What does that mean and how do I fix it?"</p >
-                                                                                                        `,
-          handsOn: {
-  title: "The Document Interrogation",
-    description: "Save hours of reading time.",
+                                                                                          < p > Upload the user manual for your fridge / car / software.</p>
+                                                                                            < p > <strong>Prompt: </strong> "The red light is blinking three times. What does that mean and how do I fix it?"</p >
+                                                                                              `,
+    handsOn: {
+      title: "The Document Interrogation",
+      description: "Save hours of reading time.",
       affiliateLinks: [
         {
           text: "Try PDF.ai (Free Trial) →",
           url: "https://pdf.ai"
         }
       ],
-        exercise: `1. Find a long PDF(a user manual, a contract, a report).
+      exercise: `1. Find a long PDF(a user manual, a contract, a report).
 2. Upload it to PDF.ai.
 3. Ask: "What is the single most important thing I need to know from this document?"
-  4. Ask: "Are there any risks or warnings mentioned? Cite the page number."`
-}
-},
+4. Ask: "Are there any risks or warnings mentioned? Cite the page number."`
+    }
+  },
 
-// DAY 8: Jasper
-{
-  day: 8,
+  // DAY 8: Jasper
+  {
+    day: 8,
     title: "The Marketer",
-      subtitle: "Jasper and Brand Voice",
-        content: `
-    < p > If you run a business or work in marketing, generic AI writing is your enemy. "Delve," "landscape," "tapestry"—these are the hallmarks of lazy AI writing.</p>
+    subtitle: "Jasper and Brand Voice",
+    content: `
+  < p > If you run a business or work in marketing, generic AI writing is your enemy. "Delve," "landscape," "tapestry"—these are the hallmarks of lazy AI writing.</p>
 
-      < p > <strong>Jasper < /strong> is built for marketers. It doesn't just write; it writes <em>on brand</em >.</p>
+    < p > <strong>Jasper < /strong> is built for marketers. It doesn't just write; it writes <em>on brand</em >.</p>
 
-      < h3 > The Problem with "Generic" AI </h3>
+    < h3 > The Problem with "Generic" AI </h3>
 
-        < p > When you ask ChatGPT to "write a Facebook ad," it writes the average of every Facebook ad it has ever seen.It sounds like a cheesy infomercial.</p>
+      < p > When you ask ChatGPT to "write a Facebook ad," it writes the average of every Facebook ad it has ever seen.It sounds like a cheesy infomercial.</p>
 
-          < p > Jasper solves this by allowing you to upload your < strong > Brand Voice < /strong>.</p >
+        < p > Jasper solves this by allowing you to upload your < strong > Brand Voice < /strong>.</p >
 
-            <h3>The Brand Voice Engine </h3>
+          <h3>The Brand Voice Engine </h3>
 
-              < p > You feed Jasper your website, your past emails, and your style guide.It analyzes < em > how < /em> you sound—witty, professional, sarcastic, bold—and then writes new content in that exact style.</p >
+            < p > You feed Jasper your website, your past emails, and your style guide.It analyzes < em > how < /em> you sound—witty, professional, sarcastic, bold—and then writes new content in that exact style.</p >
 
-                <p>It’s the difference between hiring a random freelancer and hiring a copywriter who has studied your company for years.</p>
+              <p>It’s the difference between hiring a random freelancer and hiring a copywriter who has studied your company for years.</p>
 
-                  < h3 > Templates vs.Chat </h3>
+                < h3 > Templates vs.Chat </h3>
 
-                  < p > While ChatGPT is a blank cursor, Jasper is a collection of < strong > Templates < /strong>.</p >
+                < p > While ChatGPT is a blank cursor, Jasper is a collection of < strong > Templates < /strong>.</p >
 
-                    <ul>
-                    <li><strong>AIDA Framework: </strong> Attention, Interest, Desire, Action.</li >
-                      <li><strong>PAS Framework: </strong> Problem, Agitate, Solution.</li >
-                        <li><strong>Amazon Product Bullet Points: </strong> Optimized for SEO.</li >
-                          <li><strong>YouTube Video Script Hook: </strong> Designed to stop the scroll.</li >
-                            </ul>
+                  <ul>
+                  <li><strong>AIDA Framework: </strong> Attention, Interest, Desire, Action.</li >
+                    <li><strong>PAS Framework: </strong> Problem, Agitate, Solution.</li >
+                      <li><strong>Amazon Product Bullet Points: </strong> Optimized for SEO.</li >
+                        <li><strong>YouTube Video Script Hook: </strong> Designed to stop the scroll.</li >
+                          </ul>
 
-                            < p > These templates force the AI to follow a proven marketing structure, rather than just rambling.</p>
+                          < p > These templates force the AI to follow a proven marketing structure, rather than just rambling.</p>
 
-                              < h3 > The "One-Shot" Blog Post </h3>
+                            < h3 > The "One-Shot" Blog Post </h3>
 
-                                < p > Jasper excels at long - form content.You can give it a title, an outline, and a tone, and it will write a 1, 500 - word article that is SEO - optimized.</p>
+                              < p > Jasper excels at long - form content.You can give it a title, an outline, and a tone, and it will write a 1, 500 - word article that is SEO - optimized.</p>
 
-                                  < p > <strong>Warning: </strong> Always edit. AI can write 1,500 words in 30 seconds, but it might be 1,500 words of fluff. Use it as a "First Draft Generator," not a "Final Draft Publisher."</p >
+                                < p > <strong>Warning: </strong> Always edit. AI can write 1,500 words in 30 seconds, but it might be 1,500 words of fluff. Use it as a "First Draft Generator," not a "Final Draft Publisher."</p >
 
-                                    <h3>The "SEO Mode" </h3>
+                                  <h3>The "SEO Mode" </h3>
 
-                                      < p > Jasper integrates with tools like SurferSEO.This means it doesn't just write good English; it writes <strong>Google-friendly</strong> English.</p>
+                                    < p > Jasper integrates with tools like SurferSEO.This means it doesn't just write good English; it writes <strong>Google-friendly</strong> English.</p>
 
-                                        < p > It will tell you: "You need to use the keyword 'best coffee beans' 4 more times to rank on Page 1." </p>
+                                      < p > It will tell you: "You need to use the keyword 'best coffee beans' 4 more times to rank on Page 1." </p>
 
-                                          < p > This is the difference between a "writer" and a "content strategist." Jasper is both.</p>
+                                        < p > This is the difference between a "writer" and a "content strategist." Jasper is both.</p>
 
-                                            < h3 > Repurposing Content: The "Content Waterfall" </h3>
+                                          < h3 > Repurposing Content: The "Content Waterfall" </h3>
 
-                                              < p > The biggest productivity hack in marketing is < strong > Repurposing < /strong>. You write one big thing, and turn it into 10 small things.</p >
+                                            < p > The biggest productivity hack in marketing is < strong > Repurposing < /strong>. You write one big thing, and turn it into 10 small things.</p >
 
-                                                <p><strong>The Jasper Workflow: </strong></p >
-                                                  <ol>
-                                                  <li>Paste a link to your YouTube video.</li>
-                                                    < li > Ask Jasper: "Turn this video transcript into a blog post." </li>
-                                                      < li > Then: "Turn that blog post into a LinkedIn thread." </li>
-                                                        < li > Then: "Turn that thread into 5 Twitter hooks." </li>
-                                                          < li > Then: "Write an email newsletter promoting this video." </li>
-                                                            </ol>
+                                              <p><strong>The Jasper Workflow: </strong></p >
+                                                <ol>
+                                                <li>Paste a link to your YouTube video.</li>
+                                                  < li > Ask Jasper: "Turn this video transcript into a blog post." </li>
+                                                    < li > Then: "Turn that blog post into a LinkedIn thread." </li>
+                                                      < li > Then: "Turn that thread into 5 Twitter hooks." </li>
+                                                        < li > Then: "Write an email newsletter promoting this video." </li>
+                                                          </ol>
 
-                                                            < p > You just created a week's worth of content from one video. This is how top creators scale.</p>
+                                                          < p > You just created a week's worth of content from one video. This is how top creators scale.</p>
 
-                                                              < h3 > Common Mistake: The "Set and Forget" </h3>
+                                                            < h3 > Common Mistake: The "Set and Forget" </h3>
 
-                                                                < p > The biggest mistake people make with Jasper is trusting it too much.</p>
+                                                              < p > The biggest mistake people make with Jasper is trusting it too much.</p>
 
-                                                                  < p > They generate a blog post, copy - paste it to WordPress, and hit publish. < strong > Do not do this.< /strong></p >
+                                                                < p > They generate a blog post, copy - paste it to WordPress, and hit publish. < strong > Do not do this.< /strong></p >
 
-                                                                    <p>AI content often lacks "soul." It lacks personal anecdotes, contrarian opinions, and deep empathy.Use Jasper to build the skeleton, but you must add the muscle and skin.</p>
+                                                                  <p>AI content often lacks "soul." It lacks personal anecdotes, contrarian opinions, and deep empathy.Use Jasper to build the skeleton, but you must add the muscle and skin.</p>
 
-                                                                      < h3 > The Future of Marketing: "Hyper-Personalization" </h3>
+                                                                    < h3 > The Future of Marketing: "Hyper-Personalization" </h3>
 
-                                                                        < p > The holy grail of marketing is sending the right message to the right person at the right time.</p>
+                                                                      < p > The holy grail of marketing is sending the right message to the right person at the right time.</p>
 
-                                                                          < p > With tools like Jasper, you can theoretically generate 1,000 unique landing pages for 1,000 different customer segments.This is called "Programmatic SEO." </p>
+                                                                        < p > With tools like Jasper, you can theoretically generate 1,000 unique landing pages for 1,000 different customer segments.This is called "Programmatic SEO." </p>
 
-                                                                            < p > Instead of writing one article about "Best Coffee," you generate 50 articles: "Best Coffee for Students," "Best Coffee for Moms," "Best Coffee for Hikers," etc.Jasper makes this scale possible.</p>
+                                                                          < p > Instead of writing one article about "Best Coffee," you generate 50 articles: "Best Coffee for Students," "Best Coffee for Moms," "Best Coffee for Hikers," etc.Jasper makes this scale possible.</p>
 
-                                                                              < h3 > When to Use Jasper </h3>
+                                                                            < h3 > When to Use Jasper </h3>
 
-                                                                                < p > Use Jasper if you are: </p>
-                                                                                  < ul >
-                                                                                  <li>A content creator needing 50 social posts a week.</li>
-                                                                                    < li > A small business owner writing your own website copy.</li>
-                                                                                      < li > An agency managing voices for 10 different clients.</li>
-                                                                                        </ul>
-                                                                                          `,
-          handsOn: {
-    title: "The Copy Generator",
+                                                                              < p > Use Jasper if you are: </p>
+                                                                                < ul >
+                                                                                <li>A content creator needing 50 social posts a week.</li>
+                                                                                  < li > A small business owner writing your own website copy.</li>
+                                                                                    < li > An agency managing voices for 10 different clients.</li>
+                                                                                      </ul>
+                                                                                        `,
+    handsOn: {
+      title: "The Copy Generator",
       description: "Write a landing page in 2 minutes.",
-        affiliateLinks: [
-          {
-            text: "Try Jasper →",
-            url: "https://www.jasper.ai"
-          }
-        ],
-          exercise: `1. Go to Jasper(or use their free trial).
+      affiliateLinks: [
+        {
+          text: "Try Jasper →",
+          url: "https://www.jasper.ai"
+        }
+      ],
+      exercise: `1. Go to Jasper(or use their free trial).
 2. Set up a "Brand Voice" by pasting text from your favorite writer or your own company.
 3. Select the "Landing Page" template.
 4. Enter a made - up product name(e.g., "Coffee for Cats").
 5. Watch it generate a headline, subheadline, benefits, and call - to - action that actually sounds persuasive, not robotic.`
-  }
-},
+    }
+  },
 
-// DAY 9: Meta AI
-{
-  day: 9,
+  // DAY 9: Meta AI
+  {
+    day: 9,
     title: "The Socialite",
-      subtitle: "Meta AI in Your Pocket",
-        content: `
-    < p > The best AI is the one you actually use.And where do you spend most of your time ? Probably WhatsApp, Instagram, or Messenger.</p>
+    subtitle: "Meta AI in Your Pocket",
+    content: `
+  < p > The best AI is the one you actually use.And where do you spend most of your time ? Probably WhatsApp, Instagram, or Messenger.</p>
 
-      < p > <strong>Meta AI < /strong> is Mark Zuckerberg's play to put AI into the apps you already have. You don't need to download anything new. It's just... there.</p >
+    < p > <strong>Meta AI < /strong> is Mark Zuckerberg's play to put AI into the apps you already have. You don't need to download anything new. It's just... there.</p >
 
-        <h3>Frictionless Creativity </h3>
+      <h3>Frictionless Creativity </h3>
 
-          < p > The magic of Meta AI is "Imagine." You can be in a group chat with friends, type < code > @Meta AI imagine a cat playing basketball < /code>, and boom—it generates the image right there in the chat.</p >
+        < p > The magic of Meta AI is "Imagine." You can be in a group chat with friends, type < code > @Meta AI imagine a cat playing basketball < /code>, and boom—it generates the image right there in the chat.</p >
 
-            <p>It’s also great for settling debates. "Who won the 1994 World Cup?" You don't need to leave the chat to Google it. You just ask Meta AI.</p>
+          <p>It’s also great for settling debates. "Who won the 1994 World Cup?" You don't need to leave the chat to Google it. You just ask Meta AI.</p>
 
-              < h3 > The "Ray-Ban" Factor </h3>
+            < h3 > The "Ray-Ban" Factor </h3>
 
-                < p > Meta is also leading the charge in "Wearable AI" with their Ray - Ban smart glasses.You can look at a building and ask: "What is this building?" The glasses take a picture, send it to Meta AI, and whisper the answer in your ear.</p>
+              < p > Meta is also leading the charge in "Wearable AI" with their Ray - Ban smart glasses.You can look at a building and ask: "What is this building?" The glasses take a picture, send it to Meta AI, and whisper the answer in your ear.</p>
 
-                  < p > This is the beginning of "Ambient Computing"—where AI isn't a destination you go to (like a website), but a layer on top of reality.</p>
+                < p > This is the beginning of "Ambient Computing"—where AI isn't a destination you go to (like a website), but a layer on top of reality.</p>
 
-                    < h3 > The Engine: Llama 3 </h3>
+                  < h3 > The Engine: Llama 3 </h3>
 
-                      < p > Under the hood, Meta AI is running on < strong > Llama 3 < /strong>. This is arguably the most powerful "Open Source" model in the world.</p >
+                    < p > Under the hood, Meta AI is running on < strong > Llama 3 < /strong>. This is arguably the most powerful "Open Source" model in the world.</p >
 
-                        <p>Why does this matter ? Because it means Meta isn't just renting technology from OpenAI. They own the stack. This allows them to make it <strong>fast</strong> and <strong>free</strong>.</p>
+                      <p>Why does this matter ? Because it means Meta isn't just renting technology from OpenAI. They own the stack. This allows them to make it <strong>fast</strong> and <strong>free</strong>.</p>
 
-                          < p > While other tools charge $20 / month for their best models, Meta is giving away GPT - 4 level intelligence for free inside WhatsApp.That is a massive disruption.</p>
+                        < p > While other tools charge $20 / month for their best models, Meta is giving away GPT - 4 level intelligence for free inside WhatsApp.That is a massive disruption.</p>
 
-                            < h3 > Privacy: Is Mark Reading My Chats ? </h3>
+                          < h3 > Privacy: Is Mark Reading My Chats ? </h3>
 
-                              < p > This is the big question.If I use Meta AI in WhatsApp, does it read my private messages ? </p>
+                            < p > This is the big question.If I use Meta AI in WhatsApp, does it read my private messages ? </p>
 
-                                < p > <strong>The Official Answer: </strong> No. Meta AI only sees messages where it is explicitly tagged (e.g., "@Meta AI") or messages sent directly to it.</p >
+                              < p > <strong>The Official Answer: </strong> No. Meta AI only sees messages where it is explicitly tagged (e.g., "@Meta AI") or messages sent directly to it.</p >
 
-                                  <p>However, metadata(who you talk to, how often) is likely used to target ads.If you are a privacy absolutist, stick to Signal.If you are a pragmatist who wants convenience, Meta AI is a fair trade.</p>
+                                <p>However, metadata(who you talk to, how often) is likely used to target ads.If you are a privacy absolutist, stick to Signal.If you are a pragmatist who wants convenience, Meta AI is a fair trade.</p>
 
-                                    < h3 > The "Imagine Me" Feature </h3>
+                                  < h3 > The "Imagine Me" Feature </h3>
 
-                                      < p > This is the most viral feature.You can upload a few selfies to Meta AI, and then type: "Imagine me as a gladiator" or "Imagine me in a cyberpunk city." </p>
+                                    < p > This is the most viral feature.You can upload a few selfies to Meta AI, and then type: "Imagine me as a gladiator" or "Imagine me in a cyberpunk city." </p>
 
-                                        < p > It generates eerily accurate images of < em > you < /em> in those scenarios. It’s fun, but it’s also a glimpse into the future of digital identity.</p >
+                                      < p > It generates eerily accurate images of < em > you < /em> in those scenarios. It’s fun, but it’s also a glimpse into the future of digital identity.</p >
 
-                                          <h3>The "Reimagine" Feature </h3>
+                                        <h3>The "Reimagine" Feature </h3>
 
-                                            < p > This is where it gets wild.You can take an image you already generated(or a photo you sent) and ask Meta AI to change it.</p>
+                                          < p > This is where it gets wild.You can take an image you already generated(or a photo you sent) and ask Meta AI to change it.</p>
 
-                                              < p > <strong>Example: </strong> You send a photo of your dog. You say: "Reimagine this in the style of a Van Gogh painting."</p >
+                                            < p > <strong>Example: </strong> You send a photo of your dog. You say: "Reimagine this in the style of a Van Gogh painting."</p >
 
-                                                <p>It keeps the composition but changes the style.It’s endless creative fun.</p>
+                                              <p>It keeps the composition but changes the style.It’s endless creative fun.</p>
 
-                                                  < h3 > Meta AI on the Web </h3>
+                                                < h3 > Meta AI on the Web </h3>
 
-                                                    < p > While it lives in your apps, it also has a home at < strong > meta.ai < /strong>.</p >
+                                                  < p > While it lives in your apps, it also has a home at < strong > meta.ai < /strong>.</p >
 
-                                                      <p>This is a direct competitor to ChatGPT.It has a full - screen interface, it saves your history, and it's great for longer work sessions when you are on your laptop.</p>
+                                                    <p>This is a direct competitor to ChatGPT.It has a full - screen interface, it saves your history, and it's great for longer work sessions when you are on your laptop.</p>
 
-                                                        < h3 > Mini - Guide: Prompting for Images </h3>
+                                                      < h3 > Mini - Guide: Prompting for Images </h3>
 
-                                                          < p > Most people just type "cat." To get professional results, use the < strong > S - C - L Framework < /strong>:</p >
-                                                            <ul>
-                                                            <li><strong>Subject: </strong> A cat wearing a tuxedo.</li >
-                                                              <li><strong>Context: </strong> Sitting at a poker table in a smoky room.</li >
-                                                                <li><strong>Lighting / Style: </strong> Cinematic lighting, 4k, photorealistic.</li >
-                                                                  </ul>
+                                                        < p > Most people just type "cat." To get professional results, use the < strong > S - C - L Framework < /strong>:</p >
+                                                          <ul>
+                                                          <li><strong>Subject: </strong> A cat wearing a tuxedo.</li >
+                                                            <li><strong>Context: </strong> Sitting at a poker table in a smoky room.</li >
+                                                              <li><strong>Lighting / Style: </strong> Cinematic lighting, 4k, photorealistic.</li >
+                                                                </ul>
 
-                                                                  < p > <strong>Try this: </strong> "Imagine a futuristic version of my city, golden hour lighting, cyberpunk style, highly detailed."</p >
+                                                                < p > <strong>Try this: </strong> "Imagine a futuristic version of my city, golden hour lighting, cyberpunk style, highly detailed."</p >
 
-                                                                    <h3>The Future of Search: "Social Search" </h3>
+                                                                  <h3>The Future of Search: "Social Search" </h3>
 
-                                                                      < p > Gen Z doesn't Google things; they TikTok them. They want visual, social answers.</p>
+                                                                    < p > Gen Z doesn't Google things; they TikTok them. They want visual, social answers.</p>
 
-                                                                        < p > Meta AI is building for this future.When you ask for "Best restaurants in Tokyo," it doesn't just give you a list; it (eventually) will pull from your friends' recommendations and Instagram Reels.</p>
+                                                                      < p > Meta AI is building for this future.When you ask for "Best restaurants in Tokyo," it doesn't just give you a list; it (eventually) will pull from your friends' recommendations and Instagram Reels.</p>
 
-                                                                          < h3 > When to Use Meta AI </h3>
+                                                                        < h3 > When to Use Meta AI </h3>
 
-                                                                            < p > Use it for <strong>Casual Convenience < /strong>.</p >
-                                                                              <ul>
-                                                                              <li>Planning a dinner in the group chat.</li>
-                                                                                < li > Generating funny images for memes.</li>
-                                                                                  < li > Quick fact - checking without leaving the app.</li>
-                                                                                    </ul>
+                                                                          < p > Use it for <strong>Casual Convenience < /strong>.</p >
+                                                                            <ul>
+                                                                            <li>Planning a dinner in the group chat.</li>
+                                                                              < li > Generating funny images for memes.</li>
+                                                                                < li > Quick fact - checking without leaving the app.</li>
+                                                                                  </ul>
 
-                                                                                    < p > Don't use it for writing your thesis or coding your app. It's built for social, not for work.</p>
-                                                                                      `,
-          handsOn: {
-    title: "The Group Chat Flex",
+                                                                                  < p > Don't use it for writing your thesis or coding your app. It's built for social, not for work.</p>
+                                                                                    `,
+    handsOn: {
+      title: "The Group Chat Flex",
       description: "Use AI where you already hang out.",
-        affiliateLinks: [
-          {
-            text: "Learn about Meta AI →",
-            url: "https://www.meta.ai"
-          }
-        ],
-          exercise: `1. Open WhatsApp or Instagram.
+      affiliateLinks: [
+        {
+          text: "Learn about Meta AI →",
+          url: "https://www.meta.ai"
+        }
+      ],
+      exercise: `1. Open WhatsApp or Instagram.
 2. Find the Meta AI circle(usually at the top or bottom).
 3. Ask it to generate an image: "Imagine a futuristic version of my city."
-  4. Forward that image to a friend.`
-  }
-},
+4. Forward that image to a friend.`
+    }
+  },
 
-// DAY 10: Notion
-{
-  day: 10,
+  // DAY 10: Notion
+  {
+    day: 10,
     title: "The Second Brain",
-      subtitle: "Organizing Your AI Life with Notion",
-        content: `
-    < p > We are 10 days in.You have learned about 9 different tools.You have written prompts, generated ideas, and solved puzzles.</p>
+    subtitle: "Organizing Your AI Life with Notion",
+    content: `
+  < p > We are 10 days in.You have learned about 9 different tools.You have written prompts, generated ideas, and solved puzzles.</p>
 
-      < p > But where are you keeping all this ? </p>
+    < p > But where are you keeping all this ? </p>
 
-        < p > If you are just typing prompts and losing them, you are not building a skill—you are just playing.To master AI, you need a < strong > Prompt Library < /strong>.</p >
+      < p > If you are just typing prompts and losing them, you are not building a skill—you are just playing.To master AI, you need a < strong > Prompt Library < /strong>.</p >
 
-          <h3>Enter Notion </h3>
+        <h3>Enter Notion </h3>
 
-            < p > <strong>Notion < /strong> is the ultimate workspace. With Notion AI, it becomes a "Second Brain." You can store your best prompts, your notes, and your projects. And you can have AI summarize, rewrite, or expand on them right inside your notes.</p >
+          < p > <strong>Notion < /strong> is the ultimate workspace. With Notion AI, it becomes a "Second Brain." You can store your best prompts, your notes, and your projects. And you can have AI summarize, rewrite, or expand on them right inside your notes.</p >
 
-            <p><strong>The System: </strong> Every time you write a prompt that works perfectly, <strong>save it</strong >.Give it a name.Tag it(e.g., #writing, #coding).Next time, you don't start from scratch; you start from your library.</p>
+          <p><strong>The System: </strong> Every time you write a prompt that works perfectly, <strong>save it</strong >.Give it a name.Tag it(e.g., #writing, #coding).Next time, you don't start from scratch; you start from your library.</p>
 
-              < h3 > The "Q&A" Feature </h3>
+            < h3 > The "Q&A" Feature </h3>
 
-                < p > Notion AI has a feature called Q & A.It works like ChatGPT, but for <em>your < /em> notes.</p >
+              < p > Notion AI has a feature called Q & A.It works like ChatGPT, but for <em>your < /em> notes.</p >
 
-                  <p>You can ask: "What was that prompt I used for the marketing email last week?" Notion scans your entire workspace and finds it.</p>
+                <p>You can ask: "What was that prompt I used for the marketing email last week?" Notion scans your entire workspace and finds it.</p>
 
-                    < h3 > The "Writer's Block" Killer </h3>
+                  < h3 > The "Writer's Block" Killer </h3>
 
-                      < p > Notion AI lives in the text editor.If you are writing a blog post and get stuck, just hit "Space." </p>
+                    < p > Notion AI lives in the text editor.If you are writing a blog post and get stuck, just hit "Space." </p>
 
-                        < p > You can say: "Continue writing this paragraph," or "Give me 5 ideas for the next section." It unblocks you instantly.</p>
+                      < p > You can say: "Continue writing this paragraph," or "Give me 5 ideas for the next section." It unblocks you instantly.</p>
 
-                          < h3 > The "PARA" Method for AI </h3>
+                        < h3 > The "PARA" Method for AI </h3>
 
-                            < p > If you are going to build a Prompt Library, you need a structure.I recommend a simplified version of Tiago Forte's <strong>PARA Method</strong>:</p>
+                          < p > If you are going to build a Prompt Library, you need a structure.I recommend a simplified version of Tiago Forte's <strong>PARA Method</strong>:</p>
 
-                              < ul >
-                              <li><strong>Projects: </strong> Prompts for active work (e.g., "Website Redesign").</li >
-                                <li><strong>Areas: </strong> Prompts for ongoing responsibilities (e.g., "Health," "Finances").</li >
-                                  <li><strong>Resources: </strong> Cool prompts you found but haven't used yet.</li >
-                                    <li><strong>Archives: </strong> Old prompts that are outdated.</li >
-                                      </ul>
+                            < ul >
+                            <li><strong>Projects: </strong> Prompts for active work (e.g., "Website Redesign").</li >
+                              <li><strong>Areas: </strong> Prompts for ongoing responsibilities (e.g., "Health," "Finances").</li >
+                                <li><strong>Resources: </strong> Cool prompts you found but haven't used yet.</li >
+                                  <li><strong>Archives: </strong> Old prompts that are outdated.</li >
+                                    </ul>
 
-                                      < p > Build this structure in Notion, and you will never lose a good idea again.</p>
+                                    < p > Build this structure in Notion, and you will never lose a good idea again.</p>
 
-                                        < h3 > The "Project Manager" Workflow </h3>
+                                      < h3 > The "Project Manager" Workflow </h3>
 
-                                          < p > One of the hardest parts of any project is starting.Notion AI solves the "Blank Page Problem." </p>
+                                        < p > One of the hardest parts of any project is starting.Notion AI solves the "Blank Page Problem." </p>
 
-                                            < p > <strong>Try this: </strong> Create a page called "Launch Plan." Type "Help me plan a launch for a new coffee brand."</p >
+                                          < p > <strong>Try this: </strong> Create a page called "Launch Plan." Type "Help me plan a launch for a new coffee brand."</p >
 
-                                              <p>Notion AI will generate: </p>
-                                                < ol >
-                                                <li>A timeline.</li>
-                                                  < li > A list of deliverables.</li>
-                                                    < li > Marketing ideas.</li>
-                                                      < li > A budget template.</li>
-                                                        </ol>
+                                            <p>Notion AI will generate: </p>
+                                              < ol >
+                                              <li>A timeline.</li>
+                                                < li > A list of deliverables.</li>
+                                                  < li > Marketing ideas.</li>
+                                                    < li > A budget template.</li>
+                                                      </ol>
 
-                                                        < p > It turns a vague idea into a concrete plan in 10 seconds.</p>
+                                                      < p > It turns a vague idea into a concrete plan in 10 seconds.</p>
 
-                                                          < h3 > The "Meeting Note" Magician </h3>
+                                                        < h3 > The "Meeting Note" Magician </h3>
 
-                                                            < p > We all take messy notes.You type fast, you make typos, you forget context.</p>
+                                                          < p > We all take messy notes.You type fast, you make typos, you forget context.</p>
 
-                                                              < p > Paste your messy notes into Notion, highlight them, and ask AI: "Fix spelling, organize into bullet points, and extract action items." </p>
+                                                            < p > Paste your messy notes into Notion, highlight them, and ask AI: "Fix spelling, organize into bullet points, and extract action items." </p>
 
-                                                                < p > It turns your brain dump into a client - ready report.</p>
+                                                              < p > It turns your brain dump into a client - ready report.</p>
 
-                                                                  < h3 > The "AI Editor" vs.Grammarly </h3>
+                                                                < h3 > The "AI Editor" vs.Grammarly </h3>
 
-                                                                    < p > Notion AI isn't just for generating text; it's for fixing it.</p>
+                                                                  < p > Notion AI isn't just for generating text; it's for fixing it.</p>
 
-                                                                      < p > Highlight any paragraph and click "Fix Spelling & Grammar." It is often better than Grammarly because it understands context.You can also say "Change Tone to Professional" or "Make Shorter." </p>
+                                                                    < p > Highlight any paragraph and click "Fix Spelling & Grammar." It is often better than Grammarly because it understands context.You can also say "Change Tone to Professional" or "Make Shorter." </p>
 
-                                                                        < h3 > The "Summarize" Button </h3>
+                                                                      < h3 > The "Summarize" Button </h3>
 
-                                                                          < p > If you clip a long article or a YouTube transcript into Notion, you don't have to read it.</p>
+                                                                        < p > If you clip a long article or a YouTube transcript into Notion, you don't have to read it.</p>
 
-                                                                            < p > Just type<code> / summarize < /code>. Notion AI will read the entire page and give you a 3-sentence summary or a bulleted list of key takeaways.</p >
+                                                                          < p > Just type<code> / summarize < /code>. Notion AI will read the entire page and give you a 3-sentence summary or a bulleted list of key takeaways.</p >
 
-                                                                              <h3>The Phase 2 Roadmap: What's Coming?</h3>
+                                                                            <h3>The Phase 2 Roadmap: What's Coming?</h3>
 
-                                                                                < p > Get ready.The next 10 days are about < strong > Media < /strong>.</p >
+                                                                              < p > Get ready.The next 10 days are about < strong > Media < /strong>.</p >
 
-                                                                                  <ul>
-                                                                                  <li><strong>Day 11: </strong> Midjourney (The King of AI Art)</li >
-                                                                                    <li><strong>Day 12: </strong> DALL-E 3 (The Easy Artist)</li >
-                                                                                      <li><strong>Day 13: </strong> Suno (Making Music)</li >
-                                                                                        <li><strong>Day 14: </strong> ElevenLabs (Cloning Your Voice)</li >
-                                                                                          <li><strong>Day 15: </strong> Runway (Text to Video)</li >
-                                                                                            </ul>
+                                                                                <ul>
+                                                                                <li><strong>Day 11: </strong> Midjourney (The King of AI Art)</li >
+                                                                                  <li><strong>Day 12: </strong> DALL-E 3 (The Easy Artist)</li >
+                                                                                    <li><strong>Day 13: </strong> Suno (Making Music)</li >
+                                                                                      <li><strong>Day 14: </strong> ElevenLabs (Cloning Your Voice)</li >
+                                                                                        <li><strong>Day 15: </strong> Runway (Text to Video)</li >
+                                                                                          </ul>
 
-                                                                                            < p > Rest up.We start fresh tomorrow.</p>
+                                                                                          < p > Rest up.We start fresh tomorrow.</p>
 
-                                                                                              < h3 > The 30 - Day Challenge Milestone </h3>
+                                                                                            < h3 > The 30 - Day Challenge Milestone </h3>
 
-                                                                                                < p > Congratulations! You have completed Phase 1: <strong>The Tools < /strong>.</p >
+                                                                                              < p > Congratulations! You have completed Phase 1: <strong>The Tools < /strong>.</p >
 
-                                                                                                  <p>You now know the landscape.You know the difference between a Writer(Claude), a Researcher(Perplexity), and a Logician(DeepSeek).</p>
+                                                                                                <p>You now know the landscape.You know the difference between a Writer(Claude), a Researcher(Perplexity), and a Logician(DeepSeek).</p>
 
-                                                                                                    < p > In Phase 2, we stop looking at tools and start looking at < strong > Skills < /strong>. We will cover Visuals, Audio, and Video.</p >
-                                                                                                      `,
-          handsOn: {
-    title: "Build Your Prompt Library",
+                                                                                                  < p > In Phase 2, we stop looking at tools and start looking at < strong > Skills < /strong>. We will cover Visuals, Audio, and Video.</p >
+                                                                                                    `,
+    handsOn: {
+      title: "Build Your Prompt Library",
       description: "Create the asset that will save you hours.",
-        affiliateLinks: [
-          {
-            text: "Get Notion →",
-            url: "https://www.notion.so"
-          }
-        ],
-          exercise: `1. Create a new Page in Notion called "My AI Brain".
+      affiliateLinks: [
+        {
+          text: "Get Notion →",
+          url: "https://www.notion.so"
+        }
+      ],
+      exercise: `1. Create a new Page in Notion called "My AI Brain".
 2. Create a simple Table with columns: "Prompt Name", "The Prompt", "Tool Used", "Rating".
 3. Add your best prompt from the last 10 days into this table.
 4. Congratulations.You just started your professional AI asset library.`
-  }
-},
+    }
+  },
 
-  // PLACEHOLDERS FOR PHASE 2 & 3 (To be updated)
-  ...Array.from({ length: 20 }, (_, i) => ({
-  day: i + 11,
-  title: `Day ${i + 11}: Coming Soon`,
-  subtitle: "Phase 2 & 3 Content Loading...",
-  content: "<p>The next phases of the course (Visuals, Audio, Automation) are being crafted. Stay tuned!</p>"
-}))
+  // DAY 11: Midjourney
+  {
+    day: 11,
+    title: "The Artist",
+    subtitle: "Midjourney V7 and the Art of Visual AI",
+    content: `
+  <p>Welcome to Phase 2. For the first 10 days, you mastered <strong>Words</strong>. Now, we master <strong>Images</strong>.</p>
+
+  <p>Today, you're meeting the king of AI art: <strong>Midjourney</strong>.</p>
+
+ <p>If ChatGPT is the "writer," Midjourney is the "illustrator." You give it a description, and it paints a masterpiece.</p>
+
+  <h3>Why Midjourney Wins</h3>
+
+    <p>There are many image generators (DALL-E, Stable Diffusion, Adobe Firefly), but Midjourney is the choice of professionals for one reason: <strong>Aesthetic Excellence</strong>.</p>
+
+      <p>While DALL-E prioritizes "literal accuracy" (you say "cat," you get a cat), Midjourney prioritizes "beauty." You say "cat," you get a <em>cinematic, emotionally evocative portrait of a cat at golden hour</em>.</p>
+
+        <p>It's not just a tool; it's a collaborator with taste.</p>
+
+          <h3>The Discord Interface (Yes, Really)</h3>
+
+            <p>Midjourney doesn't have a website the way ChatGPT does. It lives inside <strong>Discord</strong>, a chat platform used by gamers and communities.</p>
+
+              <p>This feels weird at first, but it's actually brilliant. You don't work in isolation; you work in a creative studio where you can see what other people are making in real time. It's like being in a digital Pixar office.</p>
+
+                <h3>The /imagine Command</h3>
+
+                  <p>To create an image, you type:<br>
+                  <code>/imagine a futuristic city at sunset, cyberpunk style, highly detailed</code></p>
+
+                    <p>Within 60 seconds, you get 4 variations. You can then upscale your favorite, or "remix" it with changes.</p>
+
+                      <h3>The Prompt Formula: S-C-S-L</h3>
+
+                        <p>Most beginners type "cat" and get disappointed. Professionals use the <strong>S-C-S-L Framework</strong>:</p>
+                          <ul>
+                          <li><strong>Subject:</strong> A knight in armor.</li>
+                            <li><strong>Context:</strong> Standing in a burning castle.</li>
+                              <li><strong>Style:</strong> Oil painting, Rembrandt lighting.</li>
+                                <li><strong>Lighting:</strong> Dramatic shadows, golden hour.</li>
+                                  </ul>
+
+                                  <p><strong>Example Prompt:</strong> "A knight in golden armor standing in a burning castle, oil painting style, Rembrandt lighting, dramatic shadows, golden hour, 8k, highly detailed"</p>
+
+                                    <p>Notice the difference? Specificity = Quality.</p>
+
+                                      <h3>The V7 Revolution</h3>
+
+                                        <p>Midjourney V7 (the latest version as of 2025) introduced massive improvements:</p>
+                                          <ul>
+                                          <li><strong>Better Text Rendering:</strong> You can now add readable text to images (signs, book covers, logos).</li>
+                                            <li><strong>Improved Realism:</strong> Photorealistic portraits that are nearly indistinguishable from real photos.</li>
+                                              <li><strong>Faster Generation:</strong> Images render in under 30 seconds.</li>
+                                                </ul>
+
+                                                <h3>The "Sref" Parameter: Your Style Signature</h3>
+
+  <p>One of Midjourney's superpowers is <strong>Style Reference</strong>. You can upload an image you love (e.g., a movie poster) and tell Midjourney to match that aesthetic.</p>
+
+                                                    <p><strong>Example:</strong> <code>/imagine a dog --sref [URL to a Wes Anderson screenshot]</code></p>
+
+                                                      <p>The result? A dog that looks like it walked out of a Wes Anderson film.</p>
+
+                                                        <h3>Commercial Use & Copyright</h3>
+
+                                                          <p>If you pay for Midjourney (starting at $10/month), you <strong>own the commercial rights</strong> to images you create. You can sell them, use them in your business, or put them on t-shirts.</p>
+
+                                                            <p>However, the images are not exclusive. Someone else could theoretically generate something similar. If you need truly unique art, hire a human artist. If you need beautiful, fast, and affordable visuals, Midjourney is unbeatable.</p>
+
+                                                              <h3>The Ethics Debate</h3>
+
+                                                                <p>Midjourney was trained on millions of images scraped from the internet, including work by living artists. This has sparked legal battles.</p>
+
+                                                                  <p><strong>My Take:</strong> Use Midjourney for ideation, mood boards, and concepts. For final client work where authenticity matters, credit the tool ("Created with Midjourney V7") or work with a human illustrator to refine the output.</p>
+
+                                                                    <h3>Top Use Cases</h3>
+
+                                                                      <ul>
+                                                                      <li><strong>Marketing:</strong> Ad creatives, social media visuals, website headers.</li>
+                                                                        <li><strong>Publishing:</strong> Book covers, blog post thumbnails.</li>
+                                                                          <li><strong>Concept Art:</strong> Storyboards, character designs, world-building.</li>
+                                                                            <li><strong>Personal Projects:</strong> Custom wallpapers, gifts, NFTs.</li>
+                                                                              </ul>
+
+                                                                              <h3>When NOT to Use Midjourney</h3>
+
+                                                                                <ul>
+                                                                                <li><strong>Precise Logos:</strong> Use a human designer or tools like Adobe Illustrator.</li>
+                                                                                  <li><strong>Infographics with Data:</strong> Midjourney generates art, not charts.</li>
+                                                                                    <li><strong>Legally Sensitive Work:</strong> Court exhibits, medical diagrams—stick with licensed stock or custom commissions.</li>
+                                                                                      </ul>
+                                                                                        `,
+    handsOn: {
+      title: "Your First Masterpiece",
+      description: "Generate a professional-quality image.",
+      affiliateLinks: [
+        {
+          text: "Try Midjourney →",
+          url: "https://www.midjourney.com"
+        }
+      ],
+      exercise: `1. Sign up for Midjourney via their website (you'll need a Discord account).
+2. Join a "Newbie" room in the Midjourney Discord server.
+3. Type: /imagine a futuristic coffee shop interior, warm lighting, cozy atmosphere, plants everywhere, wide angle, 8k, photorealistic
+4. Wait 60 seconds. Review the 4 options.
+5. Click "U1" (Upscale #1) to get a high-res version of your favorite.
+
+Bonus: Try adding "--ar 16:9" to the end of your prompt to get a widescreen format perfect for presentations or desktop wallpapers.`
+    }
+  },
+
+  // DAY 12: Gemini Image Generation
+  {
+    day: 12,
+    title: "The Quick Sketch",
+    subtitle: "Gemini's Built-In Image Generator",
+    content: `
+  <p>You don't always need Midjourney's complexity. Sometimes you just need a quick visual <em>right now</em>.</p>
+
+  <p>That's where <strong>Gemini's built-in image generation</strong> comes in. No new account, no Discord, just instant visuals.</p>
+
+    <h3>The "Zero-Friction" Advantage</h3>
+
+      <p>The beauty of Gemini is that you're already there. You're chatting, researching, writing—and then you just say: <strong>"Generate an image of..."</strong></p>
+
+        <p>It just... works. This is the power of integration.</p>
+
+          <h3>When to Use Gemini vs. Midjourney</h3>
+
+            <ul>
+            <li><strong>Use Gemini When:</strong> You need a quick mockup, a placeholder image, or you're brainstorming visually alongside text.</li>
+              <li><strong>Use Midjourney When:</strong> You need gallery-quality visuals for client work, marketing, or portfolio pieces.</li>
+                </ul>
+
+                <p>Think of Gemini as your sketch pad and Midjourney as your oil painting canvas.</p>
+
+                  <h3>The "Iterate" Superpower</h3>
+
+                    <p>If you generate an image and it's close but not perfect, you don't start over—you just say:</p>
+
+                      <p><strong>"Make the sky more dramatic"</strong><br>
+                      <strong>"Add a mountain"</strong><br>
+                      <strong>"Change to night"</strong></p>
+
+                        <p>It remembers context and adjusts  instantly.</p>
+
+                          <h3>Integrated Workflow Example</h3>
+
+                            <p>You're planning a blog post. You ask Gemini:</p>
+                            <ol>
+                            <li>"Give me 5 blog ideas about remote work."</li>
+                              <li>"Expand #3 into an outline."</li>
+                                <li>"Generate a header image: cozy home office, warm lighting, laptop on desk."</li>
+                                  </ol>
+
+                                  <p>60 seconds: outline AND visual. Multimodal magic.</p>
+                                              `,
+    handsOn: {
+      title: "The Blog Header Generator",
+      description: "Create a custom image in 30 seconds.",
+      affiliateLinks: [
+        {
+          text: "Use Gemini →",
+          url: "https://gemini.google.com"
+        }
+      ],
+      exercise: `1. Open Gemini.
+2. Type: "Generate an image of a cozy reading nook with bookshelves, warm lighting, a comfy chair, and a rainy window view."
+3. Refine: "Make the chair darker brown and add a sleeping cat."
+4. Download and use as a blog header.`
+    }
+  },
+
+  // DAY 13: Suno
+  {
+    day: 13,
+    title: "The Composer",
+    subtitle: "Suno and AI-Generated Music",
+    content: `
+  <p>We've generated text and images. Now: <strong>sound</strong>.</p>
+
+  <p><strong>Suno</strong> creates full songs—vocals, instruments, melody, lyrics—in under 2 minutes.</p>
+
+    <h3>Who Needs This?</h3>
+
+      <ul>
+      <li><strong>Video Creators:</strong> Custom YouTube/TikTok background music.</li>
+        <li><strong>Podcasters:</strong> Unique intros. No more "Royalty-Free Track #47."</li>
+          <li><strong>Marketers:</strong> Jingles for ads.</li>
+            <li><strong>Fun:</strong> Making weird songs about your cat.</li>
+              </ul>
+
+              <h3>How It Works</h3>
+
+                <p>Two inputs:</p>
+                <ul>
+                <li><strong>Genre/Style:</strong> "80s synthwave," "acoustic folk," "epic orchestral."</li>
+                  <li><strong>Lyrics (optional):</strong> Write your own or let Suno generate.</li>
+                    </ul>
+
+                    <p><strong>Example:</strong> "Upbeat indie rock song about coffee addiction. Male vocals, energetic drums, catchy chorus."</p>
+
+                      <p>90 seconds later: two song variations.</p>
+
+                        <h3>The "Extend" Feature</h3>
+
+                          <p>Songs default to 2 minutes. Love it? Click <strong>"Extend"</strong> for a full 3-4 minute track with verses, chorus, bridge.</p>
+
+                            <h3>Copyright & Licensing</h3>
+
+                              <p>Paid plan = commercial rights. Use in videos, podcasts, or sell it.</p>
+
+                                <p>Not exclusive though. For truly unique: hire a musician. For fast/affordable background: Suno wins.</p>
+
+                                  <h3>Custom Mode</h3>
+
+                                    <p>Musically inclined? Write lyrics AND specify instructions:</p>
+
+                                      <p><strong>Example:</strong> "Verse 1 slow/melancholic. Chorus explosive energy. Piano intro, then electric guitar."</p>
+
+                                        <h3>Ethics</h3>
+
+                                          <p>Trained on existing music → legal debates. Use ethically:</p>
+                                          <ul>
+                                          <li>Don't replicate artist voices</li>
+                                            <li>Background music, not musician replacement</li>
+                                              <li>Credit when appropriate</li>
+                                                </ul>
+                                                  `,
+    handsOn: {
+      title: "Your First Custom Song",
+      description: "2-minute track in 90 seconds.",
+      affiliateLinks: [
+        {
+          text: "Try Suno →",
+          url: "https://suno.ai"
+        }
+      ],
+      exercise: `1. Sign up for Suno (free tier available).
+2. Click "Create."
+3. Prompt: "Upbeat lo-fi hip hop instrumental, studying vibes, no lyrics."
+4. Listen to both versions.
+5. Download favorite. Use as video/presentation background.`
+    }
+  },
+
+  // DAY 14: ElevenLabs
+  {
+    day: 14,
+    title: "The Voice",
+    subtitle: "ElevenLabs and Voice Cloning",
+    content: `
+  <p>What if you could clone your voice and have it read anything?</p>
+
+  <p><strong>ElevenLabs</strong> does exactly that. Upload 1 minute of audio, and it creates a digital twin of your voice.</p>
+
+    <h3>The Podcast Revolution</h3>
+
+      <p>Imagine recording a 30-minute podcast, then realizing you mispronounced a name. Normally? Re-record the whole section.</p>
+
+        <p>With ElevenLabs? Type the correction, generate it in your cloned voice, splice it in. Done.</p>
+
+          <h3>Text-to-Speech,  But Human</h3>
+
+            <p>Old TTS = robotic. ElevenLabs = eerily human. It captures:</p>
+            <ul>
+            <li>Emotion (happy, sad, excited)</li>
+              <li>Pacing (pauses, emphasis)</li>
+                <li>Accent/tone</li>
+                  </ul>
+
+                  <h3>Use Cases</h3>
+
+                    <ul>
+                    <li><strong>Audiobooks:</strong> Narrate your book without hiring a voice actor</li>
+                      <li><strong>Video Voiceovers:</strong> YouTube explainers, ads</li>
+                        <li><strong>Language Learning:</strong> Hear text pronounced correctly</li>
+                          <li><strong>Accessibility:</strong> Convert articles to audio</li>
+                            </ul>
+
+                            <h3>The "Instant Dub" Feature</h3>
+
+                              <p>Upload a video. ElevenLabs transcribes it, translates to another language, and re-speaks it in YOUR voice.</p>
+
+                                <p>You speak English → Output sounds like you speaking Spanish. Mind-blowing for global creators.</p>
+
+                                  <h3>Ethics & Deepfakes</h3>
+
+                                    <p>Voice cloning = powerful. Also dangerous.</p>
+
+                                      <p><strong>Rules:</strong></p>
+                                      <ul>
+                                      <li>Only clone YOUR voice or voices with explicit permission</li>
+                                        <li>Don't impersonate public figures</li>
+                                          <li>Disclose when using AI voice ("Narrated with ElevenLabs")</li>
+                                            </ul>
+
+                                            <p>Misuse can lead to scams, misinformation. Use responsibly.</p>
+
+                                              <h3>Commercial Use</h3>
+
+                                                <p>Paid plan = full commercial rights. Use for client work, monetized content, products.</p>
+                                                  `,
+    handsOn: {
+      title: "Clone Your Voice",
+      description: "Create a digital voice twin.",
+      affiliateLinks: [
+        {
+          text: "Try ElevenLabs →",
+          url: "https://elevenlabs.io"
+        }
+      ],
+      exercise: `1. Sign up for ElevenLabs.
+2. Record 1 minute of you reading (use a book paragraph).
+3. Upload to "Voice Lab" → "Instant Voice Cloning."
+4. Type a test sentence: "This is my AI voice reading custom text."
+5. Generate. Listen. Be amazed/terrified.`
+    }
+  },
+
+  // DAY 15: Runway
+  {
+    day: 15,
+    title: "The Director",
+    subtitle: "Runway and Text-to-Video",
+    content: `
+  <p>Images are powerful. Videos are <em>transformative</em>.</p>
+
+  <p><strong>Runway</strong> is the leading AI video generator. Type a description → get a 4-second video clip.</p>
+
+    <h3>The Video Revolution</h3>
+
+      <p>As of 2025, AI video is early but explosive. What took film crews weeks now takes seconds.</p>
+
+        <h3>How It Works</h3>
+
+          <p>Three modes:</p>
+          <ul>
+          <li><strong>Text-to-Video:</strong> "A cat walking through a neon-lit alley at night, rain falling, cinematic."</li>
+            <li><strong>Image-to-Video:</strong> Upload a photo, animate it.</li>
+              <li><strong>Video-to-Video:</strong> Change style of existing footage (turn live action → animated).</li>
+                </ul>
+
+                <h3>Gen-3 Alpha: The Leap Forward</h3>
+
+                  <p>Runway's Gen-3 model (2025) produces near-photorealistic clips with consistent motion, lighting, physics.</p>
+
+                    <p>Still limitations: 4-10 seconds max, occasional "dream logic" glitches.</p>
+
+                      <h3>Use Cases</h3>
+
+                        <ul>
+                        <li><strong>Social Media:</strong> Eye-catching TikTok/Instagram clips</li>
+                          <li><strong>Ads:</strong> Product demos, concept videos</li>
+                            <li><strong>Storyboarding:</strong> Visualize scenes before filming</li>
+                              <li><strong>Music Videos:</strong> Abstract/surreal visuals</li>
+                                </ul>
+
+                                <h3>The "Motion Brush" Tool</h3>
+
+                                  <p>Advanced feature: paint on an image where you want movement.</p>
+
+                                    <p>Example: Static photo of ocean → paint brush over waves → they animate.</p>
+
+                                      <h3>Copyright & Ownership</h3>
+
+                                        <p>Paid tier = commercial rights. Videos aren't exclusive (someone could generate similar).</p>
+
+                                          <h3>The Ethics Question</h3>
+
+                                            <p>AI video trained on existing footage. Film industry worried about job displacement.</p>
+
+                                              <p><strong>My take:</strong> Use for mockups, B-roll, concepts. For high-stakes client work: combine AI + human editors.</p>
+
+                                                <h3>The Future: Full AI Films?</h3>
+
+                                                  <p>We're 2-3 years from consistent 30-second clips. 5-10 years from full AI feature films.</p>
+
+                                                    <p>Today: learn the tools. Tomorrow: direct movies from your laptop.</p>
+                                                      `,
+    handsOn: {
+      title: "Your First AI Video",
+      description: "Generate a 4-second cinematic clip.",
+      affiliateLinks: [
+        {
+          text: "Try Runway →",
+          url: "https://runwayml.com"
+        }
+      ],
+      exercise: `1. Sign up for Runway (free credits available).
+2. Choose "Text to Video."
+3. Prompt: "A drone shot flying over a misty forest at sunrise, cinematic, slow motion, golden hour lighting."
+4. Generate. Wait 1-2 minutes.
+5. Download. Post to social media with #AIvideo tag.`
+    }
+  },
+
+  // PLACEHOLDERS FOR DAYS 16-30
+  ...Array.from({ length: 15 }, (_, i) => ({
+    day: i + 16,
+    title: `Day ${i + 16}: Coming Soon`,
+    subtitle: "Phase 2 & 3 Content Loading...",
+    content: "<p>Content being crafted. Stay tuned!</p>"
+  }))
 ];

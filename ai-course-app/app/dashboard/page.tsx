@@ -68,7 +68,7 @@ export default async function DashboardPage() {
 
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
             {/* Left Column - Progress */}
-            <aside className="lg:col-span-2 flex flex-col gap-6">
+            <aside className="lg:col-span-2 flex flex-col gap-6 order-2 lg:order-1">
               {/* Beta Tester Notice */}
               <div className="card-neumorphic rounded-3xl p-8 border-2 border-sage-green/30">
                 <h3 className="text-xl font-bold text-text-primary mb-4">Hey!</h3>
@@ -235,8 +235,8 @@ export default async function DashboardPage() {
             </aside>
 
             {/* Right Column - Profile Quick View - Lavender tint */}
-            <section className="lg:col-span-1">
-              <div className="glass-lavender rounded-3xl p-8 flex flex-col items-center text-center sticky top-24">
+            <section className="lg:col-span-1 order-1 lg:order-2">
+              <div className="glass-lavender rounded-3xl p-8 flex flex-col items-center text-center lg:sticky lg:top-24">
                 <h3 className="text-2xl font-bold text-text-primary mb-6">Profile</h3>
                 
                 {/* Profile Picture */}
