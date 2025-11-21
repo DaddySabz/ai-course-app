@@ -132,11 +132,9 @@ export default function LessonContent({ lesson, currentDay, userId, hasFullAcces
                 Tools You'll Need:
               </h3>
               {!isCompleted && (
-                <div className="glass p-4 rounded-2xl mb-4">
-                  <p className="text-sm font-semibold text-text-primary">
-                    Click the tool link below to mark this lesson complete and unlock the next day!
-                  </p>
-                </div>
+                <p className="text-sm text-text-secondary italic mb-4 bg-sage-green/5 border-l-4 border-sage-green/30 p-3 rounded">
+                  Click the tool link below to mark this lesson complete and unlock the next day!
+                </p>
               )}
               <div className="flex flex-wrap gap-4">
                 {lesson.handsOn.affiliateLinks.map((link: any, index: number) => (
@@ -147,7 +145,6 @@ export default function LessonContent({ lesson, currentDay, userId, hasFullAcces
                     className="glass-clickable inline-flex items-center gap-2 px-6 py-4 text-text-primary rounded-2xl text-base disabled:opacity-50"
                   >
                     {link.text}
-                    <span className="text-xl">→</span>
                   </button>
                 ))}
               </div>

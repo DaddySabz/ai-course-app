@@ -106,13 +106,13 @@ export default async function CertificatePage() {
             <div className="absolute bottom-4 right-4 w-12 h-12 border-b-4 border-r-4 border-sage-green/40 rounded-br-xl"></div>
             
             {/* Title */}
-            <div className="text-center mb-12">
+            <div className="text-center mb-6">
               <h2 className="text-3xl sm:text-4xl font-black text-text-primary">Certificate of Completion</h2>
             </div>
 
             {/* This certifies that + Profile Picture + Name */}
             <div className="text-center mb-12">
-              <p className="text-xl text-text-secondary mb-6 font-semibold">This certifies that</p>
+              <p className="text-xl text-text-secondary mb-8 font-semibold">This certifies that</p>
               
               {/* Profile Picture */}
               <div className="flex justify-center mb-6">
@@ -165,6 +165,7 @@ export default async function CertificatePage() {
               </div>
               <div className="text-center sm:text-right">
                 <p className="text-sm text-text-secondary font-semibold uppercase tracking-wider mb-1">Certificate ID</p>
+                {/* Display shortened UUID (first 8 chars) - Full UUID stored in DB for verification */}
                 <p className="text-lg font-semibold text-text-primary">AI-{String(certificate?.id).slice(0, 8).toUpperCase() || 'XXXXXXXX'}</p>
               </div>
             </div>

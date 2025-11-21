@@ -48,7 +48,7 @@ export default function NavigationBar() {
   }, [session])
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 card-neumorphic border-b border-text-tertiary/10">
+    <nav className="fixed top-0 left-0 right-0 z-50 bg-background/95 backdrop-blur-md shadow-lg border-b border-text-tertiary/20">
       <div className="max-w-7xl mx-auto px-6 py-4">
         <div className="flex items-center justify-between">
           {/* Logo/Title */}
