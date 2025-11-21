@@ -223,12 +223,12 @@ export default function ProfileEditor({ userId, defaultName, defaultAvatar, defa
           Name
         </label>
         {isEditingName ? (
-          <div className="flex items-center gap-2">
+          <div className="space-y-2">
             <input
               type="text"
               value={tempName}
               onChange={(e) => setTempName(e.target.value)}
-              className="flex-1 px-4 py-3 rounded-xl bg-white/50 border-2 border-sage-green focus:outline-none text-text-primary font-semibold"
+              className="w-full px-4 py-3 rounded-xl bg-white/50 border-2 border-sage-green focus:outline-none text-text-primary font-semibold"
               autoFocus
               onKeyDown={(e) => {
                 if (e.key === 'Enter') handleNameSave()
@@ -238,22 +238,24 @@ export default function ProfileEditor({ userId, defaultName, defaultAvatar, defa
                 }
               }}
             />
-            <button
-              onClick={handleNameSave}
-              disabled={isSaving}
-              className="px-4 py-3 bg-sage-green text-white rounded-xl font-bold hover:opacity-90"
-            >
-              Save
-            </button>
-            <button
-              onClick={() => {
-                setTempName(displayName)
-                setIsEditingName(false)
-              }}
-              className="px-4 py-3 bg-text-tertiary/20 text-text-secondary rounded-xl font-bold hover:opacity-90"
-            >
-              Cancel
-            </button>
+            <div className="flex items-center gap-2">
+              <button
+                onClick={handleNameSave}
+                disabled={isSaving}
+                className="flex-1 px-4 py-3 bg-sage-green text-white rounded-xl font-bold hover:opacity-90"
+              >
+                Save
+              </button>
+              <button
+                onClick={() => {
+                  setTempName(displayName)
+                  setIsEditingName(false)
+                }}
+                className="flex-1 px-4 py-3 bg-text-tertiary/20 text-text-secondary rounded-xl font-bold hover:opacity-90"
+              >
+                Cancel
+              </button>
+            </div>
           </div>
         ) : (
           <div 
@@ -272,12 +274,12 @@ export default function ProfileEditor({ userId, defaultName, defaultAvatar, defa
             Organization
           </label>
           {isEditingOrg ? (
-            <div className="flex items-center gap-2">
+            <div className="space-y-2">
               <input
                 type="text"
                 value={tempOrg}
                 onChange={(e) => setTempOrg(e.target.value)}
-                className="flex-1 px-4 py-3 rounded-xl bg-white/50 border-2 border-sage-green focus:outline-none text-text-primary font-semibold"
+                className="w-full px-4 py-3 rounded-xl bg-white/50 border-2 border-sage-green focus:outline-none text-text-primary font-semibold"
                 autoFocus
                 onKeyDown={(e) => {
                   if (e.key === 'Enter') handleOrgSave()
@@ -287,22 +289,24 @@ export default function ProfileEditor({ userId, defaultName, defaultAvatar, defa
                   }
                 }}
               />
-              <button
-                onClick={handleOrgSave}
-                disabled={isSaving}
-                className="px-4 py-3 bg-sage-green text-white rounded-xl font-bold hover:opacity-90"
-              >
-                Save
-              </button>
-              <button
-                onClick={() => {
-                  setTempOrg(displayOrg)
-                  setIsEditingOrg(false)
-                }}
-                className="px-4 py-3 bg-text-tertiary/20 text-text-secondary rounded-xl font-bold hover:opacity-90"
-              >
-                Cancel
-              </button>
+              <div className="flex items-center gap-2">
+                <button
+                  onClick={handleOrgSave}
+                  disabled={isSaving}
+                  className="flex-1 px-4 py-3 bg-sage-green text-white rounded-xl font-bold hover:opacity-90"
+                >
+                  Save
+                </button>
+                <button
+                  onClick={() => {
+                    setTempOrg(displayOrg)
+                    setIsEditingOrg(false)
+                  }}
+                  className="flex-1 px-4 py-3 bg-text-tertiary/20 text-text-secondary rounded-xl font-bold hover:opacity-90"
+                >
+                  Cancel
+                </button>
+              </div>
             </div>
           ) : (
             <div 

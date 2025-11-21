@@ -1332,56 +1332,118 @@ Bonus: Try adding "--ar 16:9" to the end of your prompt to get a widescreen form
     title: "The Composer",
     subtitle: "Suno and AI-Generated Music",
     content: `
-  <p>We've generated text and images. Now: <strong>sound</strong>.</p>
+  <p>We've generated text and images. Now let's tackle <strong>sound</strong>.</p>
 
-  <p><strong>Suno</strong> creates full songs—vocals, instruments, melody, lyrics—in under 2 minutes.</p>
+  <p><strong>Suno</strong> creates full songs—vocals, instruments, melody, lyrics—in under 2 minutes. And I'm not talking about elevator music. I'm talking about tracks you could legitimately put on Spotify.</p>
 
-    <h3>Who Needs This?</h3>
+    <h3>The "Spotify for Creators" Moment</h3>
 
-      <ul>
-      <li><strong>Video Creators:</strong> Custom YouTube/TikTok background music.</li>
-        <li><strong>Podcasters:</strong> Unique intros. No more "Royalty-Free Track #47."</li>
-          <li><strong>Marketers:</strong> Jingles for ads.</li>
-            <li><strong>Fun:</strong> Making weird songs about your cat.</li>
-              </ul>
+      <p>Imagine you're making a YouTube video about productivity. You need background music. Your options used to be:</p>
 
-              <h3>How It Works</h3>
+        <ol>
+        <li>Use the same royalty-free track everyone else uses (boring)</li>
+          <li>Pay a musician $500 for a custom track (expensive)</li>
+            <li>Risk copyright strikes with popular music (illegal)</li>
+              </ol>
 
-                <p>Two inputs:</p>
-                <ul>
-                <li><strong>Genre/Style:</strong> "80s synthwave," "acoustic folk," "epic orchestral."</li>
-                  <li><strong>Lyrics (optional):</strong> Write your own or let Suno generate.</li>
-                    </ul>
+              <p>Suno is option #4: Generate a unique, royalty-free track in 90 seconds for free.</p>
 
-                    <p><strong>Example:</strong> "Upbeat indie rock song about coffee addiction. Male vocals, energetic drums, catchy chorus."</p>
+                <h3>Suno v5: "The World's Best Music Model"</h3>
 
-                      <p>90 seconds later: two song variations.</p>
+                  <p>In late 2025, Suno released v5, and it's genuinely jaw-dropping. Here's what changed:</p>
 
-                        <h3>The "Extend" Feature</h3>
+                    <ul>
+                    <li><strong>8-Minute Tracks:</strong> Up from 4 minutes. You can now create full songs with intro, verses, chorus, bridge, outro.</li>
+                      <li><strong>Human-Like Vocals:</strong> The vocals are eerily realistic, especially in acoustic and indie folk genres. You'll forget it's AI.</li>
+                        <li><strong>1,200+ Genres:</strong> From lo-fi hip hop to death metal to Bollywood fusion. If it exists musically, Suno can generate it.</li>
+                          <li><strong>Genre Blending:</strong> Want classical piano meets trap beats? Done. Jazz saxophone over techno? Sure.</li>
+                            </ul>
 
-                          <p>Songs default to 2 minutes. Love it? Click <strong>"Extend"</strong> for a full 3-4 minute track with verses, chorus, bridge.</p>
+                            <h3>How It Actually Works</h3>
 
-                            <h3>Copyright & Licensing</h3>
+                              <p>Suno needs two things from you:</p>
 
-                              <p>Paid plan = commercial rights. Use in videos, podcasts, or sell it.</p>
+                                <ul>
+                                <li><strong>Genre/Style:</strong> "80s synthwave," "acoustic folk," "epic cinematic orchestral"</li>
+                                  <li><strong>Lyrics (optional):</strong> Write your own or let Suno's AI generate them based on a theme</li>
+                                    </ul>
 
-                                <p>Not exclusive though. For truly unique: hire a musician. For fast/affordable background: Suno wins.</p>
+                                    <p><strong>Example prompt:</strong> "Upbeat indie rock song about coffee addiction. Male vocals, energetic drums, catchy chorus."</p>
 
-                                  <h3>Custom Mode</h3>
+                                      <p>90 seconds later, you get <em>two</em> complete song variations to choose from. Pick your favorite, or regenerate for more options.</p>
 
-                                    <p>Musically inclined? Write lyrics AND specify instructions:</p>
+                                        <h3>The "Sound-to-Song" Magic</h3>
 
-                                      <p><strong>Example:</strong> "Verse 1 slow/melancholic. Chorus explosive energy. Piano intro, then electric guitar."</p>
+                                          <p>This is where it gets wild. Suno v5 has a feature where you can:</p>
 
-                                        <h3>Ethics</h3>
+                                            <ol>
+                                            <li>Record yourself humming a melody (even badly)</li>
+                                              <li>Upload to Suno</li>
+                                                <li>Tell it "Make this into a full song, indie pop style"</li>
+                                                  </ol>
 
-                                          <p>Trained on existing music → legal debates. Use ethically:</p>
-                                          <ul>
-                                          <li>Don't replicate artist voices</li>
-                                            <li>Background music, not musician replacement</li>
-                                              <li>Credit when appropriate</li>
-                                                </ul>
-                                                  `,
+                                                  <p>It will take your terrible humming and transform it into a professional-sounding track with instruments, drums, bass, and polished vocals.</p>
+
+                                                    <p>Songwriters have been using this to prototype ideas without needing a full studio session.</p>
+
+                                                      <h3>The "Add Vocals" Feature (Game Changer)</h3>
+
+                                                        <p>New in 2025: You can upload an instrumental track (even one you made, or one Suno generated) and ask Suno to add AI vocals to it.</p>
+
+                                                          <p>Conversely, record yourself singing, upload it, and say "add backing track in the style of 90s R&B." Suno will generate drums, bass, keys—everything except your voice.</p>
+
+                                                            <p>This is how solo creators are making full albums without ever hiring a band.</p>
+
+                                                              <h3>Copyright & Licensing (The Fine Print)</h3>
+
+                                                                <p>If you're on Suno's paid plan ($10/month), you get commercial rights. Use it in YouTube videos, podcasts, sell it on iTunes, whatever.</p>
+
+                                                                  <p><strong>Catch:</strong> The music isn't <em>exclusive</em>. Someone else could theoretically generate something similar (though unlikely with how varied the outputs are).</p>
+
+                                                                    <p>For truly unique compositions where you need to own 100% of the rights, hire a human composer. For everything else, Suno is unbeatable on cost and speed.</p>
+
+                                                                      <h3>The WavTool Acquisition</h3>
+
+                                                                        <p>In June 2025, Suno acquired WavTool, an AI-powered digital audio workstation (DAW). This means Suno is moving beyond just generation—they're building a full production suite.</p>
+
+                                                                          <p>Soon, you'll be able to generate a track in Suno, then edit it (adjust EQ, add effects, layer vocals) all in one platform. No more exporting to Logic Pro or Ableton.</p>
+
+                                                                            <h3>Real Use Cases</h3>
+
+                                                                              <ul>
+                                                                              <li><strong>YouTubers:</strong> Custom intros/outros that match your brand personality</li>
+                                                                                <li><strong>Podcasters:</strong> Unique theme music (no more generic stock tracks)</li>
+                                                                                  <li><strong>Indie Game Devs:</strong> Background music for levels without hiring a composer</li>
+                                                                                    <li><strong>Social Media Creators:</strong> TikTok/Reels tracks that stand out</li>
+                                                                                      <li><strong>Just for Fun:</strong> Making a song about your dog's obsession with squirrels (yes, people do this)</li>
+                                                                                        </ul>
+
+                                                                                        <h3>The "Extend" Feature</h3>
+
+                                                                                          <p>Songs default to 2 minutes. If you love one, click <strong>"Extend"</strong>. Suno will intelligently add a bridge, another verse, maybe a guitar solo, and stretch it to 4-8 minutes.</p>
+
+                                                                                            <p>It doesn't just loop—it actually composes new sections that fit the vibe.</p>
+
+                                                                                              <h3>Ethics: The Elephant in the Room</h3>
+
+                                                                                                <p>Suno was trained on existing music, which has sparked lawsuits from record labels. The legal status is murky as of 2025.</p>
+
+                                                                                                  <p><strong>How to use it ethically:</strong></p>
+
+                                                                                                    <ul>
+                                                                                                    <li>Don't try to replicate specific artists ("Make it sound like Taylor Swift")</li>
+                                                                                                      <li>Use it for background tracks, not as a replacement for hiring musicians on passion projects</li>
+                                                                                                        <li>Credit the tool when appropriate ("Music generated with Suno AI")</li>
+                                                                                                          </ul>
+
+                                                                                                          <h3>The Bottom Line</h3>
+
+                                                                                                            <p>Suno democratizes music production. You don't need to play an instrument, read sheet music, or even sing on-key.</p>
+
+                                                                                                              <p>Will it replace Beethoven? No. Will it replace "Royalty-Free Corporate Upbeat Track #47"? Absolutely.</p>
+
+                                                                                                                <p>And that's the point. Not perfection—<em>velocity</em>. Ship your video with custom music today, not next month after you find a composer.</p>
+                                                                                                                  `,
     handsOn: {
       title: "Your First Custom Song",
       description: "2-minute track in 90 seconds.",
