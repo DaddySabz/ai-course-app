@@ -410,11 +410,11 @@ Why this prompt? You didn't just ask for information. You gave it a Role ("high-
 4. Congratulations. You just started your professional AI asset library.`
     }
   },
-  
+
   // PLACEHOLDERS FOR PHASE 2 & 3 (To be updated)
   ...Array.from({ length: 20 }, (_, i) => ({
     day: i + 11,
-    title: \`Day \${i + 11}: Coming Soon\`,
+    title: `Day ${i + 11}: Coming Soon`,
     subtitle: "Phase 2 & 3 Content Loading...",
     content: "<p>The next phases of the course (Visuals, Audio, Automation) are being crafted. Stay tuned!</p>"
   }))
