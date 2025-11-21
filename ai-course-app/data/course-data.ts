@@ -87,24 +87,56 @@ Why this prompt? You didn't just ask for information. You gave it a Role ("high-
     title: "The Writer's Room",
     subtitle: "Meeting Claude, The Hemingway of AI",
     content: `
-      <p>Yesterday, you met ChatGPT, the jack-of-all-trades. Today, I want to introduce you to the specialist: <strong>Claude</strong>.</p>
+      <p>Yesterday, you met ChatGPT. It’s fast, it’s smart, and it’s enthusiastic. But if you’ve used it for writing, you’ve probably noticed something annoying.</p>
 
-      <p>If ChatGPT is a spirited debate club champion, Claude is a thoughtful professor of literature. Built by Anthropic, Claude is designed with a different philosophy: it prioritizes nuance, safety, and long-form writing.</p>
+      <p>It sounds like... a robot.</p>
 
-      <h3>Why You Need Two Brains</h3>
+      <p>It loves words like "delve," "tapestry," "landscape," and "testament." It uses exclamation marks like a caffeinated cheerleader. If you ask it to write an email, it sounds like a corporate press release from 1995.</p>
 
-      <p>A common rookie mistake is sticking to one AI model. "I use ChatGPT for everything." That’s like using a hammer to cut a steak. It works, but it’s messy.</p>
+      <p>Today, I want to introduce you to the specialist: <strong>Claude</strong>.</p>
 
-      <p><strong>Use ChatGPT for:</strong> Brainstorming, quick answers, coding, and short tasks.<br/>
-      <strong>Use Claude for:</strong> Writing articles, summarizing long documents, coding complex projects, and anything requiring a "human" touch.</p>
+      <h3>The "Golden Retriever" vs. "The Professor"</h3>
 
-      <p>Claude has a massive "Context Window." This means it can hold a lot more information in its head at once. You can paste an entire book into Claude, and it will remember the character from Page 1 when you ask a question on Page 300. ChatGPT (the free version) might forget.</p>
+      <p>If ChatGPT is a Golden Retriever (eager to please, runs fast, sometimes knocks over a lamp), <strong>Claude is a Professor of Literature</strong>.</p>
+
+      <p>Built by a company called Anthropic (founded by former OpenAI safety researchers), Claude is designed with a different philosophy: <strong>Constitutional AI</strong>. It prioritizes nuance, safety, and—most importantly for us—<strong>natural, human-sounding writing</strong>.</p>
+
+      <p>Here is the difference:</p>
+
+      <ul>
+        <li><strong>ChatGPT:</strong> "I am thrilled to announce that we are embarking on a journey to revolutionize the digital landscape!" (Hype)</li>
+        <li><strong>Claude:</strong> "We're starting a new project to change how we work online." (Clarity)</li>
+      </ul>
+
+      <p>For the next 30 days, this is your new rule: <strong>Use ChatGPT for logic and code. Use Claude for writing and reading.</strong></p>
+
+      <h3>Superpower #1: The Massive Context Window</h3>
+
+      <p>The biggest reason to use Claude isn't just the style—it's the <strong>Memory</strong>.</p>
+
+      <p>In AI terms, "Context Window" is how much information the model can hold in its head at one time.
+      <br/>- <strong>ChatGPT (Free)</strong> gets overwhelmed after a long conversation. It forgets what you said 10 minutes ago.
+      <br/>- <strong>Claude</strong> has a massive context window. You can upload an entire book, a 50-page legal contract, or a transcript of a 2-hour meeting.</p>
+
+      <p><strong>Try this mental shift:</strong> Don't just ask Claude questions. <em>Give it homework.</em> Upload a PDF and say, "Read this and tell me the 3 biggest risks." It actually reads the whole thing.</p>
+
+      <h3>Superpower #2: "Artifacts"</h3>
+
+      <p>Claude has a feature called <strong>Artifacts</strong> that changes the UI entirely. When you ask it to "Write code for a website" or "Create a dashboard," it doesn't just give you text.</p>
+
+      <p>It opens a side window and <strong>renders the code live</strong>. You can see the website, the chart, or the diagram right there. You don't need to be a coder to see the result. It’s like having a developer sitting next to you, sketching on a whiteboard.</p>
 
       <h3>The "Vibe Check"</h3>
 
-      <p>You'll notice immediately that Claude "sounds" different. It tends to be less robotically enthusiastic than ChatGPT. It uses fewer buzzwords. It feels... calmer.</p>
+      <p>You'll notice immediately that Claude "feels" calmer. It doesn't lecture you. It doesn't moralize as much. It just... writes.</p>
 
       <p>For writers, marketers, and anyone communicating professionally, this is gold. You spend less time editing out the "AI flavor" because Claude writes with a more natural cadence from the start.</p>
+
+      <blockquote>
+        <strong>Pro Tip:</strong> If you want Claude to sound exactly like you, upload 3 examples of your previous emails and say: "Analyze my writing style (tone, sentence length, vocabulary). Then, write this new email using that exact style."
+      </blockquote>
+
+      <p>It is frighteningly good at mimicry. Use it wisely.</p>
     `,
     handsOn: {
       title: "The Tone Transformation",
@@ -115,12 +147,11 @@ Why this prompt? You didn't just ask for information. You gave it a Role ("high-
           url: "https://claude.ai"
         }
       ],
-      exercise: `1. Find a boring, corporate email or a dry paragraph of text (or write one like "I am writing to inform you that the project is delayed").
-2. Paste it into Claude with this prompt:
+      exercise: `1. Find a "Corporate Speak" paragraph. Maybe a mission statement or a boring email.
+2. Open ChatGPT and ask: "Rewrite this to be punchy." (Notice it probably adds buzzwords).
+3. Open Claude and ask: "Rewrite this to be punchy, conversational, and human. Remove all jargon."
 
-"Rewrite this email to sound warm, empathetic, and professional. I want the recipient to feel supported, not just informed."
-
-3. Compare the result to what you might get from a standard template. Notice the word choices? That's the Claude difference.`
+Compare the two. Which one would you actually send to a human?`
     }
   },
 
