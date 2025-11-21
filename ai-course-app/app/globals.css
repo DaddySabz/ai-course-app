@@ -416,3 +416,13 @@ body {
     inset -4px -4px 10px rgba(255, 255, 255, 0.6),
     0 0 0 2px rgba(184, 206, 184, 0.3);
 }
+
+/* Hide scrollbar for mobile swipeable navigation */
+.scrollbar-hide {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;  /* Chrome, Safari and Opera */
+}

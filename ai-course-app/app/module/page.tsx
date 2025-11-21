@@ -64,9 +64,9 @@ export default async function ModulePage({
     <div className="min-h-screen pt-20">
       <NavigationBar />
 
-      <div className="flex max-w-7xl mx-auto gap-6 p-6">
-        {/* Left Sidebar - Frosted Glass with Neumorphic Days */}
-        <aside className="w-80 glass rounded-3xl p-6 h-fit sticky top-24">
+      <div className="flex max-w-7xl mx-auto gap-6 p-6 pb-32 md:pb-6">
+        {/* Left Sidebar - Frosted Glass with Neumorphic Days (Desktop Only) */}
+        <aside className="hidden md:block w-80 glass rounded-3xl p-6 h-fit sticky top-24">
           <div>
             <h3 className="text-xs font-bold text-text-secondary uppercase tracking-wider mb-5">
               COURSE DAYS
@@ -113,28 +113,28 @@ export default async function ModulePage({
         {/* Right Content Area - Warm, Spacious Design */}
         <main className="flex-1">
           {/* Hero Image with Title Overlay */}
-          <div className="relative rounded-3xl overflow-hidden mb-8 h-[400px] shadow-[8px_8px_16px_rgba(0,0,0,0.1),-8px_-8px_16px_rgba(255,255,255,0.5)] bg-white">
+          <div className="relative rounded-3xl overflow-hidden mb-8 h-[250px] md:h-[400px] shadow-[8px_8px_16px_rgba(0,0,0,0.1),-8px_-8px_16px_rgba(255,255,255,0.5)] bg-white">
             <img 
               src="/images/course/day-1-hero-image.jpg" 
               alt={lesson.title}
               className="w-full h-full object-cover"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent" />
-            <div className="absolute bottom-0 left-0 right-0 p-10">
-              <div className="flex items-center gap-3 mb-3">
-                <span className="badge-glass backdrop-blur-md bg-white/20 text-white border-white/30">
+            <div className="absolute bottom-0 left-0 right-0 p-6 md:p-10">
+              <div className="flex items-center gap-2 mb-2 md:mb-3">
+                <span className="badge-glass backdrop-blur-md bg-white/20 text-white border-white/30 text-xs md:text-sm">
                   Day {currentDay} of 30
                 </span>
                 {completedDays.includes(currentDay) && (
-                  <span className="badge-glass backdrop-blur-md bg-sage-green/30 text-white border-sage-green/40">
+                  <span className="badge-glass backdrop-blur-md bg-sage-green/30 text-white border-sage-green/40 text-xs md:text-sm">
                     Completed
                   </span>
                 )}
               </div>
-              <h1 className="text-5xl font-black text-white mb-2 leading-tight drop-shadow-lg">
+              <h1 className="text-3xl md:text-5xl font-black text-white mb-1 md:mb-2 leading-tight drop-shadow-lg">
                 {lesson.title}
               </h1>
-              <p className="text-xl text-white/90 font-medium drop-shadow-md">
+              <p className="text-base md:text-xl text-white/90 font-medium drop-shadow-md">
                 {lesson.subtitle}
               </p>
             </div>
@@ -147,6 +147,102 @@ export default async function ModulePage({
             hasFullAccess={isAdmin || isTechPartner}
           />
         </main>
+      </div>
+
+      {/* Mobile Bottom Navigation - Swipeable Day Selector */}
+      <div className="md:hidden fixed bottom-0 left-0 right-0 z-40 pb-6 pt-4" style={{
+        background: 'linear-gradient(to top, rgba(245, 241, 237, 0.98) 0%, rgba(245, 241, 237, 0.95) 80%, transparent 100%)',
+        backdropFilter: 'blur(10px)'
+      }}>
+        {/* Scrollable Day Buttons */}
+        <div className="overflow-x-auto scrollbar-hide px-4">
+          <div className="flex gap-3 min-w-max pb-2">
+            {courseModules.map((day) => {
+              const isDayCompleted = completedDays.includes(day.day)
+              const isLocked = day.day > 1 && !completedDays.includes(day.day - 1)
+              const isActive = day.day === currentDay
+              
+              if (isLocked) {
+                return (
+                  <div
+                    key={day.day}
+                    className="flex flex-col items-center gap-1.5 flex-shrink-0"
+                  >
+                    <div className="w-14 h-14 rounded-full flex items-center justify-center text-text-tertiary opacity-40" style={{
+                      background: 'rgba(200, 200, 200, 0.2)',
+                      boxShadow: 'inset 2px 2px 4px rgba(0, 0, 0, 0.1)'
+                    }}>
+                      <span className="text-sm font-bold">{day.day}</span>
+                    </div>
+                    <span className="text-xs text-text-tertiary font-medium opacity-60">Locked</span>
+                  </div>
+                )
+              }
+              
+              return (
+                <Link
+                  key={day.day}
+                  href={`/module?day=${day.day}`}
+                  className="flex flex-col items-center gap-1.5 flex-shrink-0"
+                >
+                  <div 
+                    className={`w-14 h-14 rounded-full flex items-center justify-center font-bold transition-all duration-300 ${
+                      isActive ? 'text-white' : 'text-text-primary'
+                    }`}
+                    style={
+                      isActive
+                        ? {
+                            background: 'linear-gradient(145deg, rgba(184, 206, 184, 1) 0%, rgba(164, 186, 164, 1) 100%)',
+                            boxShadow: '0 4px 20px rgba(184, 206, 184, 0.6), -6px 6px 16px rgba(150, 170, 150, 0.3), 6px -6px 16px rgba(255, 255, 255, 0.9)',
+                            transform: 'scale(1.1)'
+                          }
+                        : isDayCompleted
+                        ? {
+                            background: 'linear-gradient(145deg, rgba(184, 206, 184, 0.3) 0%, rgba(164, 186, 164, 0.2) 100%)',
+                            boxShadow: '-4px 4px 12px rgba(150, 170, 150, 0.15), 4px -4px 12px rgba(255, 255, 255, 0.9)'
+                          }
+                        : {
+                            background: 'linear-gradient(145deg, rgba(255, 255, 255, 0.8) 0%, rgba(245, 241, 237, 0.8) 100%)',
+                            boxShadow: '-4px 4px 12px rgba(180, 160, 145, 0.15), 4px -4px 12px rgba(255, 255, 255, 0.9)'
+                          }
+                    }
+                  >
+                    {isDayCompleted && !isActive && (
+                      <span className="text-sm">✓</span>
+                    )}
+                    <span className="text-sm">{day.day}</span>
+                  </div>
+                  <span className={`text-xs font-medium ${
+                    isActive ? 'text-sage-green' : isDayCompleted ? 'text-text-secondary' : 'text-text-tertiary'
+                  }`}>
+                    {isActive ? 'Current' : isDayCompleted ? 'Done' : 'Day ' + day.day}
+                  </span>
+                </Link>
+              )
+            })}
+          </div>
+        </div>
+        
+        {/* Progress Indicator */}
+        <div className="px-4 mt-3">
+          <div className="flex items-center gap-2">
+            <div className="flex-1 h-1.5 rounded-full" style={{
+              background: 'rgba(200, 200, 200, 0.3)'
+            }}>
+              <div 
+                className="h-full rounded-full transition-all duration-500"
+                style={{
+                  width: `${(completedDays.length / 30) * 100}%`,
+                  background: 'linear-gradient(90deg, rgba(184, 206, 184, 1) 0%, rgba(164, 186, 164, 1) 100%)',
+                  boxShadow: '0 2px 8px rgba(184, 206, 184, 0.4)'
+                }}
+              />
+            </div>
+            <span className="text-xs font-bold text-text-secondary">
+              {completedDays.length}/30
+            </span>
+          </div>
+        </div>
       </div>
     </div>
   )
