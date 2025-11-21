@@ -179,8 +179,8 @@ export default function LessonContent({ lesson, currentDay, userId, hasFullAcces
         </div>
       )}
 
-      {/* Navigation buttons for next/previous */}
-      <div className="flex justify-between items-center gap-4">
+      {/* Navigation buttons for next/previous (Desktop Only - mobile uses bottom swipeable nav) */}
+      <div className="hidden md:flex justify-between items-center gap-4">
         {currentDay > 1 && (
           <Link
             href={`/module?day=${currentDay - 1}`}

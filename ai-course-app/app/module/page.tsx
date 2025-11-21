@@ -168,13 +168,13 @@ export default async function ModulePage({
                     key={day.day}
                     className="flex flex-col items-center gap-1.5 flex-shrink-0"
                   >
-                    <div className="w-14 h-14 rounded-full flex items-center justify-center text-text-tertiary opacity-40" style={{
-                      background: 'rgba(200, 200, 200, 0.2)',
-                      boxShadow: 'inset 2px 2px 4px rgba(0, 0, 0, 0.1)'
+                    <div className="w-14 h-14 rounded-full flex items-center justify-center text-text-tertiary font-bold" style={{
+                      background: 'rgba(200, 200, 200, 0.3)',
+                      boxShadow: 'inset 2px 2px 5px rgba(180, 160, 145, 0.2), inset -2px -2px 5px rgba(255, 255, 255, 0.7)',
+                      opacity: 0.5
                     }}>
-                      <span className="text-sm font-bold">{day.day}</span>
+                      <span className="text-base">{day.day}</span>
                     </div>
-                    <span className="text-xs text-text-tertiary font-medium opacity-60">Locked</span>
                   </div>
                 )
               }
@@ -186,20 +186,22 @@ export default async function ModulePage({
                   className="flex flex-col items-center gap-1.5 flex-shrink-0"
                 >
                   <div 
-                    className={`w-14 h-14 rounded-full flex items-center justify-center font-bold transition-all duration-300 ${
+                    className={`w-14 h-14 rounded-full flex items-center justify-center font-bold text-base transition-all duration-300 ${
                       isActive ? 'text-white' : 'text-text-primary'
                     }`}
                     style={
                       isActive
                         ? {
-                            background: 'linear-gradient(145deg, rgba(184, 206, 184, 1) 0%, rgba(164, 186, 164, 1) 100%)',
-                            boxShadow: '0 4px 20px rgba(184, 206, 184, 0.6), -6px 6px 16px rgba(150, 170, 150, 0.3), 6px -6px 16px rgba(255, 255, 255, 0.9)',
-                            transform: 'scale(1.1)'
+                            // Purple/Lavender for current day (like desktop)
+                            background: 'linear-gradient(145deg, rgba(184, 168, 212, 0.9) 0%, rgba(164, 148, 192, 0.85) 100%)',
+                            boxShadow: '0 6px 20px rgba(184, 168, 212, 0.5), -6px 6px 16px rgba(160, 140, 180, 0.3), 6px -6px 16px rgba(255, 255, 255, 0.9)',
+                            transform: 'scale(1.15)'
                           }
                         : isDayCompleted
                         ? {
-                            background: 'linear-gradient(145deg, rgba(184, 206, 184, 0.3) 0%, rgba(164, 186, 164, 0.2) 100%)',
-                            boxShadow: '-4px 4px 12px rgba(150, 170, 150, 0.15), 4px -4px 12px rgba(255, 255, 255, 0.9)'
+                            // Green for completed (like desktop)
+                            background: 'linear-gradient(145deg, rgba(184, 206, 184, 0.8) 0%, rgba(164, 186, 164, 0.75) 100%)',
+                            boxShadow: '-6px 6px 16px rgba(150, 170, 150, 0.25), 6px -6px 16px rgba(255, 255, 255, 0.9)'
                           }
                         : {
                             background: 'linear-gradient(145deg, rgba(255, 255, 255, 0.8) 0%, rgba(245, 241, 237, 0.8) 100%)',
@@ -207,16 +209,8 @@ export default async function ModulePage({
                           }
                     }
                   >
-                    {isDayCompleted && !isActive && (
-                      <span className="text-sm">✓</span>
-                    )}
-                    <span className="text-sm">{day.day}</span>
+                    <span>{day.day}</span>
                   </div>
-                  <span className={`text-xs font-medium ${
-                    isActive ? 'text-sage-green' : isDayCompleted ? 'text-text-secondary' : 'text-text-tertiary'
-                  }`}>
-                    {isActive ? 'Current' : isDayCompleted ? 'Done' : 'Day ' + day.day}
-                  </span>
                 </Link>
               )
             })}
