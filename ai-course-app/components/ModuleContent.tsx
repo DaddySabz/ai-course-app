@@ -104,7 +104,7 @@ function ModuleDisplay() {
             &larr; Previous Day
           </Link>
         ) : <div />}
-        {currentDay < courseData.length ? (
+        {currentDay < courseModules.length ? (
           <Link href={`/module?day=${currentDay + 1}`} className="bg-primary hover:bg-primary-dark text-white py-2 px-4 rounded-lg font-bold">
             Next Day &rarr;
           </Link>

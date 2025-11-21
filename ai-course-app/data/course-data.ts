@@ -1755,11 +1755,439 @@ Notice how one design became 5 platform-specific graphics in 2 minutes. This is 
     }
   },
 
-  // PLACEHOLDERS FOR DAYS 21-30
-  ...Array.from({ length: 10 }, (_, i) => ({
-    day: i + 21,
-    title: `Day ${i + 21}: Coming Soon`,
-    subtitle: "Phase 3 Content Loading...",
-    content: "<p>Automation & Workflows content coming soon!</p>"
-  }))
+  // DAY 21: Zapier
+  {
+    day: 21,
+    title: "The Automator",
+    subtitle: "Zapier and AI Workflows",
+    content: `
+  <p>Welcome to Phase 3: Workflows & Integration.</p>
+
+  <p><strong>Zapier</strong> connects your AI tools together. Think of it as the "nervous system" of your digital workspace.</p>
+
+    <h3>What is a "Zap"?</h3>
+
+      <p>A Zap is an automated workflow: "When X happens, do Y."</p>
+
+        <p><strong>Example:</strong> When someone fills out a Google Form → Send data to ChatGPT → Generate personalized email → Send via Gmail.</p>
+
+          <h3>AI-Powered Zaps</h3>
+
+            <p>Zapier now integrates with ChatGPT, Claude, and other AI tools.</p>
+
+              <p><strong>Use case:</strong> Auto-summarize every new Slack message and save to Notion.</p>
+
+                <h3>No-Code Automation</h3>
+
+                  <p>You don't need to be a programmer. Zapier is drag-and-drop building blocks.</p>
+
+                    <h3>Top Workflows</h3>
+
+                      <ul>
+                      <li>Auto-respond to emails using AI</li>
+                        <li>Transcribe voice memos → Generate to-do lists</li>
+                          <li>Monitor competitors → Get AI summaries</li>
+                            </ul>
+                              `,
+    handsOn: {
+      title: "Build Your First AI Workflow",
+      description: "Automate a repetitive task.",
+      affiliateLinks: [
+        {
+          text: "Try Zapier →",
+          url: "https://zapier.com"
+        }
+      ],
+      exercise: `1. Sign up for Zapier.
+2. Create a Zap: "When I star an email in Gmail → Send subject line to ChatGPT → Generate 3-sentence summary → Save to Google Doc."
+3. Test it by starring an email.
+4. Check your Google Doc for the AI summary.`
+    }
+  },
+
+  // DAY 22: Cursor
+  {
+    day: 22,
+    title: "The Coder",
+    subtitle: "Cursor and AI-Powered Coding",
+    content: `
+  <p>You don't need to be a developer to code anymore.</p>
+
+  <p><strong>Cursor</strong> is an AI-first code editor. You describe what you want in plain English, and it writes the code.</p>
+
+    <h3>The "Pair Programming" Experience</h3>
+
+      <p>Cursor feels like coding with an expert sitting next to you.</p>
+
+        <p>You type a comment: <code>// Create a button that changes color when clicked</code></p>
+
+          <p>Cursor generates the entire code block.</p>
+
+            <h3>Best For</h3>
+
+              <ul>
+              <li>Non-coders building simple tools</li>
+                <li>Developers speeding up workflows</li>
+                  <li>Learning to code (it explains as it writes)</li>
+                    </ul>
+
+                    <h3>Beyond Autocomplete</h3>
+
+                      <p>Cursor understands your entire codebase. Ask: "Add a dark mode to this app" → It edits multiple files automatically.</p>
+                        `,
+    handsOn: {
+      title: "Build a Simple Web App",
+      description: "Code without coding.",
+      affiliateLinks: [
+        {
+          text: "Try Cursor →",
+          url: "https://cursor.sh"
+        }
+      ],
+      exercise: `1. Download Cursor (free).
+2. Create a new HTML file.
+3. Type: "Create a calculator that adds two numbers."
+4. Let Cursor generate the code.
+5. Open the file in a browser. You just built your first app.`
+    }
+  },
+
+  // DAY 23: Replit
+  {
+    day: 23,
+    title: "The Builder",
+    subtitle: "Replit and Instant App Deployment",
+    content: `
+  <p><strong>Replit</strong> combines coding + AI + instant deployment.</p>
+
+  <p>Build an app, deploy it to the web, all from your browser. No setup required.</p>
+
+    <h3>The "Ghostwriter" AI</h3>
+
+      <p>Replit's AI (Ghostwriter) helps you code, debug, and explain complex logic.</p>
+
+        <h3>Perfect For</h3>
+
+          <ul>
+          <li>Prototyping ideas fast</li>
+            <li>Learning by building</li>
+              <li>Sharing live demos with clients</li>
+                </ul>
+
+                <h3>From Idea to URL in Minutes</h3>
+
+                  <p>Just describe your app idea. Replit's AI generates it, and you get a shareable link instantly.</p>
+                    `,
+    handsOn: {
+      title: "Deploy Your First Web App",
+      description: "From zero to live in 5 minutes.",
+      affiliateLinks: [
+        {
+          text: "Try Replit →",
+          url: "https://replit.com"
+        }
+      ],
+      exercise: `1. Sign up for Replit.
+2. Click "Create Repl" → Choose "HTML/CSS/JS."
+3. Ask Ghostwriter AI: "Create a simple to-do list app."
+4. Run the code.
+5. Share the live URL with a friend.`
+    }
+  },
+
+  // DAY 24: NotebookLM
+  {
+    day: 24,
+    title: "The Researcher",
+    subtitle: "NotebookLM and AI-Powered Research",
+    content: `
+  <p><strong>NotebookLM</strong> (by Google) is your personal research assistant.</p>
+
+  <p>Upload documents, and it generates summaries, timelines, FAQs, and even podcast-style audio discussions about your content.</p>
+
+    <h3>The "Audio Overview" Feature</h3>
+
+      <p>This is wild: Upload a research paper → NotebookLM generates a 10-minute podcast-style conversation between two AI hosts discussing the paper.</p>
+
+        <p>Perfect for learning complex topics while commuting.</p>
+
+          <h3>Best For</h3>
+
+            <ul>
+            <li>Students researching essays</li>
+              <li>Professionals analyzing reports</li>
+                <li>Anyone drowning in PDFs</li>
+                  </ul>
+                    `,
+    handsOn: {
+      title: "Generate an Audio Summary",
+      description: "Turn a document into a podcast.",
+      affiliateLinks: [
+        {
+          text: "Try NotebookLM →",
+          url: "https://notebooklm.google.com"
+        }
+      ],
+      exercise: `1. Open NotebookLM.
+2. Upload a PDF (research paper, article, or manual).
+3. Click "Generate Audio Overview."
+4. Listen to the AI hosts discuss your document.
+5. Mind = blown.`
+    }
+  },
+
+  // DAY 25: Otter.ai
+  {
+    day: 25,
+    title: "The Scribe",
+    subtitle: "Otter.ai and Meeting Intelligence",
+    content: `
+  <p><strong>Otter.ai</strong> records, transcribes, and summarizes meetings automatically.</p>
+
+    <h3>The End of Manual Notes</h3>
+
+      <p>Join a Zoom call → Otter listens → Generates transcript + summary + action items.</p>
+
+        <p>Never miss a detail. Never scramble to remember who said what.</p>
+
+          <h3>The "AI Chat" Feature</h3>
+
+            <p>After a meeting, ask Otter: "What decisions were made?" or "List all action items for Sarah."</p>
+
+              <p>It answers based on the transcript.</p>
+
+                <h3>Best For</h3>
+
+                  <ul>
+                  <li>Remote teams</li>
+                    <li>Consultants</li>
+                      <li>Anyone in back-to-back meetings</li>
+                        </ul>
+                          `,
+    handsOn: {
+      title: "Record and Summarize a Meeting",
+      description: "AI meeting notes.",
+      affiliateLinks: [
+        {
+          text: "Try Otter.ai →",
+          url: "https://otter.ai"
+        }
+      ],
+      exercise: `1. Sign up for Otter.ai.
+2. Join a Zoom/Google Meet call and invite Otter.
+3. After the meeting, review the transcript and AI summary.
+4. Ask Otter a question about the meeting content.`
+    }
+  },
+
+  // DAY 26: Arc Search
+  {
+    day: 26,
+    title: "The Browser",
+    subtitle: "Arc Search and AI-Powered Browsing",
+    content: `
+  <p><strong>Arc Search</strong> isn't just a browser—it's an AI research partner.</p>
+
+    <h3>"Browse for Me"</h3>
+
+      <p>Instead of clicking 10 links, Arc's AI visits them for you, reads them, and generates a single synthesized answer.</p>
+
+        <p><strong>Example:</strong> Search "Best laptop for video editing 2025" → Arc reads reviews from 6 sites → Gives you a custom summary with pros/cons.</p>
+
+          <h3>The Future of Search</h3>
+
+            <p>This is what search will become: not a list of links, but instant answers with sources.</p>
+
+              <h3>Privacy Note</h3>
+
+                <p>Arc is privacy-focused. No tracking, no ads.</p>
+                  `,
+    handsOn: {
+      title: "Let AI Browse for You",
+      description: "Stop clicking. Start asking.",
+      affiliateLinks: [
+        {
+          text: "Try Arc →",
+          url: "https://arc.net"
+        }
+      ],
+      exercise: `1. Download Arc browser.
+2. Use Arc Search (not Google).
+3. Search: "What are the best productivity tips for remote workers?"
+4. Watch Arc read multiple sources and synthesize an answer.`
+    }
+  },
+
+  // DAY 27: Hume AI
+  {
+    day: 27,
+    title: "The Empath",
+    subtitle: "Hume AI and Emotional Intelligence",
+    content: `
+  <p><strong>Hume AI</strong> analyzes tone, emotion, and sentiment in voice and text.</p>
+
+    <h3>Why Emotion Matters</h3>
+
+      <p>Most AI understands *what* you say. Hume understands *how* you feel when you say it.</p>
+
+        <p>This unlocks new use cases: mental health screening, customer service quality, even dating app matching.</p>
+
+          <h3>The "Empathic Voice" API</h3>
+
+            <p>Hume can detect if someone sounds stressed, happy, frustrated, or confused—and respond accordingly.</p>
+
+              <h3>Ethical Considerations</h3>
+
+                <p>Emotion AI is powerful but controversial. Always get consent before analyzing someone's emotional state.</p>
+                  `,
+    handsOn: {
+      title: "Analyze Your Emotional Tone",
+      description: "See how you sound.",
+      affiliateLinks: [
+        {
+          text: "Learn about Hume AI →",
+          url: "https://hume.ai"
+        }
+      ],
+      exercise: `1. Record a 30-second voice memo about your day.
+2. Upload to Hume AI's demo tool.
+3. Review the emotional analysis (happiness, stress, energy levels).
+4. Reflect: Does it match how you felt?`
+    }
+  },
+
+  // DAY 28: LinkedIn AI Tools
+  {
+    day: 28,
+    title: "The Networker",
+    subtitle: "AI for Career Growth",
+    content: `
+  <p>AI is changing how we work. Let's talk about how AI changes how we *find* work.</p>
+
+    <h3>LinkedIn's AI Features</h3>
+
+      <ul>
+      <li><strong>AI-Powered Job Matching:</strong> Get personalized job recommendations</li>
+        <li><strong>Resume Optimization:</strong> AI suggests improvements</li>
+          <li><strong>AI Job Applications:</strong> Auto-fill cover letters (with your input)</li>
+            </ul>
+
+            <h3>Using ChatGPT for Career</h3>
+
+              <p><strong>Template:</strong> "I'm a [role] with [X years] experience in [industry]. I want to transition into [new field]. Write me a LinkedIn headline."</p>
+
+                <h3>The  "Portfolio Era"</h3>
+
+                  <p>In 2025, your portfolio matters more than your resume. Use AI to build projects fast, then showcase them.</p>
+                    `,
+    handsOn: {
+      title: "Optimize Your LinkedIn Profile",
+      description: "AI career boost.",
+      affiliateLinks: [
+        {
+          text: "Go to LinkedIn →",
+          url: "https://linkedin.com"
+        }
+      ],
+      exercise: `1. Open ChatGPT.
+2. Paste your current LinkedIn "About" section.
+3. Prompt: "Rewrite this to be more compelling and results-focused. Keep it under 150 words."
+4. Use the output to update your profile.`
+    }
+  },
+
+  // DAY 29: AI Security & Privacy
+  {
+    day: 29,
+    title: "The Guardian",
+    subtitle: "AI, Security, and Privacy",
+    content: `
+  <p>Before we finish, let's talk about staying safe.</p>
+
+    <h3>The Golden Rules</h3>
+
+      <ul>
+      <li><strong>Never upload sensitive data</strong> to free AI tools (passwords, SSNs, trade secrets)</li>
+        <li><strong>Assume everything is training data</strong> unless explicitly stated otherwise</li>
+          <li><strong>Use enterprise tiers</strong> for business-critical work</li>
+            <li><strong>Review AI outputs</strong> before sharing—hallucinations happen</li>
+              </ul>
+
+              <h3>Deepfakes & Misinformation</h3>
+
+                <p>Voice cloning and video generation can be misused. Always disclose AI-generated content.</p>
+
+                  <h3>Data Privacy Tools</h3>
+
+                    <ul>
+                    <li><strong>Local AI (Ollama):</strong> Run models offline</li>
+                      <li><strong>PrivateGPT:</strong> Chat with documents privately</li>
+                        <li><strong>DuckDuckGo AI Chat:</strong> Anonymous AI queries</li>
+                          </ul>
+                            `,
+    handsOn: {
+      title: "Audit Your AI Footprint",
+      description: "Check your privacy settings.",
+      exercise: `1. Go to ChatGPT Settings → Data Controls.
+2. Check: "Do they use my data for training?"
+3. If yes, and you're uncomfortable: opt out or switch to paid tier.
+4. Repeat for Claude, Gemini, and other tools you use regularly.`
+    }
+  },
+
+  // DAY 30: The Future
+  {
+    day: 30,
+    title: "The Horizon",
+    subtitle: "What's Next in AI",
+    content: `
+  <p>Congratulations. You've completed the 30-day challenge.</p>
+
+  <p>You're no longer a beginner. You're a practitioner.</p>
+
+    <h3>What You've Mastered</h3>
+
+      <ul>
+      <li><strong>Phase 1:</strong> The Tools (ChatGPT, Claude, Gemini, Perplexity, DeepSeek, Voice, PDFs, Jasper, Meta, Notion)</li>
+        <li><strong>Phase 2:</strong> The Media (Midjourney, Suno, ElevenLabs, Runway, HeyGen, Gamma, Beautiful.ai, Descript, Canva)</li>
+          <li><strong>Phase 3:</strong> The Workflows (Zapier, Cursor, Replit, NotebookLM, Otter, Arc, Hume, Career, Security)</li>
+            </ul>
+
+            <h3>Where AI is Headed (2025-2030)</h3>
+
+              <ul>
+              <li><strong>Agents:</strong> AI that takes actions for you (book flights, send emails, manage calendars)</li>
+                <li><strong>Multimodal Everything:</strong> One prompt → Text + Image + Video + Sound</li>
+                  <li><strong>Personalized Models:</strong> AI trained specifically on YOUR data</li>
+                    <li><strong>Real-Time Collaboration:</strong> AI teammates in Slack/Zoom</li>
+                      </ul>
+
+                      <h3>Your Next Steps</h3>
+
+                        <ol>
+                        <li><strong>Build a Prompt Library</strong> in Notion</li>
+                          <li><strong>Create 1 project</strong> using AI (write, design, code—anything)</li>
+                            <li><strong>Teach someone else</strong> (best way to solidify knowledge)</li>
+                              </ol>
+
+                              <h3>The Final Truth</h3>
+
+                                <p>AI won't replace you. But someone using AI will.</p>
+
+                                  <p>You're now that someone.</p>
+
+                                    <p>Go build the future.</p>
+                                      `,
+    handsOn: {
+      title: "Share Your Journey",
+      description: "Document what you learned.",
+      exercise: `1. Open your favorite AI tool.
+2. Prompt: "I just completed a 30-day AI mastery challenge. Write a LinkedIn post about my key learnings and what I'm excited to build next."
+3. Customize the output.
+4. Post it.
+5. Tag #30DayAIChallenge
+
+Welcome to the other side. You made it. 🚀`
+    }
+  }
 ];
