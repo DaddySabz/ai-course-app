@@ -1204,44 +1204,112 @@ Bonus: Try adding "--ar 16:9" to the end of your prompt to get a widescreen form
     content: `
   <p>You don't always need Midjourney's complexity. Sometimes you just need a quick visual <em>right now</em>.</p>
 
-  <p>That's where <strong>Gemini's built-in image generation</strong> comes in. No new account, no Discord, just instant visuals.</p>
+  <p>That's where <strong>Gemini's built-in image generation</strong> (powered by Google's Imagen 3) comes in. No new account, no Discord server, no learning curve—just instant visuals.</p>
 
     <h3>The "Zero-Friction" Advantage</h3>
 
-      <p>The beauty of Gemini is that you're already there. You're chatting, researching, writing—and then you just say: <strong>"Generate an image of..."</strong></p>
+      <p>Here's the magic: you're already in Gemini chatting about a project. Mid-conversation, you realize you need a mockup image. Instead of switching apps, you just type:</p>
 
-        <p>It just... works. This is the power of integration.</p>
+        <p><strong>"Generate an image of a modern coffee shop interior, warm lighting, plants, industrial aesthetic"</strong></p>
 
-          <h3>When to Use Gemini vs. Midjourney</h3>
+          <p>Fifteen seconds later, boom—you have four image options. No context switching. No workflow interruption. This is the power of <em>native multimodal integration</em>.</p>
 
-            <ul>
-            <li><strong>Use Gemini When:</strong> You need a quick mockup, a placeholder image, or you're brainstorming visually alongside text.</li>
-              <li><strong>Use Midjourney When:</strong> You need gallery-quality visuals for client work, marketing, or portfolio pieces.</li>
-                </ul>
+            <h3>When to Use Gemini vs. Midjourney</h3>
 
-                <p>Think of Gemini as your sketch pad and Midjourney as your oil painting canvas.</p>
+              <p>Think of it this way:</p>
 
-                  <h3>The "Iterate" Superpower</h3>
+                <ul>
+                <li><strong>Gemini Imagen:</strong> Your sketchpad. Fast iterations, brainstorming, placeholder images, blog headers, presentation slides.</li>
+                  <li><strong>Midjourney:</strong> Your oil painting canvas. Client deliverables, marketing campaigns, portfolio pieces, anything that needs to be <em>gallery-worthy</em>.</li>
+                    </ul>
 
-                    <p>If you generate an image and it's close but not perfect, you don't start over—you just say:</p>
+                    <p><strong>Real-World Example:</strong> You're writing a Medium article about productivity. You need a header image. Gemini generates it in 20 seconds. Done. You <em>could</em> spend 10 minutes crafting the perfect Midjourney prompt, but why? The blog reader won't notice the difference.</p>
 
-                      <p><strong>"Make the sky more dramatic"</strong><br>
-                      <strong>"Add a mountain"</strong><br>
-                      <strong>"Change to night"</strong></p>
+                      <h3>Imagen 3: What Makes It Special</h3>
 
-                        <p>It remembers context and adjusts  instantly.</p>
+                        <p>Under the hood, Gemini uses Google's <strong>Imagen 3</strong> model (and the newer Gemini 2.5 Flash Image for speed). Here's what sets it apart in 2025:</p>
 
-                          <h3>Integrated Workflow Example</h3>
+                          <ul>
+                          <li><strong>Better Text Rendering:</strong> Finally, AI can spell! Want a "SALE" sign in your image? It actually says "SALE," not "SLAE" or "S4LE."</li>
+                            <li><strong>Character Consistency:</strong> Generate an image of a character, then ask for them in a different scene. Gemini remembers who they are.</li>
+                              <li><strong>Multi-Image Fusion:</strong> Upload two photos and say "combine these." It understands the request and merges them intelligently.</li>
+                                <li><strong>SafetyWatermarks:</strong> All images include an invisible SynthID watermark for transparency and anti-misinformation efforts.</li>
+                                  </ul>
 
-                            <p>You're planning a blog post. You ask Gemini:</p>
-                            <ol>
-                            <li>"Give me 5 blog ideas about remote work."</li>
-                              <li>"Expand #3 into an outline."</li>
-                                <li>"Generate a header image: cozy home office, warm lighting, laptop on desk."</li>
-                                  </ol>
+                                  <h3>The "Iterate" Superpower</h3>
 
-                                  <p>60 seconds: outline AND visual. Multimodal magic.</p>
-                                              `,
+                                    <p>This is where Gemini destroys Midjourney for speed:</p>
+
+                                      <p>You generate an image. It's 80% there. Instead of starting over with a new prompt, you just say:</p>
+
+                                        <ul>
+                                        <li>"Make the sky more dramatic"</li>
+                                          <li>"Add a mountain in the background"</li>
+                                            <li>"Change it to nighttime"</li>
+                                              <li>"Make the lighting warmer"</li>
+                                                </ul>
+
+                                                <p>Gemini <strong>remembers the context</strong> and adjusts. It's like having a designer sitting next to you saying "how about this?"</p>
+
+                                                  <p>With Midjourney, you'd need to re-write the entire prompt each time. With Gemini, it's a conversation.</p>
+
+                                                    <h3>The Integrated Workflow (This is the Killer Feature)</h3>
+
+                                                      <p>Let's walk through a real scenario:</p>
+
+                                                        <p><strong>You:</strong> "Give me 5 blog post ideas about remote work"<br>
+                                                        <strong>Gemini:</strong> [Lists 5 ideas]</p>
+
+                                                          <p><strong>You:</strong> "Expand #3 into an outline"<br>
+                                                          <strong>Gemini:</strong> [Creates detailed outline]</p>
+
+                                                            <p><strong>You:</strong> "Now generate a header image: cozy home office, warm lighting, laptop on desk, plants, window with city view"<br>
+                                                            <strong>Gemini:</strong> [Four image options appear]</p>
+
+                                                              <p><strong>Total time:</strong> 90 seconds. You went from idea → outline → visual without ever leaving one tab.</p>
+
+                                                                <p>This is the future of content creation. Not "use this tool for writing, that tool for images, this other tool for editing." Just... <em>one conversation</em>.</p>
+
+                                                                  <h3>Limitations (Let's Be Honest)</h3>
+
+                                                                    <p>Gemini Imagen isn't perfect:</p>
+
+                                                                      <ul>
+                                                                      <li><strong>Style Ceiling:</strong> It won't match Midjourney's artistic flair. If you want "hyperrealistic cyberpunk samurai at golden hour," Midjourney wins.</li>
+                                                                        <li><strong>Content Restrictions:</strong> Google's safety filters are aggressive. No public figures, no violence, no potentially controversial content.</li>
+                                                                          <li><strong>Resolution:</strong> Max 2048x2048. Fine for web, limiting for print.</li>
+                                                                            </ul>
+
+                                                                            <h3>The Pricing Advantage</h3>
+
+                                                                              <p>Here's the kicker: if you're on Gemini Advanced (the $20/month tier), image generation is <strong>included</strong>. No per-image charges.</p>
+
+                                                                                <p>Midjourney starts at $10/month for limited images. For heavy users, Gemini's all-you-can-eat model is a steal.</p>
+
+                                                                                  <h3>Pro Tip: The "Style Transfer" Hack</h3>
+
+                                                                                    <p>Upload a reference image and say: "Generate a new image in this style." Gemini will match the aesthetic—color palette, lighting, composition—and apply it to your new concept.</p>
+
+                                                                                      <p><strong>Example:</strong> Upload a Wes Anderson movie screenshot. Then: "Generate a coffee shop in this style." You'll get perfectly symmetrical, pastel-colored, whimsical vibes.</p>
+
+                                                                                        <h3>When to Upgrade to Paid Gemini</h3>
+
+                                                                                          <p>Free tier limits you to a handful of images per day. If you're:</p>
+
+                                                                                            <ul>
+                                                                                            <li>A content creator making 5+ blog posts/week</li>
+                                                                                              <li>A startup founder needing mockups for pitch decks</li>
+                                                                                                <li>A social media manager creating daily graphics</li>
+                                                                                                  </ul>
+
+                                                                                                  <p>...then Gemini Advanced pays for itself in saved design time.</p>
+
+                                                                                                    <h3>The Bottom Line</h3>
+
+                                                                                                      <p>Gemini Imagen won't replace professional illustrators. But it <em>will</em> replace that awkward stock photo you were about to use.</p>
+
+                                                                                                        <p>It's not about perfection. It's about <strong>velocity</strong>. And in the age of content overload, shipping beats perfection every time.</p>
+                                                                                                          `,
     handsOn: {
       title: "The Blog Header Generator",
       description: "Create a custom image in 30 seconds.",

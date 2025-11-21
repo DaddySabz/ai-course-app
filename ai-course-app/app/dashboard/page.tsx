@@ -67,9 +67,8 @@ export default async function DashboardPage() {
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-            {/* Left Column - Progress */}
-            <aside className="lg:col-span-2 flex flex-col gap-6 order-2 lg:order-1">
-              {/* Beta Tester Notice */}
+            {/* Beta Tester Notice - Shows first on mobile */}
+            <div className="lg:col-span-2 order-1 lg:order-1">
               <div className="card-neumorphic rounded-3xl p-8 border-2 border-sage-green/30">
                 <h3 className="text-xl font-bold text-text-primary mb-4">Hey!</h3>
                 <p className="text-text-secondary mb-4 leading-relaxed">
@@ -100,6 +99,66 @@ export default async function DashboardPage() {
                   </a>
                 </div>
               </div>
+            </div>
+
+            {/* Profile - Shows second on mobile */}
+            <section className="lg:col-span-1 order-2 lg:order-3">
+              <div className="glass-lavender rounded-3xl p-8 flex flex-col items-center text-center lg:sticky lg:top-24">
+                <h3 className="text-2xl font-bold text-text-primary mb-6">Profile</h3>
+                
+                {/* Profile Picture */}
+                <div className="relative mb-4">
+                  {profileAvatar ? (
+                    <img 
+                      src={profileAvatar}
+                      alt="Profile" 
+                      className="size-24 rounded-full border-4 border-white shadow-lg object-cover"
+                    />
+                  ) : (
+                    <div className="size-24 rounded-full border-4 border-white shadow-lg flex items-center justify-center bg-gradient-to-br from-sage-green/30 to-lavender/30">
+                      <span className="text-4xl font-black text-text-primary">
+                        {(displayName || session.user.email)?.[0]?.toUpperCase() || 'U'}
+                      </span>
+                    </div>
+                  )}
+                </div>
+
+                {/* Name and Organization */}
+                <h4 className="text-2xl font-black text-text-primary mb-1">
+                  {displayName}
+                </h4>
+                {organization && (
+                  <p className="text-base font-normal text-text-secondary mb-4">
+                    {organization}
+                  </p>
+                )}
+
+                <p className="text-xs text-text-secondary mb-6">
+                  Your name and picture will appear on your certificate
+                </p>
+
+                {/* View Profile Button */}
+                <a 
+                  href="/profile"
+                  className="btn-neumorphic w-full flex items-center justify-center gap-2 p-4 rounded-2xl text-text-primary font-bold hover:scale-[1.02] transition-transform mb-4"
+                >
+                  <span>View Profile</span>
+                </a>
+                
+                {/* Sign Out Button */}
+                <form action={async () => {
+                  "use server"
+                  await signOut({ redirectTo: "/" })
+                }} className="w-full">
+                  <button className="btn-neumorphic w-full flex items-center justify-center gap-2 p-4 rounded-2xl text-red-600 font-bold hover:scale-[1.02] transition-transform">
+                    <span>Sign Out</span>
+                  </button>
+                </form>
+              </div>
+            </section>
+
+            {/* Left Column - Progress & Course Access */}
+            <aside className="lg:col-span-2 flex flex-col gap-6 order-3 lg:order-2">
 
               {/* Course Progress Card - Blue tint */}
               <div className="glass-blue rounded-3xl p-10">
@@ -233,62 +292,6 @@ export default async function DashboardPage() {
                 </p>
               </div>
             </aside>
-
-            {/* Right Column - Profile Quick View - Lavender tint */}
-            <section className="lg:col-span-1 order-1 lg:order-2">
-              <div className="glass-lavender rounded-3xl p-8 flex flex-col items-center text-center lg:sticky lg:top-24">
-                <h3 className="text-2xl font-bold text-text-primary mb-6">Profile</h3>
-                
-                {/* Profile Picture */}
-                <div className="relative mb-4">
-                  {profileAvatar ? (
-                    <img 
-                      src={profileAvatar}
-                      alt="Profile" 
-                      className="size-24 rounded-full border-4 border-white shadow-lg object-cover"
-                    />
-                  ) : (
-                    <div className="size-24 rounded-full border-4 border-white shadow-lg flex items-center justify-center bg-gradient-to-br from-sage-green/30 to-lavender/30">
-                      <span className="text-4xl font-black text-text-primary">
-                        {(displayName || session.user.email)?.[0]?.toUpperCase() || 'U'}
-                      </span>
-                    </div>
-                  )}
-                </div>
-
-                {/* Name and Organization */}
-                <h4 className="text-2xl font-black text-text-primary mb-1">
-                  {displayName}
-                </h4>
-                {organization && (
-                  <p className="text-base font-normal text-text-secondary mb-4">
-                    {organization}
-                  </p>
-                )}
-
-                <p className="text-xs text-text-secondary mb-6">
-                  Your name and picture will appear on your certificate
-                </p>
-
-                {/* View Profile Button */}
-                <a 
-                  href="/profile"
-                  className="btn-neumorphic w-full flex items-center justify-center gap-2 p-4 rounded-2xl text-text-primary font-bold hover:scale-[1.02] transition-transform mb-4"
-                >
-                  <span>View Profile</span>
-                </a>
-                
-                {/* Sign Out Button */}
-                <form action={async () => {
-                  "use server"
-                  await signOut({ redirectTo: "/" })
-                }} className="w-full">
-                  <button className="btn-neumorphic w-full flex items-center justify-center gap-2 p-4 rounded-2xl text-red-600 font-bold hover:scale-[1.02] transition-transform">
-                    <span>Sign Out</span>
-                  </button>
-                </form>
-              </div>
-            </section>
           </div>
         </main>
       </div>
