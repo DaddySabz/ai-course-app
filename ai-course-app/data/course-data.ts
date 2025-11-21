@@ -1482,11 +1482,284 @@ Bonus: Try adding "--ar 16:9" to the end of your prompt to get a widescreen form
     }
   },
 
-  // PLACEHOLDERS FOR DAYS 16-30
-  ...Array.from({ length: 15 }, (_, i) => ({
-    day: i + 16,
-    title: `Day ${i + 16}: Coming Soon`,
-    subtitle: "Phase 2 & 3 Content Loading...",
-    content: "<p>Content being crafted. Stay tuned!</p>"
+  // DAY 16: HeyGen
+  {
+    day: 16,
+    title: "The Avatar",
+    subtitle: "HeyGen and AI Presenters",
+    content: `
+  <p>What if you could create a video presentation without being on camera?</p>
+
+  <p><strong>HeyGen</strong> generates AI avatars that speak your script with realistic lip-sync, gestures, and expressions.</p>
+
+    <h3>The "Digital Twin" Concept</h3>
+
+      <p>You can create an avatar that looks like you, or choose from HeyGen's library of professional presenters.</p>
+
+        <p>Use cases: Training videos, product demos, YouTube explainers—all without recording yourself.</p>
+
+          <h3>How It Works</h3>
+
+            <ol>
+            <li>Choose an avatar (or create your own)</li>
+              <li>Write or paste your script</li>
+                <li>Select voice and language</li>
+                  <li>Generate → 2-minute video in 5 minutes</li>
+                    </ol>
+
+                    <h3>The Multilingual Advantage</h3>
+
+                      <p>HeyGen avatars can speak 40+ languages. Record once in English, generate versions in Spanish, French, Mandarin.</p>
+
+                        <p>Perfect for global teams, e-learning, international marketing.</p>
+
+                          <h3>Ethics & Transparency</h3>
+
+                            <p>Always disclose AI-generated content. Viewers deserve to know.</p>
+
+                              <p>Don't impersonate real people without permission.</p>
+                                `,
+    handsOn: {
+      title: "Create Your First AI Presenter",
+      description: "Generate a 30-second video.",
+      affiliateLinks: [
+        {
+          text: "Try HeyGen →",
+          url: "https://www.heygen.com"
+        }
+      ],
+      exercise: `1. Sign up for HeyGen.
+2. Choose an avatar from the library.
+3. Write a 30-second script about your favorite hobby.
+4. Generate the video.
+5. Download and share (with "Created with HeyGen" disclosure).`
+    }
+  },
+
+  // DAY 17: Gamma
+  {
+    day: 17,
+    title: "The Presenter",
+    subtitle: "Gamma and AI-Powered Slides",
+    content: `
+  <p>PowerPoint is dead. Long live AI presentations.</p>
+
+  <p><strong>Gamma</strong> creates beautiful slide decks from a simple outline or prompt.</p>
+
+    <h3>The "One-Prompt Deck"</h3>
+
+      <p>Type: "Create a 10-slide pitch deck for a coffee subscription service targeting remote workers."</p>
+
+        <p>90 seconds later: fully designed deck with layout, imagery, and text.</p>
+
+          <h3>Why Gamma Wins Over PowerPoint</h3>
+
+            <ul>
+            <li><strong>Speed:</strong> 10x faster than manual design</li>
+              <li><strong>Design:</strong> Professional layouts automatically</li>
+                <li><strong>Collaboration:</strong> Web-based, shareable links</li>
+                  <li><strong>Responsive:</strong> Works on any device</li>
+                    </ul>
+
+                    <h3>The "Narrative Mode"</h3>
+
+                      <p>Unlike static slides, Gamma presentations can be scrollable web pages. More engaging storytelling format.</p>
+
+                        <h3>Best For</h3>
+
+                          <ul>
+                          <li>Startup pitch decks</li>
+                            <li>Team presentations</li>
+                              <li>Client proposals</li>
+                                <li>Educational content</li>
+                                  </ul>
+                                    `,
+    handsOn: {
+      title: "Generate a Pitch Deck in 60 Seconds",
+      description: "AI-powered slides.",
+      affiliateLinks: [
+        {
+          text: "Try Gamma →",
+          url: "https://gamma.app"
+        }
+      ],
+      exercise: `1. Sign up for Gamma.
+2. Click "Create with AI."
+3. Prompt: "Create a 5-slide presentation about the benefits of AI in education."
+4. Review generated deck.
+5. Export as PDF or share link.`
+    }
+  },
+
+  // DAY 18: Beautiful.ai
+  {
+    day: 18,
+    title: "The Designer",
+    subtitle: "Beautiful.ai and Smart Templates",
+    content: `
+  <p>If Gamma is the "quick draft," <strong>Beautiful.ai</strong> is the "polished final version."</p>
+
+    <h3>Intelligent Design Engine</h3>
+
+      <p>As you add content, Beautiful.ai automatically adjusts layouts, spacing, colors to maintain visual harmony.</p>
+
+        <p>No design skills needed. It's like having a designer watching over your shoulder.</p>
+
+          <h3>Team Collaboration Features</h3>
+
+            <p>Unlike Gamma (individual-focused), Beautiful.ai is built for teams:</p>
+            <ul>
+            <li>Brand kits (upload logos, colors, fonts)</li>
+              <li>Slide libraries (reuse approved content)</li>
+                <li>Real-time co-editing</li>
+                  </ul>
+
+                  <h3>When to Use What</h3>
+
+                    <ul>
+                    <li><strong>Gamma:</strong> Solo creators, quick drafts, web presentations</li>
+                      <li><strong>Beautiful.ai:</strong> Teams, client-facing decks, brand consistency</li>
+                        </ul>
+                          `,
+    handsOn: {
+      title: "Create a Brand-Aligned Deck",
+      description: "Professional presentation design.",
+      affiliateLinks: [
+        {
+          text: "Try Beautiful.ai →",
+          url: "https://www.beautiful.ai"
+        }
+      ],
+      exercise: `1. Sign up for Beautiful.ai.
+2. Create a new presentation.
+3. Add your company colors/logo (or use defaults).
+4. Create 3 slides about a product/service.
+5. Notice how design auto-adjusts as you add content.`
+    }
+  },
+
+  // DAY 19: Descript
+  {
+    day: 19,
+    title: "The Editor",
+    subtitle: "Descript and Text-Based Video Editing",
+    content: `
+  <p>Editing video is painful. Until now.</p>
+
+  <p><strong>Descript</strong> lets you edit video by editing text. Delete a word from the transcript → that word disappears from the video.</p>
+
+    <h3>The "Edit Video Like a Doc" Revolution</h3>
+
+      <p>Traditional editing: scrub timeline, find bad takes, cut manually.</p>
+
+        <p>Descript: read transcript, delete mistakes like typos. Done.</p>
+
+          <h3>Killer Features</h3>
+
+            <ul>
+            <li><strong>Overdub:</strong> Clone your voice, fix mistakes without re-recording</li>
+              <li><strong>Studio Sound:</strong> Remove background noise, enhance voice</li>
+                <li><strong>Filler Word Removal:</strong> Auto-delete all "um" and "uh"</li>
+                  <li><strong>Multi-track Audio:</strong> Edit podcast interviews easily</li>
+                    </ul>
+
+                    <h3>Perfect For</h3>
+
+                      <ul>
+                      <li>Podcasters</li>
+                        <li>YouTubers</li>
+                          <li>Online course creators</li>
+                            <li>Anyone who talks on camera</li>
+                              </ul>
+
+                              <h3>The Workflow Revolution</h3>
+
+                                <p>Record messy → Descript transcribes → Delete filler words → Export polished video.</p>
+
+                                  <p>What took 3 hours now takes 20 minutes.</p>
+                                    `,
+    handsOn: {
+      title: "Edit a Video by Editing Text",
+      description: "The future of video editing.",
+      affiliateLinks: [
+        {
+          text: "Try Descript →",
+          url: "https://www.descript.com"
+        }
+      ],
+      exercise: `1. Record a 1-minute video of yourself talking (use your phone).
+2. Upload to Descript.
+3. Let it transcribe.
+4. Find a mistake in the transcript and delete it.
+5. Watch the video update automatically. Magic.`
+    }
+  },
+
+  // DAY 20: Canva
+  {
+    day: 20,
+    title: "The Swiss Army Knife",
+    subtitle: "Canva's AI Design Ecosystem",
+    content: `
+  <p>We end Phase 2 with the tool you probably already know: <strong>Canva</strong>.</p>
+
+  <p>But you might not know about its AI superpowers.</p>
+
+    <h3>Canva's AI Arsenal</h3>
+
+      <ul>
+      <li><strong>Magic Write:</strong> Generate text for social posts, captions</li>
+        <li><strong>Magic Design:</strong> Upload content → auto-generate designs</li>
+          <li><strong>Magic Eraser:</strong> Remove objects from photos</li>
+            <li><strong>Background Remover:</strong> Instant cutouts</li>
+              <li><strong>Text to Image:</strong> Built-in image generation</li>
+                </ul>
+
+                <h3>The "Brand Kit" Integration</h3>
+
+                  <p>Upload your logo, colors, fonts once. Every design auto-uses your brand.</p>
+
+                    <h3>Why Canva Stays Relevant</h3>
+
+                      <p>While specialized tools are better at specific tasks, Canva is the "do everything decently" platform.</p>
+
+                        <p>One subscription = presentations, social graphics, videos, websites, docs.</p>
+
+                          <h3>The Team Workflow</h3>
+
+                            <p>Canva teams can create brand templates that non-designers can customize without breaking the design.</p>
+
+                              <p>Perfect for scaling content across marketing, sales, HR.</p>
+
+                                <h3>Phase 2 Complete!</h3>
+
+                                  <p>You've now mastered: Images (MJ, Gemini), Music (Suno), Voice (ElevenLabs), Video (Runway, HeyGen), Presentations (Gamma, Beautiful.ai), Editing (Descript), and Design (Canva).</p>
+
+                                    <p><strong>Next:</strong> Phase 3 - Automation & Workflows (Days 21-30)</p>
+                                      `,
+    handsOn: {
+      title: "Create a Complete Social Media Kit",
+      description: "One design, 5 formats.",
+      affiliateLinks: [
+        {
+          text: "Try Canva →",
+          url: "https://www.canva.com"
+        }
+      ],
+      exercise: `1. Open Canva.
+2. Use "Magic Design" to create an Instagram post.
+3. Use "Resize" to create: Instagram Story, Facebook post, LinkedIn banner, Pinterest pin.
+4. Download all 5 formats.
+
+Notice how one design became 5 platform-specific graphics in 2 minutes. This is the power of design automation.`
+    }
+  },
+
+  // PLACEHOLDERS FOR DAYS 21-30
+  ...Array.from({ length: 10 }, (_, i) => ({
+    day: i + 21,
+    title: `Day ${i + 21}: Coming Soon`,
+    subtitle: "Phase 3 Content Loading...",
+    content: "<p>Automation & Workflows content coming soon!</p>"
   }))
 ];

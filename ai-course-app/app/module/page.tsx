@@ -1,6 +1,6 @@
 import { auth } from "@/auth"
 import { redirect } from "next/navigation"
-import { courseData } from "@/data/course-data"
+import { courseModules } from "@/data/course-data"
 import Link from "next/link"
 import LessonContent from "@/components/LessonContent"
 import { createClient } from '@supabase/supabase-js'
@@ -26,7 +26,7 @@ export default async function ModulePage({
 
   const params = await searchParams
   const currentDay = Number(params.day) || 1
-  const lesson = courseData.find(m => m.day === currentDay)
+  const lesson = courseModules.find(m => m.day === currentDay)
   
   if (!lesson) {
     redirect("/dashboard")
@@ -72,7 +72,7 @@ export default async function ModulePage({
               COURSE DAYS
             </h3>
             <div className="space-y-2">
-              {courseData.map((day) => {
+              {courseModules.map((day) => {
                 const isDayCompleted = completedDays.includes(day.day)
                 const isLocked = day.day > 1 && !completedDays.includes(day.day - 1)
                 const isActive = day.day === currentDay

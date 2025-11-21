@@ -2,7 +2,7 @@
 "use client";
 
 import { useSearchParams } from 'next/navigation';
-import { courseData } from '@/data/course-data';
+import { courseModules } from '@/data/course-data';
 import Link from 'next/link';
 import { Suspense, useState, useEffect } from 'react';
 import { useSession } from 'next-auth/react';
@@ -12,7 +12,7 @@ function ModuleDisplay() {
   const searchParams = useSearchParams();
   const dayParam = searchParams.get('day');
   const currentDay = dayParam ? parseInt(dayParam) : 1;
-  const module = courseData.find(m => m.day === currentDay);
+  const module = courseModules.find(m => m.day === currentDay);
   const { data: session } = useSession();
   const [isCompleted, setIsCompleted] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
