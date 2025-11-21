@@ -1318,45 +1318,20 @@ Bonus: Try adding "--ar 16:9" to the end of your prompt to get a widescreen form
           text: "Use Gemini →",
           url: "https://gemini.google.com"
         }
-      ],
-      exercise: `1. Open Gemini.
-2. Type: "Generate an image of a cozy reading nook with bookshelves, warm lighting, a comfy chair, and a rainy window view."
-3. Refine: "Make the chair darker brown and add a sleeping cat."
-4. Download and use as a blog header.`
-    `,
-    handsOn: {
-      title: "Edit a Video by Editing Text",
-      description: "The future of video editing.",
-      affiliateLinks: [
-        {
-          text: "Try Descript →",
-          url: "https://www.descript.com"
-        }
-      ],
-      exercise: `1. Record a 1 - minute video of yourself talking(use your phone).
-2. Upload to Descript.
-3. Let it transcribe.
-4. Find a mistake in the transcript and delete it.
-5. Watch the video update automatically.Magic.`
-    }
-  },
-
-  // DAY 20: Canva
-  {
     day: 20,
-    title: "The Swiss Army Knife",
-    subtitle: "Canva's AI Design Ecosystem",
-    content: `
-  < p > We end Phase 2 with the tool you probably already know: <strong>Canva < /strong>.</p >
+        title: "The Swiss Army Knife",
+        subtitle: "Canva's AI Design Ecosystem",
+        content: `
+  <p>We end Phase 2 with the tool you probably already know: <strong>Canva</strong>.</p>
 
     <p>But you might not know about its AI superpowers.</p>
 
-      < h3 > Canva's AI Arsenal</h3>
+      <h3>Canva's AI Arsenal</h3>
 
-        < ul >
-        <li><strong>Magic Write: </strong> Generate text for social posts, captions</li >
-          <li><strong>Magic Design: </strong> Upload content → auto-generate designs</li >
-            <li><strong>Magic Eraser: </strong> Remove objects from photos</li >
+        <ul>
+        <li><strong>Magic Write:</strong> Generate text for social posts, captions</li>
+          <li><strong>Magic Design:</strong> Upload content → auto-generate designs</li>
+            <li><strong>Magic Eraser:</strong> Remove objects from photos</li>
               <li><strong>Background Remover: </strong> Instant cutouts</li >
                 <li><strong>Text to Image: </strong> Built-in image generation</li >
                   </ul>
@@ -1383,22 +1358,22 @@ Bonus: Try adding "--ar 16:9" to the end of your prompt to get a widescreen form
 
                                       < p > <strong>Next: </strong> Phase 3 - Automation & Workflows (Days 21-30)</p >
                                         `,
-    handsOn: {
-      title: "Create a Complete Social Media Kit",
-      description: "One design, 5 formats.",
-      affiliateLinks: [
-        {
-          text: "Try Canva →",
-          url: "https://www.canva.com"
-        }
-      ],
-      exercise: `1. Open Canva.
+        handsOn: {
+          title: "Create a Complete Social Media Kit",
+          description: "One design, 5 formats.",
+          affiliateLinks: [
+            {
+              text: "Try Canva →",
+              url: "https://www.canva.com"
+            }
+          ],
+          exercise: `1. Open Canva.
 2. Use "Magic Design" to create an Instagram post.
 3. Use "Resize" to create: Instagram Story, Facebook post, LinkedIn banner, Pinterest pin.
 4. Download all 5 formats.
 
 Notice how one design became 5 platform - specific graphics in 2 minutes.This is the power of design automation.`
-    }
+        }
   },
 
   // DAY 21: Zapier
