@@ -142,11 +142,16 @@ export default function CertificateActions({ certificateId }: CertificateActions
     const screenWidth = window.screen.availWidth || window.screen.width
     const screenHeight = window.screen.availHeight || window.screen.height
     
+    // Get availLeft/availTop with type safety (not in standard Screen interface)
+    const screen = window.screen as Screen & { availLeft?: number; availTop?: number }
+    const availLeft = screen.availLeft ?? 0
+    const availTop = screen.availTop ?? 0
+    
     // Calculate window dimensions (80% of available screen, centered)
     const width = Math.floor(screenWidth * 0.8)
     const height = Math.floor(screenHeight * 0.8)
-    const left = Math.floor((screenWidth - width) / 2) + (window.screen.availLeft || 0)
-    const top = Math.floor((screenHeight - height) / 2) + (window.screen.availTop || 0)
+    const left = Math.floor((screenWidth - width) / 2) + availLeft
+    const top = Math.floor((screenHeight - height) / 2) + availTop
     
     window.open(
       url,
@@ -195,10 +200,13 @@ export default function CertificateActions({ certificateId }: CertificateActions
       // Desktop: Use web.whatsapp.com with proper centering
       const screenWidth = window.screen.availWidth || window.screen.width
       const screenHeight = window.screen.availHeight || window.screen.height
+      const screen = window.screen as Screen & { availLeft?: number; availTop?: number }
+      const availLeft = screen.availLeft ?? 0
+      const availTop = screen.availTop ?? 0
       const width = Math.floor(screenWidth * 0.8)
       const height = Math.floor(screenHeight * 0.8)
-      const left = Math.floor((screenWidth - width) / 2) + (window.screen.availLeft || 0)
-      const top = Math.floor((screenHeight - height) / 2) + (window.screen.availTop || 0)
+      const left = Math.floor((screenWidth - width) / 2) + availLeft
+      const top = Math.floor((screenHeight - height) / 2) + availTop
       window.open(
         `https://web.whatsapp.com/send?text=${encodedText}`,
         '_blank',
