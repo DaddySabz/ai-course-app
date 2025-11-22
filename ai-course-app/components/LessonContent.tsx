@@ -88,7 +88,7 @@ export default function LessonContent({ lesson, currentDay, userId, hasFullAcces
 
   if (isLocked) {
     return (
-      <div className="card-neumorphic rounded-3xl p-10 text-center">
+      <div className="card-neumorphic rounded-3xl p-4 md:p-10 text-center">
         <h2 className="text-3xl font-bold text-text-primary mb-4">
           Lesson Locked
         </h2>
@@ -108,7 +108,7 @@ export default function LessonContent({ lesson, currentDay, userId, hasFullAcces
   return (
     <>
       {/* Learning Content - Frosted Glass Card */}
-      <div className="card-neumorphic rounded-3xl p-10 mb-6">
+      <div className="card-neumorphic rounded-3xl p-4 md:p-10 mb-6">
         <div 
           className="prose prose-lg max-w-none"
           dangerouslySetInnerHTML={{ __html: lesson.content }}
@@ -117,7 +117,7 @@ export default function LessonContent({ lesson, currentDay, userId, hasFullAcces
 
       {/* Hands-On Section - Mint Glass Card */}
       {lesson.handsOn && (
-        <div className="glass-mint rounded-3xl p-10 mb-6">
+        <div className="glass-mint rounded-3xl p-4 md:p-10 mb-6">
           <h2 className="text-3xl font-black text-text-primary mb-4">
             {lesson.handsOn.title}
           </h2>
@@ -153,7 +153,7 @@ export default function LessonContent({ lesson, currentDay, userId, hasFullAcces
 
           {/* Exercise - White card on colored base */}
           {lesson.handsOn.exercise && (
-            <div className="glass p-6 rounded-2xl">
+            <div className="glass p-4 md:p-6 rounded-2xl">
               <h3 className="text-lg font-bold text-text-primary mb-3">
                 Your Task:
               </h3>
@@ -167,7 +167,7 @@ export default function LessonContent({ lesson, currentDay, userId, hasFullAcces
 
       {/* Success Message when completed */}
       {isCompleted && (
-        <div className="card-neumorphic rounded-3xl p-8 mb-6 bg-gradient-to-br from-sage-green/10 to-transparent">
+        <div className="card-neumorphic rounded-3xl p-4 md:p-8 mb-6 bg-gradient-to-br from-sage-green/10 to-transparent">
           <div>
             <h3 className="text-2xl font-bold text-text-primary mb-1">
               Lesson Complete!
