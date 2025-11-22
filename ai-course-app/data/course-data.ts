@@ -15,7 +15,7 @@ export interface CourseModule {
   handsOn: HandsOn;
 }
 
-export const courseData: CourseModule[] = [
+export const courseModules: CourseModule[] = [
   // DAY 1: The AI Revolution
   {
     day: 1,
