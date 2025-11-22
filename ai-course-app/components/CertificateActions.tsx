@@ -50,33 +50,18 @@ export default function CertificateActions({ certificateId }: CertificateActions
       // Remove loading indicator
       document.body.removeChild(loadingMsg)
 
-      // Create PDF (A4 landscape)
-      const pdf = new jsPDF('landscape', 'mm', 'a4')
+      // Create PDF with custom dimensions matching the certificate exactly
+      // This avoids white margins/letterboxing on the digital file
+      const pdf = new jsPDF({
+        orientation: canvas.width > canvas.height ? 'landscape' : 'portrait',
+        unit: 'px',
+        format: [canvas.width, canvas.height]
+      })
+
+      // Add image at 0,0 with 100% width and height
       const imgData = canvas.toDataURL('image/png', 1.0)
+      pdf.addImage(imgData, 'PNG', 0, 0, canvas.width, canvas.height)
       
-      // A4 landscape dimensions in mm
-      const pdfWidth = pdf.internal.pageSize.getWidth()
-      const pdfHeight = pdf.internal.pageSize.getHeight()
-      
-      // Calculate dimensions to fit the page while maintaining aspect ratio
-      const canvasAspect = canvas.width / canvas.height
-      const pdfAspect = pdfWidth / pdfHeight
-      
-      let imgWidth = pdfWidth
-      let imgHeight = pdfHeight
-      
-      if (canvasAspect > pdfAspect) {
-        // Canvas is wider - fit to width
-        imgHeight = pdfWidth / canvasAspect
-      } else {
-        // Canvas is taller - fit to height
-        imgWidth = pdfHeight * canvasAspect
-      }
-      
-      const x = (pdfWidth - imgWidth) / 2
-      const y = (pdfHeight - imgHeight) / 2
-      
-      pdf.addImage(imgData, 'PNG', x, y, imgWidth, imgHeight)
       pdf.save(`AI-Certificate-${certificateId ? certificateId.replace(/-/g, '').slice(0, 8).toUpperCase() : 'DOWNLOAD'}.pdf`)
     } catch (error) {
       console.error('PDF generation failed:', error)
