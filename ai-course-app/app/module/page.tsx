@@ -150,7 +150,7 @@ export default async function ModulePage({
       </div>
 
       {/* Mobile Bottom Navigation - Swipeable Day Selector */}
-      <div className="md:hidden fixed bottom-0 left-0 right-0 z-40 pb-4 pt-4" style={{
+      <div className="md:hidden fixed bottom-0 left-0 right-0 z-40 pt-4 overflow-visible" style={{
         background: 'linear-gradient(to top, rgba(245, 241, 237, 0.98) 0%, rgba(245, 241, 237, 0.95) 80%, transparent 100%)',
         backdropFilter: 'blur(10px)'
       }}>
