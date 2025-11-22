@@ -150,13 +150,13 @@ export default async function ModulePage({
       </div>
 
       {/* Mobile Bottom Navigation - Swipeable Day Selector */}
-      <div className="md:hidden fixed bottom-0 left-0 right-0 z-40 pb-6 pt-6" style={{
+      <div className="md:hidden fixed bottom-0 left-0 right-0 z-40 pb-4 pt-4" style={{
         background: 'linear-gradient(to top, rgba(245, 241, 237, 0.98) 0%, rgba(245, 241, 237, 0.95) 80%, transparent 100%)',
         backdropFilter: 'blur(10px)'
       }}>
         {/* Scrollable Day Buttons */}
-        <div className="overflow-x-auto scrollbar-hide px-4 py-3 overflow-y-visible">
-          <div className="flex gap-3 min-w-max items-center" style={{ paddingTop: '4px', paddingBottom: '4px' }}>
+        <div className="overflow-x-auto scrollbar-hide px-4 py-2 overflow-y-visible">
+          <div className="flex gap-2.5 min-w-max items-center">
             {courseModules.map((day) => {
               const isDayCompleted = completedDays.includes(day.day)
               const isLocked = day.day > 1 && !completedDays.includes(day.day - 1)
@@ -166,14 +166,14 @@ export default async function ModulePage({
                 return (
                   <div
                     key={day.day}
-                    className="flex flex-col items-center gap-1.5 flex-shrink-0"
+                    className="flex flex-col items-center flex-shrink-0"
                   >
-                    <div className="w-14 h-14 rounded-full flex items-center justify-center text-text-tertiary font-bold" style={{
+                    <div className="w-11 h-11 rounded-full flex items-center justify-center text-text-tertiary font-semibold" style={{
                       background: 'rgba(200, 200, 200, 0.3)',
                       boxShadow: 'inset 2px 2px 5px rgba(180, 160, 145, 0.2), inset -2px -2px 5px rgba(255, 255, 255, 0.7)',
                       opacity: 0.5
                     }}>
-                      <span className="text-base">{day.day}</span>
+                      <span className="text-sm">{day.day}</span>
                     </div>
                   </div>
                 )
@@ -183,10 +183,10 @@ export default async function ModulePage({
                 <Link
                   key={day.day}
                   href={`/module?day=${day.day}`}
-                  className="flex flex-col items-center gap-1.5 flex-shrink-0"
+                  className="flex flex-col items-center flex-shrink-0"
                 >
                   <div 
-                    className={`w-14 h-14 rounded-full flex items-center justify-center font-bold text-base transition-all duration-300 ${
+                    className={`w-11 h-11 rounded-full flex items-center justify-center font-semibold text-sm transition-all duration-300 ${
                       isActive ? 'text-white' : 'text-text-primary'
                     }`}
                     style={
@@ -195,7 +195,7 @@ export default async function ModulePage({
                             // Purple/Lavender for current day (like desktop)
                             background: 'linear-gradient(145deg, rgba(184, 168, 212, 0.9) 0%, rgba(164, 148, 192, 0.85) 100%)',
                             boxShadow: '0 6px 20px rgba(184, 168, 212, 0.5), -6px 6px 16px rgba(160, 140, 180, 0.3), 6px -6px 16px rgba(255, 255, 255, 0.9)',
-                            transform: 'scale(1.15)'
+                            transform: 'scale(1.1)'
                           }
                         : isDayCompleted
                         ? {
@@ -214,27 +214,6 @@ export default async function ModulePage({
                 </Link>
               )
             })}
-          </div>
-        </div>
-        
-        {/* Progress Indicator */}
-        <div className="px-4 mt-3">
-          <div className="flex items-center gap-2">
-            <div className="flex-1 h-1.5 rounded-full" style={{
-              background: 'rgba(200, 200, 200, 0.3)'
-            }}>
-              <div 
-                className="h-full rounded-full transition-all duration-500"
-                style={{
-                  width: `${(completedDays.length / 30) * 100}%`,
-                  background: 'linear-gradient(90deg, rgba(184, 206, 184, 1) 0%, rgba(164, 186, 164, 1) 100%)',
-                  boxShadow: '0 2px 8px rgba(184, 206, 184, 0.4)'
-                }}
-              />
-            </div>
-            <span className="text-xs font-bold text-text-secondary">
-              {completedDays.length}/30
-            </span>
           </div>
         </div>
       </div>
