@@ -145,10 +145,17 @@ export default function CertificateActions({ certificateId }: CertificateActions
     )
   }
 
+  const getShareUrl = () => {
+    if (certificateId) {
+      return `${window.location.origin}/c/${certificateId}`
+    }
+    return `${window.location.origin}/login`
+  }
+
   const shareOnLinkedIn = () => {
     // LinkedIn doesn't support pre-filled text, only URL
     // Text will need to be typed manually, but Open Graph tags will show image/preview
-    const url = window.location.origin + '/login'
+    const url = getShareUrl()
     openShareLink(`https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(url)}`)
     
     // Show helpful message
@@ -158,14 +165,14 @@ export default function CertificateActions({ certificateId }: CertificateActions
   }
 
   const shareOnFacebook = () => {
-    const url = window.location.origin + '/login'
+    const url = getShareUrl()
     // Facebook supports quote parameter for pre-filled text
     const quote = "🎉 Just finished the Introduction to AI course! 🎓\n\n30 days of learning and I've got my certificate! Really interesting stuff about how AI actually works - from ChatGPT to machine learning fundamentals.\n\n#AI #MachineLearning #OnlineLearning #TechEducation #Certificate"
     openShareLink(`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(url)}&quote=${encodeURIComponent(quote)}`)
   }
 
   const shareOnTwitter = () => {
-    const url = window.location.origin + '/login'
+    const url = getShareUrl()
     // Twitter/X supports text parameter (280 char limit)
     const text = "✅ Completed Introduction to AI course! 🎓 30 days, certificate earned. Learned AI fundamentals, prompt engineering, and real-world applications. #AI #MachineLearning #EdTech #AICertificate"
     const fullText = `${text} ${url}`
@@ -173,7 +180,7 @@ export default function CertificateActions({ certificateId }: CertificateActions
   }
 
   const shareOnWhatsApp = () => {
-    const url = window.location.origin + '/login'
+    const url = getShareUrl()
     const text = `🎓 Hey! Just wanted to share - I completed this AI course and got my certificate! 🎉\n\n30 days of learning about AI fundamentals, prompt engineering, and real-world applications. Really interesting stuff!\n\nCheck it out if you're interested: ${url}\n\n#AI #MachineLearning #OnlineLearning`
     const encodedText = encodeURIComponent(text)
     
@@ -249,7 +256,7 @@ export default function CertificateActions({ certificateId }: CertificateActions
       }, 'image/png', 1.0)
 
       // Copy caption to clipboard
-      const url = window.location.origin + '/login'
+      const url = getShareUrl()
       const caption = `🎓 Certificate unlocked! ✨\n\nJust completed my 30-day Introduction to AI course journey! Learned AI fundamentals, prompt engineering, and real-world applications.\n\nReady to apply these skills! 💼\n\nCheck it out: ${url}\n\n#AI #MachineLearning #ArtificialIntelligence #AICertificate #TechEducation #OnlineLearning #ProfessionalDevelopment #TechSkills #EdTech #Certificate`
       
       // Try to copy to clipboard
