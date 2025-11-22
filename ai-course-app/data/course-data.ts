@@ -158,5 +158,199 @@ export const courseModules: CourseModule[] = [
 
 **Bonus Challenge:** Ask ChatGPT to critique its own answer. Type: "What are the weaknesses in the response you just gave me?" Watch it analyze itself. This is the meta-level thinking that separates power users from casual users.`
     }
+  },
+
+  // DAY 2: Claude AI - The Writer's Room
+  {
+    day: 2,
+    title: "The Writer's Room",
+    subtitle: "Claude AI and the Art of Long-Form Thinking",
+    content: `
+      <p>If ChatGPT is the Swiss Army knife of AI—fast, versatile, always ready—then Claude is the precision instrument. The scalpel. The craftsman's tool.</p>
+
+      <p>Built by Anthropic (a company founded by former OpenAI researchers), Claude has carved out a distinct identity in the AI landscape. While ChatGPT chases speed and ubiquity, Claude obsesses over something more subtle: <strong>nuance</strong>. Thoughtfulness. The ability to hold complex, multi-layered conversations without losing the thread.</p>
+
+      <p>In November 2025, Claude isn't just an alternative to ChatGPT—it's the <em>preferred</em> tool for anyone working with long-form content, deep analysis, or code that needs to be not just functional, but elegant.</p>
+
+      <p>Welcome to Day 2. Today, we meet the writer's AI.</p>
+
+      <h3>The Claude Philosophy: Safety Meets Capability</h3>
+
+      <p>Anthropic's founding principle is "AI safety." But that doesn't mean Claude is timid or restricted—it means it's <em>thoughtful</em>. Claude is trained using a method called <strong>Constitutional AI</strong>, where the model isn't just optimized for helpfulness, but for harmlessness and honesty.</p>
+
+      <p>What does this mean in practice? Claude is less likely to hallucinate than other models. It's more willing to say "I don't know" instead of confidently making something up. It tends to provide more balanced perspectives on controversial topics. And crucially for professionals, it's <strong>more reliable</strong> when accuracy matters.</p>
+
+      <p>This makes Claude the tool of choice for lawyers reviewing contracts, researchers analyzing data, and writers crafting long-form articles where every fact needs to be defensible.</p>
+
+      <h3>The Model Lineup: Sonnet vs. Opus (November 2025)</h3>
+
+      <p>Claude doesn't have a single "default" model. Instead, you choose based on your needs:</p>
+
+      <p><strong>Claude Sonnet 4.5 (Released September 29, 2025)</strong></p>
+
+      <p>This is Claude's <em>coding powerhouse</em>. Anthropic boldly calls it "the best coding model in the world," and the benchmarks back it up. Sonnet 4.5 achieved a <strong>0% error rate</strong> on internal code editing benchmarks—a first in the industry.</p>
+
+      <ul>
+        <li><strong>Context Window:</strong> 200,000 tokens (with 1 million tokens in public beta). That's enough to process entire codebases, lengthy legal documents, or a stack of research papers in a single conversation.</li>
+        
+        <li><strong>Computer Use:</strong> Sonnet 4.5 can interact with computer interfaces like a human—clicking buttons, navigating apps, filling forms. This makes it Anthropic's most advanced model for agentic workflows.</li>
+        
+        <li><strong>Coding Prowess:</strong> Supports multi-file code refactoring, precise debugging, and multi-hour autonomous software engineering tasks. It scored 74.5% on SWE-bench Verified, the toughest coding benchmark.</li>
+        
+        <li><strong>Speed & Cost Balance:</strong> Faster and cheaper than Opus while maintaining high-quality outputs. Ideal for high-volume use cases.</li>
+      </ul>
+
+      <p><strong>Claude Opus 4.1 (Released August 5, 2025)</strong></p>
+
+      <p>This is the "deep thinker." If Sonnet is the engineer, Opus is the philosopher. Opus 4.1 is Anthropic's most capable reasoning system, optimized for complex enterprise workflows where accuracy and nuance are paramount.</p>
+
+      <ul>
+        <li><strong>Advanced Reasoning:</strong> Provides more consistent long-form reasoning with better factual grounding. It's slower than Sonnet, but the depth is unmatched.</li>
+        
+        <li><strong>Context Window:</strong> 200,000 tokens (same as Sonnet).</li>
+        
+        <li><strong>Enterprise Focus:</strong> Designed for legal analysis, strategic planning, complex research synthesis—tasks where getting it right matters more than getting it fast.</li>
+      </ul>
+
+      <p><strong>Which Should You Use?</strong></p>
+
+      <ul>
+        <li><strong>Sonnet 4.5:</strong> For coding, automation, agentic tasks, and situations where you need speed + quality.</li>
+        <li><strong>Opus 4.1:</strong> For deep analysis, high-stakes writing, legal/medical work, and when you need the absolute best reasoning.</li>
+      </ul>
+
+      <p>Most users default to Sonnet and only switch to Opus when they need the extra horsepower.</p>
+
+      <h3>The Killer Feature: Artifacts</h3>
+
+      <p>This is where Claude becomes genuinely <em>different</em> from ChatGPT. Claude introduced a feature called <strong>Artifacts</strong>, and it fundamentally changes how you work with AI.</p>
+
+      <p>Here's the problem Artifacts solve: When you ask ChatGPT to generate code, a table, or a document, the output appears inline in the conversation. If you want to iterate, you have to copy-paste it somewhere else, edit it, and bring it back. It's clunky.</p>
+
+      <p>With Artifacts, Claude generates content in a <strong>dedicated side panel</strong> that lives alongside the conversation. You can see the artifact, edit it directly, and ask Claude to modify it—all in real-time.</p>
+
+      <p><strong>What Can Artifacts Generate?</strong></p>
+
+      <ul>
+        <li><strong>Code snippets</strong> (HTML, JavaScript, Python, etc.) with syntax highlighting</li>
+        <li><strong>Interactive diagrams</strong> and flowcharts</li>
+        <li><strong>Structured documents</strong> (reports, tables, Markdown files)</li>
+        <li><strong>UI prototypes</strong> that you can actually interact with</li>
+        <li><strong>Data visualizations</strong> from CSV uploads</li>
+      </ul>
+
+      <p><strong>Real-World Example:</strong> You're building a landing page. You ask Claude: "Create an HTML landing page for a meditation app with a hero section, features list, and CTA button." Claude generates the code in the Artifacts panel. You see it rendered. You say: "Make the CTA button green and add a testimonial section." Claude updates it instantly, and you see the changes live.</p>
+
+      <p>This turns Claude into a <strong>collaborative workspace</strong>, not just a chatbot. You're building <em>with</em> Claude, not just asking it questions.</p>
+
+      <h3>The Extended Context Window: Why It Matters</h3>
+
+      <p>Both Sonnet and Opus support 200,000 tokens (with 1 million in beta). To put that in perspective:</p>
+
+      <ul>
+        <li>200,000 tokens ≈ 150,000 words ≈ a 500-page book</li>
+        <li>1,000,000 tokens ≈ 750,000 words ≈ War and Peace + The Great Gatsby + Moby Dick combined</li>
+      </ul>
+
+      <p>This means you can upload your entire company's documentation, paste in a full codebase, or feed Claude a semester's worth of research papers—and it will remember <em>all of it</em> throughout the conversation.</p>
+
+      <p><strong>Use Cases:</strong></p>
+
+      <ul>
+        <li><strong>Legal:</strong> Upload a 200-page contract and ask: "Summarize the liability clauses and flag any unfavorable terms."</li>
+        <li><strong>Research:</strong> Feed Claude 20 academic papers and ask: "What are the competing theories on this topic? Where do they disagree?"</li>
+        <li><strong>Coding:</strong> Paste an entire GitHub repo and ask: "Where is the bug in the authentication flow?"</li>
+      </ul>
+
+      <p>The extended context window turns Claude into a thought partner that can hold <em>massive</em> amounts of information in its "working memory."</p>
+
+      <h3>Computer Use: The Agentic Breakthrough</h3>
+
+      <p>In late 2025, Claude Sonnet 4.5 became capable of <strong>Computer Use</strong>—the ability to control a computer like a human. This isn't science fiction; it's live functionality.</p>
+
+      <p>Claude can:</p>
+
+      <ul>
+        <li>Move the mouse and click buttons</li>
+        <li>Type into forms and text fields</li>
+        <li>Navigate between applications</li>
+        <li>Take screenshots to verify actions</li>
+      </ul>
+
+      <p>This enables truly autonomous workflows. For example: "Go to this website, fill out the contact form with this information, submit it, and send me a screenshot of the confirmation." Claude does it all.</p>
+
+      <p>While still in beta, Computer Use represents the future of AI: not just generating text, but <em>taking action</em> in the real world.</p>
+
+      <h3>When Claude Shines (And When It Doesn't)</h3>
+
+      <p><strong>Claude is exceptional for:</strong></p>
+
+      <ul>
+        <li><strong>Long-form writing:</strong> Essays, reports, documentation where maintaining coherence across thousands of words is critical</li>
+        <li><strong>Code generation:</strong> Especially complex, multi-file projects with nuanced requirements</li>
+        <li><strong>Deep analysis:</strong> Research synthesis, comparative analysis, strategic thinking</li>
+        <li><strong>Sensitive content:</strong> Medical, legal, or ethical questions where accuracy and safety matter</li>
+      </ul>
+
+      <p><strong>Claude struggles with:</strong></p>
+
+      <ul>
+        <li><strong>Real-time web data:</strong> Claude doesn't browse the web in real-time (unlike ChatGPT Plus or Gemini). Its knowledge has a cutoff date.</li>
+        <li><strong>Image generation:</strong> Claude doesn't create images. For visuals, you still need DALL-E, Midjourney, or other tools.</li>
+        <li><strong>Speed for simple tasks:</strong> If you just need a quick answer, ChatGPT's Instant mode is faster.</li>
+      </ul>
+
+      <h3>Pricing: Free vs. Pro</h3>
+
+      <p>Claude offers a generous free tier, but with usage limits. Here's when you should upgrade to <strong>Claude Pro ($20/month)</strong>:</p>
+
+      <ul>
+        <li>You hit rate limits on the free tier (typically 40-50 messages per day)</li>
+        <li>You need priority access to Sonnet 4.5 and Opus 4.1</li>
+        <li>You're using Claude for professional work (writing, coding, analysis)</li>
+        <li>You want early access to new features like Computer Use</li>
+      </ul>
+
+      <p>For most learners and experimenters, the free tier is sufficient. But if Claude becomes part of your daily workflow, Pro pays for itself quickly.</p>
+
+      <h3>The Philosophy of Iteration</h3>
+
+      <p>Here's what most people don't realize about Claude: its real power isn't in the first response—it's in the <strong>tenth response</strong>.</p>
+
+      <p>Claude is designed for refinement. You start with a rough draft. You push back: "This is too formal." Claude adjusts. "Now add more examples." It complies. "Actually, rewrite the introduction to be more provocative." It iterates.</p>
+
+      <p>This back-and-forth collaboration is where Claude excels. It doesn't get frustrated. It doesn't lose context. It just keeps refining until you're happy.</p>
+
+      <p>This makes Claude feel less like a tool and more like a <strong>writing partner</strong>. You're co-authoring, not just prompting.</p>
+
+      <h3>The Bottom Line</h3>
+
+      <p>Claude isn't trying to beat ChatGPT at everything. It's playing a different game. Where ChatGPT prioritizes breadth, speed, and integration with other tools, Claude prioritizes <strong>depth, thoughtfulness, and precision</strong>.</p>
+
+      <p>If you're building something that matters—a business plan, a codebase, a research report—Claude is the AI you want in your corner. It's the tool for when "good enough" isn't good enough.</p>
+
+      <p>Tomorrow, we'll learn how to get <em>both</em> AIs to do exactly what you want through the art of prompting. But today, let's just meet Claude properly.</p>
+    `,
+    handsOn: {
+      title: "The Long-Form Document Test",
+      description: "See Claude's extended context and refinement capabilities in action.",
+      affiliateLinks: [
+        {
+          text: "Try Claude (Free) →",
+          url: "https://claude.ai"
+        }
+      ],
+      exercise: `1. Go to https://claude.ai and create a free account.
+2. Start a conversation: "I need to write a detailed business plan for a [choose any business idea]. Let's start with the executive summary."
+3. Claude will generate a draft. Now iterate at least 5 times with specific refinements:
+   - "Make it more data-driven"
+   - "Add a competitive analysis section"
+   - "Rewrite the market opportunity paragraph to be more compelling"
+   - "Add specific financial projections"
+   - "Now restructure this to emphasize the unique value proposition first"
+4. Notice: How does Claude maintain context across all your requests? Does the quality improve with iteration?
+
+**Bonus Challenge:** Upload a document (PDF or text file) and ask Claude to analyze it. Try: "What are the three main arguments in this document? Are any of them weak?" Watch Claude process the entire document and provide nuanced analysis.`
+    }
   }
 ];

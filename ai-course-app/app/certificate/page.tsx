@@ -61,14 +61,22 @@ export default async function CertificatePage() {
     if (existingCert) {
       certificate = existingCert
       
-      // Update certificate name if it's outdated (doesn't match current display_name)
+      // Always update certificate name to match current display_name from profile
       if (existingCert.user_name !== displayName) {
-        await supabase
+        const { data: updatedCert } = await supabase
           .from('certificates')
           .update({ user_name: displayName })
           .eq('user_id', session.user.id)
+          .select()
+          .single()
         
-        // Update local certificate object
+        if (updatedCert) {
+          certificate = updatedCert
+        } else {
+          certificate.user_name = displayName
+        }
+      } else {
+        // Even if name matches, ensure we use the latest displayName
         certificate.user_name = displayName
       }
     } else {
@@ -106,13 +114,13 @@ export default async function CertificatePage() {
             <div className="absolute bottom-4 right-4 w-12 h-12 border-b-4 border-r-4 border-sage-green/40 rounded-br-xl"></div>
             
             {/* Title */}
-            <div className="text-center mb-6">
+            <div className="text-center mb-4">
               <h2 className="text-3xl sm:text-4xl font-black text-text-primary">Certificate of Completion</h2>
             </div>
 
             {/* This certifies that + Profile Picture + Name */}
             <div className="text-center mb-12">
-              <p className="text-xl text-text-secondary mb-8 font-semibold">This certifies that</p>
+              <p className="text-xl text-text-secondary mb-6 font-semibold">This certifies that</p>
               
               {/* Profile Picture */}
               <div className="flex justify-center mb-6">
@@ -134,7 +142,7 @@ export default async function CertificatePage() {
               {/* Name and Organization */}
               <div className="space-y-2">
                 <h1 className="text-4xl sm:text-5xl font-black tracking-tight text-text-primary">
-                  {certificate?.user_name || displayName}
+                  {displayName}
                 </h1>
                 {organization && (
                   <p className="text-xl font-normal text-text-secondary">
@@ -166,7 +174,9 @@ export default async function CertificatePage() {
               <div className="text-center sm:text-right">
                 <p className="text-sm text-text-secondary font-semibold uppercase tracking-wider mb-1">Certificate ID</p>
                 {/* Display shortened UUID (first 8 chars) - Full UUID stored in DB for verification */}
-                <p className="text-lg font-semibold text-text-primary">AI-{String(certificate?.id).slice(0, 8).toUpperCase() || 'XXXXXXXX'}</p>
+                <p className="text-lg font-semibold text-text-primary">
+                  {certificate?.id ? `AI-${String(certificate.id).replace(/-/g, '').slice(0, 8).toUpperCase()}` : 'AI-XXXXXXXX'}
+                </p>
               </div>
             </div>
           </div>
