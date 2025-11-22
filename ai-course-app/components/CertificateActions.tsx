@@ -103,7 +103,7 @@ export default function CertificateActions({ certificateId }: CertificateActions
       document.body.removeChild(loadingMsg)
 
       // Convert to blob and download
-      canvas.toBlob((blob) => {
+      canvas.toBlob((blob: Blob | null) => {
         if (!blob) {
           alert('Failed to generate image. Please try again.')
           return
@@ -152,16 +152,59 @@ export default function CertificateActions({ certificateId }: CertificateActions
     return `${window.location.origin}/login`
   }
 
-  const shareOnLinkedIn = () => {
-    // LinkedIn doesn't support pre-filled text, only URL
-    // Text will need to be typed manually, but Open Graph tags will show image/preview
-    const url = getShareUrl()
-    openShareLink(`https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(url)}`)
+  // Helper to show a non-intrusive toast notification
+  const showToast = (message: string) => {
+    const toast = document.createElement('div')
+    toast.style.cssText = `
+      position: fixed;
+      bottom: 30px;
+      left: 50%;
+      transform: translateX(-50%) translateY(100px);
+      background: rgba(45, 37, 32, 0.9);
+      color: #fff;
+      padding: 12px 24px;
+      border-radius: 50px;
+      font-weight: 600;
+      font-size: 14px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+      z-index: 10000;
+      transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      backdrop-filter: blur(10px);
+    `
+    toast.innerHTML = `
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+      ${message}
+    `
+    document.body.appendChild(toast)
     
-    // Show helpful message
+    // Animate in
+    requestAnimationFrame(() => {
+      toast.style.transform = 'translateX(-50%) translateY(0)'
+    })
+
+    // Animate out and remove
     setTimeout(() => {
-      alert('💡 LinkedIn Tip:\n\nLinkedIn doesn\'t allow pre-filled text, but you can:\n1. Copy this text and paste it:\n\n🎓 Excited to share that I\'ve completed the \'Introduction to AI\' course and earned my certificate!\n\nOver 30 days, I gained practical skills in:\n✅ AI fundamentals\n✅ Prompt engineering\n✅ Real-world AI applications\n✅ Machine learning concepts\n\nReady to apply these skills in my work! 💼\n\n#AI #MachineLearning #ArtificialIntelligence #EdTech #OnlineLearning #TechSkills #AICertificate #ProfessionalDevelopment')
-    }, 500)
+      toast.style.transform = 'translateX(-50%) translateY(100px)'
+      setTimeout(() => document.body.removeChild(toast), 400)
+    }, 3000)
+  }
+
+  const shareOnLinkedIn = async () => {
+    const url = getShareUrl()
+    const text = "🎓 Excited to share that I've completed the 'Introduction to AI' course and earned my certificate! 🚀\n\nOver 30 days, I gained practical skills in:\n✅ AI fundamentals\n✅ Prompt engineering\n✅ Real-world AI applications\n✅ Machine learning concepts\n\nReady to apply these skills in my work! 💼\n\n#AI #MachineLearning #ArtificialIntelligence #EdTech #OnlineLearning #TechSkills #AICertificate #ProfessionalDevelopment"
+    
+    // Silently copy text to clipboard for better UX
+    try {
+      await navigator.clipboard.writeText(text)
+      showToast('Post text copied! Just paste it.')
+    } catch (err) {
+      // Ignore clipboard errors, just open window
+    }
+
+    openShareLink(`https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(url)}`)
   }
 
   const shareOnFacebook = () => {
@@ -242,7 +285,7 @@ export default function CertificateActions({ certificateId }: CertificateActions
       document.body.removeChild(loadingMsg)
 
       // Convert to blob and download
-      canvas.toBlob((blob) => {
+      canvas.toBlob((blob: Blob | null) => {
         if (!blob) {
           alert('Failed to generate image for Instagram. Please try again.')
           return
@@ -262,10 +305,9 @@ export default function CertificateActions({ certificateId }: CertificateActions
       // Try to copy to clipboard
       try {
         await navigator.clipboard.writeText(caption)
-        alert('✅ Certificate image downloaded!\n📋 Caption copied to clipboard!\n\n📱 Next steps:\n1. Open Instagram\n2. Create a new post\n3. Upload the downloaded image\n4. Paste your caption (already copied!)\n5. Share! 🎉')
+        showToast('Image downloaded & caption copied!')
       } catch (clipboardError) {
-        // Fallback for browsers that don't support clipboard API
-        alert('✅ Certificate image downloaded!\n\n📝 Caption for Instagram (copy this):\n\n' + caption + '\n\n📱 Next steps:\n1. Open Instagram\n2. Create a new post\n3. Upload the downloaded image\n4. Paste the caption above\n5. Share! 🎉')
+        showToast('Image downloaded! Copy caption manually.')
       }
     } catch (error) {
       console.error('Instagram share failed:', error)
@@ -296,11 +338,11 @@ export default function CertificateActions({ certificateId }: CertificateActions
               backfaceVisibility: 'hidden',
               willChange: 'transform, box-shadow'
             }}
-            onMouseEnter={(e) => {
+            onMouseEnter={(e: React.MouseEvent<HTMLButtonElement>) => {
               e.currentTarget.style.transform = 'translate3d(0, -3px, 0) scale(1.02)'
               e.currentTarget.style.boxShadow = '-8px 8px 20px rgba(0, 119, 181, 0.18), 8px -8px 20px rgba(255, 255, 255, 0.95)'
             }}
-            onMouseLeave={(e) => {
+            onMouseLeave={(e: React.MouseEvent<HTMLButtonElement>) => {
               e.currentTarget.style.transform = 'translate3d(0, 0, 0) scale(1)'
               e.currentTarget.style.boxShadow = '-6px 6px 16px rgba(0, 119, 181, 0.12), 6px -6px 16px rgba(255, 255, 255, 0.9)'
             }}
