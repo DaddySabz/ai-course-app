@@ -2,6 +2,25 @@ import { signIn } from "@/auth"
 import EmailAuthForm from "@/components/EmailAuthForm"
 import WaitroseAuthForm from "@/components/WaitroseAuthForm"
 import TechPartnerAuthForm from "@/components/TechPartnerAuthForm"
+import type { Metadata } from "next"
+
+export const metadata: Metadata = {
+  title: "Introduction to AI Course - Login",
+  description: "30-day AI onboarding course. Learn AI fundamentals, prompt engineering, and real-world applications. Earn your certificate upon completion.",
+  openGraph: {
+    title: "Introduction to AI Course - Earn Your Certificate",
+    description: "🎓 Complete the 30-day Introduction to AI course and earn your certificate! Learn AI fundamentals, prompt engineering, and real-world applications.",
+    url: "/login",
+    siteName: "Introduction to AI Course",
+    locale: "en_US",
+    type: "website",
+  },
+  twitter: {
+    card: "summary",
+    title: "Introduction to AI Course - Earn Your Certificate",
+    description: "🎓 Complete the 30-day Introduction to AI course and earn your certificate!",
+  },
+}
 
 export default function LoginPage() {
   return (

@@ -138,36 +138,47 @@ export default function CertificateActions({ certificateId }: CertificateActions
 
   // Helper to open share links (full screen, centered)
   const openShareLink = (url: string) => {
-    // Calculate full screen dimensions (80% of screen size, centered)
-    const width = Math.floor(window.screen.width * 0.8)
-    const height = Math.floor(window.screen.height * 0.8)
-    const left = Math.floor((window.screen.width - width) / 2)
-    const top = Math.floor((window.screen.height - height) / 2)
+    // Use available screen dimensions (accounts for taskbars)
+    const screenWidth = window.screen.availWidth || window.screen.width
+    const screenHeight = window.screen.availHeight || window.screen.height
+    
+    // Calculate window dimensions (80% of available screen, centered)
+    const width = Math.floor(screenWidth * 0.8)
+    const height = Math.floor(screenHeight * 0.8)
+    const left = Math.floor((screenWidth - width) / 2) + (window.screen.availLeft || 0)
+    const top = Math.floor((screenHeight - height) / 2) + (window.screen.availTop || 0)
     
     window.open(
       url,
       '_blank',
-      `width=${width},height=${height},left=${left},top=${top},resizable=yes,scrollbars=yes,toolbar=no,menubar=no,location=no`
+      `width=${width},height=${height},left=${left},top=${top},resizable=yes,scrollbars=yes,toolbar=yes,menubar=yes,location=yes`
     )
   }
 
   const shareOnLinkedIn = () => {
+    // LinkedIn doesn't support pre-filled text, only URL
+    // Text will need to be typed manually, but Open Graph tags will show image/preview
     const url = window.location.origin + '/login'
-    const text = "🎓 Excited to share that I've completed the 'Introduction to AI' course and earned my certificate! \n\nOver 30 days, I gained practical skills in:\n✅ AI fundamentals\n✅ Prompt engineering\n✅ Real-world AI applications\n✅ Machine learning concepts\n\nReady to apply these skills in my work! 💼\n\n#AI #MachineLearning #ArtificialIntelligence #EdTech #OnlineLearning #TechSkills #AICertificate #ProfessionalDevelopment"
-    const fullText = `${text}\n\nCheck it out: ${url}`
     openShareLink(`https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(url)}`)
+    
+    // Show helpful message
+    setTimeout(() => {
+      alert('💡 LinkedIn Tip:\n\nLinkedIn doesn\'t allow pre-filled text, but you can:\n1. Copy this text and paste it:\n\n🎓 Excited to share that I\'ve completed the \'Introduction to AI\' course and earned my certificate!\n\nOver 30 days, I gained practical skills in:\n✅ AI fundamentals\n✅ Prompt engineering\n✅ Real-world AI applications\n✅ Machine learning concepts\n\nReady to apply these skills in my work! 💼\n\n#AI #MachineLearning #ArtificialIntelligence #EdTech #OnlineLearning #TechSkills #AICertificate #ProfessionalDevelopment')
+    }, 500)
   }
 
   const shareOnFacebook = () => {
     const url = window.location.origin + '/login'
+    // Facebook supports quote parameter for pre-filled text
     const quote = "🎉 Just finished the Introduction to AI course! 🎓\n\n30 days of learning and I've got my certificate! Really interesting stuff about how AI actually works - from ChatGPT to machine learning fundamentals.\n\n#AI #MachineLearning #OnlineLearning #TechEducation #Certificate"
     openShareLink(`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(url)}&quote=${encodeURIComponent(quote)}`)
   }
 
   const shareOnTwitter = () => {
     const url = window.location.origin + '/login'
-    const text = "✅ Completed Introduction to AI course! 🎓\n\n30 days, certificate earned. Learned AI fundamentals, prompt engineering, and real-world applications.\n\n#AI #MachineLearning #EdTech #AICertificate #TechSkills #OnlineLearning"
-    const fullText = `${text}\n\n${url}`
+    // Twitter/X supports text parameter (280 char limit)
+    const text = "✅ Completed Introduction to AI course! 🎓 30 days, certificate earned. Learned AI fundamentals, prompt engineering, and real-world applications. #AI #MachineLearning #EdTech #AICertificate"
+    const fullText = `${text} ${url}`
     openShareLink(`https://twitter.com/intent/tweet?text=${encodeURIComponent(fullText)}`)
   }
 
@@ -181,11 +192,13 @@ export default function CertificateActions({ certificateId }: CertificateActions
       // Mobile: Use whatsapp:// protocol for native app
       window.location.href = `whatsapp://send?text=${encodedText}`
     } else {
-      // Desktop: Use web.whatsapp.com
-      const width = Math.floor(window.screen.width * 0.8)
-      const height = Math.floor(window.screen.height * 0.8)
-      const left = Math.floor((window.screen.width - width) / 2)
-      const top = Math.floor((window.screen.height - height) / 2)
+      // Desktop: Use web.whatsapp.com with proper centering
+      const screenWidth = window.screen.availWidth || window.screen.width
+      const screenHeight = window.screen.availHeight || window.screen.height
+      const width = Math.floor(screenWidth * 0.8)
+      const height = Math.floor(screenHeight * 0.8)
+      const left = Math.floor((screenWidth - width) / 2) + (window.screen.availLeft || 0)
+      const top = Math.floor((screenHeight - height) / 2) + (window.screen.availTop || 0)
       window.open(
         `https://web.whatsapp.com/send?text=${encodedText}`,
         '_blank',
