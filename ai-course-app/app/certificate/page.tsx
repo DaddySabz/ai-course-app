@@ -108,10 +108,10 @@ export default async function CertificatePage() {
           {/* Certificate Card - Clean Design with Profile Picture */}
           <div id="certificate-content" className="card-neumorphic rounded-3xl shadow-2xl p-8 sm:p-16 relative">
             {/* Decorative corners */}
-            <div className="absolute top-4 left-4 w-12 h-12 border-t-4 border-l-4 border-sage-green/40 rounded-tl-xl"></div>
-            <div className="absolute top-4 right-4 w-12 h-12 border-t-4 border-r-4 border-sage-green/40 rounded-tr-xl"></div>
-            <div className="absolute bottom-4 left-4 w-12 h-12 border-b-4 border-l-4 border-sage-green/40 rounded-bl-xl"></div>
-            <div className="absolute bottom-4 right-4 w-12 h-12 border-b-4 border-r-4 border-sage-green/40 rounded-br-xl"></div>
+            <div className="absolute top-4 left-4 w-12 h-12 border-t-4 border-l-4 rounded-tl-xl" style={{ borderColor: 'rgba(184, 206, 184, 0.4)' }}></div>
+            <div className="absolute top-4 right-4 w-12 h-12 border-t-4 border-r-4 rounded-tr-xl" style={{ borderColor: 'rgba(184, 206, 184, 0.4)' }}></div>
+            <div className="absolute bottom-4 left-4 w-12 h-12 border-b-4 border-l-4 rounded-bl-xl" style={{ borderColor: 'rgba(184, 206, 184, 0.4)' }}></div>
+            <div className="absolute bottom-4 right-4 w-12 h-12 border-b-4 border-r-4 rounded-br-xl" style={{ borderColor: 'rgba(184, 206, 184, 0.4)' }}></div>
             
             {/* Title */}
             <div className="text-center mb-4">
@@ -128,10 +128,17 @@ export default async function CertificatePage() {
                   <img 
                     src={profileAvatar} 
                     alt="Profile" 
-                    className="w-20 h-20 rounded-full ring-4 ring-sage-green/30 shadow-lg object-cover"
+                    className="w-20 h-20 rounded-full shadow-lg object-cover"
+                    style={{ boxShadow: '0 0 0 4px rgba(184, 206, 184, 0.3)' }}
                   />
                 ) : (
-                  <div className="w-20 h-20 rounded-full ring-4 ring-sage-green/30 shadow-lg flex items-center justify-center bg-gradient-to-br from-sage-green/30 to-lavender/30">
+                  <div 
+                    className="w-20 h-20 rounded-full shadow-lg flex items-center justify-center"
+                    style={{ 
+                      boxShadow: '0 0 0 4px rgba(184, 206, 184, 0.3)',
+                      background: 'linear-gradient(to bottom right, rgba(184, 206, 184, 0.3), rgba(184, 168, 212, 0.3))'
+                    }}
+                  >
                     <span className="text-3xl font-black text-text-primary">
                       {displayName[0]?.toUpperCase() || 'U'}
                     </span>
@@ -166,7 +173,10 @@ export default async function CertificatePage() {
             </div>
 
             {/* Date and ID */}
-            <div className="flex flex-col sm:flex-row justify-between items-center gap-6 pt-8 border-t-2 border-text-tertiary/20">
+            <div 
+              className="flex flex-col sm:flex-row justify-between items-center gap-6 pt-8 border-t-2"
+              style={{ borderColor: 'rgba(122, 115, 110, 0.2)' }}
+            >
               <div className="text-center sm:text-left">
                 <p className="text-sm text-text-secondary font-semibold uppercase tracking-wider mb-1">Completion Date</p>
                 <p className="text-lg font-semibold text-text-primary">{certificate?.completion_date ? new Date(certificate.completion_date).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' }) : ''}</p>
