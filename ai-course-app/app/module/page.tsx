@@ -64,7 +64,7 @@ export default async function ModulePage({
     <div className="min-h-screen pt-20">
       <NavigationBar />
 
-      <div className="flex max-w-7xl mx-auto gap-6 p-6 pb-32 md:pb-6">
+      <div className="flex max-w-7xl mx-auto gap-6 px-3 md:px-6 py-6 pb-32 md:pb-6">
         {/* Left Sidebar - Frosted Glass with Neumorphic Days (Desktop Only) */}
         <aside className="hidden md:block w-80 glass rounded-3xl p-6 h-fit sticky top-24">
           <div>
@@ -150,7 +150,7 @@ export default async function ModulePage({
       </div>
 
       {/* Mobile Bottom Navigation - Swipeable Day Selector */}
-      <div className="md:hidden fixed bottom-0 left-0 right-0 z-40 pt-4 overflow-visible" style={{
+      <div className="md:hidden fixed bottom-0 left-0 right-0 z-40 pt-4 pb-4 overflow-visible" style={{
         background: 'linear-gradient(to top, rgba(245, 241, 237, 0.98) 0%, rgba(245, 241, 237, 0.95) 80%, transparent 100%)',
         backdropFilter: 'blur(10px)'
       }}>
