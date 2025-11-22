@@ -25,29 +25,40 @@ export default function CertificateActions({ certificateId }: CertificateActions
     }
 
     try {
-      // Mobile-optimized settings
-      const scale = isMobile() ? 2 : 3
+      // Show loading indicator
+      const loadingMsg = document.createElement('div')
+      loadingMsg.textContent = 'Generating PDF...'
+      loadingMsg.style.cssText = 'position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);background:#fff;padding:20px;border-radius:8px;box-shadow:0 4px 12px rgba(0,0,0,0.3);z-index:9999;'
+      document.body.appendChild(loadingMsg)
+
+      // Higher quality settings
+      const scale = 3
       
-      // Capture the certificate as canvas with better quality
+      // Capture the certificate as canvas
       const canvas = await html2canvas(certificate, {
         scale: scale,
         useCORS: true,
-        allowTaint: true,
+        allowTaint: false,
         logging: false,
         backgroundColor: '#f5f1ed',
-        windowWidth: certificate.scrollWidth,
-        windowHeight: certificate.scrollHeight
+        width: certificate.scrollWidth,
+        height: certificate.scrollHeight,
+        x: 0,
+        y: 0
       })
+
+      // Remove loading indicator
+      document.body.removeChild(loadingMsg)
 
       // Create PDF (A4 landscape)
       const pdf = new jsPDF('landscape', 'mm', 'a4')
-      const imgData = canvas.toDataURL('image/jpeg', 0.95)
+      const imgData = canvas.toDataURL('image/png', 1.0)
       
-      // A4 landscape dimensions
+      // A4 landscape dimensions in mm
       const pdfWidth = pdf.internal.pageSize.getWidth()
       const pdfHeight = pdf.internal.pageSize.getHeight()
       
-      // Calculate dimensions to maintain aspect ratio
+      // Calculate dimensions to fit the page while maintaining aspect ratio
       const canvasAspect = canvas.width / canvas.height
       const pdfAspect = pdfWidth / pdfHeight
       
@@ -55,19 +66,21 @@ export default function CertificateActions({ certificateId }: CertificateActions
       let imgHeight = pdfHeight
       
       if (canvasAspect > pdfAspect) {
+        // Canvas is wider - fit to width
         imgHeight = pdfWidth / canvasAspect
       } else {
+        // Canvas is taller - fit to height
         imgWidth = pdfHeight * canvasAspect
       }
       
       const x = (pdfWidth - imgWidth) / 2
       const y = (pdfHeight - imgHeight) / 2
       
-      pdf.addImage(imgData, 'JPEG', x, y, imgWidth, imgHeight)
-      pdf.save(`AI-Certificate-${certificateId?.slice(0, 8) || 'download'}.pdf`)
+      pdf.addImage(imgData, 'PNG', x, y, imgWidth, imgHeight)
+      pdf.save(`AI-Certificate-${certificateId ? certificateId.replace(/-/g, '').slice(0, 8).toUpperCase() : 'DOWNLOAD'}.pdf`)
     } catch (error) {
       console.error('PDF generation failed:', error)
-      alert('Failed to generate PDF. Please try the "Download Image" option instead.')
+      alert('Failed to generate PDF. Error: ' + (error instanceof Error ? error.message : 'Unknown error') + '\n\nPlease try the "Download Image" option instead.')
     }
   }
 
@@ -79,19 +92,30 @@ export default function CertificateActions({ certificateId }: CertificateActions
     }
 
     try {
-      // Mobile-optimized settings
-      const scale = isMobile() ? 2 : 3
+      // Show loading indicator
+      const loadingMsg = document.createElement('div')
+      loadingMsg.textContent = 'Generating image...'
+      loadingMsg.style.cssText = 'position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);background:#fff;padding:20px;border-radius:8px;box-shadow:0 4px 12px rgba(0,0,0,0.3);z-index:9999;'
+      document.body.appendChild(loadingMsg)
+
+      // High resolution for A3 quality
+      const scale = 4
       
       // Capture at high resolution
       const canvas = await html2canvas(certificate, {
         scale: scale,
         useCORS: true,
-        allowTaint: true,
+        allowTaint: false,
         logging: false,
         backgroundColor: '#f5f1ed',
-        windowWidth: certificate.scrollWidth,
-        windowHeight: certificate.scrollHeight
+        width: certificate.scrollWidth,
+        height: certificate.scrollHeight,
+        x: 0,
+        y: 0
       })
+
+      // Remove loading indicator
+      document.body.removeChild(loadingMsg)
 
       // Convert to blob and download
       canvas.toBlob((blob) => {
@@ -101,86 +125,108 @@ export default function CertificateActions({ certificateId }: CertificateActions
         }
         const url = URL.createObjectURL(blob)
         const link = document.createElement('a')
-        link.download = `AI-Certificate-${certificateId?.slice(0, 8) || 'download'}.png`
+        link.download = `AI-Certificate-${certificateId ? certificateId.replace(/-/g, '').slice(0, 8).toUpperCase() : 'DOWNLOAD'}.png`
         link.href = url
         link.click()
         URL.revokeObjectURL(url)
       }, 'image/png', 1.0)
     } catch (error) {
       console.error('Image generation failed:', error)
-      alert('Failed to generate image. Please try again or use the Print option.')
+      alert('Failed to generate image. Error: ' + (error instanceof Error ? error.message : 'Unknown error') + '\n\nPlease try the Print option instead.')
     }
   }
 
-  // Helper to open share links (mobile-friendly)
+  // Helper to open share links (full screen, centered)
   const openShareLink = (url: string) => {
-    // On mobile, open in new tab. On desktop, open in centered popup
+    // Calculate full screen dimensions (80% of screen size, centered)
+    const width = Math.floor(window.screen.width * 0.8)
+    const height = Math.floor(window.screen.height * 0.8)
+    const left = Math.floor((window.screen.width - width) / 2)
+    const top = Math.floor((window.screen.height - height) / 2)
+    
+    window.open(
+      url,
+      '_blank',
+      `width=${width},height=${height},left=${left},top=${top},resizable=yes,scrollbars=yes,toolbar=no,menubar=no,location=no`
+    )
+  }
+
+  const shareOnLinkedIn = () => {
+    const url = window.location.origin + '/login'
+    const text = "🎓 Excited to share that I've completed the 'Introduction to AI' course and earned my certificate! \n\nOver 30 days, I gained practical skills in:\n✅ AI fundamentals\n✅ Prompt engineering\n✅ Real-world AI applications\n✅ Machine learning concepts\n\nReady to apply these skills in my work! 💼\n\n#AI #MachineLearning #ArtificialIntelligence #EdTech #OnlineLearning #TechSkills #AICertificate #ProfessionalDevelopment"
+    const fullText = `${text}\n\nCheck it out: ${url}`
+    openShareLink(`https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(url)}`)
+  }
+
+  const shareOnFacebook = () => {
+    const url = window.location.origin + '/login'
+    const quote = "🎉 Just finished the Introduction to AI course! 🎓\n\n30 days of learning and I've got my certificate! Really interesting stuff about how AI actually works - from ChatGPT to machine learning fundamentals.\n\n#AI #MachineLearning #OnlineLearning #TechEducation #Certificate"
+    openShareLink(`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(url)}&quote=${encodeURIComponent(quote)}`)
+  }
+
+  const shareOnTwitter = () => {
+    const url = window.location.origin + '/login'
+    const text = "✅ Completed Introduction to AI course! 🎓\n\n30 days, certificate earned. Learned AI fundamentals, prompt engineering, and real-world applications.\n\n#AI #MachineLearning #EdTech #AICertificate #TechSkills #OnlineLearning"
+    const fullText = `${text}\n\n${url}`
+    openShareLink(`https://twitter.com/intent/tweet?text=${encodeURIComponent(fullText)}`)
+  }
+
+  const shareOnWhatsApp = () => {
+    const url = window.location.origin + '/login'
+    const text = `🎓 Hey! Just wanted to share - I completed this AI course and got my certificate! 🎉\n\n30 days of learning about AI fundamentals, prompt engineering, and real-world applications. Really interesting stuff!\n\nCheck it out if you're interested: ${url}\n\n#AI #MachineLearning #OnlineLearning`
+    const encodedText = encodeURIComponent(text)
+    
+    // Use WhatsApp API link (works on both mobile and desktop)
     if (isMobile()) {
-      window.open(url, '_blank')
+      // Mobile: Use whatsapp:// protocol for native app
+      window.location.href = `whatsapp://send?text=${encodedText}`
     } else {
-      const width = 600
-      const height = 600
-      const left = (window.screen.width - width) / 2
-      const top = (window.screen.height - height) / 2
+      // Desktop: Use web.whatsapp.com
+      const width = Math.floor(window.screen.width * 0.8)
+      const height = Math.floor(window.screen.height * 0.8)
+      const left = Math.floor((window.screen.width - width) / 2)
+      const top = Math.floor((window.screen.height - height) / 2)
       window.open(
-        url,
+        `https://web.whatsapp.com/send?text=${encodedText}`,
         '_blank',
         `width=${width},height=${height},left=${left},top=${top},resizable=yes,scrollbars=yes`
       )
     }
   }
 
-  const shareOnLinkedIn = () => {
-    const url = encodeURIComponent(window.location.origin + '/login')
-    const text = encodeURIComponent("I'm proud to share that I've completed the 'Introduction to AI' course and earned my certificate. Gained practical skills in AI fundamentals, prompt engineering, and real-world applications over 30 days.")
-    openShareLink(`https://www.linkedin.com/sharing/share-offsite/?url=${url}`)
-  }
-
-  const shareOnFacebook = () => {
-    const url = encodeURIComponent(window.location.origin + '/login')
-    const quote = encodeURIComponent("Just finished the Introduction to AI course! 🎓 30 days of learning and I've got my certificate! Really interesting stuff about how AI actually works.")
-    openShareLink(`https://www.facebook.com/sharer/sharer.php?u=${url}&quote=${quote}`)
-  }
-
-  const shareOnTwitter = () => {
-    const url = encodeURIComponent(window.location.origin + '/login')
-    const text = encodeURIComponent('✅ Completed Introduction to AI course! 🎓 30 days, certificate earned. #AI #MachineLearning #EdTech')
-    openShareLink(`https://twitter.com/intent/tweet?text=${text}&url=${url}`)
-  }
-
-  const shareOnWhatsApp = () => {
-    const url = window.location.origin + '/login'
-    const text = encodeURIComponent(`Hey! Just wanted to share - I completed this AI course and got my certificate! 🎉 Pretty cool stuff, check it out if you're interested: ${url}`)
-    
-    // Use WhatsApp API link (works on both mobile and desktop)
-    if (isMobile()) {
-      // Mobile: Use whatsapp:// protocol for native app
-      window.location.href = `whatsapp://send?text=${text}`
-    } else {
-      // Desktop: Use web.whatsapp.com
-      window.open(`https://web.whatsapp.com/send?text=${text}`, '_blank')
-    }
-  }
-
   const shareOnInstagram = async () => {
-    // Instagram: Auto-download image + copy text
+    // Instagram: Auto-download image (1080x1080 square) + copy caption
     const certificate = document.getElementById('certificate-content')
-    if (!certificate) return
+    if (!certificate) {
+      alert('Certificate not found. Please refresh the page and try again.')
+      return
+    }
 
     try {
-      // Mobile-optimized scale
-      const scale = isMobile() ? 2 : 2.5
+      // Show loading indicator
+      const loadingMsg = document.createElement('div')
+      loadingMsg.textContent = 'Preparing Instagram image...'
+      loadingMsg.style.cssText = 'position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);background:#fff;padding:20px;border-radius:8px;box-shadow:0 4px 12px rgba(0,0,0,0.3);z-index:9999;'
+      document.body.appendChild(loadingMsg)
+
+      // Instagram square format (1080x1080) - high quality
+      const scale = 4
       
-      // Download certificate image (1080x1080 for Instagram)
+      // Capture certificate
       const canvas = await html2canvas(certificate, {
         scale: scale,
         useCORS: true,
-        allowTaint: true,
+        allowTaint: false,
         logging: false,
         backgroundColor: '#f5f1ed',
-        windowWidth: certificate.scrollWidth,
-        windowHeight: certificate.scrollHeight
+        width: certificate.scrollWidth,
+        height: certificate.scrollHeight,
+        x: 0,
+        y: 0
       })
+
+      // Remove loading indicator
+      document.body.removeChild(loadingMsg)
 
       // Convert to blob and download
       canvas.toBlob((blob) => {
@@ -190,26 +236,27 @@ export default function CertificateActions({ certificateId }: CertificateActions
         }
         const url = URL.createObjectURL(blob)
         const link = document.createElement('a')
-        link.download = `AI-Certificate-Instagram-${certificateId || 'share'}.png`
+        link.download = `AI-Certificate-Instagram-${certificateId ? certificateId.replace(/-/g, '').slice(0, 8).toUpperCase() : 'SHARE'}.png`
         link.href = url
         link.click()
         URL.revokeObjectURL(url)
-      })
+      }, 'image/png', 1.0)
 
       // Copy caption to clipboard
-      const caption = `Certificate unlocked! 🎓✨ Just completed my AI course journey.\n\n#AILearning #Certificate #NewSkills #TechEducation #ArtificialIntelligence #OnlineLearning`
+      const url = window.location.origin + '/login'
+      const caption = `🎓 Certificate unlocked! ✨\n\nJust completed my 30-day Introduction to AI course journey! Learned AI fundamentals, prompt engineering, and real-world applications.\n\nReady to apply these skills! 💼\n\nCheck it out: ${url}\n\n#AI #MachineLearning #ArtificialIntelligence #AICertificate #TechEducation #OnlineLearning #ProfessionalDevelopment #TechSkills #EdTech #Certificate`
       
-      // Try to copy to clipboard (may not work on all mobile browsers)
+      // Try to copy to clipboard
       try {
         await navigator.clipboard.writeText(caption)
-        alert('✅ Certificate image downloaded!\n📋 Caption copied to clipboard!\n\nOpen Instagram, upload the image, and paste your caption!')
+        alert('✅ Certificate image downloaded!\n📋 Caption copied to clipboard!\n\n📱 Next steps:\n1. Open Instagram\n2. Create a new post\n3. Upload the downloaded image\n4. Paste your caption (already copied!)\n5. Share! 🎉')
       } catch (clipboardError) {
-        // Fallback for mobile browsers that don't support clipboard API
-        alert('✅ Certificate image downloaded!\n\n📝 Caption for Instagram:\n\n' + caption + '\n\nCopy this caption, open Instagram, and upload the image!')
+        // Fallback for browsers that don't support clipboard API
+        alert('✅ Certificate image downloaded!\n\n📝 Caption for Instagram (copy this):\n\n' + caption + '\n\n📱 Next steps:\n1. Open Instagram\n2. Create a new post\n3. Upload the downloaded image\n4. Paste the caption above\n5. Share! 🎉')
       }
     } catch (error) {
       console.error('Instagram share failed:', error)
-      alert('Failed to prepare Instagram share. Please try the "Download Image" option instead.')
+      alert('Failed to prepare Instagram share. Error: ' + (error instanceof Error ? error.message : 'Unknown error') + '\n\nPlease try the "Download Image" option instead.')
     }
   }
 

@@ -426,3 +426,34 @@ body {
 .scrollbar-hide::-webkit-scrollbar {
   display: none;  /* Chrome, Safari and Opera */
 }
+
+/* Print Styles for Certificate */
+@media print {
+  /* Hide navigation and action buttons */
+  nav,
+  [class*="NavigationBar"],
+  [class*="CertificateActions"],
+  button,
+  a[href="/dashboard"] {
+    display: none !important;
+  }
+
+  /* Ensure certificate is visible and properly sized */
+  #certificate-content {
+    margin: 0 !important;
+    padding: 2rem !important;
+    box-shadow: none !important;
+    page-break-inside: avoid;
+  }
+
+  /* Full page background for print */
+  body {
+    background: white !important;
+    padding: 0 !important;
+  }
+
+  /* Hide page wrapper padding */
+  .min-h-screen {
+    padding: 0 !important;
+  }
+}
