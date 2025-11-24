@@ -1,4 +1,4 @@
-iinmport { auth, signOut } from "@/auth"
+import { auth, signOut } from "@/auth"
 import { redirect } from "next/navigation"
 import { createClient } from '@supabase/supabase-js'
 import NavigationBar from '@/components/NavigationBar'
@@ -10,7 +10,7 @@ interface PageProps {
 
 export default async function PaymentPage({ searchParams }: PageProps) {
   const session = await auth()
-  
+
   if (!session?.user) {
     redirect("/")
   }
@@ -49,7 +49,7 @@ export default async function PaymentPage({ searchParams }: PageProps) {
   const hasAccess = purchases && purchases.length > 0
 
   // Define product details
-  const products: Record<string, { 
+  const products: Record<string, {
     title: string
     description: string
     fullPrice: number
@@ -87,7 +87,7 @@ export default async function PaymentPage({ searchParams }: PageProps) {
   }
 
   const product = products[productId]
-  
+
   if (!product) {
     redirect('/dashboard')
   }
@@ -125,7 +125,7 @@ export default async function PaymentPage({ searchParams }: PageProps) {
         <main className="flex flex-col gap-8">
           {/* Header */}
           <div className="flex flex-col gap-3">
-            <a 
+            <a
               href="/dashboard"
               className="text-text-secondary hover:text-text-primary transition-colors text-sm font-medium inline-flex items-center gap-2 w-fit"
             >
@@ -149,7 +149,7 @@ export default async function PaymentPage({ searchParams }: PageProps) {
                 <p className="text-text-secondary mb-6">
                   You've already enrolled in {product.title}.
                 </p>
-                <a 
+                <a
                   href="/dashboard"
                   className="btn-neumorphic inline-flex items-center justify-center gap-2 px-8 py-4 rounded-2xl text-text-primary font-bold"
                 >
@@ -232,7 +232,7 @@ export default async function PaymentPage({ searchParams }: PageProps) {
                   </div>
 
                   {/* Checkout Button */}
-                  <CheckoutButton 
+                  <CheckoutButton
                     productId={productId}
                     priceId={stripePriceId}
                     amount={price}

@@ -1,4 +1,4 @@
-how different pricesimport { NextRequest, NextResponse } from 'next/server'
+import { NextRequest, NextResponse } from 'next/server'
 import Stripe from 'stripe'
 
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!, {
@@ -9,6 +9,7 @@ export async function POST(req: NextRequest) {
   try {
     const { priceId, userId, productId } = await req.json()
 
+    if (!priceId || !userId || !productId) {
       return NextResponse.json(
         { error: 'Missing required fields' },
         { status: 400 }
