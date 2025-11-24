@@ -8,8 +8,8 @@
     "start": "next start",
     "lint": "eslint"
   },
-    "dependencies": {
-    "@stripe/stripe-js": "^4.11.0",
+  "dependencies": {
+    "@stripe/stripe-js": "^4.10.0",
     "@supabase/supabase-js": "^2.81.1",
     "bcryptjs": "^2.4.3",
     "html2canvas": "^1.4.1",
