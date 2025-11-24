@@ -235,8 +235,8 @@ export default async function DashboardPage() {
                 </div>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                  {/* Course 1: Introduction to AI - Current */}
-                  <a href="/module?day=1" className="glass-clickable rounded-2xl p-6 block cursor-pointer">
+                                    {/* Course 1: Introduction to AI - Clickable to payment */}
+                  <a href="/payment?product=ai-course-intro" className="glass-clickable rounded-2xl p-6 block cursor-pointer">
                     <h4 className="text-lg font-bold text-text-primary mb-2">Introduction to AI</h4>
                     <div className="flex items-baseline gap-2 mb-3">
                       {isWaitrosePartner ? (
@@ -259,7 +259,7 @@ export default async function DashboardPage() {
                     <p className="text-xs text-text-secondary">30-day beginner course</p>
                   </a>
 
-                  {/* Course 2: Adventures with AI - Coming Soon */}
+                                                      {/* Course 2: Adventures with AI - Coming Soon */}
                   <div className="glass-subtle rounded-2xl p-6 opacity-75">
                     <h4 className="text-lg font-bold text-text-secondary mb-2">Adventures with AI</h4>
                     <div className="flex items-baseline gap-2 mb-3">
