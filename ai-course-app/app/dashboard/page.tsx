@@ -39,6 +39,7 @@ export default async function DashboardPage() {
   const profileAvatar = profileData?.avatar_url || session.user.image || null
   const isWaitrosePartner = partnerType === 'waitrose'
   const isTechPartner = partnerType === 'tech'
+  const isBetaTester = partnerType === 'beta'
 
   // If admin OR tech partner, show full progress (100% complete)
   // If table doesn't exist yet, default to empty (will be created when user completes first lesson)
@@ -239,7 +240,12 @@ export default async function DashboardPage() {
                   <a href="/payment?product=ai-course-intro" className="glass-clickable rounded-2xl p-6 block cursor-pointer">
                     <h4 className="text-lg font-bold text-text-primary mb-2">Introduction to AI</h4>
                     <div className="flex items-baseline gap-2 mb-3">
-                      {isWaitrosePartner ? (
+                      {isBetaTester ? (
+                        <>
+                          <span className="text-3xl font-black text-sage-green">FREE</span>
+                          <span className="text-xs text-text-tertiary">(Beta Tester)</span>
+                        </>
+                      ) : isWaitrosePartner ? (
                         <>
                           <span className="text-3xl font-black text-sage-green">£19</span>
                           <span className="text-lg font-bold text-text-tertiary line-through">£49</span>

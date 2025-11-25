@@ -5,6 +5,10 @@ import { signIn } from "next-auth/react"
 
 // Predefined partner codes with organization names
 const PARTNER_CODES: Record<string, string> = {
+  // Beta Tester Access
+  'beta': 'Beta Tester',
+
+  // Technology Partner Codes
   'chatgpt': 'OpenAI',
   'openai': 'OpenAI',
   'claude': 'Anthropic',
@@ -36,7 +40,7 @@ export default function TechPartnerAuthForm() {
 
   const validateCode = (e: React.FormEvent) => {
     e.preventDefault()
-    
+
     if (!code.trim()) {
       setError("Please enter a partner code")
       return
@@ -74,13 +78,13 @@ export default function TechPartnerAuthForm() {
       await fetch("/api/auth/track-partner", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ 
+        body: JSON.stringify({
           name,
           email,
           organization,
           partnerCode: code
         })
-      }).catch(() => {}) // Don't block if tracking fails
+      }).catch(() => { }) // Don't block if tracking fails
 
       // Sign in using Organization as username and Code as password
       console.log('Attempting login with:', { email: organization, password: code.toLowerCase() })
@@ -132,8 +136,8 @@ export default function TechPartnerAuthForm() {
       {!codeValidated && (
         <div className="glass-blue p-4 rounded-xl mb-4">
           <p className="text-sm font-semibold text-text-primary">
-            For affiliate partners and organizations considering partnerships. 
-            Get full, free access to review all course materials.
+            For beta testers, technology partners, and organizations.
+            Enter your access code to get started.
           </p>
         </div>
       )}
