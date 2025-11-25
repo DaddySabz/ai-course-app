@@ -186,197 +186,180 @@ export const courseModules: CourseModule[] = [
     }
   },
 
-  // DAY 2: Claude AI - The Writer's Room
+  // DAY 2: The Answer Engine
   {
     day: 2,
-    title: "The Writer's Room",
-    subtitle: "Claude AI and the Art of Long-Form Thinking",
+    title: "The Answer Engine",
+    subtitle: "Why Google Search Is Dying (And What's Replacing It)",
     content: `
-      <p>If ChatGPT is the Swiss Army knife of AI—fast, versatile, always ready—then Claude is the precision instrument. The scalpel. The craftsman's tool.</p>
+      <p>Here's a question: When was the last time you found what you needed on the <em>first</em> Google search?</p>
 
-      <p>Built by Anthropic (a company founded by former OpenAI researchers), Claude has carved out a distinct identity in the AI landscape. While ChatGPT chases speed and ubiquity, Claude obsesses over something more subtle: <strong>nuance</strong>. Thoughtfulness. The ability to hold complex, multi-layered conversations without losing the thread.</p>
+      <p>Most of us don't search anymore—we <strong>hunt</strong>. We click the first blue link. Skim. Backtrack. Try again with different keywords. Click another link. Scroll past ads. Read conflicting answers on Reddit. Piece together the truth from five different sources. Then we forget where we actually found the answer.</p>
 
-      <p>In November 2025, Claude isn't just an alternative to ChatGPT—it's the <em>preferred</em> tool for anyone working with long-form content, deep analysis, or code that needs to be not just functional, but elegant.</p>
+      <p>It's exhausting. And it's broken.</p>
 
-      <p>Welcome to Day 2. Today, we meet the writer's AI.</p>
+      <p>Google wasn't built for answers. It was built for <strong>links</strong>. It's a librarian pointing at shelves, not a researcher handing you a report. For 25 years, that was good enough. But in 2025, we don't have time to become experts on a topic just to get one question answered.</p>
 
-      <h3>The Claude Philosophy: Safety Meets Capability</h3>
+      <p>Welcome to Day 2. Today, you're meeting <strong>Perplexity</strong>—the tool that's quietly killing search engines. And by the end of this lesson, you'll understand why the future of research isn't about finding information. It's about <em>synthesizing</em> it.</p>
 
-      <p>Anthropic's founding principle is "AI safety." But that doesn't mean Claude is timid or restricted—it means it's <em>thoughtful</em>. Claude is trained using a method called <strong>Constitutional AI</strong>, where the model isn't just optimized for helpfulness, but for harmlessness and honesty.</p>
+      <h3>The Problem with Search (That We All Just Accepted)</h3>
 
-      <p>What does this mean in practice? Claude is less likely to hallucinate than other models. It's more willing to say "I don't know" instead of confidently making something up. It tends to provide more balanced perspectives on controversial topics. And crucially for professionals, it's <strong>more reliable</strong> when accuracy matters.</p>
+      <p>Google Search was revolutionary in 1998. Type a query, get a ranked list of websites. The best pages rise to the top. Simple. Effective.</p>
 
-      <p>This makes Claude the tool of choice for lawyers reviewing contracts, researchers analyzing data, and writers crafting long-form articles where every fact needs to be defensible.</p>
-
-      <h3>The Model Lineup: Sonnet vs. Opus (November 2025)</h3>
-
-      <p>Claude doesn't have a single "default" model. Instead, you choose based on your needs:</p>
-
-      <p><strong>Claude Sonnet 4.5 (Released September 29, 2025)</strong></p>
-
-      <p>This is Claude's <em>coding powerhouse</em>. Anthropic boldly calls it "the best coding model in the world," and the benchmarks back it up. Sonnet 4.5 achieved a <strong>0% error rate</strong> on internal code editing benchmarks—a first in the industry.</p>
+      <p>But here's what Google doesn't do: <strong>It doesn't answer your question</strong>. It shows you where answers <em>might</em> live. Then it's your job to:</p>
 
       <ul>
-        <li><strong>Context Window:</strong> 200,000 tokens (with 1 million tokens in public beta). That's enough to process entire codebases, lengthy legal documents, or a stack of research papers in a single conversation.</li>
-        
-        <li><strong>Computer Use:</strong> Sonnet 4.5 can interact with computer interfaces like a human—clicking buttons, navigating apps, filling forms. This makes it Anthropic's most advanced model for agentic workflows.</li>
-        
-        <li><strong>Coding Prowess:</strong> Supports multi-file code refactoring, precise debugging, and multi-hour autonomous software engineering tasks. It scored 74.5% on SWE-bench Verified, the toughest coding benchmark.</li>
-        
-        <li><strong>Speed & Cost Balance:</strong> Faster and cheaper than Opus while maintaining high-quality outputs. Ideal for high-volume use cases.</li>
+        <li>Click through 5-10 websites</li>
+        <li>Read past the ads and SEO garbage</li>
+        <li>Cross-reference contradictory claims</li>
+        <li>Figure out which sources are credible</li>
+        <li>Synthesize your own answer</li>
       </ul>
 
-      <p><strong>Claude Opus 4.1 (Released August 5, 2025)</strong></p>
+      <p>That's not search. That's <strong>outsourced research</strong>. And it works great if you have 30 minutes to spare. But what if you just need a straight answer?</p>
 
-      <p>This is the "deep thinker." If Sonnet is the engineer, Opus is the philosopher. Opus 4.1 is Anthropic's most capable reasoning system, optimized for complex enterprise workflows where accuracy and nuance are paramount.</p>
+      <p>Enter <strong>Perplexity</strong>. It doesn't give you links. It gives you the <em>answer</em>—synthesized from multiple sources, with citations, in real-time.</p>
+
+      <h3>What Makes Perplexity Different</h3>
+
+      <p>Think of it this way:</p>
 
       <ul>
-        <li><strong>Advanced Reasoning:</strong> Provides more consistent long-form reasoning with better factual grounding. It's slower than Sonnet, but the depth is unmatched.</li>
-        
-        <li><strong>Context Window:</strong> 200,000 tokens (same as Sonnet).</li>
-        
-        <li><strong>Enterprise Focus:</strong> Designed for legal analysis, strategic planning, complex research synthesis—tasks where getting it right matters more than getting it fast.</li>
+        <li><strong>Google:</strong> "Here are 10 articles about your question. Good luck."</li>
+        <li><strong>ChatGPT:</strong> "Here's what I remember from my training data (which ended months ago)."</li>
+        <li><strong>Perplexity:</strong> "I just read the top 10 sources in real-time, cross-referenced them, and here's the answer with citations."</li>
       </ul>
 
-      <p><strong>Which Should You Use?</strong></p>
+      <p>Perplexity combines the best of both worlds: the <strong>reasoning power</strong> of AI with the <strong>live data</strong> of the internet. It doesn't just regurgitate old training data. It actively searches, reads, and synthesizes—right now, in 2025.</p>
+
+      <p>This is called an <strong>Answer Engine</strong>, and it's fundamentally different from a search engine.</p>
+
+      <h3>How Perplexity Actually Works</h3>
+
+      <p>When you ask Perplexity a question, here's what happens behind the scenes:</p>
+
+      <p><strong>Step 1: Query Understanding</strong><br>Perplexity doesn't just match keywords. It understands <em>intent</em>. If you ask "Why is the sky blue?", it knows you want a scientific explanation, not a list of websites about sky colors.</p>
+
+      <p><strong>Step 2: Real-Time Web Search</strong><br>It searches the live web—news sites, academic papers, Reddit threads, company blogs—and identifies the most relevant, credible sources.</p>
+
+      <p><strong>Step 3: Source Analysis</strong><br>It reads those sources (not just the headlines, but the actual content) and evaluates which information is consistent, credible, and recent.</p>
+
+      <p><strong>Step 4: Synthesis</strong><br>It generates a coherent answer in plain English, combining insights from multiple sources. This isn't copy-paste. It's reasoning.</p>
+
+      <p><strong>Step 5: Citations</strong><br>Every claim is linked back to its source. You can verify the information yourself with one click. No trust required—just transparency.</p>
+
+      <p>The result? You get an answer that's accurate, current, and traceable. In seconds.</p>
+
+      <h3>When to Use Perplexity vs. ChatGPT</h3>
+
+      <p>Here's the decision tree you need to internalize:</p>
+
+      <p><strong>Use Perplexity when:</strong></p>
+      <ul>
+        <li>You need <strong>current information</strong> (news, stock prices, recent events)</li>
+        <li>You want <strong>citations</strong> (research, fact-checking, credibility matters)</li>
+        <li>The answer requires <strong>multiple perspectives</strong> (comparing products, evaluating options)</li>
+        <li>You're researching a <strong>specific topic</strong> you know nothing about</li>
+      </ul>
+
+      <p><strong>Use ChatGPT when:</strong></p>
+      <ul>
+        <li>You need <strong>creative output</strong> (writing, brainstorming, rewriting)</li>
+        <li>You want to <strong>iterate</strong> on something (edit this email, make it funnier, shorten it)</li>
+        <li>The task is <strong>timeless</strong> (explain a concept, draft a template)</li>
+        <li>You need <strong>speed over accuracy</strong> (quick ideas, rough drafts)</li>
+      </ul>
+
+      <p>Think of it this way: <strong>ChatGPT is your writer. Perplexity is your researcher.</strong></p>
+
+      <h3>The "Cited Sources" Superpower</h3>
+
+      <p>This is where Perplexity becomes indispensable. Every answer includes clickable citations—numbered references like [1], [2], [3]—that link directly to the original sources.</p>
+
+      <p>Why does this matter?</p>
+
+      <p>Because AI can hallucinate. It can sound confident while being completely wrong. But with citations, you can verify. You're not trusting the AI—you're trusting the <em>sources</em> the AI found for you.</p>
+
+      <p><strong>Example:</strong></p>
+
+      <p>Ask ChatGPT: "What's the current market cap of Tesla?"<br>Answer: "As of my last update in 2023, Tesla's market cap was around $600 billion." (Outdated, possibly wrong.)</p>
+
+      <p>Ask Perplexity: "What's the current market cap of Tesla?"<br>Answer: "As of November 25, 2025, Tesla's market cap is approximately $1.2 trillion [1][2]."<br>Citations: [1] Yahoo Finance, [2] CNBC.</p>
+
+      <p>See the difference? You're not just getting an answer. You're getting <strong>proof</strong>.</p>
+
+      <h3>Perplexity Pro: Worth It or Hype?</h3>
+
+      <p>Perplexity offers a free tier, which is excellent for casual users. But if you're using it daily, the <strong>Pro version ($20/month)</strong> unlocks:</p>
 
       <ul>
-        <li><strong>Sonnet 4.5:</strong> For coding, automation, agentic tasks, and situations where you need speed + quality.</li>
-        <li><strong>Opus 4.1:</strong> For deep analysis, high-stakes writing, legal/medical work, and when you need the absolute best reasoning.</li>
+        <li><strong>Unlimited searches</strong> (free tier limits you to ~5 Pro searches/day)</li>
+        <li><strong>Advanced AI models</strong> (GPT-5.1, Claude 3, Gemini 3 Pro—you pick)</li>
+        <li><strong>File uploads</strong> (analyze PDFs, ask questions about documents)</li>
+        <li><strong>Perplexity Pages</strong> (turn your research into shareable reports)</li>
       </ul>
 
-      <p>Most users default to Sonnet and only switch to Opus when they need the extra horsepower.</p>
+      <p>If you're a student, researcher, or knowledge worker who Googles 20+ times a day, Pro pays for itself in saved time. But the free tier is powerful enough for most people starting out.</p>
 
-      <h3>The Killer Feature: Artifacts</h3>
+      <h3>The Paradigm Shift: From "Searching" to "Asking"</h3>
 
-      <p>This is where Claude becomes genuinely <em>different</em> from ChatGPT. Claude introduced a feature called <strong>Artifacts</strong>, and it fundamentally changes how you work with AI.</p>
+      <p>Here's the profound change happening right now: we're moving from <strong>keyword-based retrieval</strong> to <strong>conversational knowledge</strong>.</p>
 
-      <p>Here's the problem Artifacts solve: When you ask ChatGPT to generate code, a table, or a document, the output appears inline in the conversation. If you want to iterate, you have to copy-paste it somewhere else, edit it, and bring it back. It's clunky.</p>
+      <p>With Google, you learn to "speak search." You type fragmented keywords: "best laptop 2025 under $1000." You drop the grammar because that's what works.</p>
 
-      <p>With Artifacts, Claude generates content in a <strong>dedicated side panel</strong> that lives alongside the conversation. You can see the artifact, edit it directly, and ask Claude to modify it—all in real-time.</p>
+      <p>With Perplexity, you just ask like a human: "What's the best laptop I can buy in 2025 for under $1,000 for video editing?"</p>
 
-      <p><strong>What Can Artifacts Generate?</strong></p>
+      <p>The AI understands context. It knows "best" is subjective. It knows "video editing" means you need a good GPU and RAM. It tailors the answer to your <em>intent</em>, not just your keywords.</p>
 
-      <ul>
-        <li><strong>Code snippets</strong> (HTML, JavaScript, Python, etc.) with syntax highlighting</li>
-        <li><strong>Interactive diagrams</strong> and flowcharts</li>
-        <li><strong>Structured documents</strong> (reports, tables, Markdown files)</li>
-        <li><strong>UI prototypes</strong> that you can actually interact with</li>
-        <li><strong>Data visualizations</strong> from CSV uploads</li>
-      </ul>
-
-      <p><strong>Real-World Example:</strong> You're building a landing page. You ask Claude: "Create an HTML landing page for a meditation app with a hero section, features list, and CTA button." Claude generates the code in the Artifacts panel. You see it rendered. You say: "Make the CTA button green and add a testimonial section." Claude updates it instantly, and you see the changes live.</p>
-
-      <p>This turns Claude into a <strong>collaborative workspace</strong>, not just a chatbot. You're building <em>with</em> Claude, not just asking it questions.</p>
-
-      <h3>The Extended Context Window: Why It Matters</h3>
-
-      <p>Both Sonnet and Opus support 200,000 tokens (with 1 million in beta). To put that in perspective:</p>
-
-      <ul>
-        <li>200,000 tokens ≈ 150,000 words ≈ a 500-page book</li>
-        <li>1,000,000 tokens ≈ 750,000 words ≈ War and Peace + The Great Gatsby + Moby Dick combined</li>
-      </ul>
-
-      <p>This means you can upload your entire company's documentation, paste in a full codebase, or feed Claude a semester's worth of research papers—and it will remember <em>all of it</em> throughout the conversation.</p>
-
-      <p><strong>Use Cases:</strong></p>
-
-      <ul>
-        <li><strong>Legal:</strong> Upload a 200-page contract and ask: "Summarize the liability clauses and flag any unfavorable terms."</li>
-        <li><strong>Research:</strong> Feed Claude 20 academic papers and ask: "What are the competing theories on this topic? Where do they disagree?"</li>
-        <li><strong>Coding:</strong> Paste an entire GitHub repo and ask: "Where is the bug in the authentication flow?"</li>
-      </ul>
-
-      <p>The extended context window turns Claude into a thought partner that can hold <em>massive</em> amounts of information in its "working memory."</p>
-
-      <h3>Computer Use: The Agentic Breakthrough</h3>
-
-      <p>In late 2025, Claude Sonnet 4.5 became capable of <strong>Computer Use</strong>—the ability to control a computer like a human. This isn't science fiction; it's live functionality.</p>
-
-      <p>Claude can:</p>
-
-      <ul>
-        <li>Move the mouse and click buttons</li>
-        <li>Type into forms and text fields</li>
-        <li>Navigate between applications</li>
-        <li>Take screenshots to verify actions</li>
-      </ul>
-
-      <p>This enables truly autonomous workflows. For example: "Go to this website, fill out the contact form with this information, submit it, and send me a screenshot of the confirmation." Claude does it all.</p>
-
-      <p>While still in beta, Computer Use represents the future of AI: not just generating text, but <em>taking action</em> in the real world.</p>
-
-      <h3>When Claude Shines (And When It Doesn't)</h3>
-
-      <p><strong>Claude is exceptional for:</strong></p>
-
-      <ul>
-        <li><strong>Long-form writing:</strong> Essays, reports, documentation where maintaining coherence across thousands of words is critical</li>
-        <li><strong>Code generation:</strong> Especially complex, multi-file projects with nuanced requirements</li>
-        <li><strong>Deep analysis:</strong> Research synthesis, comparative analysis, strategic thinking</li>
-        <li><strong>Sensitive content:</strong> Medical, legal, or ethical questions where accuracy and safety matter</li>
-      </ul>
-
-      <p><strong>Claude struggles with:</strong></p>
-
-      <ul>
-        <li><strong>Real-time web data:</strong> Claude doesn't browse the web in real-time (unlike ChatGPT Plus or Gemini). Its knowledge has a cutoff date.</li>
-        <li><strong>Image generation:</strong> Claude doesn't create images. For visuals, you still need DALL-E, Midjourney, or other tools.</li>
-        <li><strong>Speed for simple tasks:</strong> If you just need a quick answer, ChatGPT's Instant mode is faster.</li>
-      </ul>
-
-      <h3>Pricing: Free vs. Pro</h3>
-
-      <p>Claude offers a generous free tier, but with usage limits. Here's when you should upgrade to <strong>Claude Pro ($20/month)</strong>:</p>
-
-      <ul>
-        <li>You hit rate limits on the free tier (typically 40-50 messages per day)</li>
-        <li>You need priority access to Sonnet 4.5 and Opus 4.1</li>
-        <li>You're using Claude for professional work (writing, coding, analysis)</li>
-        <li>You want early access to new features like Computer Use</li>
-      </ul>
-
-      <p>For most learners and experimenters, the free tier is sufficient. But if Claude becomes part of your daily workflow, Pro pays for itself quickly.</p>
-
-      <h3>The Philosophy of Iteration</h3>
-
-      <p>Here's what most people don't realize about Claude: its real power isn't in the first response—it's in the <strong>tenth response</strong>.</p>
-
-      <p>Claude is designed for refinement. You start with a rough draft. You push back: "This is too formal." Claude adjusts. "Now add more examples." It complies. "Actually, rewrite the introduction to be more provocative." It iterates.</p>
-
-      <p>This back-and-forth collaboration is where Claude excels. It doesn't get frustrated. It doesn't lose context. It just keeps refining until you're happy.</p>
-
-      <p>This makes Claude feel less like a tool and more like a <strong>writing partner</strong>. You're co-authoring, not just prompting.</p>
+      <p>This shift is bigger than it sounds. It means we no longer have to translate our thoughts into machine language. The machine learned to speak ours.</p>
 
       <h3>The Bottom Line</h3>
 
-      <p>Claude isn't trying to beat ChatGPT at everything. It's playing a different game. Where ChatGPT prioritizes breadth, speed, and integration with other tools, Claude prioritizes <strong>depth, thoughtfulness, and precision</strong>.</p>
+      <p>Google Search isn't going anywhere overnight. But its dominance is cracking. People are tired of wading through SEO spam, ads disguised as articles, and conflicting Reddit threads.</p>
 
-      <p>If you're building something that matters—a business plan, a codebase, a research report—Claude is the AI you want in your corner. It's the tool for when "good enough" isn't good enough.</p>
+      <p>Perplexity represents the future: <strong>answers, not links</strong>. Research that's synthesized, cited, and instant.</p>
 
-      <p>Tomorrow, we'll learn how to get <em>both</em> AIs to do exactly what you want through the art of prompting. But today, let's just meet Claude properly.</p>
+      <p>Tomorrow, we're diving into <strong>Claude</strong>—the AI built for deep thinking and long-form work. But today, just understand this: the way you find information is changing. And the people who adapt first will save hundreds of hours this year alone.</p>
+
+      <p>Let's practice asking better questions.</p>
     `,
     handsOn: {
-      title: "The Long-Form Document Test",
-      description: "See Claude's extended context and refinement capabilities in action.",
+      title: "The Search vs. Answer Experiment",
+      description: "Experience the difference between searching for links and getting synthesized answers.",
       affiliateLinks: [
         {
-          text: "Try Claude (Free) →",
-          url: "https://claude.ai"
+          text: "Try Perplexity (Free) →",
+          url: "https://www.perplexity.ai"
         }
       ],
-      exercise: `1. Go to https://claude.ai and create a free account.
-2. Start a conversation: "I need to write a detailed business plan for a [choose any business idea]. Let's start with the executive summary."
-3. Claude will generate a draft. Now iterate at least 5 times with specific refinements:
-   - "Make it more data-driven"
-   - "Add a competitive analysis section"
-   - "Rewrite the market opportunity paragraph to be more compelling"
-   - "Add specific financial projections"
-   - "Now restructure this to emphasize the unique value proposition first"
-4. Notice: How does Claude maintain context across all your requests? Does the quality improve with iteration?
+      exercise: `1. Go to https://www.perplexity.ai (no signup required for free tier).
 
-**Bonus Challenge:** Upload a document (PDF or text file) and ask Claude to analyze it. Try: "What are the three main arguments in this document? Are any of them weak?" Watch Claude process the entire document and provide nuanced analysis.`
+2. **Round 1: Pick a Current Event**
+   Choose something happening NOW (e.g., "What are the major AI announcements from Google in November 2025?")
+   
+   - Ask Perplexity this question.
+   - Read the answer. Notice the citations [1][2][3].
+   - Click on at least 2 citations to verify the sources.
+
+3. **Round 2: Compare to Google**
+   - Open Google and search the exact same question.
+   - Notice: Did Google give you an answer, or just links?
+   - How many articles did you have to read to get the same information?
+
+4. **Round 3: Ask a Follow-Up**
+   Back in Perplexity, ask a follow-up question without retyping context:
+   - "Which of these announcements will impact businesses the most?"
+   
+   - Notice how Perplexity remembers the conversation and builds on it.
+
+5. **Bonus Challenge:**
+   Ask Perplexity something you've been curious about that requires recent data:
+   - "What's the status of [recent tech trend]?"
+   - "Who won [recent event]?"
+   - "What are the best [product category] released in 2025?"
+
+
+**Reflection Question:** How much time would you have saved this week if you'd used Perplexity instead of Google for research? Think about the last 3 things you searched for.`
     }
   },
 
