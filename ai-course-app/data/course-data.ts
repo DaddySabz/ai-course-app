@@ -189,177 +189,153 @@ export const courseModules: CourseModule[] = [
   // DAY 2: The Answer Engine
   {
     day: 2,
-    title: "The Answer Engine",
-    subtitle: "Why Google Search Is Dying (And What's Replacing It)",
+    title: "The Death of Search",
+    subtitle: "Why Clicking Blue Links Is Becoming Obsolete",
     content: `
-      <p>Here's a question: When was the last time you found what you needed on the <em>first</em> Google search?</p>
+      <p>Stop what you're doing and think back to the last time you Googled something.</p>
 
-      <p>Most of us don't search anymore—we <strong>hunt</strong>. We click the first blue link. Skim. Backtrack. Try again with different keywords. Click another link. Scroll past ads. Read conflicting answers on Reddit. Piece together the truth from five different sources. Then we forget where we actually found the answer.</p>
+      <p>Chances are, you didn't find what you needed on the first try. You clicked a link. Skimmed. Hit back. Tried different keywords. Clicked another link. Scrolled past three ads. Found two Reddit threads with conflicting advice. Pieced together an answer from five different tabs.</p>
 
-      <p>It's exhausting. And it's broken.</p>
+      <p>Then tomorrow, you forgot where you even found the information.</p>
 
-      <p>Google wasn't built for answers. It was built for <strong>links</strong>. It's a librarian pointing at shelves, not a researcher handing you a report. For 25 years, that was good enough. But in 2025, we don't have time to become experts on a topic just to get one question answered.</p>
+      <p>This is the reality of search in 2025. And it's <strong>broken</strong>.</p>
 
-      <p>Welcome to Day 2. Today, you're meeting <strong>Perplexity</strong>—the tool that's quietly killing search engines. And by the end of this lesson, you'll understand why the future of research isn't about finding information. It's about <em>synthesizing</em> it.</p>
+      <p>Welcome to Day 2. Today isn't about learning a new tool. It's about understanding why the way you've found information for the past 25 years is dying—and what's replacing it.</p>
 
-      <h3>The Problem with Search (That We All Just Accepted)</h3>
+      <h3>The Problem Nobody Talks About</h3>
 
-      <p>Google Search was revolutionary in 1998. Type a query, get a ranked list of websites. The best pages rise to the top. Simple. Effective.</p>
+      <p>Google Search was a miracle in 1998. Type a question, get a list of websites ranked by relevance. The best rise to the top. Simple. Revolutionary.</p>
 
-      <p>But here's what Google doesn't do: <strong>It doesn't answer your question</strong>. It shows you where answers <em>might</em> live. Then it's your job to:</p>
+      <p>But here's what we accepted without realizing it: <strong>Google doesn't answer questions. It points at where answers might live.</strong></p>
 
+      <p>It's a librarian saying "Try aisle 7" instead of a researcher handing you a report. And for two decades, that was fine. We had time. We could read five articles, compare sources, and become mini-experts on whatever we Googled.</p>
+
+      <p>But in 2025? We don't have that time. We don't want to <em>research</em> how to fix a leaky faucet. We just want the answer.</p>
+
+      <p>And that's the shift happening right now: the internet is moving from <strong>links to answers</strong>.</p>
+
+      <h3>What's Actually Broken About Search</h3>
+
+      <p>Let's break down what you're really doing when you "search":</p>
+
+      <p><strong>Step 1: Query Translation</strong><br>You can't just ask "Why does my back hurt?" You have to learn "search language": "lower back pain causes sitting." You drop articles. You use technical keywords. You become a search engineer just to ask a question.</p>
+
+      <p><strong>Step 2: Link Roulette</strong><br>Click the first blue link. Is it useful? Maybe. Is it trying to sell you something? Probably. Is the answer buried under 500 words of SEO filler? Definitely. Hit back. Try again.</p>
+
+      <p><strong>Step 3: Source Synthesis</strong><br>You find three articles. They say different things. One's from 2019. One's selling a course. One's a Reddit comment. Now it's your job to figure out which is credible, cross-reference them, and synthesize an answer yourself.</p>
+
+      <p><strong>Step 4: Information Loss</strong><br>Tomorrow, you need the same information. Where did you find it? You can't remember. Search again. Repeat the process.</p>
+
+      <p>This isn't "searching." It's <strong>unpaid research labor</strong>. And AI just made it obsolete.</p>
+
+      <h3>The Answer Engine Revolution</h3>
+
+      <p>Imagine this instead:</p>
+
+      <p>You ask a question in plain English. The AI reads 10+ sources in real-time—news articles, academic papers, forums—and synthesizes a direct answer. It shows you exactly where each claim came from with clickable citations. You get the answer in 10 seconds, not 10 minutes.</p>
+
+      <p>This is what's called an <strong>Answer Engine</strong>, and it's fundamentally different from a search engine.</p>
+
+      <p><strong>Search Engine (Google):</strong><br>"Here are 10 links. Good luck."</p>
+
+      <p><strong>Answer Engine (AI-powered):</strong><br>"I just read those 10 links for you. Here's the synthesized answer with citations."</p>
+
+      <p>The difference? One treats you like a librarian. The other treats you like a researcher with a <em>really good</em> assistant.</p>
+
+      <h3>Why This Matters More Than You Think</h3>
+
+      <p>This isn't just about convenience. It's about <strong>democratizing expertise</strong>.</p>
+
+      <p>Right now, if you want a good answer to a complex question, you need to:</p>
       <ul>
-        <li>Click through 5-10 websites</li>
-        <li>Read past the ads and SEO garbage</li>
-        <li>Cross-reference contradictory claims</li>
-        <li>Figure out which sources are credible</li>
-        <li>Synthesize your own answer</li>
+        <li>Know which sources are credible</li>
+        <li>Understand how to evaluate conflicting information</li>
+        <li>Have time to read 5-10 articles</li>
+        <li>Synthesize it all yourself</li>
       </ul>
 
-      <p>That's not search. That's <strong>outsourced research</strong>. And it works great if you have 30 minutes to spare. But what if you just need a straight answer?</p>
+      <p>That's a skill. It takes practice. And most people don't have it—or the time to develop it.</p>
 
-      <p>Enter <strong>Perplexity</strong>. It doesn't give you links. It gives you the <em>answer</em>—synthesized from multiple sources, with citations, in real-time.</p>
+      <p>Answer engines collapse that process. They do the reading. They do the synthesis. They show their work with citations. Suddenly, getting a research-grade answer doesn't require becoming a researcher.</p>
 
-      <h3>What Makes Perplexity Different</h3>
+      <p>This levels the playing field. The person who has 2 minutes gets the same quality answer as the person who has 2 hours.</p>
 
-      <p>Think of it this way:</p>
+      <h3>The Trade-Off: Trust vs. Verification</h3>
 
-      <ul>
-        <li><strong>Google:</strong> "Here are 10 articles about your question. Good luck."</li>
-        <li><strong>ChatGPT:</strong> "Here's what I remember from my training data (which ended months ago)."</li>
-        <li><strong>Perplexity:</strong> "I just read the top 10 sources in real-time, cross-referenced them, and here's the answer with citations."</li>
-      </ul>
+      <p>Here's the catch: when Google gave you links, you didn't have to trust Google. You trusted the <em>sources</em> you clicked on. You saw the article. You judged it yourself.</p>
 
-      <p>Perplexity combines the best of both worlds: the <strong>reasoning power</strong> of AI with the <strong>live data</strong> of the internet. It doesn't just regurgitate old training data. It actively searches, reads, and synthesizes—right now, in 2025.</p>
+      <p>With answer engines, you're trusting the AI to read accurately and synthesize fairly. That's a leap.</p>
 
-      <p>This is called an <strong>Answer Engine</strong>, and it's fundamentally different from a search engine.</p>
+      <p>But here's why it works: <strong>citations</strong>.</p>
 
-      <h3>How Perplexity Actually Works</h3>
+      <p>Good answer engines don't ask for blind trust. Every claim is linked back to its source. You can verify. You can click through. The AI isn't replacing your judgment—it's doing the grunt work of reading and synthesis, then showing you its sources so you can audit it.</p>
 
-      <p>When you ask Perplexity a question, here's what happens behind the scenes:</p>
+      <p>Think of it like this: Google makes you the detective. Answer engines make you the judge. One requires you to gather evidence. The other presents the evidence and lets you decide.</p>
 
-      <p><strong>Step 1: Query Understanding</strong><br>Perplexity doesn't just match keywords. It understands <em>intent</em>. If you ask "Why is the sky blue?", it knows you want a scientific explanation, not a list of websites about sky colors.</p>
+      <h3>The Paradigm Shift: From Keywords to Conversation</h3>
 
-      <p><strong>Step 2: Real-Time Web Search</strong><br>It searches the live web—news sites, academic papers, Reddit threads, company blogs—and identifies the most relevant, credible sources.</p>
+      <p>The deeper change happening is this: <strong>we're learning to talk to computers like humans again</strong>.</p>
 
-      <p><strong>Step 3: Source Analysis</strong><br>It reads those sources (not just the headlines, but the actual content) and evaluates which information is consistent, credible, and recent.</p>
+      <p>For 25 years, we learned "search language." We typed broken keywords: "best laptop 2025 under 1000." We dropped grammar because that's what worked.</p>
 
-      <p><strong>Step 4: Synthesis</strong><br>It generates a coherent answer in plain English, combining insights from multiple sources. This isn't copy-paste. It's reasoning.</p>
+      <p>With answer engines, you just ask: "What's the best laptop I can buy in 2025 for under $1,000 if I'm doing video editing?"</p>
 
-      <p><strong>Step 5: Citations</strong><br>Every claim is linked back to its source. You can verify the information yourself with one click. No trust required—just transparency.</p>
+      <p>The AI understands context. It knows "best" is subjective. It knows "video editing" means you need RAM and GPU power. It tailors the answer to your <em>intent</em>, not just your keywords.</p>
 
-      <p>The result? You get an answer that's accurate, current, and traceable. In seconds.</p>
+      <p>We spent two decades learning to speak like machines. Now machines learned to speak like us.</p>
 
-      <h3>When to Use Perplexity vs. ChatGPT</h3>
+      <h3>What This Means for You</h3>
 
-      <p>Here's the decision tree you need to internalize:</p>
+      <p>If you're still "Googling" the way you did in 2005—typing keywords, clicking links, piecing together answers—you're working 10x harder than you need to.</p>
 
-      <p><strong>Use Perplexity when:</strong></p>
-      <ul>
-        <li>You need <strong>current information</strong> (news, stock prices, recent events)</li>
-        <li>You want <strong>citations</strong> (research, fact-checking, credibility matters)</li>
-        <li>The answer requires <strong>multiple perspectives</strong> (comparing products, evaluating options)</li>
-        <li>You're researching a <strong>specific topic</strong> you know nothing about</li>
-      </ul>
+      <p>The people saving hours every week in 2025 aren't smarter. They just shifted from <strong>search engines to answer engines</strong>. They stopped hunting for information and started asking for it.</p>
 
-      <p><strong>Use ChatGPT when:</strong></p>
-      <ul>
-        <li>You need <strong>creative output</strong> (writing, brainstorming, rewriting)</li>
-        <li>You want to <strong>iterate</strong> on something (edit this email, make it funnier, shorten it)</li>
-        <li>The task is <strong>timeless</strong> (explain a concept, draft a template)</li>
-        <li>You need <strong>speed over accuracy</strong> (quick ideas, rough drafts)</li>
-      </ul>
+      <p>Tomorrow, we'll dive into <strong>how to ask better questions</strong> (prompt engineering). But today, just internalize this:</p>
 
-      <p>Think of it this way: <strong>ChatGPT is your writer. Perplexity is your researcher.</strong></p>
+      <p><strong>The way you find information is changing. Adapt early, save hundreds of hours.</strong></p>
 
-      <h3>The "Cited Sources" Superpower</h3>
-
-      <p>This is where Perplexity becomes indispensable. Every answer includes clickable citations—numbered references like [1], [2], [3]—that link directly to the original sources.</p>
-
-      <p>Why does this matter?</p>
-
-      <p>Because AI can hallucinate. It can sound confident while being completely wrong. But with citations, you can verify. You're not trusting the AI—you're trusting the <em>sources</em> the AI found for you.</p>
-
-      <p><strong>Example:</strong></p>
-
-      <p>Ask ChatGPT: "What's the current market cap of Tesla?"<br>Answer: "As of my last update in 2023, Tesla's market cap was around $600 billion." (Outdated, possibly wrong.)</p>
-
-      <p>Ask Perplexity: "What's the current market cap of Tesla?"<br>Answer: "As of November 25, 2025, Tesla's market cap is approximately $1.2 trillion [1][2]."<br>Citations: [1] Yahoo Finance, [2] CNBC.</p>
-
-      <p>See the difference? You're not just getting an answer. You're getting <strong>proof</strong>.</p>
-
-      <h3>Perplexity Pro: Worth It or Hype?</h3>
-
-      <p>Perplexity offers a free tier, which is excellent for casual users. But if you're using it daily, the <strong>Pro version ($20/month)</strong> unlocks:</p>
-
-      <ul>
-        <li><strong>Unlimited searches</strong> (free tier limits you to ~5 Pro searches/day)</li>
-        <li><strong>Advanced AI models</strong> (GPT-5.1, Claude 3, Gemini 3 Pro—you pick)</li>
-        <li><strong>File uploads</strong> (analyze PDFs, ask questions about documents)</li>
-        <li><strong>Perplexity Pages</strong> (turn your research into shareable reports)</li>
-      </ul>
-
-      <p>If you're a student, researcher, or knowledge worker who Googles 20+ times a day, Pro pays for itself in saved time. But the free tier is powerful enough for most people starting out.</p>
-
-      <h3>The Paradigm Shift: From "Searching" to "Asking"</h3>
-
-      <p>Here's the profound change happening right now: we're moving from <strong>keyword-based retrieval</strong> to <strong>conversational knowledge</strong>.</p>
-
-      <p>With Google, you learn to "speak search." You type fragmented keywords: "best laptop 2025 under $1000." You drop the grammar because that's what works.</p>
-
-      <p>With Perplexity, you just ask like a human: "What's the best laptop I can buy in 2025 for under $1,000 for video editing?"</p>
-
-      <p>The AI understands context. It knows "best" is subjective. It knows "video editing" means you need a good GPU and RAM. It tailors the answer to your <em>intent</em>, not just your keywords.</p>
-
-      <p>This shift is bigger than it sounds. It means we no longer have to translate our thoughts into machine language. The machine learned to speak ours.</p>
-
-      <h3>The Bottom Line</h3>
-
-      <p>Google Search isn't going anywhere overnight. But its dominance is cracking. People are tired of wading through SEO spam, ads disguised as articles, and conflicting Reddit threads.</p>
-
-      <p>Perplexity represents the future: <strong>answers, not links</strong>. Research that's synthesized, cited, and instant.</p>
-
-      <p>Tomorrow, we're diving into <strong>Claude</strong>—the AI built for deep thinking and long-form work. But today, just understand this: the way you find information is changing. And the people who adapt first will save hundreds of hours this year alone.</p>
-
-      <p>Let's practice asking better questions.</p>
+      <p>Let's try it.</p>
     `,
     handsOn: {
-      title: "The Search vs. Answer Experiment",
-      description: "Experience the difference between searching for links and getting synthesized answers.",
+      title: "Links vs. Answers: The Experiment",
+      description: "Experience the shift from search engine to answer engine firsthand.",
       affiliateLinks: [
         {
           text: "Try Perplexity (Free) →",
           url: "https://www.perplexity.ai"
         }
       ],
-      exercise: `1. Go to https://www.perplexity.ai (no signup required for free tier).
+      exercise: `Today's exercise uses **Perplexity**—one of the leading answer engines. It's free, no signup required.
 
-2. **Round 1: Pick a Current Event**
-   Choose something happening NOW (e.g., "What are the major AI announcements from Google in November 2025?")
-   
-   - Ask Perplexity this question.
-   - Read the answer. Notice the citations [1][2][3].
-   - Click on at least 2 citations to verify the sources.
+1. **Pick a Real Question You Have**
+   Choose something you'd normally Google. Examples:
+   - "How do I negotiate a higher salary?"
+   - "What's causing inflation in 2025?"
+   - "Best way to learn Spanish as an adult?"
 
-3. **Round 2: Compare to Google**
-   - Open Google and search the exact same question.
-   - Notice: Did Google give you an answer, or just links?
-   - How many articles did you have to read to get the same information?
+2. **Round 1: The Old Way (Google)**
+   - Go to Google and search your question
+   - Count how many links you click
+   - Time yourself: How long until you have a clear answer?
+   - Notice: How much SEO garbage did you scroll past?
 
-4. **Round 3: Ask a Follow-Up**
-   Back in Perplexity, ask a follow-up question without retyping context:
-   - "Which of these announcements will impact businesses the most?"
-   
-   - Notice how Perplexity remembers the conversation and builds on it.
+3. **Round 2: The New Way (Perplexity)**
+   - Go to https://www.perplexity.ai
+   - Ask the EXACT same question in plain English
+   - Read the synthesized answer
+   - Click on at least 2 citations [1][2] to see the sources
 
-5. **Bonus Challenge:**
-   Ask Perplexity something you've been curious about that requires recent data:
-   - "What's the status of [recent tech trend]?"
-   - "Who won [recent event]?"
-   - "What are the best [product category] released in 2025?"
+4. **Compare:**
+   - Which was faster?
+   - Which felt more trustworthy?
+   - Which answer was more useful?
 
+5. **Bonus: Ask a Follow-Up**
+   - In Perplexity, ask a follow-up without retyping context
+   - Example: "What about remote workers?"
+   - Notice how it remembers the conversation
 
-**Reflection Question:** How much time would you have saved this week if you'd used Perplexity instead of Google for research? Think about the last 3 things you searched for.`
+**Reflection:** How much time per day do you spend Googling things? If answer engines save you 50% of that time, what's that worth over a year?`
     }
   },
 
