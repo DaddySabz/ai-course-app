@@ -5,7 +5,7 @@ import NavigationBar from '@/components/NavigationBar'
 
 export default async function DashboardPage() {
   const session = await auth()
-  
+
   if (!session?.user) {
     redirect("/")
   }
@@ -81,15 +81,15 @@ export default async function DashboardPage() {
                   Just drop Saby an email or WhatsApp message—a screenshot also works!
                 </p>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                  <a 
-                    href="mailto:hello@wearewacky.com" 
+                  <a
+                    href="mailto:hello@wearewacky.com"
                     className="glass-blue-clickable flex flex-col items-center justify-center gap-1 px-6 py-4 rounded-2xl text-text-primary"
                   >
                     <span className="text-xs font-semibold uppercase tracking-wider text-text-secondary">Email</span>
                     <span className="font-bold">hello@wearewacky.com</span>
                   </a>
-                  <a 
-                    href="https://wa.me/447460460318" 
+                  <a
+                    href="https://wa.me/447460460318"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="glass-sage-clickable flex flex-col items-center justify-center gap-1 px-6 py-4 rounded-2xl text-text-primary"
@@ -105,13 +105,13 @@ export default async function DashboardPage() {
             <section className="lg:col-span-1 order-2 lg:order-3">
               <div className="glass-lavender rounded-3xl p-8 flex flex-col items-center text-center lg:sticky lg:top-24">
                 <h3 className="text-2xl font-bold text-text-primary mb-6">Profile</h3>
-                
+
                 {/* Profile Picture */}
                 <div className="relative mb-4">
                   {profileAvatar ? (
-                    <img 
+                    <img
                       src={profileAvatar}
-                      alt="Profile" 
+                      alt="Profile"
                       className="size-24 rounded-full border-4 border-white shadow-lg object-cover"
                     />
                   ) : (
@@ -138,13 +138,13 @@ export default async function DashboardPage() {
                 </p>
 
                 {/* View Profile Button */}
-                <a 
+                <a
                   href="/profile"
                   className="btn-neumorphic w-full flex items-center justify-center gap-2 p-4 rounded-2xl text-text-primary font-bold hover:scale-[1.02] transition-transform mb-4"
                 >
                   <span>View Profile</span>
                 </a>
-                
+
                 {/* Sign Out Button */}
                 <form action={async () => {
                   "use server"
@@ -169,22 +169,22 @@ export default async function DashboardPage() {
                   {/* Progress Circle - Enhanced */}
                   <div className="relative size-52 flex-shrink-0">
                     <svg className="size-full transform -rotate-90">
-                      <circle cx="104" cy="104" r="88" fill="none" stroke="rgba(200, 190, 180, 0.3)" strokeWidth="14"/>
-                      <circle 
-                        cx="104" 
-                        cy="104" 
-                        r="88" 
-                        fill="none" 
-                        stroke="url(#progress-gradient)" 
+                      <circle cx="104" cy="104" r="88" fill="none" stroke="rgba(200, 190, 180, 0.3)" strokeWidth="14" />
+                      <circle
+                        cx="104"
+                        cy="104"
+                        r="88"
+                        fill="none"
+                        stroke="url(#progress-gradient)"
                         strokeWidth="14"
                         strokeLinecap="round"
                         strokeDasharray={`${progressPercent * 5.53} 553`}
                       />
                       <defs>
                         <linearGradient id="progress-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                          <stop offset="0%" stopColor="#B8CEB8"/>
-                          <stop offset="50%" stopColor="#A8D4C8"/>
-                          <stop offset="100%" stopColor="#B8A8D4"/>
+                          <stop offset="0%" stopColor="#B8CEB8" />
+                          <stop offset="50%" stopColor="#A8D4C8" />
+                          <stop offset="100%" stopColor="#B8A8D4" />
                         </linearGradient>
                       </defs>
                     </svg>
@@ -213,7 +213,7 @@ export default async function DashboardPage() {
 
                 {/* Continue Button - White frosted */}
                 <div className="w-full flex pt-8 justify-center">
-                  <a 
+                  <a
                     href={`/module?day=${nextDay}`}
                     className="glass-clickable flex items-center justify-center gap-3 rounded-2xl h-14 px-8 flex-1 max-w-[480px] text-text-primary font-bold text-lg"
                   >
@@ -235,7 +235,7 @@ export default async function DashboardPage() {
                 </div>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                                    {/* Course 1: Introduction to AI - Clickable to payment */}
+                  {/* Course 1: Introduction to AI - Clickable to payment */}
                   <a href="/payment?product=ai-course-intro" className="glass-clickable rounded-2xl p-6 block cursor-pointer">
                     <h4 className="text-lg font-bold text-text-primary mb-2">Introduction to AI</h4>
                     <div className="flex items-baseline gap-2 mb-3">
@@ -246,12 +246,12 @@ export default async function DashboardPage() {
                         </>
                       ) : isTechPartner ? (
                         <>
-                          <span className="text-3xl font-black" style={{color: '#6B9B6B'}}>FREE</span>
+                          <span className="text-3xl font-black" style={{ color: '#6B9B6B' }}>FREE</span>
                           <span className="text-xs text-text-tertiary">(Tech Partner)</span>
                         </>
                       ) : (
                         <>
-                          <span className="text-3xl font-black" style={{color: '#6B9B6B'}}>FREE</span>
+                          <span className="text-3xl font-black" style={{ color: '#6B9B6B' }}>FREE</span>
                           <span className="text-lg font-bold text-text-tertiary line-through">£49</span>
                         </>
                       )}
@@ -259,11 +259,18 @@ export default async function DashboardPage() {
                     <p className="text-xs text-text-secondary">30-day beginner course</p>
                   </a>
 
-                                                      {/* Course 2: Adventures with AI - Coming Soon */}
+                  {/* Course 2: Adventures with AI - Coming Soon */}
                   <div className="glass-subtle rounded-2xl p-6 opacity-75">
                     <h4 className="text-lg font-bold text-text-secondary mb-2">Adventures with AI</h4>
                     <div className="flex items-baseline gap-2 mb-3">
-                      <span className="text-2xl font-bold text-text-tertiary">£79</span>
+                      {isWaitrosePartner ? (
+                        <>
+                          <span className="text-2xl font-bold text-text-tertiary">£29</span>
+                          <span className="text-sm font-bold text-text-tertiary line-through">£79</span>
+                        </>
+                      ) : (
+                        <span className="text-2xl font-bold text-text-tertiary">£79</span>
+                      )}
                     </div>
                     <p className="text-xs text-text-tertiary font-semibold">Coming soon</p>
                   </div>
@@ -272,7 +279,14 @@ export default async function DashboardPage() {
                   <div className="glass-subtle rounded-2xl p-6 opacity-60">
                     <h4 className="text-lg font-bold text-text-secondary mb-2">Automations with AI</h4>
                     <div className="flex items-baseline gap-2 mb-3">
-                      <span className="text-2xl font-bold text-text-tertiary">£129</span>
+                      {isWaitrosePartner ? (
+                        <>
+                          <span className="text-2xl font-bold text-text-tertiary">£49</span>
+                          <span className="text-sm font-bold text-text-tertiary line-through">£129</span>
+                        </>
+                      ) : (
+                        <span className="text-2xl font-bold text-text-tertiary">£129</span>
+                      )}
                     </div>
                     <p className="text-xs text-text-tertiary font-semibold">Coming in 2026</p>
                   </div>
@@ -281,7 +295,14 @@ export default async function DashboardPage() {
                   <div className="glass-subtle rounded-2xl p-6 opacity-60">
                     <h4 className="text-lg font-bold text-text-secondary mb-2">Video with AI</h4>
                     <div className="flex items-baseline gap-2 mb-3">
-                      <span className="text-2xl font-bold text-text-tertiary">£129</span>
+                      {isWaitrosePartner ? (
+                        <>
+                          <span className="text-2xl font-bold text-text-tertiary">£49</span>
+                          <span className="text-sm font-bold text-text-tertiary line-through">£129</span>
+                        </>
+                      ) : (
+                        <span className="text-2xl font-bold text-text-tertiary">£129</span>
+                      )}
                     </div>
                     <p className="text-xs text-text-tertiary font-semibold">Coming in 2026</p>
                   </div>
