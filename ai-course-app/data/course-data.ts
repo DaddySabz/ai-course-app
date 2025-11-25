@@ -378,5 +378,206 @@ export const courseModules: CourseModule[] = [
 
 **Bonus Challenge:** Upload a document (PDF or text file) and ask Claude to analyze it. Try: "What are the three main arguments in this document? Are any of them weak?" Watch Claude process the entire document and provide nuanced analysis.`
     }
+  },
+
+  // DAY 3: The Art of the Prompt
+  {
+    day: 3,
+    title: "The Art of the Prompt",
+    subtitle: "How to Get AI to Actually Do What You Want",
+    content: `
+      <p>Here's the uncomfortable truth about AI: most people are using it wrong.</p>
+
+      <p>They type "write me a blog post about marketing" and get back 500 words of bland, generic fluff that sounds like it was written by a committee of robots. Then they conclude: "AI isn't that useful."</p>
+
+      <p>But the problem isn't the AI. It's the prompt. It's like walking into a Michelin-star restaurant and saying "make me food." You'll get <em>something</em>, but it won't be what you actually wanted. The chef needs context. Preferences. Constraints. <strong>Specificity.</strong></p>
+
+      <p>Welcome to Day 3. Today, you're learning the single most valuable skill in AI: <strong>Prompt Engineering</strong>. And by the end of this lesson, you'll understand why the people getting extraordinary results from ChatGPT aren't lucky—they're just speaking its language.</p>
+
+      <h3>Why Prompts Matter (More Than You Think)</h3>
+
+      <p>Let's start with a fundamental truth: AI has no idea what you actually want. It's not reading your mind. It's reading your <strong>prompt</strong>.</p>
+
+      <p>ChatGPT is a prediction machine. It predicts the most likely next word based on the words you've given it. If you give it vague input, it generates vague output. If you give it precise input—with context, structure, and constraints—it produces something remarkable.</p>
+
+      <p>Think of it this way: the difference between a bad prompt and a good prompt is the difference between asking a stranger for "some music recommendations" versus asking a knowledgeable friend who knows your taste. One gives you a random Top 40 list. The other gives you a curated playlist that changes your week.</p>
+
+      <p>The framework that separates amateurs from experts is deceptively simple. It's called <strong>CTC</strong>: Context, Task, Constraint.</p>
+
+      <h3>The CTC Framework: Your Prompt Template</h3>
+
+      <p>Every effective prompt—whether you realize it or not—contains three elements:</p>
+
+      <p><strong>1. Context (Who, What, Where)</strong></p>
+
+      <p>This is the background information that shapes how the AI interprets your request. Context answers:</p>
+
+      <ul>
+        <li><strong>Who is the audience?</strong> (Executives? College students? Complete beginners?)</li>
+        <li><strong>What is the situation?</strong> (A sales pitch? A friendly explanation? A technical document?)</li>
+        <li><strong>What role should the AI play?</strong> (An expert consultant? A creative writer? A skeptical critic?)</li>
+      </ul>
+
+      <p>Without context, ChatGPT defaults to "generic internet text." With context, it tailors every word.</p>
+
+      <p><strong>Example:</strong></p>
+      <ul>
+        <li><strong>Bad:</strong> "Explain blockchain."</li>
+        <li><strong>Good:</strong> "You are a patient teacher. I'm a 40-year-old small business owner with no tech background. Explain blockchain to me."</li>
+      </ul>
+
+      <p>Notice the difference? The second prompt gives the AI a <em>persona</em> (patient teacher) and an <em>audience</em> (non-technical adult). The output will be completely different.</p>
+
+      <p><strong>2. Task (The Actual Request)</strong></p>
+
+      <p>This is the action you want the AI to perform. Be explicit. Use verbs like:</p>
+
+      <ul>
+        <li><strong>Write</strong> (a blog post, an email, a script)</li>
+        <li><strong>Summarize</strong> (a document, a conversation, a concept)</li>
+        <li><strong>Generate</strong> (ideas, headlines, questions)</li>
+        <li><strong>Analyze</strong> (data, arguments, tone)</li>
+        <li><strong>Rewrite</strong> (for clarity, tone, or style)</li>
+      </ul>
+
+      <p>The task should be <strong>one clear action</strong>. If you're asking ChatGPT to do three different things in one prompt, split it into three prompts. Complexity kills quality.</p>
+
+      <p><strong>Example:</strong></p>
+      <ul>
+        <li><strong>Vague:</strong> "Help me with my email."</li>
+        <li><strong>Clear:</strong> "Write a professional follow-up email to a client who hasn't responded in two weeks."</li>
+      </ul>
+
+      <p><strong>3. Constraint (The Boundaries)</strong></p>
+
+      <p>This is where most people fail. Constraints are the rules that shape the output. They answer:</p>
+
+      <ul>
+        <li><strong>How long?</strong> (50 words? 500 words? 3 bullet points?)</li>
+        <li><strong>What tone?</strong> (Formal? Casual? Funny? Persuasive?)</li>
+        <li><strong>What format?</strong> (Email? List? Table? Paragraph?)</li>
+        <li><strong>What to avoid?</strong> (Jargon? Clichés? Negative language?)</li>
+      </ul>
+
+      <p>Constraints force the AI to make decisions. Without them, it defaults to safe, boring, middle-of-the-road writing.</p>
+
+      <p><strong>Example:</strong></p>
+      <ul>
+        <li><strong>No constraints:</strong> "Write a social media post about our product launch."</li>
+        <li><strong>With constraints:</strong> "Write a LinkedIn post (150 words max) announcing our product launch. Tone: excited but professional. Include a call-to-action to visit our website. Avoid buzzwords like 'revolutionary' or 'game-changing.'"</li>
+      </ul>
+
+      <p>See the difference? The second prompt leaves no room for interpretation. It <em>directs</em> the AI.</p>
+
+      <h3>Putting It All Together: The CTC Formula</h3>
+
+      <p>Let's take a real-world scenario and apply CTC step by step.</p>
+
+      <p><strong>Scenario:</strong> You need to write a cold email to a potential client.</p>
+
+      <p><strong>Bad Prompt:</strong><br>"Write a cold email."</p>
+
+      <p>What happens? ChatGPT will generate something generic, vague, and forgettable. It has no idea who you are, who the client is, or what you're selling.</p>
+
+      <p><strong>Good Prompt (CTC Applied):</strong></p>
+
+      <p><strong>Context:</strong> "You are a B2B sales expert. I run a small marketing agency, and I'm reaching out to a mid-sized e-commerce brand that recently launched."</p>
+
+      <p><strong>Task:</strong> "Write a personalized cold email introducing my agency's services."</p>
+
+      <p><strong>Constraint:</strong> "Keep it under 100 words. Tone: friendly and consultative, not salesy. Focus on their recent launch as an icebreaker. End with a low-pressure call-to-action (e.g., 'Would you be open to a 15-minute call?')."</p>
+
+      <p>Full prompt:</p>
+
+      <p><em>"You are a B2B sales expert. I run a small marketing agency, and I'm reaching out to a mid-sized e-commerce brand that recently launched. Write a personalized cold email introducing my agency's services. Keep it under 100 words. Tone: friendly and consultative, not salesy. Focus on their recent launch as an icebreaker. End with a low-pressure call-to-action (e.g., 'Would you be open to a 15-minute call?')."</em></p>
+
+      <p>Now ChatGPT knows <em>exactly</em> what you need. The output will be specific, on-brand, and actionable.</p>
+
+      <h3>The "Act As" Technique: Giving AI a Persona</h3>
+
+      <p>One of the most powerful tools in prompt engineering is the <strong>"Act as..."</strong> framework. By assigning the AI a role, you activate different "modes" of writing and reasoning.</p>
+
+      <p><strong>Examples:</strong></p>
+
+      <ul>
+        <li>"Act as a <strong>skeptical journalist</strong>. Review this press release and point out any weak claims."</li>
+        <li>"Act as a <strong>5-year-old</strong>. Explain quantum entanglement."</li>
+        <li>"Act as a <strong>career coach</strong>. Give me feedback on this resume."</li>
+        <li>"Act as a <strong>copywriter</strong>. Rewrite this paragraph to be more persuasive."</li>
+      </ul>
+
+      <p>The persona changes everything. A "career coach" will focus on clarity and impact. A "skeptical journalist" will challenge assumptions. A "5-year-old" will strip away jargon.</p>
+
+      <p>This trick works because large language models are trained on billions of examples of <em>how different types of people write</em>. When you tell it to "act as" a doctor, lawyer, artist, or comedian, it accesses patterns associated with that role.</p>
+
+      <h3>Common Prompt Mistakes (And How to Fix Them)</h3>
+
+      <p><strong>Mistake #1: Being Too Vague</strong></p>
+
+      <p><strong>Bad:</strong> "Tell me about AI."<br><strong>Fix:</strong> "Explain how AI is being used in healthcare to improve diagnostic accuracy. Focus on real-world examples from 2024-2025."</p>
+
+      <p><strong>Mistake #2: Asking for Too Much at Once</strong></p>
+
+      <p><strong>Bad:</strong> "Write a blog post, create 10 headlines, and suggest social media captions."<br><strong>Fix:</strong> Break it into three separate prompts. AI performs better with focused tasks.</p>
+
+      <p><strong>Mistake #3: No Format Specified</strong></p>
+
+      <p><strong>Bad:</strong> "Give me ideas for a marketing campaign."<br><strong>Fix:</strong> "Give me 5 marketing campaign ideas in a numbered list. For each idea, include: 1) Campaign name, 2) Target audience, 3) Core message."</p>
+
+      <p><strong>Mistake #4: Not Iterating</strong></p>
+
+      <p>The best AI users don't get it right on the first try. They <strong>iterate</strong>. After the first response, they say: "Make it shorter," "Use simpler language," "Add more examples," or "Rewrite the opening to be more dramatic."</p>
+
+      <p>Prompting is a conversation, not a one-shot command.</p>
+
+      <h3>The Bottom Line</h3>
+
+      <p>Mastering prompts isn't about memorizing formulas. It's about understanding that AI responds to <strong>clarity</strong>. The more specific your instructions, the better the output.</p>
+
+      <p>CTC is your starting point:</p>
+      <ul>
+        <li><strong>Context:</strong> Set the scene.</li>
+        <li><strong>Task:</strong> Define the action.</li>
+        <li><strong>Constraint:</strong> Add the rules.</li>
+      </ul>
+
+      <p>Tomorrow, we'll take it further. You'll learn how to use <strong>context windows</strong> to feed AI massive amounts of information—turning it from a generic assistant into a personalized expert who knows <em>your</em> business, <em>your</em> style, and <em>your</em> goals.</p>
+
+      <p>But first, let's practice prompting. Because the difference between "AI is useless" and "AI is a superpower" is literally just a few well-chosen words.</p>
+    `,
+    handsOn: {
+      title: "The Before & After Prompt Challenge",
+      description: "Experience the power of structured prompts by transforming generic output into precision work.",
+      affiliateLinks: [
+        {
+          text: "Try ChatGPT (Free) →",
+          url: "https://chat.openai.com"
+        }
+      ],
+      exercise: `1. Go to https://chat.openai.com and start a new conversation.
+
+2. **Round 1: The Vague Prompt**
+   Type exactly this: "Write an email to my team."
+   
+   - Read the output. Notice how generic and bland it is.
+   - It has no personality, no specific purpose, and nothing actionable.
+
+3. **Round 2: Apply CTC**
+   Now try this structured prompt:
+   
+   "You are a team leader at a growing startup. Write an email to my 10-person marketing team announcing that we've hit our Q4 revenue goal two weeks early. Tone: celebratory but grounded—acknowledge the hard work without being cheesy. Length: 150 words max. End with a concrete next step (planning our 2025 strategy)."
+   
+   - Compare this output to Round 1. Notice the difference in tone, specificity, and usefulness.
+
+4. **Round 3: Iterate**
+   Reply to ChatGPT with: "Rewrite this email to be more concise. Cut it to 75 words."
+   
+   - Watch how ChatGPT tightens the message without losing the core meaning.
+
+5. **Bonus Challenge:**
+   Pick a real task from your life (a difficult email, a social media post, a presentation outline) and apply CTC. See how much better the output gets.
+
+**Reflection Question:** What was the single biggest difference between the vague prompt and the CTC prompt? Write it down. That insight will change how you use AI forever.`
+    }
   }
 ];
