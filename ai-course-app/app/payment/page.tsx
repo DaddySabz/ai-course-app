@@ -68,21 +68,21 @@ export default async function PaymentPage({ searchParams }: PageProps) {
       description: 'Advanced AI applications and real-world projects',
       fullPrice: 79,
       betaPrice: 0, // FREE for beta testers
-      waitrosePrice: 39
+      waitrosePrice: 29
     },
     'ai-course-automations': {
       title: 'Automations with AI',
       description: 'Build powerful AI-driven automation workflows',
       fullPrice: 129,
       betaPrice: 0, // FREE for beta testers
-      waitrosePrice: 64
+      waitrosePrice: 49
     },
     'ai-course-video': {
       title: 'Video with AI',
       description: 'Create stunning videos using AI tools',
       fullPrice: 129,
       betaPrice: 0, // FREE for beta testers
-      waitrosePrice: 64
+      waitrosePrice: 49
     }
   }
 
