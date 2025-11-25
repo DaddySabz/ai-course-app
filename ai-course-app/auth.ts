@@ -35,10 +35,10 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
           .eq('email', credentials.email as string)
           .single()
 
-        console.log('User lookup result:', { 
-          email: credentials.email, 
-          found: !!user, 
-          error: error?.message 
+        console.log('User lookup result:', {
+          email: credentials.email,
+          found: !!user,
+          error: error?.message
         })
 
         if (error || !user) {
@@ -73,6 +73,41 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
     signIn: "/",
   },
   callbacks: {
+    async signIn({ user, account, profile }) {
+      if (!user.email) return true
+
+      try {
+        const supabase = createClient(
+          process.env.NEXT_PUBLIC_SUPABASE_URL!,
+          process.env.SUPABASE_SECRET_KEY!
+        )
+
+        // Check if profile exists
+        const { data: existingProfile } = await supabase
+          .from('user_profiles')
+          .select('id')
+          .eq('user_id', user.id)
+          .single()
+
+        if (!existingProfile) {
+          console.log('Creating new beta profile for:', user.email)
+          // Create new profile as Beta Tester
+          await supabase.from('user_profiles').insert({
+            user_id: user.id,
+            display_name: user.name || user.email.split('@')[0],
+            avatar_url: user.image,
+            partner_type: 'beta', // Default to beta for all new signups
+            partner_code: 'BETA_AUTO',
+            organization: 'Beta Tester'
+          })
+        }
+
+        return true
+      } catch (error) {
+        console.error('Error in signIn callback:', error)
+        return true // Allow sign in even if profile creation fails (will be handled by dashboard)
+      }
+    },
     async session({ session, token }) {
       if (session.user) {
         session.user.id = token.sub as string
