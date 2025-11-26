@@ -251,7 +251,7 @@ export default function TechPartnerAuthForm() {
             {/* Error Message */}
             {error && (
               <div className="glass-peach p-3 rounded-xl">
-                <p className="text-sm font-semibold text-red-600">{error}</p>
+                <p className="text-sm font-semibold text-red-600 break-words">{error}</p>
               </div>
             )}
 
