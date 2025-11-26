@@ -538,5 +538,102 @@ export const courseModules: CourseModule[] = [
 
 **Reflection Question:** What was the single biggest difference between the vague prompt and the CTC prompt? Write it down. That insight will change how you use AI forever.`
     }
-  }
+  },
+
+  // DAY 4: Gemini 3 Pro - PLACEHOLDER
+  {
+    day: 4,
+    title: "The Multimodal Mind",
+    subtitle: "Google's Frontier Model & Adaptive Reasoning",
+    content: `<p><strong>🚧 Content Coming Soon</strong></p><p>This lesson will be written by Claude Opus 4.5 and will cover Google's Gemini 3 Pro, thinking levels, and when to use Google vs OpenAI models.</p>`,
+    handsOn: {
+      title: "Hands-On Exercise",
+      description: "Practical exercise with Gemini 3 Pro",
+      affiliateLinks: [{ text: "Try Gemini 3 Pro →", url: "https://gemini.google.com" }],
+      exercise: "Exercise content coming soon."
+    }
+  },
+
+  // DAY 5-30: Additional Placeholders
+  ...Array.from({ length: 27 }, (_, i) => {
+    const day = i + 5;
+    const titles = {
+      5: "Your Second Brain",
+      6: "The Artist Within",
+      7: "Google's Image Revolution",
+      8: "Words That Look Perfect",
+      9: "Open-Source Power",
+      10: "The Asset Factory",
+      11: "Video Awakening",
+      12: "Cinematic AI",
+      13: "Viral Motion",
+      14: "Image to Motion",
+      15: "The Voice Clone",
+      16: "The Song Factory",
+      17: "Audiophile's Choice",
+      18: "Edit Video Like Text",
+      19: "The Avatar Speaks",
+      20: "The Presentation Shortcut",
+      21: "Design for Non-Designers",
+      22: "The Meeting Scribe",
+      23: "The Workspace Brain",
+      24: "The Brand Voice",
+      25: "The Automation Canvas",
+      26: "Advanced Automation",
+      27: "Code Without Coding",
+      28: "The AI Code Editor",
+      29: "The AI Employee",
+      30: "Your Next 30 Days",
+      31: "BONUS: The Google Trilogy Challenge"
+    };
+
+    const tools = {
+      5: "NotebookLM",
+      6: "Midjourney v7",
+      7: "Nano Banana",
+      8: "Ideogram 3.0",
+      9: "Flux 1.1",
+      10: "Leonardo.ai",
+      11: "Runway Gen-4",
+      12: "Veo 3.1",
+      13: "Kling 2.1",
+      14: "Luma Dream Machine",
+      15: "ElevenLabs",
+      16: "Suno",
+      17: "Udio",
+      18: "Descript",
+      19: "Synthesia",
+      20: "Gamma",
+      21: "Canva Magic Studio",
+      22: "Otter.ai",
+      23: "Notion AI",
+      24: "Jasper",
+      25: "Make (Integromat)",
+      26: "n8n",
+      27: "Replit Agent",
+      28: "Cursor",
+      29: "Lindy",
+      30: "Capstone Project",
+      31: "Gemini + Nano Banana + Veo 3.1"
+    };
+
+    return {
+      day,
+      title: titles[day] || `Placeholder Day ${day}`,
+      subtitle: `Featuring ${tools[day] || 'TBD'}`,
+      content: `<p><strong>🚧 Content Coming Soon</strong></p><p>This lesson will be written by Claude Opus 4.5 and will cover ${tools[day]}.</p>`,
+      handsOn: {
+        title: "Hands-On Exercise",
+        description: `Practical exercise with ${tools[day]}`,
+        affiliateLinks: day === 31
+          ? [
+            { text: "Gemini 3 Pro →", url: "https://gemini.google.com" },
+            { text: "Nano Banana →", url: "https://gemini.google.com" },
+            { text: "Veo 3.1 →", url: "https://gemini.google.com" }
+          ]
+          : [{ text: `Try ${tools[day]} →`, url: "#" }],
+        exercise: "Exercise content coming soon."
+      }
+    };
+  })
 ];
