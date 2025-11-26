@@ -53,7 +53,7 @@ export async function POST(request: NextRequest) {
     // For tech partners with valid codes, allow returning users
     if (existingUser && partnerType === 'tech') {
       // User exists and has valid code - they can proceed to login
-      return NextResponse.json({ 
+      return NextResponse.json({
         success: true,
         existing: true,
         message: 'Welcome back! Please proceed to log in.'
@@ -92,13 +92,15 @@ export async function POST(request: NextRequest) {
     }
 
     // Create partner profile
+    // During beta: Waitrose users get beta tester status (progressive unlock)
+    // Enterprise/Tech partners get full access immediately  
     const { error: profileError } = await supabase
       .from('user_profiles')
       .insert([
         {
           user_id: newUser.id,
           display_name: name,
-          partner_type: partnerType,
+          partner_type: partnerType === 'waitrose' ? 'beta' : partnerType, // Waitrose → Beta during beta period
           partner_code: partnerCode,
           organization: organization || null
         }
@@ -109,7 +111,7 @@ export async function POST(request: NextRequest) {
       // Don't fail completely, just log the error
     }
 
-    return NextResponse.json({ 
+    return NextResponse.json({
       success: true,
       message: `${partnerType === 'waitrose' ? 'Waitrose' : 'Tech'} partner account created successfully!`
     })
