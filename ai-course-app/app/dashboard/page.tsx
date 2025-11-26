@@ -63,7 +63,11 @@ export default async function DashboardPage() {
           <div className="flex flex-wrap justify-between gap-3">
             <div className="flex min-w-72 flex-col gap-3">
               <p className="text-5xl font-black tracking-tight text-text-primary">My Dashboard</p>
-              <p className="text-text-secondary text-lg font-medium">Welcome back, let's continue your AI journey.</p>
+              <p className="text-text-secondary text-lg font-medium">
+                {daysCompleted === 0
+                  ? "Welcome! Let's start your AI journey."
+                  : "Welcome back, let's continue your AI journey."}
+              </p>
             </div>
           </div>
 
