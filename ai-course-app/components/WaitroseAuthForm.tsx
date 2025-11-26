@@ -18,17 +18,17 @@ export default function WaitroseAuthForm() {
 
   const checkEmailExists = async () => {
     if (!email || !email.includes("@")) return
-    
+
     setCheckingEmail(true)
     setError("")
-    
+
     try {
       const res = await fetch("/api/auth/check-email", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ email })
       })
-      
+
       const data = await res.json()
       setIsNewUser(!data.exists)
     } catch (err) {
@@ -68,9 +68,9 @@ export default function WaitroseAuthForm() {
         const signupRes = await fetch("/api/auth/signup-partner", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ 
-            email, 
-            password, 
+          body: JSON.stringify({
+            email,
+            password,
             name,
             partnerType: "waitrose",
             partnerCode: "waitrose19"
@@ -123,17 +123,17 @@ export default function WaitroseAuthForm() {
       setError("Please enter a valid email address")
       return
     }
-    
+
     await checkEmailExists()
     setEmailChecked(true)
   }
 
   return (
-    <div className="animate-slideDown">
+    <>
       {/* Warning Message */}
       <div className="glass-peach p-4 rounded-xl mb-4">
         <p className="text-sm font-semibold text-text-primary">
-          ⚠️ <strong>Important:</strong> Use your personal email address, not your Waitrose work email. 
+          ⚠️ <strong>Important:</strong> Use your personal email address, not your Waitrose work email.
           Most Waitrose work emails cannot receive verification messages.
         </p>
       </div>
@@ -188,7 +188,7 @@ export default function WaitroseAuthForm() {
           </div>
         ) : (
           /* Step 2: Password/Signup Form */
-          <form onSubmit={handleSubmit} className="space-y-4 animate-slideDown">
+          <form onSubmit={handleSubmit} className="space-y-4">
             {/* Show email (read-only) */}
             <div>
               <label className="block text-sm font-semibold text-text-secondary mb-2">
@@ -204,7 +204,7 @@ export default function WaitroseAuthForm() {
 
             {/* Name Field (only for new users) */}
             {isNewUser && (
-              <div className="animate-slideDown">
+              <div>
                 <label className="block text-sm font-semibold text-text-secondary mb-2">
                   Full Name
                 </label>
@@ -247,7 +247,7 @@ export default function WaitroseAuthForm() {
 
             {/* Confirm Password (only for new users) */}
             {isNewUser && (
-              <div className="animate-slideDown">
+              <div>
                 <label className="block text-sm font-semibold text-text-secondary mb-2">
                   Confirm Password
                 </label>
@@ -292,7 +292,7 @@ export default function WaitroseAuthForm() {
           </form>
         )}
       </div>
-    </div>
+    </>
   )
 }
 
