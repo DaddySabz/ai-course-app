@@ -131,7 +131,7 @@ export default function TechPartnerAuthForm() {
   }
 
   return (
-    <div className="animate-slideDown">
+    <>
       {/* Info Message - only show before code validation */}
       {!codeValidated && (
         <div className="glass-blue p-4 rounded-xl mb-4">
@@ -275,6 +275,6 @@ export default function TechPartnerAuthForm() {
           </form>
         )}
       </div>
-    </div>
+    </>
   )
 }
