@@ -557,7 +557,7 @@ export const courseModules: CourseModule[] = [
   // DAY 5-30: Additional Placeholders
   ...Array.from({ length: 27 }, (_, i) => {
     const day = i + 5;
-    const titles = {
+    const titles: { [key: number]: string } = {
       5: "Your Second Brain",
       6: "The Artist Within",
       7: "Google's Image Revolution",
@@ -587,7 +587,7 @@ export const courseModules: CourseModule[] = [
       31: "BONUS: The Google Trilogy Challenge"
     };
 
-    const tools = {
+    const tools: { [key: number]: string } = {
       5: "NotebookLM",
       6: "Midjourney v7",
       7: "Nano Banana",
