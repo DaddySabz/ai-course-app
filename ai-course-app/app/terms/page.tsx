@@ -10,7 +10,7 @@ export default function TermsPage() {
             <section>
               <h2 className="text-2xl font-bold mb-4">1. Acceptance of Terms</h2>
               <p className="text-text-secondary leading-relaxed">
-                By accessing and using the Introduction to AI course ("Service") provided by Wacky Works Digital ("we," "us," or "our"), 
+                By accessing and using the Introduction to AI course ("Service") provided by Wacky Works Digital ("we," "us," or "our"),
                 you agree to be bound by these Terms of Service. If you do not agree to these terms, please do not use our Service.
               </p>
             </section>
@@ -18,7 +18,7 @@ export default function TermsPage() {
             <section>
               <h2 className="text-2xl font-bold mb-4">2. Course Access and Content</h2>
               <p className="text-text-secondary leading-relaxed mb-4">
-                The Service provides a 30-day educational course on artificial intelligence. Access to the course is granted upon successful 
+                The Service provides a 30-day educational course on artificial intelligence. Access to the course is granted upon successful
                 registration and payment (where applicable).
               </p>
               <ul className="list-disc list-inside space-y-2 text-text-secondary ml-4">
@@ -40,25 +40,33 @@ export default function TermsPage() {
                 <li>Partner access codes (for eligible users)</li>
               </ul>
               <p className="text-text-secondary leading-relaxed mt-4">
-                You are responsible for maintaining the confidentiality of your account credentials and for all activities 
+                You are responsible for maintaining the confidentiality of your account credentials and for all activities
                 that occur under your account.
               </p>
             </section>
 
             <section>
               <h2 className="text-2xl font-bold mb-4">4. Affiliate Links and Third-Party Services</h2>
+              <p className="text-text-secondary leading-relaxed mb-4">
+                Our course content includes links to third-party AI tools, services, and platforms. Some of these links are affiliate
+                links, which means we may earn a small commission if you sign up or make a purchase through our links.
+              </p>
+              <p className="text-text-secondary leading-relaxed mb-4">
+                <strong className="text-text-primary">Important:</strong> Using our affiliate links is at absolutely <strong>no extra cost to you</strong>.
+                You pay the same price (or often receive special discounts) whether you use our link or go directly to the service.
+                We only recommend tools and services we genuinely believe will benefit our students.
+              </p>
               <p className="text-text-secondary leading-relaxed">
-                The course includes affiliate links and references to third-party AI tools and services. We may earn commissions 
-                from qualifying purchases or sign-ups. We are not responsible for the content, products, or services provided by 
-                third parties.
+                We are not responsible for the content, products, services, pricing, or policies of third-party providers.
+                Your use of third-party services is subject to their own terms and conditions.
               </p>
             </section>
 
             <section>
               <h2 className="text-2xl font-bold mb-4">5. Payment and Refunds</h2>
               <p className="text-text-secondary leading-relaxed">
-                Pricing varies based on access type (general access, partner benefits, enterprise access). Payment terms and 
-                refund policies will be clearly communicated at the time of purchase. Beta testing period may include promotional 
+                Pricing varies based on access type (general access, partner benefits, enterprise access). Payment terms and
+                refund policies will be clearly communicated at the time of purchase. Beta testing period may include promotional
                 pricing or free access.
               </p>
             </section>
@@ -66,8 +74,8 @@ export default function TermsPage() {
             <section>
               <h2 className="text-2xl font-bold mb-4">6. Intellectual Property</h2>
               <p className="text-text-secondary leading-relaxed">
-                All course content, including but not limited to text, images, videos, and course structure, is the intellectual 
-                property of Wacky Works Digital and is protected by copyright laws. Unauthorized use, reproduction, or distribution 
+                All course content, including but not limited to text, images, videos, and course structure, is the intellectual
+                property of Wacky Works Digital and is protected by copyright laws. Unauthorized use, reproduction, or distribution
                 is prohibited.
               </p>
             </section>
@@ -75,7 +83,7 @@ export default function TermsPage() {
             <section>
               <h2 className="text-2xl font-bold mb-4">7. Certificates</h2>
               <p className="text-text-secondary leading-relaxed">
-                Upon successful completion of all 30 lessons, users may receive a digital certificate of completion. Certificates 
+                Upon successful completion of all 30 lessons, users may receive a digital certificate of completion. Certificates
                 are for personal achievement recognition and do not constitute professional accreditation or certification.
               </p>
             </section>
@@ -95,8 +103,8 @@ export default function TermsPage() {
             <section>
               <h2 className="text-2xl font-bold mb-4">9. Limitation of Liability</h2>
               <p className="text-text-secondary leading-relaxed">
-                To the maximum extent permitted by law, Wacky Works Digital shall not be liable for any indirect, incidental, 
-                special, consequential, or punitive damages, or any loss of profits or revenues, whether incurred directly or 
+                To the maximum extent permitted by law, Wacky Works Digital shall not be liable for any indirect, incidental,
+                special, consequential, or punitive damages, or any loss of profits or revenues, whether incurred directly or
                 indirectly, or any loss of data, use, goodwill, or other intangible losses.
               </p>
             </section>
@@ -104,7 +112,7 @@ export default function TermsPage() {
             <section>
               <h2 className="text-2xl font-bold mb-4">10. Changes to Terms</h2>
               <p className="text-text-secondary leading-relaxed">
-                We reserve the right to modify these Terms of Service at any time. Changes will be effective immediately upon 
+                We reserve the right to modify these Terms of Service at any time. Changes will be effective immediately upon
                 posting to the website. Your continued use of the Service after changes constitutes acceptance of the modified terms.
               </p>
             </section>
@@ -112,7 +120,7 @@ export default function TermsPage() {
             <section>
               <h2 className="text-2xl font-bold mb-4">11. Governing Law</h2>
               <p className="text-text-secondary leading-relaxed">
-                These Terms shall be governed by and construed in accordance with the laws of the United Kingdom, without regard 
+                These Terms shall be governed by and construed in accordance with the laws of the United Kingdom, without regard
                 to its conflict of law provisions.
               </p>
             </section>
@@ -124,7 +132,7 @@ export default function TermsPage() {
               </p>
               <p className="text-text-secondary leading-relaxed mt-4">
                 <strong>Email:</strong>{' '}
-                <a href="mailto:hello@wearewacky.com" className="text-text-primary font-bold underline hover:text-sage-green transition-colors">hello@wearewacky.com</a><br/>
+                <a href="mailto:hello@wearewacky.com" className="text-text-primary font-bold underline hover:text-sage-green transition-colors">hello@wearewacky.com</a><br />
                 <strong>Website:</strong>{' '}
                 <a href="https://wearewacky.com" target="_blank" rel="noopener noreferrer" className="text-text-primary font-bold underline hover:text-sage-green transition-colors">wearewacky.com</a>
               </p>
@@ -132,8 +140,8 @@ export default function TermsPage() {
           </div>
 
           <div className="mt-12 pt-8 border-t border-text-tertiary/20">
-            <a 
-              href="/login" 
+            <a
+              href="/login"
               className="btn-neumorphic inline-flex items-center gap-2 rounded-2xl px-6 py-3 text-base font-bold text-text-primary"
             >
               ← Back to Login
