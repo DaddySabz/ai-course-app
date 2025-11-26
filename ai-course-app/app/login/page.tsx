@@ -42,13 +42,13 @@ export default function LoginPage() {
           {/* Right Side - Login Forms with Glass Cards */}
           <div className="flex flex-col items-center justify-center p-8 md:p-12 lg:p-16 overflow-y-auto">
             <div className="flex w-full max-w-md flex-col items-center gap-6">
-              
+
               {/* General Access Card - Blue Frosted Glass */}
               <div className="w-full glass-blue rounded-3xl p-8">
                 <div className="flex items-center justify-between mb-6">
                   <h2 className="text-lg font-bold text-text-primary">General Access</h2>
                 </div>
-                
+
                 <form
                   action={async () => {
                     "use server"
@@ -86,9 +86,6 @@ export default function LoginPage() {
               <div className="w-full glass-lavender rounded-3xl p-8">
                 <h2 className="text-lg font-bold text-text-primary mb-4">Enterprise Access</h2>
                 <TechPartnerAuthForm />
-                <p className="text-xs text-text-secondary text-center font-medium mt-3">
-                  Access with your organization's partner code
-                </p>
               </div>
 
               {/* Footer */}
