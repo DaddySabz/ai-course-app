@@ -28,7 +28,7 @@ export default async function AdminUsersPage() {
         }
     )
 
-    // Fetch all users from user_profiles (has all 13 users)
+    // Fetch all users from user_profiles (after migration, contact_email will be populated)
     const { data: profiles, error: profilesError } = await supabase
         .from('user_profiles')
         .select('user_id, display_name, contact_email, partner_type, created_at')
@@ -39,17 +39,6 @@ export default async function AdminUsersPage() {
         return <AdminUsersClient initialUsers={[]} isAdmin={true} />
     }
 
-    // Fetch ALL user emails from Supabase Auth (includes Google OAuth + email/password)
-    const { data: authData, error: authError } = await supabase.auth.admin.listUsers()
-
-    console.log('🔍 Auth fetch - users count:', authData?.users?.length, 'error:', authError)
-    console.log('🔍 Sample auth user:', authData?.users?.[0])
-
-    // Create a map of user_id to email from Supabase Auth
-    const authEmailMap = new Map(authData?.users?.map(u => [u.id, u.email]) || [])
-    console.log('🔍 Email map size:', authEmailMap.size)
-    console.log('🔍 Sample email mapping:', Array.from(authEmailMap.entries())[0])
-
     // Fetch progress counts for each user
     const usersWithProgress = await Promise.all(
         (profiles || []).map(async (profile) => {
@@ -58,12 +47,9 @@ export default async function AdminUsersPage() {
                 .select('*', { count: 'exact', head: true })
                 .eq('user_id', profile.user_id)
 
-            // Get email from Supabase Auth (works for both Google OAuth and email/password users)
-            const email = authEmailMap.get(profile.user_id) || profile.contact_email || 'N/A'
-
             return {
                 id: profile.user_id,
-                email: email,
+                email: profile.contact_email || 'N/A',
                 display_name: profile.display_name || 'Unknown',
                 partner_type: profile.partner_type || 'beta',
                 progress_count: count || 0,
