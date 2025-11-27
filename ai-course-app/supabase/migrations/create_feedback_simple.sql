@@ -25,42 +25,6 @@ create policy "Users can view their own feedback"
   to authenticated
   using (auth.uid() = user_id);
 
--- Admins can view all feedback
-create policy "Admins can view all feedback"
-  on feedback for select
-  to authenticated
-  using (
-    exists (
-      select 1 from user_profiles up
-      where up.user_id = auth.uid()
-      and up.partner_type = 'tech'
-    )
-  );
-
--- Admins can update feedback status
-create policy "Admins can update feedback"
-  on feedback for update
-  to authenticated
-  using (
-    exists (
-      select 1 from user_profiles up
-      where up.user_id = auth.uid()
-      and up.partner_type = 'tech'
-    )
-  );
-
--- Admins can delete feedback
-create policy "Admins can delete feedback"
-  on feedback for delete
-  to authenticated
-  using (
-    exists (
-      select 1 from user_profiles up
-      where up.user_id = auth.uid()
-      and up.partner_type = 'tech'
-    )
-  );
-
 -- Create index for faster queries
 create index if not exists feedback_user_id_idx on feedback(user_id);
 create index if not exists feedback_status_idx on feedback(status);

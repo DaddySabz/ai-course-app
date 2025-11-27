@@ -4,7 +4,7 @@ import { NextResponse } from 'next/server'
 
 export async function DELETE(
     request: Request,
-    { params }: { params: { id: string } }
+    context: { params: Promise<{ id: string }> }
 ) {
     try {
         const session = await auth()
@@ -21,7 +21,7 @@ export async function DELETE(
             return NextResponse.json({ error: 'Forbidden' }, { status: 403 })
         }
 
-        const userId = params.id
+        const { id: userId } = await context.params
 
         if (!userId) {
             return NextResponse.json({ error: 'User ID is required' }, { status: 400 })
