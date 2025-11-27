@@ -19,7 +19,13 @@ export default async function AdminUsersPage() {
 
     const supabase = createClient(
         process.env.NEXT_PUBLIC_SUPABASE_URL!,
-        process.env.SUPABASE_SECRET_KEY!
+        process.env.SUPABASE_SECRET_KEY!,
+        {
+            auth: {
+                autoRefreshToken: false,
+                persistSession: false
+            }
+        }
     )
 
     // Fetch all users with their profiles and progress
@@ -27,6 +33,8 @@ export default async function AdminUsersPage() {
         .from('user_profiles')
         .select('user_id, display_name, email, partner_type, created_at')
         .order('created_at', { ascending: false })
+
+    console.log('Fetching users - count:', profiles?.length, 'error:', error)
 
     if (error) {
         console.error('Error fetching users:', error)
