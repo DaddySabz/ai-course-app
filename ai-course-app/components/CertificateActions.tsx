@@ -206,8 +206,8 @@ export default function CertificateActions({ certificateId }: CertificateActions
     const params = new URLSearchParams({
       startTask: 'CERTIFICATION_NAME',
       name: 'Introduction to AI',
-      // TODO: Replace with actual Wacky Works Digital LinkedIn Organization ID
-      organizationId: '96098630', // Placeholder - needs verification
+      // Wacky Works Digital LinkedIn Organization ID
+      organizationId: '109555093',
       issueYear: new Date().getFullYear().toString(),
       issueMonth: (new Date().getMonth() + 1).toString(),
       certUrl: `${window.location.origin}/c/${certificateId}`,
