@@ -10,6 +10,7 @@ export default function EmailAuthForm() {
   const [isNewUser, setIsNewUser] = useState(false)
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
+  const [confirmPassword, setConfirmPassword] = useState('')
   const [name, setName] = useState('')
   const [showPassword, setShowPassword] = useState(false)
   const [error, setError] = useState('')
@@ -19,7 +20,7 @@ export default function EmailAuthForm() {
   // Check if email exists when user finishes typing
   const checkEmailExists = async (emailValue: string) => {
     if (!emailValue || !emailValue.includes('@')) return
-    
+
     setCheckingEmail(true)
     try {
       const res = await fetch('/api/auth/check-email', {
@@ -52,6 +53,13 @@ export default function EmailAuthForm() {
     e.preventDefault()
     setError('')
     setLoading(true)
+
+    // Validation for new users
+    if (isNewUser && password !== confirmPassword) {
+      setError('Passwords do not match')
+      setLoading(false)
+      return
+    }
 
     try {
       if (isNewUser) {
@@ -140,7 +148,7 @@ export default function EmailAuthForm() {
           ✕
         </button>
       </div>
-      
+
       <form onSubmit={handleSubmit} className="space-y-4">
         <div>
           <label htmlFor="email" className="block text-sm font-semibold text-text-secondary mb-2">
@@ -163,7 +171,7 @@ export default function EmailAuthForm() {
             {isNewUser && (
               <div className="animate-slideDown">
                 <label htmlFor="name" className="block text-sm font-semibold text-text-secondary mb-2">
-                  Name (Optional)
+                  Full Name
                 </label>
                 <input
                   id="name"
@@ -171,6 +179,7 @@ export default function EmailAuthForm() {
                   value={name}
                   onChange={(e) => setName(e.target.value)}
                   placeholder="Your name"
+                  required
                   className="w-full px-4 py-3 rounded-xl glass-inset text-text-primary placeholder-text-tertiary focus:outline-none focus:ring-2 focus:ring-sage-green"
                 />
               </div>
@@ -194,15 +203,32 @@ export default function EmailAuthForm() {
                 <button
                   type="button"
                   onClick={() => setShowPassword(!showPassword)}
-                  className="absolute right-3 top-1/2 -translate-y-1/2 text-text-tertiary hover:text-text-secondary"
+                  className="absolute right-3 top-1/2 -translate-y-1/2 text-text-tertiary hover:text-text-primary text-sm"
                 >
-                  {showPassword ? '👁️' : '👁️‍🗨️'}
+                  {showPassword ? 'Hide' : 'Show'}
                 </button>
               </div>
               {isNewUser && (
                 <p className="text-xs text-text-tertiary mt-1">Minimum 8 characters</p>
               )}
             </div>
+
+            {isNewUser && (
+              <div className="animate-slideDown">
+                <label htmlFor="confirmPassword" className="block text-sm font-semibold text-text-secondary mb-2">
+                  Confirm Password
+                </label>
+                <input
+                  id="confirmPassword"
+                  type={showPassword ? 'text' : 'password'}
+                  value={confirmPassword}
+                  onChange={(e) => setConfirmPassword(e.target.value)}
+                  required
+                  placeholder="••••••••"
+                  className="w-full px-4 py-3 rounded-xl glass-inset text-text-primary placeholder-text-tertiary focus:outline-none focus:ring-2 focus:ring-sage-green"
+                />
+              </div>
+            )}
           </>
         )}
 
