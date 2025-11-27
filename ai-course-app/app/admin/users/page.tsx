@@ -28,42 +28,32 @@ export default async function AdminUsersPage() {
         }
     )
 
-    // Fetch all users from the users table (has email addresses)
-    const { data: users, error: usersError } = await supabase
-        .from('users')
-        .select('id, email, name')
-        .order('id', { ascending: false })
+    // Fetch all users from user_profiles (has all 13 users with contact_email)
+    const { data: profiles, error: profilesError } = await supabase
+        .from('user_profiles')
+        .select('user_id, display_name, contact_email, partner_type, created_at')
+        .order('created_at', { ascending: false })
 
-    if (usersError) {
-        console.error('Error fetching users:', usersError)
+    if (profilesError) {
+        console.error('Error fetching user profiles:', profilesError)
         return <AdminUsersClient initialUsers={[]} isAdmin={true} />
     }
 
-    // Fetch user profiles to get partner types
-    const { data: profiles } = await supabase
-        .from('user_profiles')
-        .select('user_id, partner_type, created_at')
-
-    // Create a map of user_id to profile data
-    const profileMap = new Map(profiles?.map(p => [p.user_id, p]) || [])
-
     // Fetch progress counts for each user
     const usersWithProgress = await Promise.all(
-        (users || []).map(async (user) => {
+        (profiles || []).map(async (profile) => {
             const { count } = await supabase
                 .from('user_progress')
                 .select('*', { count: 'exact', head: true })
-                .eq('user_id', user.id)
-
-            const profile = profileMap.get(user.id)
+                .eq('user_id', profile.user_id)
 
             return {
-                id: user.id,
-                email: user.email || 'N/A',
-                display_name: user.name || 'Unknown',
-                partner_type: profile?.partner_type || 'beta',
+                id: profile.user_id,
+                email: profile.contact_email || 'N/A',
+                display_name: profile.display_name || 'Unknown',
+                partner_type: profile.partner_type || 'beta',
                 progress_count: count || 0,
-                created_at: profile?.created_at || new Date().toISOString()
+                created_at: profile.created_at
             }
         })
     )
