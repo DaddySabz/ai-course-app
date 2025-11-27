@@ -8,7 +8,7 @@ import NavigationBar from '@/components/NavigationBar'
 
 export default async function CertificatePage() {
   const session = await auth()
-  
+
   if (!session?.user) {
     redirect("/")
   }
@@ -42,7 +42,7 @@ export default async function CertificatePage() {
 
   // Handle case where table doesn't exist yet
   const safeProgressData = progressError ? [] : (progressData || [])
-  
+
   // Only admins and tech partners get instant certificate (for review purposes)
   // Waitrose partners and regular users must complete all 30 days
   const completedLessons = (isAdmin || isTechPartner) ? 30 : safeProgressData.length
@@ -60,7 +60,7 @@ export default async function CertificatePage() {
 
     if (existingCert) {
       certificate = existingCert
-      
+
       // Always update certificate name to match current display_name from profile
       if (existingCert.user_name !== displayName) {
         const { data: updatedCert } = await supabase
@@ -69,7 +69,7 @@ export default async function CertificatePage() {
           .eq('user_id', session.user.id)
           .select()
           .single()
-        
+
         if (updatedCert) {
           certificate = updatedCert
         } else {
@@ -103,126 +103,127 @@ export default async function CertificatePage() {
       <NavigationBar />
 
       <div className="flex flex-col items-center justify-center p-4 py-12">
-      {hasCompleted ? (
-        <div className="w-full max-w-5xl">
-          {/* Certificate Card - Clean Design with Profile Picture */}
-          <div id="certificate-content" className="card-neumorphic rounded-3xl shadow-2xl p-8 sm:p-16 relative">
-            {/* Decorative corners */}
-            <div className="absolute top-4 left-4 w-12 h-12 border-t-4 border-l-4 rounded-tl-xl" style={{ borderColor: 'rgba(184, 206, 184, 0.4)' }}></div>
-            <div className="absolute top-4 right-4 w-12 h-12 border-t-4 border-r-4 rounded-tr-xl" style={{ borderColor: 'rgba(184, 206, 184, 0.4)' }}></div>
-            <div className="absolute bottom-4 left-4 w-12 h-12 border-b-4 border-l-4 rounded-bl-xl" style={{ borderColor: 'rgba(184, 206, 184, 0.4)' }}></div>
-            <div className="absolute bottom-4 right-4 w-12 h-12 border-b-4 border-r-4 rounded-br-xl" style={{ borderColor: 'rgba(184, 206, 184, 0.4)' }}></div>
-            
-            {/* Title */}
-            <div className="text-center mb-4">
-              <h2 className="text-3xl sm:text-4xl font-black text-text-primary">Certificate of Completion</h2>
-            </div>
+        {hasCompleted ? (
+          <div className="w-full max-w-5xl">
+            {/* Certificate Card - Premium Minimal Design */}
+            <div id="certificate-content" className="rounded-3xl shadow-2xl p-12 sm:p-20 relative" style={{
+              backgroundImage: 'url(/certificate-bg.png)',
+              backgroundSize: 'cover',
+              backgroundPosition: 'center',
+              backgroundRepeat: 'no-repeat',
+              minHeight: '700px'
+            }}>
 
-            {/* This certifies that + Profile Picture + Name */}
-            <div className="text-center mb-12">
-              <p className="text-xl text-text-secondary mb-6 font-semibold">This certifies that</p>
-              
-              {/* Profile Picture */}
-              <div className="flex justify-center mb-6">
-                {profileAvatar ? (
-                  <img 
-                    src={profileAvatar} 
-                    alt="Profile" 
-                    className="w-20 h-20 rounded-full shadow-lg object-cover"
-                    style={{ boxShadow: '0 0 0 4px rgba(184, 206, 184, 0.3)' }}
-                  />
-                ) : (
-                  <div 
-                    className="w-20 h-20 rounded-full shadow-lg flex items-center justify-center"
-                    style={{ 
-                      boxShadow: '0 0 0 4px rgba(184, 206, 184, 0.3)',
-                      background: 'linear-gradient(to bottom right, rgba(184, 206, 184, 0.3), rgba(184, 168, 212, 0.3))'
-                    }}
-                  >
-                    <span className="text-3xl font-black text-text-primary">
-                      {displayName[0]?.toUpperCase() || 'U'}
-                    </span>
-                  </div>
-                )}
+              {/* Title */}
+              <div className="text-center mb-8">
+                <h2 className="text-4xl sm:text-5xl font-bold text-gray-900" style={{ fontFamily: 'Georgia, serif', letterSpacing: '0.02em' }}>Certificate of Completion</h2>
               </div>
 
-              {/* Name and Organization */}
-              <div className="space-y-2">
-                <h1 className="text-4xl sm:text-5xl font-black tracking-tight text-text-primary">
-                  {displayName}
-                </h1>
-                {organization && (
-                  <p className="text-xl font-normal text-text-secondary">
-                    {organization}
-                  </p>
-                )}
-              </div>
-            </div>
+              {/* This certifies that + Profile Picture + Name */}
+              <div className="text-center mb-12">
+                <p className="text-xl text-text-secondary mb-6 font-semibold">This certifies that</p>
 
-            {/* Description */}
-            <div className="text-center mb-12">
-              <p className="text-xl text-text-secondary mb-3 font-medium">
-                has successfully completed the
-              </p>
-              <h3 className="text-3xl sm:text-4xl font-black text-text-primary mb-4">
-                Introduction to AI
-              </h3>
-              <p className="text-xl text-text-secondary font-medium">
-                course and demonstrated dedication and commitment to mastering AI fundamentals
-              </p>
-            </div>
+                {/* Profile Picture */}
+                <div className="flex justify-center mb-6">
+                  {profileAvatar ? (
+                    <img
+                      src={profileAvatar}
+                      alt="Profile"
+                      className="w-20 h-20 rounded-full shadow-lg object-cover"
+                      style={{ boxShadow: '0 0 0 4px rgba(184, 206, 184, 0.3)' }}
+                    />
+                  ) : (
+                    <div
+                      className="w-20 h-20 rounded-full shadow-lg flex items-center justify-center"
+                      style={{
+                        boxShadow: '0 0 0 4px rgba(184, 206, 184, 0.3)',
+                        background: 'linear-gradient(to bottom right, rgba(184, 206, 184, 0.3), rgba(184, 168, 212, 0.3))'
+                      }}
+                    >
+                      <span className="text-3xl font-black text-text-primary">
+                        {displayName[0]?.toUpperCase() || 'U'}
+                      </span>
+                    </div>
+                  )}
+                </div>
 
-            {/* Date and ID */}
-            <div 
-              className="flex flex-col sm:flex-row justify-between items-center gap-6 pt-8 border-t-2"
-              style={{ borderColor: 'rgba(122, 115, 110, 0.2)' }}
-            >
-              <div className="text-center sm:text-left">
-                <p className="text-sm text-text-secondary font-semibold uppercase tracking-wider mb-1">Completion Date</p>
-                <p className="text-lg font-semibold text-text-primary">{certificate?.completion_date ? new Date(certificate.completion_date).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' }) : ''}</p>
+                {/* Name and Organization */}
+                <div className="space-y-2">
+                  <h1 className="text-4xl sm:text-5xl font-black tracking-tight text-text-primary">
+                    {displayName}
+                  </h1>
+                  {organization && (
+                    <p className="text-xl font-normal text-text-secondary">
+                      {organization}
+                    </p>
+                  )}
+                </div>
               </div>
-              <div className="text-center sm:text-right">
-                <p className="text-sm text-text-secondary font-semibold uppercase tracking-wider mb-1">Certificate ID</p>
-                {/* Display shortened UUID (first 8 chars) - Full UUID stored in DB for verification */}
-                <p className="text-lg font-semibold text-text-primary">
-                  {certificate?.id ? `AI-${String(certificate.id).replace(/-/g, '').slice(0, 8).toUpperCase()}` : 'AI-XXXXXXXX'}
+
+              {/* Description */}
+              <div className="text-center mb-12">
+                <p className="text-xl text-text-secondary mb-3 font-medium">
+                  has successfully completed the
+                </p>
+                <h3 className="text-3xl sm:text-4xl font-black text-text-primary mb-4">
+                  Introduction to AI
+                </h3>
+                <p className="text-xl text-text-secondary font-medium">
+                  course and demonstrated dedication and commitment to mastering AI fundamentals
                 </p>
               </div>
-            </div>
-          </div>
 
-          {/* Action Buttons */}
-          <CertificateActions certificateId={certificate?.id} />
-        </div>
-      ) : (
-        /* Not Completed Yet - Warm design */
-        <div className="w-full max-w-2xl">
-          <div className="card-neumorphic rounded-3xl p-10 text-center">
-            <h1 className="text-4xl font-black text-text-primary mb-6">Certificate Not Available Yet</h1>
-            <p className="text-xl text-text-secondary mb-8 font-medium">
-              You've completed <span className="font-black text-sage-green text-2xl">{completedLessons}</span> out of <span className="font-black text-2xl text-text-primary">{totalLessons}</span> lessons.
-            </p>
-            <div className="w-full bg-text-tertiary/20 rounded-full h-6 mb-8 overflow-hidden">
-              <div 
-                className="bg-gradient-to-r from-sage-green via-mint to-lavender h-6 rounded-full transition-all duration-1000 flex items-center justify-end pr-2"
-                style={{ width: `${(completedLessons / totalLessons) * 100}%` }}
+              {/* Date and ID */}
+              <div
+                className="flex flex-col sm:flex-row justify-between items-center gap-6 pt-8 border-t-2"
+                style={{ borderColor: 'rgba(122, 115, 110, 0.2)' }}
               >
-                <span className="text-white text-xs font-bold">{Math.round((completedLessons / totalLessons) * 100)}%</span>
+                <div className="text-center sm:text-left">
+                  <p className="text-sm text-text-secondary font-semibold uppercase tracking-wider mb-1">Completion Date</p>
+                  <p className="text-lg font-semibold text-text-primary">{certificate?.completion_date ? new Date(certificate.completion_date).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' }) : ''}</p>
+                </div>
+                <div className="text-center sm:text-right">
+                  <p className="text-sm text-text-secondary font-semibold uppercase tracking-wider mb-1">Certificate ID</p>
+                  {/* Display shortened UUID (first 8 chars) - Full UUID stored in DB for verification */}
+                  <p className="text-lg font-semibold text-text-primary">
+                    {certificate?.id ? `AI-${String(certificate.id).replace(/-/g, '').slice(0, 8).toUpperCase()}` : 'AI-XXXXXXXX'}
+                  </p>
+                </div>
               </div>
             </div>
-            <p className="text-lg text-text-secondary mb-10 font-medium">
-              Keep going! Complete all {totalLessons} lessons to earn your certificate and showcase your AI knowledge.
-            </p>
-            <Link 
-              href="/dashboard" 
-              className="btn-neumorphic inline-flex items-center gap-2 px-8 py-4 rounded-2xl font-bold text-text-primary"
-            >
-              Continue Learning
-              <span className="text-xl">→</span>
-            </Link>
+
+            {/* Action Buttons */}
+            <CertificateActions certificateId={certificate?.id} />
           </div>
-        </div>
-      )}
+        ) : (
+          /* Not Completed Yet - Warm design */
+          <div className="w-full max-w-2xl">
+            <div className="card-neumorphic rounded-3xl p-10 text-center">
+              <h1 className="text-4xl font-black text-text-primary mb-6">Certificate Not Available Yet</h1>
+              <p className="text-xl text-text-secondary mb-8 font-medium">
+                You've completed <span className="font-black text-sage-green text-2xl">{completedLessons}</span> out of <span className="font-black text-2xl text-text-primary">{totalLessons}</span> lessons.
+              </p>
+              <div className="w-full bg-text-tertiary/20 rounded-full h-6 mb-8 overflow-hidden">
+                <div
+                  className="bg-gradient-to-r from-sage-green via-mint to-lavender h-6 rounded-full transition-all duration-1000 flex items-center justify-end pr-2"
+                  style={{ width: `${(completedLessons / totalLessons) * 100}%` }}
+                >
+                  <span className="text-white text-xs font-bold">{Math.round((completedLessons / totalLessons) * 100)}%</span>
+                </div>
+              </div>
+              <p className="text-lg text-text-secondary mb-10 font-medium">
+                Keep going! Complete all {totalLessons} lessons to earn your certificate and showcase your AI knowledge.
+              </p>
+              <Link
+                href="/dashboard"
+                className="btn-neumorphic inline-flex items-center gap-2 px-8 py-4 rounded-2xl font-bold text-text-primary"
+              >
+                Continue Learning
+                <span className="text-xl">→</span>
+              </Link>
+            </div>
+          </div>
+        )}
       </div>
     </div>
   );
