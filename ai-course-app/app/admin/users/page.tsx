@@ -39,13 +39,11 @@ export default async function AdminUsersPage() {
         return <AdminUsersClient initialUsers={[]} isAdmin={true} />
     }
 
-    // Fetch from users table to get emails (only 6 entries)
-    const { data: usersData } = await supabase
-        .from('users')
-        .select('id, email, name')
+    // Fetch ALL user emails from Supabase Auth (includes Google OAuth + email/password)
+    const { data: authData } = await supabase.auth.admin.listUsers()
 
-    // Create a map of user_id to email from users table
-    const userEmailMap = new Map(usersData?.map(u => [u.id, u.email]) || [])
+    // Create a map of user_id to email from Supabase Auth
+    const authEmailMap = new Map(authData?.users?.map(u => [u.id, u.email]) || [])
 
     // Fetch progress counts for each user
     const usersWithProgress = await Promise.all(
@@ -55,8 +53,8 @@ export default async function AdminUsersPage() {
                 .select('*', { count: 'exact', head: true })
                 .eq('user_id', profile.user_id)
 
-            // Try to get email from users table first, fallback to contact_email
-            const email = userEmailMap.get(profile.user_id) || profile.contact_email || 'N/A'
+            // Get email from Supabase Auth (works for both Google OAuth and email/password users)
+            const email = authEmailMap.get(profile.user_id) || profile.contact_email || 'N/A'
 
             return {
                 id: profile.user_id,
