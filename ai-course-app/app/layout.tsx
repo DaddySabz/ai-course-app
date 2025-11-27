@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import AuthSessionProvider from "@/components/SessionProvider";
+import BugReportModal from "@/components/BugReportModal";
 
 export const metadata: Metadata = {
   title: "Introduction to AI Course",
@@ -17,6 +18,7 @@ export default function RootLayout({
       <body className="bg-background-light text-text-primary min-h-screen">
         <AuthSessionProvider>
           {children}
+          <BugReportModal />
         </AuthSessionProvider>
       </body>
     </html>
