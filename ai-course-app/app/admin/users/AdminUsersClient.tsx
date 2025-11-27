@@ -22,7 +22,9 @@ export default function AdminUsersClient({ initialUsers, isAdmin }: AdminUsersCl
     const [users, setUsers] = useState(initialUsers)
     const [isAddingUser, setIsAddingUser] = useState(false)
     const [newUserEmail, setNewUserEmail] = useState('')
-    const [newUserName, setNewUserName] = useState('')
+    const [newUser
+
+Name, setNewUserName] = useState('')
     const [newUserType, setNewUserType] = useState('beta')
     const [isSubmitting, setIsSubmitting] = useState(false)
     const router = useRouter()
@@ -293,9 +295,9 @@ export default function AdminUsersClient({ initialUsers, isAdmin }: AdminUsersCl
                                         <div className="flex items-center gap-3 mb-2">
                                             <h3 className="text-xl font-bold text-text-primary">{user.display_name}</h3>
                                             <span className={`px-3 py-1 rounded-full text-xs font-bold ${user.partner_type === 'beta' ? 'bg-green-100 text-green-700' :
-                                                user.partner_type === 'waitrose' ? 'bg-purple-100 text-purple-700' :
-                                                    user.partner_type === 'tech' ? 'bg-blue-100 text-blue-700' :
-                                                        'bg-gray-100 text-gray-700'
+                                                    user.partner_type === 'waitrose' ? 'bg-purple-100 text-purple-700' :
+                                                        user.partner_type === 'tech' ? 'bg-blue-100 text-blue-700' :
+                                                            'bg-gray-100 text-gray-700'
                                                 }`}>
                                                 {user.partner_type.toUpperCase()}
                                             </span>
@@ -306,7 +308,38 @@ export default function AdminUsersClient({ initialUsers, isAdmin }: AdminUsersCl
                                             <span>📅 {new Date(user.created_at).toLocaleDateString()}</span>
                                         </div>
                                     </div>
+                                    <div className="flex flex-col gap-2">
+                                        <button
+                                            onClick={() => handleResetProgress(user.id, user.email)}
+                                            className="px-4 py-2 rounded-lg font-semibold text-amber-700 bg-amber-100 hover:bg-amber-200 transition-colors text-sm"
+                                        >
+                                            🔄 Reset Progress
+                                        </button>
+                                        <button
+                                            onClick={() => handleUnlockCourse(user.id, user.email)}
+                                            className="px-4 py-2 rounded-lg font-semibold text-purple-700 bg-purple-100 hover:bg-purple-200 transition-colors text-sm"
+                                        >
+                                            🔓 Unlock Course
+                                        </button>
+                                        <button
+                                            onClick={() => handleCompleteAllDays(user.id, user.email)}
+                                            className="px-4 py-2 rounded-lg font-semibold text-green-700 bg-green-100 hover:bg-green-200 transition-colors text-sm"
+                                        >
+                                            ✅ Complete All Days
+                                        </button>
+                                        <button
+                                            onClick={() => handleDeleteUser(user.id, user.email)}
+                                            className="px-4 py-2 rounded-lg font-semibold text-red-700 bg-red-100 hover:bg-red-200 transition-colors text-sm"
+                                        >
+                                            🗑️ Delete User
+                                        </button>
+                                    </div>
                                 </div>
                             </div>
-                        )
+                        ))}
+                    </div>
+                </div>
+            </div>
+        </div>
+    )
 }
