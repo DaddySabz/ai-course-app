@@ -22,9 +22,7 @@ export default function AdminUsersClient({ initialUsers, isAdmin }: AdminUsersCl
     const [users, setUsers] = useState(initialUsers)
     const [isAddingUser, setIsAddingUser] = useState(false)
     const [newUserEmail, setNewUserEmail] = useState('')
-    const [newUser
-
-Name, setNewUserName] = useState('')
+    const [newUserName, setNewUserName] = useState('')
     const [newUserType, setNewUserType] = useState('beta')
     const [isSubmitting, setIsSubmitting] = useState(false)
     const router = useRouter()
@@ -295,9 +293,9 @@ Name, setNewUserName] = useState('')
                                         <div className="flex items-center gap-3 mb-2">
                                             <h3 className="text-xl font-bold text-text-primary">{user.display_name}</h3>
                                             <span className={`px-3 py-1 rounded-full text-xs font-bold ${user.partner_type === 'beta' ? 'bg-green-100 text-green-700' :
-                                                    user.partner_type === 'waitrose' ? 'bg-purple-100 text-purple-700' :
-                                                        user.partner_type === 'tech' ? 'bg-blue-100 text-blue-700' :
-                                                            'bg-gray-100 text-gray-700'
+                                                user.partner_type === 'waitrose' ? 'bg-purple-100 text-purple-700' :
+                                                    user.partner_type === 'tech' ? 'bg-blue-100 text-blue-700' :
+                                                        'bg-gray-100 text-gray-700'
                                                 }`}>
                                                 {user.partner_type.toUpperCase()}
                                             </span>
