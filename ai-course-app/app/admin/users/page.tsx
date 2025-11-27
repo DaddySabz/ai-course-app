@@ -31,7 +31,7 @@ export default async function AdminUsersPage() {
     // Fetch all users with their profiles and progress
     const { data: profiles, error } = await supabase
         .from('user_profiles')
-        .select('user_id, display_name, email, partner_type, created_at')
+        .select('user_id, display_name, partner_type, created_at')
         .order('created_at', { ascending: false })
 
     console.log('Fetching users - count:', profiles?.length, 'error:', error)
@@ -40,6 +40,10 @@ export default async function AdminUsersPage() {
         console.error('Error fetching users:', error)
         return <AdminUsersClient initialUsers={[]} isAdmin={true} />
     }
+
+    // Fetch all auth users to get emails
+    const { data: authUsers } = await supabase.auth.admin.listUsers()
+    const emailMap = new Map(authUsers?.users.map(u => [u.id, u.email || 'N/A']))
 
     // Fetch progress counts for each user
     const usersWithProgress = await Promise.all(
@@ -51,7 +55,7 @@ export default async function AdminUsersPage() {
 
             return {
                 id: profile.user_id,
-                email: profile.email || 'N/A',
+                email: emailMap.get(profile.user_id) || 'N/A',
                 display_name: profile.display_name || 'Unknown',
                 partner_type: profile.partner_type || 'beta',
                 progress_count: count || 0,
