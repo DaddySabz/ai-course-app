@@ -95,6 +95,7 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
           await supabase.from('user_profiles').insert({
             user_id: user.id,
             display_name: user.name || user.email.split('@')[0],
+            contact_email: user.email,  // ← ADD THIS LINE
             avatar_url: user.image,
             partner_type: 'beta', // Default to beta for all new signups
             partner_code: 'BETA_AUTO',
