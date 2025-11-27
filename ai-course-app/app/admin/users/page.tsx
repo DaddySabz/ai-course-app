@@ -25,56 +25,6 @@ export default async function AdminUsersPage() {
                 autoRefreshToken: false,
                 persistSession: false
             }
-        }
-    )
-
-    // Fetch all users with their profiles and progress
-    const { data: profiles, error } = await supabase
-        .from('user_profiles')
-        .select('user_id, display_name, partner_type, created_at')
-        .order('created_at', { ascending: false })
-
-    console.log('Fetching users - count:', profiles?.length, 'error:', error)
-
-    if (error) {
-        console.error('Error fetching users:', error)
-        return <AdminUsersClient initialUsers={[]} isAdmin={true} />
-    }
-
-    // Fetch all auth users to get emails
-    const { data: authData, error: authError } = await supabase.auth.admin.listUsers()
-    console.log('Auth users fetch - count:', authData?.users?.length, 'error:', authError)
-
-    const emailMap = new Map<string, string>()
-    if (authData?.users) {
-        authData.users.forEach(u => {
-            if (u.id && u.email) {
-                emailMap.set(u.id, u.email)
-            }
-        })
-    }
-    console.log('Email map size:', emailMap.size)
-
-    // Fetch progress counts for each user
-    const usersWithProgress = await Promise.all(
-        (profiles || []).map(async (profile) => {
-            const { count } = await supabase
-                .from('user_progress')
-                .select('*', { count: 'exact', head: true })
-                .eq('user_id', profile.user_id)
-
-            const userEmail = emailMap.get(profile.user_id) || 'N/A'
-            console.log(`User ${profile.user_id}: email = ${userEmail}`)
-
-            return {
-                id: profile.user_id,
-                email: userEmail,
-                display_name: profile.display_name || 'Unknown',
-                partner_type: profile.partner_type || 'beta',
-                progress_count: count || 0,
-                created_at: profile.created_at
-            }
-        })
     )
 
     return <AdminUsersClient initialUsers={usersWithProgress} isAdmin={true} />
