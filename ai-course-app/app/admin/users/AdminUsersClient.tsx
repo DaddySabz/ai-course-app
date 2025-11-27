@@ -120,6 +120,54 @@ export default function AdminUsersClient({ initialUsers, isAdmin }: AdminUsersCl
         }
     }
 
+    const handleUnlockCourse = async (userId: string, email: string) => {
+        if (!confirm(`Unlock full course access for ${email}? This will change their account to Waitrose Partner.`)) {
+            return
+        }
+
+        try {
+            const response = await fetch('/api/admin/unlock-course', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ userId })
+            })
+
+            if (response.ok) {
+                alert('✅ Course unlocked successfully!')
+                router.refresh()
+            } else {
+                alert('❌ Failed to unlock course')
+            }
+        } catch (error) {
+            console.error('Error unlocking course:', error)
+            alert('❌ Failed to unlock course')
+        }
+    }
+
+    const handleCompleteAllDays = async (userId: string, email: string) => {
+        if (!confirm(`Mark all 30 days as completed for ${email}?`)) {
+            return
+        }
+
+        try {
+            const response = await fetch('/api/admin/complete-all-days', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ userId })
+            })
+
+            if (response.ok) {
+                alert('✅ All days completed successfully!')
+                router.refresh()
+            } else {
+                alert('❌ Failed to complete all days')
+            }
+        } catch (error) {
+            console.error('Error completing all days:', error)
+            alert('❌ Failed to complete all days')
+        }
+    }
+
     return (
         <div className="min-h-screen p-8">
             <div className="max-w-7xl mx-auto">
@@ -245,9 +293,9 @@ export default function AdminUsersClient({ initialUsers, isAdmin }: AdminUsersCl
                                         <div className="flex items-center gap-3 mb-2">
                                             <h3 className="text-xl font-bold text-text-primary">{user.display_name}</h3>
                                             <span className={`px-3 py-1 rounded-full text-xs font-bold ${user.partner_type === 'beta' ? 'bg-green-100 text-green-700' :
-                                                    user.partner_type === 'waitrose' ? 'bg-purple-100 text-purple-700' :
-                                                        user.partner_type === 'tech' ? 'bg-blue-100 text-blue-700' :
-                                                            'bg-gray-100 text-gray-700'
+                                                user.partner_type === 'waitrose' ? 'bg-purple-100 text-purple-700' :
+                                                    user.partner_type === 'tech' ? 'bg-blue-100 text-blue-700' :
+                                                        'bg-gray-100 text-gray-700'
                                                 }`}>
                                                 {user.partner_type.toUpperCase()}
                                             </span>
@@ -258,26 +306,7 @@ export default function AdminUsersClient({ initialUsers, isAdmin }: AdminUsersCl
                                             <span>📅 {new Date(user.created_at).toLocaleDateString()}</span>
                                         </div>
                                     </div>
-                                    <div className="flex flex-col gap-2">
-                                        <button
-                                            onClick={() => handleResetProgress(user.id, user.email)}
-                                            className="px-4 py-2 rounded-lg font-semibold text-amber-700 bg-amber-100 hover:bg-amber-200 transition-colors text-sm"
-                                        >
-                                            🔄 Reset Progress
-                                        </button>
-                                        <button
-                                            onClick={() => handleDeleteUser(user.id, user.email)}
-                                            className="px-4 py-2 rounded-lg font-semibold text-red-700 bg-red-100 hover:bg-red-200 transition-colors text-sm"
-                                        >
-                                            🗑️ Delete User
-                                        </button>
-                                    </div>
                                 </div>
                             </div>
-                        ))}
-                    </div>
-                </div>
-            </div>
-        </div>
-    )
+                        )
 }
