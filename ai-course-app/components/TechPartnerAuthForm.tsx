@@ -74,30 +74,44 @@ export default function TechPartnerAuthForm() {
     }
 
     try {
-      // Log the contact info for analytics (optional - just track who's using it)
+      // Track analytics
       await fetch("/api/auth/track-partner", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          name,
-          email,
-          organization,
-          partnerCode: code
-        })
-      }).catch(() => { }) // Don't block if tracking fails
+        body: JSON.stringify({ name, email, organization, partnerCode: code })
+      }).catch(() => { })
 
-      // Sign in using Organization as username and Code as password
-      console.log('Attempting login with:', { email: organization, password: code.toLowerCase() })
+      // Create tech partner account using the signup-partner API
+      const signupRes = await fetch("/api/auth/signup-partner", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          email,  // Use actual user email
+          password: code.toLowerCase(),  // Use partner code as password
+          name,   // Use actual user name
+          partnerType: "tech",
+          partnerCode: code.toLowerCase(),
+          organization  // Store organization name
+        })
+      })
+
+      const signupData = await signupRes.json()
+
+      if (!signupRes.ok) {
+        setError(signupData.error || "Sign up failed")
+        setLoading(false)
+        return
+      }
+
+      // Auto-login after successful signup
       const result = await signIn("credentials", {
-        email: organization, // Use organization as "email/username"
-        password: code.toLowerCase(), // Use code as password
+        email,  // Use actual email, not organization
+        password: code.toLowerCase(),
         redirect: false
       })
 
-      console.log('SignIn result:', result)
-
       if (result?.error) {
-        setError(`Login failed: ${result.error}. The account may not exist yet. Try creating it in the admin portal first.`)
+        setError("Account created but login failed. Please try logging in.")
         setLoading(false)
         return
       }
