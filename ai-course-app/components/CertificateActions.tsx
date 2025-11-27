@@ -123,7 +123,7 @@ export default function CertificateActions({ certificateId }: CertificateActions
 
   const handleNativeShare = async () => {
     // Check if Web Share API with files is supported
-    if (!navigator.canShare) {
+    if (!('canShare' in navigator)) {
       showToast('Native sharing not supported on this browser!')
       return
     }
@@ -406,7 +406,7 @@ export default function CertificateActions({ certificateId }: CertificateActions
         <h3 className="text-lg font-bold text-text-primary mb-4">Share Your Achievement</h3>
         <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-3">
           {/* Native Share - Purple gradient (primary CTA on mobile) */}
-          {typeof navigator !== 'undefined' && navigator.canShare && (
+          {typeof navigator !== 'undefined' && 'canShare' in navigator && (
             <button
               onClick={handleNativeShare}
               className="flex flex-col items-center gap-2 p-4 rounded-2xl transition-all duration-300 sm:col-span-3 md:col-span-1"
