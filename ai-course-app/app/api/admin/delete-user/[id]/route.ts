@@ -29,21 +29,73 @@ export async function DELETE(
 
         const supabase = createClient(
             process.env.NEXT_PUBLIC_SUPABASE_URL!,
-            process.env.SUPABASE_SECRET_KEY!
+            process.env.SUPABASE_SECRET_KEY!,
+            {
+                auth: {
+                    autoRefreshToken: false,
+                    persistSession: false
+                }
+            }
         )
 
-        // Delete from auth (cascades to user_profiles, user_progress, certificates)
-        const { error: authError } = await supabase.auth.admin.deleteUser(userId)
+        // Delete from multiple places to handle all user types
+        let authDeleted = false
+        let customUserDeleted = false
+        let profileDeleted = false
 
-        if (authError) {
-            console.error('Error deleting user:', authError)
-            return NextResponse.json(
-                { error: 'Failed to delete user' },
-                { status: 500 }
-            )
+        // 1. Try to delete from Supabase Auth (Google OAuth users)
+        try {
+            const { error: authError } = await supabase.auth.admin.deleteUser(userId)
+            if (!authError) {
+                authDeleted = true
+                console.log('Deleted from Supabase Auth')
+            }
+        } catch (error) {
+            console.log('User not in Auth, continuing...')
         }
 
-        return NextResponse.json({ success: true })
+        // 2. Delete from custom users table (email/password users)
+        const { error: customUserError } = await supabase
+            .from('users')
+            .delete()
+            .eq('id', userId)
+
+        if (!customUserError) {
+            customUserDeleted = true
+            console.log('Deleted from custom users table')
+        }
+
+        // 3. Delete from user_profiles
+        const { error: profileError } = await supabase
+            .from('user_profiles')
+            .delete()
+            .eq('user_id', userId)
+
+        if (!profileError) {
+            profileDeleted = true
+            console.log('Deleted from user_profiles')
+        }
+
+        // 4. Delete associated data (progress & certificates)
+        await supabase.from('user_progress').delete().eq('user_id', userId)
+        await supabase.from('certificates').delete().eq('user_id', userId)
+
+        // Success if we deleted from at least one place
+        if (authDeleted || customUserDeleted || profileDeleted) {
+            return NextResponse.json({
+                success: true,
+                deleted_from: {
+                    auth: authDeleted,
+                    custom_users: customUserDeleted,
+                    profile: profileDeleted
+                }
+            })
+        }
+
+        return NextResponse.json(
+            { error: 'User not found in any table' },
+            { status: 404 }
+        )
     } catch (error) {
         console.error('Error in delete user API:', error)
         return NextResponse.json(
