@@ -178,11 +178,8 @@ export default async function DashboardPage() {
 
 
 
-
-            {/* Left Column - Progress & Course Access */}
-            <aside className="lg:col-span-2 flex flex-col gap-6 order-3 lg:order-2">
-
-              {/* Course Progress Card - Blue tint */}
+            {/* Course Progress - Blue tint - Row 2 left (2 cols) */}
+            <div className="lg:col-span-2 order-3 lg:order-4">
               <div className="glass-blue rounded-3xl p-10 h-full flex flex-col">
                 <h3 className="text-2xl font-bold mb-8 text-text-primary">
                   Course Progress
@@ -244,8 +241,10 @@ export default async function DashboardPage() {
                   </a>
                 </div>
               </div>
+            </div>
 
-              {/* Course Access - Green tint */}
+            {/* Course Access - Green tint - Row 3 full width */}
+            <aside className="lg:col-span-3 order-5">
               <div className="glass-sage rounded-3xl p-8">
                 <div className="flex items-center justify-between mb-6">
                   <h3 className="text-2xl font-bold text-text-primary">
