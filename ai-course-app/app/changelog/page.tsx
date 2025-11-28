@@ -21,15 +21,6 @@ export default async function ChangelogPage() {
     return (
         <div className="min-h-screen p-8">
             <div className="max-w-4xl mx-auto">
-                {/* Back Button */}
-                <Link
-                    href="/dashboard"
-                    className="inline-flex items-center gap-2 text-text-secondary hover:text-text-primary mb-6 transition-colors"
-                >
-                    <span className="text-xl">←</span>
-                    <span>Back to Dashboard</span>
-                </Link>
-
                 {/* Header */}
                 <div className="mb-12">
                     <h1 className="text-4xl font-black text-text-primary mb-2">Changelog</h1>
@@ -89,6 +80,16 @@ export default async function ChangelogPage() {
                         <p className="text-text-tertiary">No updates yet. Check back soon!</p>
                     </div>
                 )}
+
+                {/* Back Button - Bottom */}
+                <div className="mt-10 text-center">
+                    <Link
+                        href="/dashboard"
+                        className="btn-neumorphic inline-flex items-center justify-center gap-2 rounded-2xl px-6 py-3 text-base font-bold text-text-primary hover:scale-[1.02] transition-transform"
+                    >
+                        ← Back to Dashboard
+                    </Link>
+                </div>
             </div>
         </div>
     )
