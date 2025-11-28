@@ -148,14 +148,17 @@ export default async function DashboardPage() {
                     </p>
                   )}
 
-                  <p className="text-xs text-text-secondary mb-6">
+                  <p className="text-xs text-text-secondary">
                     Your name and picture will appear on your certificate
                   </p>
+                </div>
 
+                {/* Buttons at bottom - outside flex-1 */}
+                <div className="w-full space-y-4 mt-6">
                   {/* View Profile Button */}
                   <a
                     href="/profile"
-                    className="btn-neumorphic w-full flex items-center justify-center gap-2 p-4 rounded-2xl text-text-primary font-bold hover:scale-[1.02] transition-transform mb-4"
+                    className="btn-neumorphic w-full flex items-center justify-center gap-2 p-4 rounded-2xl text-text-primary font-bold hover:scale-[1.02] transition-transform"
                   >
                     <span>View Profile</span>
                   </a>
