@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import AuthSessionProvider from "@/components/SessionProvider";
 import BugReportModal from "@/components/BugReportModal";
+import Footer from "@/components/Footer";
 
 export const metadata: Metadata = {
   title: "Introduction to AI Course",
@@ -15,9 +16,10 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className="bg-background-light text-text-primary min-h-screen">
+      <body className="bg-background-light text-text-primary min-h-screen flex flex-col">
         <AuthSessionProvider>
-          {children}
+          <div className="flex-1">{children}</div>
+          <Footer />
           <BugReportModal />
         </AuthSessionProvider>
       </body>

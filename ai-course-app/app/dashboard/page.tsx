@@ -163,8 +163,12 @@ export default async function DashboardPage() {
               </div>
             </section>
 
+
             {/* Left Column - Progress & Course Access */}
             <aside className="lg:col-span-2 flex flex-col gap-6 order-3 lg:order-2">
+
+              {/* What's New Widget - Beta testers only */}
+              {isBetaTester && <WhatsNewWidget />}
 
               {/* Course Progress Card - Blue tint */}
               <div className="glass-blue rounded-3xl p-10">
