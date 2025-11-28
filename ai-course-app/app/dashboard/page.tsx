@@ -2,6 +2,7 @@ import { auth, signOut } from "@/auth"
 import { redirect } from "next/navigation"
 import { createClient } from '@supabase/supabase-js'
 import NavigationBar from '@/components/NavigationBar'
+import WhatsNewWidget from '@/components/WhatsNewWidget'
 
 export default async function DashboardPage() {
   const session = await auth()
