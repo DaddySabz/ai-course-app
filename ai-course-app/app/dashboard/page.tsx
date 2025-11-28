@@ -73,49 +73,50 @@ export default async function DashboardPage() {
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-            {/* Beta Tester Notice - Shows first on mobile */}
+            {/* Hey! tile - matches Course Progress width (2 cols) */}
             <div className="lg:col-span-2 order-1 lg:order-1">
-              <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-                {/* Hey! tile */}
-                <div className="card-neumorphic rounded-3xl p-8 border-2 border-sage-green/30">
-                  <h3 className="text-xl font-bold text-text-primary mb-4">Hey!</h3>
-                  <p className="text-text-secondary mb-4 leading-relaxed">
-                    Thanks for taking the time to beta test our app—we greatly appreciate it! This app is built from the ground up, so there may be bugs and glitches here and there. Please let us know if you spot something.
-                  </p>
-                  <p className="text-text-secondary mb-4 leading-relaxed">
-                    Also, let us know if you have any recommendations or if there's anything you'd change about the course content, links, apps, services, or websites we're recommending.
-                  </p>
-                  <p className="text-text-secondary mb-6 leading-relaxed">
-                    Just drop Saby an email or WhatsApp message—a screenshot also works!
-                  </p>
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                    <a
-                      href="mailto:hello@wearewacky.com"
-                      className="glass-blue-clickable flex flex-col items-center justify-center gap-1 px-6 py-4 rounded-2xl text-text-primary"
-                    >
-                      <span className="text-xs font-semibold uppercase tracking-wider text-text-secondary">Email</span>
-                      <span className="font-bold">hello@wearewacky.com</span>
-                    </a>
-                    <a
-                      href="https://wa.me/447460460318"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="glass-sage-clickable flex flex-col items-center justify-center gap-1 px-6 py-4 rounded-2xl text-text-primary"
-                    >
-                      <span className="text-xs font-semibold uppercase tracking-wider text-text-secondary">WhatsApp</span>
-                      <span className="font-bold">+44 7460 460318</span>
-                    </a>
-                  </div>
+              <div className="card-neumorphic rounded-3xl p-8 border-2 border-sage-green/30 h-full">
+                <h3 className="text-xl font-bold text-text-primary mb-4">Hey!</h3>
+                <p className="text-text-secondary mb-4 leading-relaxed">
+                  Thanks for taking the time to beta test our app—we greatly appreciate it! This app is built from the ground up, so there may be bugs and glitches here and there. Please let us know if you spot something.
+                </p>
+                <p className="text-text-secondary mb-4 leading-relaxed">
+                  Also, let us know if you have any recommendations or if there's anything you'd change about the course content, links, apps, services, or websites we're recommending.
+                </p>
+                <p className="text-text-secondary mb-6 leading-relaxed">
+                  Just drop Saby an email or WhatsApp message—a screenshot also works!
+                </p>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                  <a
+                    href="mailto:hello@wearewacky.com"
+                    className="glass-blue-clickable flex flex-col items-center justify-center gap-1 px-6 py-4 rounded-2xl text-text-primary"
+                  >
+                    <span className="text-xs font-semibold uppercase tracking-wider text-text-secondary">Email</span>
+                    <span className="font-bold">hello@wearewacky.com</span>
+                  </a>
+                  <a
+                    href="https://wa.me/447460460318"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="glass-sage-clickable flex flex-col items-center justify-center gap-1 px-6 py-4 rounded-2xl text-text-primary"
+                  >
+                    <span className="text-xs font-semibold uppercase tracking-wider text-text-secondary">WhatsApp</span>
+                    <span className="font-bold">+44 7460 460318</span>
+                  </a>
                 </div>
-
-                {/* What's New Widget - Beta testers only */}
-                {isBetaTester && <WhatsNewWidget />}
               </div>
             </div>
 
-            {/* Profile - Shows second on mobile */}
-            <section className="lg:col-span-1 order-2 lg:order-3">
-              <div className="glass-lavender rounded-3xl p-8 flex flex-col items-center text-center lg:sticky lg:top-24">
+            {/* What's New Widget - matches Profile width (1 col), same height as Hey! */}
+            {isBetaTester && (
+              <div className="lg:col-span-1 order-2 lg:order-2">
+                <WhatsNewWidget />
+              </div>
+            )}
+
+            {/* Profile - Shows on right, same column as What's New */}
+            <section className={`lg:col-span-1 order-${isBetaTester ? '3' : '2'} lg:order-3`}>
+              <div className="glass-lavender rounded-3xl p-8 flex flex-col items-center text-center lg:sticky lg:top-24 h-full">
                 <h3 className="text-2xl font-bold text-text-primary mb-6">Profile</h3>
 
                 {/* Profile Picture */}

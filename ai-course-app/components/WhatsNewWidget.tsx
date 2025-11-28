@@ -44,8 +44,8 @@ export default function WhatsNewWidget() {
     }
 
     return (
-        <Link href="/changelog" className="block">
-            <div className="card-neumorphic rounded-3xl p-6 hover:scale-[1.02] transition-transform">
+        <Link href="/changelog" className="block h-full">
+            <div className="card-neumorphic rounded-3xl p-6 hover:scale-[1.02] transition-transform h-full flex flex-col">
                 <div className="flex items-center justify-between mb-4">
                     <h2 className="text-xl font-black text-text-primary">What's New</h2>
                     <span className="text-text-tertiary text-sm">→</span>
