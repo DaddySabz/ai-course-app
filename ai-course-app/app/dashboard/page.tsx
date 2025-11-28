@@ -117,9 +117,10 @@ export default async function DashboardPage() {
             {/* Profile - Shows on right, same column as What's New */}
             <section className={`lg:col-span-1 order-${isBetaTester ? '3' : '2'} lg:order-3`}>
               <div className="glass-lavender rounded-3xl p-8 flex flex-col items-center text-center h-full">
-                <div className="flex-1 flex flex-col items-center justify-center">
-                  <h3 className="text-2xl font-bold text-text-primary mb-6">Profile</h3>
+                <h3 className="text-2xl font-bold text-text-primary mb-6">Profile</h3>
 
+                {/* Middle content with flex-1 to center */}
+                <div className="flex-1 flex flex-col items-center justify-center">
                   {/* Profile Picture */}
                   <div className="relative mb-4">
                     {profileAvatar ? (

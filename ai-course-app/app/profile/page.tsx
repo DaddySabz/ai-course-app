@@ -6,7 +6,7 @@ import NavigationBar from '@/components/NavigationBar'
 
 export default async function ProfilePage() {
   const session = await auth()
-  
+
   if (!session?.user) {
     redirect("/")
   }
@@ -27,11 +27,11 @@ export default async function ProfilePage() {
   const organization = profileData?.organization || null
 
   return (
-    <div className="min-h-screen pt-20">
+    <div className="flex-1 flex flex-col pt-20">
       <NavigationBar />
 
       {/* Main Content */}
-      <div className="max-w-4xl mx-auto px-4 md:px-10 py-10">
+      <div className="flex-1 max-w-4xl mx-auto px-4 md:px-10 py-10 w-full">
         <main className="flex flex-col gap-8">
           {/* Hero Section */}
           <div className="flex flex-col gap-3">
@@ -52,7 +52,7 @@ export default async function ProfilePage() {
 
           {/* Back to Dashboard */}
           <div className="text-center">
-            <a 
+            <a
               href="/dashboard"
               className="btn-neumorphic inline-flex items-center justify-center gap-2 rounded-2xl px-6 py-3 text-base font-bold text-text-primary hover:scale-[1.02] transition-transform"
             >
