@@ -115,7 +115,7 @@ export default async function DashboardPage() {
             )}
 
             {/* Profile - Shows on right, same column as What's New */}
-            <section className={`lg:col-span-1 order-${isBetaTester ? '3' : '2'} lg:order-3`}>
+            <section className={`lg:col-span-1 order-${isBetaTester ? '4' : '2'} lg:order-4`}>
               <div className="glass-lavender rounded-3xl p-8 flex flex-col items-center text-center h-full">
                 <h3 className="text-2xl font-bold text-text-primary mb-6">Profile</h3>
 
@@ -179,7 +179,7 @@ export default async function DashboardPage() {
 
 
             {/* Course Progress - Blue tint - Row 2 left (2 cols) */}
-            <div className="lg:col-span-2 order-3 lg:order-4">
+            <div className="lg:col-span-2 order-3 lg:order-3">
               <div className="glass-blue rounded-3xl p-10 h-full flex flex-col">
                 <h3 className="text-2xl font-bold mb-8 text-text-primary">
                   Course Progress
