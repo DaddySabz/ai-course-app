@@ -1,6 +1,8 @@
+import packageJson from '../package.json'
+
 export default function Footer() {
     const currentYear = new Date().getFullYear()
-    const version = process.env.NEXT_PUBLIC_APP_VERSION || '0.5.0'
+    const version = packageJson.version
 
     return (
         <footer className="mt-auto py-6 px-4 border-t border-text-tertiary/10">
