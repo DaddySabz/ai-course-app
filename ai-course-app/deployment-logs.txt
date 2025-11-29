@@ -1,0 +1,95 @@
+[
+{"created":1764403502575,"date":1764403502575,"deploymentId":"dpl_74XBc7TV9SumXNxFydztaHTG4Gbw","id":"1764403502575239362580600000","text":"Running build in Washington, D.C., USA (East) – iad1","type":"stdout","serial":"1764403502575239362580600000","info":{"type":"build","name":"bld_j5lyffjy4","entrypoint":"."}}
+,
+{"created":1764403502576,"date":1764403502576,"deploymentId":"dpl_74XBc7TV9SumXNxFydztaHTG4Gbw","id":"1764403502576239362580600000","text":"Build machine configuration: 2 cores, 8 GB","type":"stdout","serial":"1764403502576239362580600000","info":{"type":"build","name":"bld_j5lyffjy4","entrypoint":"."}}
+,
+{"created":1764403502692,"date":1764403502692,"deploymentId":"dpl_74XBc7TV9SumXNxFydztaHTG4Gbw","id":"1764403502692239362580600000","text":"Cloning github.com/wackyworksdigital/ai-course-app (Branch: main, Commit: 6e4eb21)","type":"stdout","serial":"1764403502692239362580600000","info":{"type":"build","name":"bld_j5lyffjy4","entrypoint":"."}}
+,
+{"created":1764403503408,"date":1764403503408,"deploymentId":"dpl_74XBc7TV9SumXNxFydztaHTG4Gbw","id":"1764403503408239362580600000","text":"Cloning completed: 716.000ms","type":"stdout","serial":"1764403503408239362580600000","info":{"type":"build","name":"bld_j5lyffjy4","entrypoint":"."}}
+,
+{"created":1764403503766,"date":1764403503766,"deploymentId":"dpl_74XBc7TV9SumXNxFydztaHTG4Gbw","id":"1764403503766239362580600000","text":"Restored build cache from previous deployment (3jdZqUPXqWV7H14hwW6WDiF2KhZB)","type":"stdout","serial":"1764403503766239362580600000","info":{"type":"build","name":"bld_j5lyffjy4","entrypoint":"."}}
+,
+{"created":1764403504306,"date":1764403504306,"deploymentId":"dpl_74XBc7TV9SumXNxFydztaHTG4Gbw","id":"1764403504306113327744100000","text":"Running \"vercel build\"","type":"stdout","serial":"1764403504306113327744100000","info":{"type":"build","name":"bld_j5lyffjy4","entrypoint":"."}}
+,
+{"created":1764403504699,"date":1764403504699,"deploymentId":"dpl_74XBc7TV9SumXNxFydztaHTG4Gbw","id":"1764403504699113327744100000","text":"Vercel CLI 48.12.0","type":"stderr","serial":"1764403504699113327744100000","info":{"type":"build","name":"bld_j5lyffjy4","entrypoint":"."}}
+,
+{"created":1764403505056,"date":1764403505056,"deploymentId":"dpl_74XBc7TV9SumXNxFydztaHTG4Gbw","id":"1764403505056113327744100000","text":"Installing dependencies...","type":"stdout","serial":"1764403505056113327744100000","info":{"type":"build","name":"bld_j5lyffjy4","entrypoint":"."}}
+,
+{"created":1764403507387,"date":1764403507387,"deploymentId":"dpl_74XBc7TV9SumXNxFydztaHTG4Gbw","id":"1764403507387113327744100000","text":"","type":"stdout","serial":"1764403507387113327744100000","info":{"type":"build","name":"bld_j5lyffjy4","entrypoint":"."}}
+,
+{"created":1764403507388,"date":1764403507388,"deploymentId":"dpl_74XBc7TV9SumXNxFydztaHTG4Gbw","id":"1764403507388113327744100000","text":"up to date in 2s","type":"stdout","serial":"1764403507388113327744100000","info":{"type":"build","name":"bld_j5lyffjy4","entrypoint":"."}}
+,
+{"created":1764403507389,"date":1764403507389,"deploymentId":"dpl_74XBc7TV9SumXNxFydztaHTG4Gbw","id":"1764403507389113327744100000","text":"","type":"stdout","serial":"1764403507389113327744100000","info":{"type":"build","name":"bld_j5lyffjy4","entrypoint":"."}}
+,
+{"created":1764403507389,"date":1764403507389,"deploymentId":"dpl_74XBc7TV9SumXNxFydztaHTG4Gbw","id":"1764403507389113327744100001","text":"151 packages are looking for funding","type":"stdout","serial":"1764403507389113327744100001","info":{"type":"build","name":"bld_j5lyffjy4","entrypoint":"."}}
+,
+{"created":1764403507389,"date":1764403507389,"deploymentId":"dpl_74XBc7TV9SumXNxFydztaHTG4Gbw","id":"1764403507389113327744100002","text":"  run `npm fund` for details","type":"stdout","serial":"1764403507389113327744100002","info":{"type":"build","name":"bld_j5lyffjy4","entrypoint":"."}}
+,
+{"created":1764403507419,"date":1764403507419,"deploymentId":"dpl_74XBc7TV9SumXNxFydztaHTG4Gbw","id":"1764403507419113327744100000","text":"Detected Next.js version: 16.0.3","type":"stdout","serial":"1764403507419113327744100000","info":{"type":"build","name":"bld_j5lyffjy4","entrypoint":"."}}
+,
+{"created":1764403507423,"date":1764403507423,"deploymentId":"dpl_74XBc7TV9SumXNxFydztaHTG4Gbw","id":"1764403507423113327744100000","text":"Running \"npm run build\"","type":"stdout","serial":"1764403507423113327744100000","info":{"type":"build","name":"bld_j5lyffjy4","entrypoint":"."}}
+,
+{"created":1764403507528,"date":1764403507528,"deploymentId":"dpl_74XBc7TV9SumXNxFydztaHTG4Gbw","id":"1764403507528113327744100000","text":"","type":"stdout","serial":"1764403507528113327744100000","info":{"type":"build","name":"bld_j5lyffjy4","entrypoint":"."}}
+,
+{"created":1764403507528,"date":1764403507528,"deploymentId":"dpl_74XBc7TV9SumXNxFydztaHTG4Gbw","id":"1764403507528113327744100001","text":"> ai_course_app@0.6.5 build","type":"stdout","serial":"1764403507528113327744100001","info":{"type":"build","name":"bld_j5lyffjy4","entrypoint":"."}}
+,
+{"created":1764403507529,"date":1764403507529,"deploymentId":"dpl_74XBc7TV9SumXNxFydztaHTG4Gbw","id":"1764403507529113327744100000","text":"> next build","type":"stdout","serial":"1764403507529113327744100000","info":{"type":"build","name":"bld_j5lyffjy4","entrypoint":"."}}
+,
+{"created":1764403507529,"date":1764403507529,"deploymentId":"dpl_74XBc7TV9SumXNxFydztaHTG4Gbw","id":"1764403507529113327744100001","text":"","type":"stdout","serial":"1764403507529113327744100001","info":{"type":"build","name":"bld_j5lyffjy4","entrypoint":"."}}
+,
+{"created":1764403507811,"date":1764403507811,"deploymentId":"dpl_74XBc7TV9SumXNxFydztaHTG4Gbw","id":"1764403507811113327744100000","text":"[baseline-browser-mapping] The data in this module is over two months old.  To ensure accurate Baseline data, please update: `npm i baseline-browser-mapping@latest -D`","type":"stderr","serial":"1764403507811113327744100000","info":{"type":"build","name":"bld_j5lyffjy4","entrypoint":"."}}
+,
+{"created":1764403508541,"date":1764403508541,"deploymentId":"dpl_74XBc7TV9SumXNxFydztaHTG4Gbw","id":"1764403508541113327744100000","text":"   ▲ Next.js 16.0.3 (Turbopack)","type":"stdout","serial":"1764403508541113327744100000","info":{"type":"build","name":"bld_j5lyffjy4","entrypoint":"."}}
+,
+{"created":1764403508542,"date":1764403508542,"deploymentId":"dpl_74XBc7TV9SumXNxFydztaHTG4Gbw","id":"1764403508542113327744100000","text":"","type":"stdout","serial":"1764403508542113327744100000","info":{"type":"build","name":"bld_j5lyffjy4","entrypoint":"."}}
+,
+{"created":1764403508569,"date":1764403508569,"deploymentId":"dpl_74XBc7TV9SumXNxFydztaHTG4Gbw","id":"1764403508569113327744100000","text":" ⚠ The \"middleware\" file convention is deprecated. Please use \"proxy\" instead. Learn more: https://nextjs.org/docs/messages/middleware-to-proxy","type":"stderr","serial":"1764403508569113327744100000","info":{"type":"build","name":"bld_j5lyffjy4","entrypoint":"."},"level":"warning"}
+,
+{"created":1764403508607,"date":1764403508607,"deploymentId":"dpl_74XBc7TV9SumXNxFydztaHTG4Gbw","id":"1764403508607113327744100000","text":"   Creating an optimized production build ...","type":"stdout","serial":"1764403508607113327744100000","info":{"type":"build","name":"bld_j5lyffjy4","entrypoint":"."}}
+,
+{"created":1764403508786,"date":1764403508786,"deploymentId":"dpl_74XBc7TV9SumXNxFydztaHTG4Gbw","id":"1764403508786113327744100000","text":"[baseline-browser-mapping] The data in this module is over two months old.  To ensure accurate Baseline data, please update: `npm i baseline-browser-mapping@latest -D`","type":"stderr","serial":"1764403508786113327744100000","info":{"type":"build","name":"bld_j5lyffjy4","entrypoint":"."}}
+,
+{"created":1764403515095,"date":1764403515095,"deploymentId":"dpl_74XBc7TV9SumXNxFydztaHTG4Gbw","id":"1764403515095113327744100000","text":"[baseline-browser-mapping] The data in this module is over two months old.  To ensure accurate Baseline data, please update: `npm i baseline-browser-mapping@latest -D`","type":"stderr","serial":"1764403515095113327744100000","info":{"type":"build","name":"bld_j5lyffjy4","entrypoint":"."}}
+,
+{"created":1764403527625,"date":1764403527625,"deploymentId":"dpl_74XBc7TV9SumXNxFydztaHTG4Gbw","id":"1764403527625113327744100000","text":"","type":"stderr","serial":"1764403527625113327744100000","info":{"type":"build","name":"bld_j5lyffjy4","entrypoint":"."}}
+,
+{"created":1764403527625,"date":1764403527625,"deploymentId":"dpl_74XBc7TV9SumXNxFydztaHTG4Gbw","id":"1764403527625113327744100001","text":"> Build error occurred","type":"stderr","serial":"1764403527625113327744100001","info":{"type":"build","name":"bld_j5lyffjy4","entrypoint":"."},"level":"error"}
+,
+{"created":1764403527631,"date":1764403527631,"deploymentId":"dpl_74XBc7TV9SumXNxFydztaHTG4Gbw","id":"1764403527631113327744100000","text":"Error: Turbopack build failed with 1 errors:","type":"stderr","serial":"1764403527631113327744100000","info":{"type":"build","name":"bld_j5lyffjy4","entrypoint":"."},"level":"error"}
+,
+{"created":1764403527631,"date":1764403527631,"deploymentId":"dpl_74XBc7TV9SumXNxFydztaHTG4Gbw","id":"1764403527631113327744100001","text":"./ai-course-app/app/dashboard/page.tsx:73:15","type":"stderr","serial":"1764403527631113327744100001","info":{"type":"build","name":"bld_j5lyffjy4","entrypoint":"."}}
+,
+{"created":1764403527631,"date":1764403527631,"deploymentId":"dpl_74XBc7TV9SumXNxFydztaHTG4Gbw","id":"1764403527631113327744100002","text":"Parsing ecmascript source code failed","type":"stderr","serial":"1764403527631113327744100002","info":{"type":"build","name":"bld_j5lyffjy4","entrypoint":"."}}
+,
+{"created":1764403527631,"date":1764403527631,"deploymentId":"dpl_74XBc7TV9SumXNxFydztaHTG4Gbw","id":"1764403527631113327744100003","text":"\u001b[0m \u001b[90m 71 |\u001b[39m               \u001b[33m<\u001b[39m\u001b[33m/\u001b[39m\u001b[33mp\u001b[39m\u001b[33m>\u001b[39m","type":"stderr","serial":"1764403527631113327744100003","info":{"type":"build","name":"bld_j5lyffjy4","entrypoint":"."},"level":"error"}
+,
+{"created":1764403527631,"date":1764403527631,"deploymentId":"dpl_74XBc7TV9SumXNxFydztaHTG4Gbw","id":"1764403527631113327744100004","text":" \u001b[90m 72 |\u001b[39m             \u001b[33m<\u001b[39m\u001b[33m/\u001b[39m\u001b[33mdiv\u001b[39m\u001b[33m>\u001b[39m","type":"stderr","serial":"1764403527631113327744100004","info":{"type":"build","name":"bld_j5lyffjy4","entrypoint":"."},"level":"error"}
+,
+{"created":1764403527631,"date":1764403527631,"deploymentId":"dpl_74XBc7TV9SumXNxFydztaHTG4Gbw","id":"1764403527631113327744100005","text":"\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 73 |\u001b[39m           \u001b[33m<\u001b[39m\u001b[33m/\u001b[39m\u001b[33mp\u001b[39m\u001b[33m>\u001b[39m","type":"stderr","serial":"1764403527631113327744100005","info":{"type":"build","name":"bld_j5lyffjy4","entrypoint":"."},"level":"error"}
+,
+{"created":1764403527631,"date":1764403527631,"deploymentId":"dpl_74XBc7TV9SumXNxFydztaHTG4Gbw","id":"1764403527631113327744100006","text":" \u001b[90m    |\u001b[39m               \u001b[31m\u001b[1m^\u001b[22m\u001b[39m","type":"stderr","serial":"1764403527631113327744100006","info":{"type":"build","name":"bld_j5lyffjy4","entrypoint":"."},"level":"error"}
+,
+{"created":1764403527632,"date":1764403527632,"deploymentId":"dpl_74XBc7TV9SumXNxFydztaHTG4Gbw","id":"1764403527632113327744100000","text":"\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 74 |\u001b[39m           \u001b[33m<\u001b[39m\u001b[33mp\u001b[39m className\u001b[33m=\u001b[39m\u001b[32m\"text-text-secondary mb-6 leading-relaxed\"\u001b[39m\u001b[33m>\u001b[39m","type":"stderr","serial":"1764403527632113327744100000","info":{"type":"build","name":"bld_j5lyffjy4","entrypoint":"."},"level":"error"}
+,
+{"created":1764403527632,"date":1764403527632,"deploymentId":"dpl_74XBc7TV9SumXNxFydztaHTG4Gbw","id":"1764403527632113327744100001","text":" \u001b[90m    |\u001b[39m \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\u001b[31m\u001b[1m^\u001b[22m\u001b[39m\u001b[31m\u001b[1m^\u001b[22m\u001b[39m\u001b[31m\u001b[1m^\u001b[22m\u001b[39m\u001b[31m\u001b[1m^\u001b[22m\u001b[39m\u001b[31m\u001b[1m^\u001b[22m\u001b[39m\u001b[31m\u001b[1m^\u001b[22m\u001b[39m\u001b[31m\u001b[1m^\u001b[22m\u001b[39m\u001b[31m\u001b[1m^\u001b[22m\u001b[39m\u001b[31m\u001b[1m^\u001b[22m\u001b[39m\u001b[31m\u001b[1m^\u001b[22m\u001b[39m","type":"stderr","serial":"1764403527632113327744100001","info":{"type":"build","name":"bld_j5lyffjy4","entrypoint":"."},"level":"error"}
+,
+{"created":1764403527632,"date":1764403527632,"deploymentId":"dpl_74XBc7TV9SumXNxFydztaHTG4Gbw","id":"1764403527632113327744100002","text":" \u001b[90m 75 |\u001b[39m             \u001b[33mJust\u001b[39m drop \u001b[33mSaby\u001b[39m an email or \u001b[33mWhatsApp\u001b[39m message—a screenshot also works\u001b[33m!\u001b[39m","type":"stderr","serial":"1764403527632113327744100002","info":{"type":"build","name":"bld_j5lyffjy4","entrypoint":"."},"level":"error"}
+,
+{"created":1764403527632,"date":1764403527632,"deploymentId":"dpl_74XBc7TV9SumXNxFydztaHTG4Gbw","id":"1764403527632113327744100003","text":" \u001b[90m 76 |\u001b[39m           \u001b[33m<\u001b[39m\u001b[33m/\u001b[39m\u001b[33mp\u001b[39m\u001b[33m>\u001b[39m","type":"stderr","serial":"1764403527632113327744100003","info":{"type":"build","name":"bld_j5lyffjy4","entrypoint":"."},"level":"error"}
+,
+{"created":1764403527632,"date":1764403527632,"deploymentId":"dpl_74XBc7TV9SumXNxFydztaHTG4Gbw","id":"1764403527632113327744100004","text":" \u001b[90m 77 |\u001b[39m           \u001b[33m<\u001b[39m\u001b[33mdiv\u001b[39m className\u001b[33m=\u001b[39m\u001b[32m\"grid grid-cols-1 sm:grid-cols-2 gap-3\"\u001b[39m\u001b[33m>\u001b[39m\u001b[0m","type":"stderr","serial":"1764403527632113327744100004","info":{"type":"build","name":"bld_j5lyffjy4","entrypoint":"."},"level":"error"}
+,
+{"created":1764403527632,"date":1764403527632,"deploymentId":"dpl_74XBc7TV9SumXNxFydztaHTG4Gbw","id":"1764403527632113327744100005","text":"","type":"stderr","serial":"1764403527632113327744100005","info":{"type":"build","name":"bld_j5lyffjy4","entrypoint":"."}}
+,
+{"created":1764403527633,"date":1764403527633,"deploymentId":"dpl_74XBc7TV9SumXNxFydztaHTG4Gbw","id":"1764403527633113327744100000","text":"Expected '</', got 'jsx text (","type":"stderr","serial":"1764403527633113327744100000","info":{"type":"build","name":"bld_j5lyffjy4","entrypoint":"."}}
+,
+{"created":1764403527633,"date":1764403527633,"deploymentId":"dpl_74XBc7TV9SumXNxFydztaHTG4Gbw","id":"1764403527633113327744100001","text":"          )'","type":"stderr","serial":"1764403527633113327744100001","info":{"type":"build","name":"bld_j5lyffjy4","entrypoint":"."}}
+,
+{"created":1764403527633,"date":1764403527633,"deploymentId":"dpl_74XBc7TV9SumXNxFydztaHTG4Gbw","id":"1764403527633113327744100002","text":"","type":"stderr","serial":"1764403527633113327744100002","info":{"type":"build","name":"bld_j5lyffjy4","entrypoint":"."}}
+,
+{"created":1764403527633,"date":1764403527633,"deploymentId":"dpl_74XBc7TV9SumXNxFydztaHTG4Gbw","id":"1764403527633113327744100003","text":"","type":"stderr","serial":"1764403527633113327744100003","info":{"type":"build","name":"bld_j5lyffjy4","entrypoint":"."}}
+,
+{"created":1764403527633,"date":1764403527633,"deploymentId":"dpl_74XBc7TV9SumXNxFydztaHTG4Gbw","id":"1764403527633113327744100004","text":"    at <unknown> (./ai-course-app/app/dashboard/page.tsx:73:15)","type":"stderr","serial":"1764403527633113327744100004","info":{"type":"build","name":"bld_j5lyffjy4","entrypoint":"."}}
+,
+{"created":1764403527749,"date":1764403527749,"deploymentId":"dpl_74XBc7TV9SumXNxFydztaHTG4Gbw","id":"1764403527749113327744100000","text":"Error: Command \"npm run build\" exited with 1","type":"stderr","serial":"1764403527749113327744100000","info":{"type":"build","name":"bld_j5lyffjy4","entrypoint":"."},"level":"error"}
+]
