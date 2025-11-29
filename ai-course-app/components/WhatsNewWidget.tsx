@@ -74,7 +74,7 @@ export default function WhatsNewWidget() {
                     })}
                 </div>
 
-                <div className="mt-auto pt-6 text-sm text-sage-green font-semibold">
+                <div className="pt-4 text-sm text-sage-green font-semibold">
                     View All Updates →
                 </div>
             </div>
