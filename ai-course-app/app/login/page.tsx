@@ -87,6 +87,16 @@ export default function LoginPage() {
                 <h2 className="text-lg font-bold text-text-primary mb-4">Enterprise Access</h2>
                 <TechPartnerAuthForm />
               </div>
+
+              {/* Footer - Terms & Privacy (no version number) */}
+              <div className="text-center text-xs text-text-secondary mt-4">
+                <p className="mb-2">By continuing, you agree to our</p>
+                <div className="flex items-center justify-center gap-3">
+                  <a className="font-semibold text-text-primary hover:text-sage-green transition-colors" href="/terms">Terms of Service</a>
+                  <span className="text-text-tertiary">·</span>
+                  <a className="font-semibold text-text-primary hover:text-sage-green transition-colors" href="/privacy">Privacy Policy</a>
+                </div>
+              </div>
             </div>
           </div>
         </div>
