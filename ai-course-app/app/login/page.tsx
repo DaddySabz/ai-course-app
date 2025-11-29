@@ -34,7 +34,8 @@ export default function LoginPage() {
                 Introduction to AI
               </h1>
               <p className="text-text-secondary text-xl font-medium leading-relaxed max-w-md">
-                Sign in to begin your 30-day journey.
+                Master AI fundamentals on your schedule.<br />
+                Get exclusive discounts on premium AI apps.
               </p>
             </main>
           </div>
