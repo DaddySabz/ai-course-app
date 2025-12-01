@@ -176,6 +176,27 @@ export default function LessonContent({ lesson, currentDay, userId, hasFullAcces
         </div>
       )}
 
+      {/* Unlock instruction tile (if not completed) */}
+      {!isCompleted && currentDay < 30 && (
+        <div className="glass-lavender rounded-3xl p-6 md:p-8 mb-6 border-2 border-lavender-purple/30">
+          <div className="flex items-start gap-4">
+            <div className="flex-shrink-0 w-12 h-12 rounded-full bg-lavender-purple/20 flex items-center justify-center">
+              <svg className="w-6 h-6 text-lavender-purple" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 11V7a4 4 0 118 0m-4 8v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2z" />
+              </svg>
+            </div>
+            <div className="flex-1">
+              <h4 className="text-lg font-bold text-text-primary mb-2">
+                Unlock Day {currentDay + 1}
+              </h4>
+              <p className="text-text-secondary text-sm md:text-base leading-relaxed">
+                Click any tool link above to mark this lesson complete and unlock tomorrow's content!
+              </p>
+            </div>
+          </div>
+        </div>
+      )}
+
       {/* Navigation buttons for next/previous (Desktop Only - mobile uses bottom swipeable nav) */}
       <div className="hidden md:flex justify-between items-center gap-4">
         {currentDay > 1 && (
