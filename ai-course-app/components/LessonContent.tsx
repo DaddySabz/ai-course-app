@@ -166,14 +166,22 @@ export default function LessonContent({ lesson, currentDay, userId, hasFullAcces
 
       {/* Success Message when completed */}
       {isCompleted && (
-        <div className="card-neumorphic rounded-3xl p-4 md:p-8 mb-6 bg-gradient-to-br from-sage-green/10 to-transparent">
-          <div>
-            <h3 className="text-2xl font-bold text-text-primary mb-1">
-              Lesson Complete!
-            </h3>
-            <p className="text-base text-text-secondary">
-              {currentDay < 30 ? 'Day ' + (currentDay + 1) + ' is now unlocked!' : 'You\'ve completed the entire course!'}
-            </p>
+        <div className="glass-sage rounded-3xl p-6 md:p-8 border-2 border-sage-green/30">
+          <div className="flex items-start gap-4">
+            <div className="flex-shrink-0 w-12 h-12 rounded-full bg-sage-green/20 flex items-center justify-center">
+              <svg className="w-6 h-6 text-sage-green" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 11V7a4 4 0 118 0m-4 8v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2z" />
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 7a4 4 0 00-8 0" />
+              </svg>
+            </div>
+            <div className="flex-1">
+              <h4 className="text-lg font-bold text-text-primary mb-2">
+                Lesson Complete!
+              </h4>
+              <p className="text-text-secondary text-sm md:text-base leading-relaxed">
+                {currentDay < 30 ? 'Day ' + (currentDay + 1) + ' is now unlocked!' : 'You\'ve completed the entire course!'}
+              </p>
+            </div>
           </div>
         </div>
       )}
