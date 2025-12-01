@@ -188,7 +188,7 @@ export default function LessonContent({ lesson, currentDay, userId, hasFullAcces
 
       {/* Unlock instruction tile (only show if NEXT day is locked) */}
       {!loading && !isCompleted && currentDay < 30 && lesson.handsOn?.affiliateLinks && lesson.handsOn.affiliateLinks.length > 0 && !completedDays.includes(currentDay + 1) && (
-        <div className="md:sticky md:bottom-6 md:mt-auto mb-6">
+        <div className="mb-6">
           <div className="glass-lavender rounded-3xl p-6 md:p-8 border-2 border-lavender-purple/30">
             <div className="flex items-start gap-4">
               <div className="flex-shrink-0 w-12 h-12 rounded-full bg-lavender-purple/20 flex items-center justify-center">
