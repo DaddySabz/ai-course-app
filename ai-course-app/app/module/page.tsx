@@ -163,7 +163,7 @@ export default async function ModulePage({
       {/* Mobile Bottom Navigation - Swipeable Day Selector */}
       <div className="md:hidden fixed bottom-0 left-0 right-0 z-40 bg-background/95 backdrop-blur-md shadow-[0_-8px_16px_rgba(0,0,0,0.1)]">
         {/* Scrollable Day Buttons */}
-        <div className="overflow-x-auto scrollbar-hide px-4 pb-3 overflow-y-visible">
+        <div className="overflow-x-auto scrollbar-hide px-4 py-3 overflow-y-visible">
           <div className="flex gap-2.5 min-w-max items-center">
             {courseModules.map((day) => {
               const isDayCompleted = completedDays.includes(day.day)
