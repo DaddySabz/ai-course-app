@@ -128,26 +128,7 @@ export default function LessonContent({ lesson, currentDay, userId, hasFullAcces
           {/* Affiliate Links Section */}
           {lesson.handsOn.affiliateLinks && lesson.handsOn.affiliateLinks.length > 0 && (
             <div className="mb-8">
-              {/* PROMINENT UNLOCK BANNER (if not completed) */}
-              {!isCompleted && (
-                <div className="mb-6 glass-lavender rounded-2xl p-5 md:p-6 border-2 border-lavender-purple/30 shadow-lg">
-                  <div className="flex items-start gap-4">
-                    <div className="flex-shrink-0 w-12 h-12 rounded-full bg-lavender-purple/20 flex items-center justify-center">
-                      <svg className="w-6 h-6 text-lavender-purple" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
-                      </svg>
-                    </div>
-                    <div className="flex-1">
-                      <h4 className="text-lg font-bold text-text-primary mb-2">
-                        🎯 Unlock Day {currentDay + 1}
-                      </h4>
-                      <p className="text-text-secondary text-sm md:text-base leading-relaxed">
-                        Click the tool link below to mark this lesson complete and unlock tomorrow's content!
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              )}
+              {/* Unlock banner removed for cleaner UI */}
 
               <h3 className="text-lg font-bold text-text-primary mb-4">
                 Tools You'll Need:
