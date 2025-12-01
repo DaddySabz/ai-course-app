@@ -231,7 +231,7 @@ export default async function DashboardPage() {
                 </div>
 
                 {/* Continue Button - White frosted */}
-                <div className="w-full flex pt-8 justify-center">
+                <div className="w-full flex pt-8 justify-center mt-auto">
                   <a
                     href={`/module?day=${nextDay}`}
                     className="glass-clickable flex items-center justify-center gap-3 rounded-2xl h-14 px-8 flex-1 max-w-[480px] text-text-primary font-bold text-lg"
