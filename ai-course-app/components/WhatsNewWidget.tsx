@@ -21,7 +21,7 @@ export default function WhatsNewWidget() {
             try {
                 const res = await fetch('/api/changelog')
                 const data = await res.json()
-                setNotes(data.slice(0, 3)) // Get latest 3
+                setNotes(data.slice(0, 5)) // Get latest 5 to fill height
             } catch (error) {
                 console.error('Error fetching release notes:', error)
             } finally {
@@ -45,13 +45,13 @@ export default function WhatsNewWidget() {
 
     return (
         <Link href="/changelog" className="block h-full">
-            <div className="card-neumorphic rounded-3xl p-6 hover:scale-[1.02] transition-transform flex flex-col">
+            <div className="card-neumorphic rounded-3xl p-6 hover:scale-[1.02] transition-transform h-full flex flex-col">
                 <div className="flex items-center justify-between mb-6">
                     <h2 className="text-2xl font-bold text-text-primary">What's New</h2>
                     <span className="text-text-tertiary text-sm">→</span>
                 </div>
 
-                <div className="space-y-6">
+                <div className="space-y-6 flex-1 overflow-auto">
                     {notes.map((note) => {
                         const icon = note.type === 'feature' ? '🎉' :
                             note.type === 'fix' ? '🔧' : '⚡'
