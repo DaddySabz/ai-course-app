@@ -50,12 +50,8 @@ export default function WhatsNewWidget() {
 
                 <div className="space-y-6 flex-1 overflow-auto">
                     {notes.map((note) => {
-                        const icon = note.type === 'feature' ? '🎉' :
-                            note.type === 'fix' ? '🔧' : '⚡'
-
                         return (
                             <div key={note.id} className="flex gap-3">
-                                <span className="text-2xl">{icon}</span>
                                 <div className="flex-1 min-w-0">
                                     <div className="flex items-center gap-2 mb-1">
                                         <span className="px-2 py-0.5 rounded-full text-xs font-bold bg-text-tertiary/10 text-text-primary">
