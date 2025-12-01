@@ -76,7 +76,7 @@ export default async function DashboardPage() {
             {/* Hey! tile - matches Course Progress width (2 cols) */}
             <div className="lg:col-span-2 order-1 lg:order-1">
               <div className="card-neumorphic rounded-3xl p-8 border-2 border-sage-green/30 h-full">
-                <h3 className="text-2xl font-bold text-text-primary mb-4">Hey!</h3>
+                <h3 className="text-2xl font-bold text-text-primary mb-6">Hey!</h3>
                 <p className="text-text-secondary mb-4 leading-relaxed">
                   Thanks for taking the time to beta test our app—we greatly appreciate it! This app is built from the ground up, so there may be bugs and glitches here and there. Please let us know if you spot something.
                 </p>
@@ -116,11 +116,11 @@ export default async function DashboardPage() {
 
             {/* Profile - Shows on right, same column as What's New */}
             <section className={isBetaTester ? 'lg:col-span-1 order-3 lg:order-4' : 'lg:col-span-1 order-2 lg:order-4'}>
-              <div className="glass-lavender rounded-3xl p-8 flex flex-col items-center text-center h-full">
+              <div className="glass-lavender rounded-3xl p-8 flex flex-col h-full">
                 <h3 className="text-2xl font-bold text-text-primary mb-6">Profile</h3>
 
-                {/* Middle content with flex-1 to center */}
-                <div className="flex-1 flex flex-col items-center justify-center">
+                {/* Content */}
+                <div className="flex-1 flex flex-col items-center justify-start">
                   {/* Profile Picture */}
                   <div className="relative mb-4">
                     {profileAvatar ? (
@@ -180,8 +180,8 @@ export default async function DashboardPage() {
 
             {/* Course Progress - Blue tint - Row 2 left (2 cols) */}
             <div className="lg:col-span-2 order-4 lg:order-3">
-              <div className="glass-blue rounded-3xl p-10 h-full flex flex-col">
-                <h3 className="text-2xl font-bold mb-8 text-text-primary">
+              <div className="glass-blue rounded-3xl p-8 h-full flex flex-col">
+                <h3 className="text-2xl font-bold text-text-primary mb-6">
                   Course Progress
                 </h3>
                 <div className="flex flex-col md:flex-row items-center gap-8">
@@ -247,7 +247,7 @@ export default async function DashboardPage() {
             <aside className="lg:col-span-3 order-5">
               <div className="glass-sage rounded-3xl p-8">
                 <div className="flex items-center justify-between mb-6">
-                  <h3 className="text-2xl font-bold text-text-primary">
+                  <h3 className="text-2xl font-bold text-text-primary mb-6">
                     Course Access
                   </h3>
                   <span className="badge-glass text-sage-green">
