@@ -6,7 +6,7 @@
   --color-background-dark: #D4C4B5;
   --color-surface: rgba(255, 255, 255, 0.6);
   --color-surface-hover: rgba(255, 255, 255, 0.75);
-  
+
   /* Accent Colors - Frosted Glass Variations */
   --color-sage-green: #B8CEB8;
   --color-sage-green-light: #D1E3D1;
@@ -14,17 +14,17 @@
   --color-lavender-light: #D4C8E8;
   --color-mint: #A8D4C8;
   --color-peach: #E8C8B8;
-  
+
   /* Text */
   --color-text-primary: #2D2520;
   --color-text-secondary: #5A534E;
   --color-text-tertiary: #7A736E;
-  
+
   /* Shadows for Neumorphism - Light from top right */
-  --shadow-neumorphic: -8px 8px 16px rgba(180, 160, 145, 0.3), 
-                       8px -8px 16px rgba(255, 255, 255, 0.8);
+  --shadow-neumorphic: -12px 12px 24px rgba(180, 160, 145, 0.5),
+    12px -12px 24px rgba(255, 255, 255, 0.9);
   --shadow-neumorphic-inset: inset -6px 6px 12px rgba(180, 160, 145, 0.25),
-                              inset 6px -6px 12px rgba(255, 255, 255, 0.9);
+    inset 6px -6px 12px rgba(255, 255, 255, 0.9);
   --shadow-subtle: -4px 4px 12px rgba(180, 160, 145, 0.2);
 }
 
@@ -38,7 +38,7 @@ body {
   min-height: 100vh;
   background: #E8DDD3;
   /* Textured background */
-  background-image: 
+  background-image:
     radial-gradient(at 40% 20%, rgba(232, 216, 200, 0.3) 0px, transparent 50%),
     radial-gradient(at 80% 0%, rgba(220, 200, 185, 0.2) 0px, transparent 50%),
     radial-gradient(at 0% 50%, rgba(235, 225, 215, 0.2) 0px, transparent 50%);
@@ -69,8 +69,8 @@ body {
 }
 
 .glass-clickable:hover {
-  box-shadow: -10px 10px 24px rgba(180, 160, 145, 0.4), 
-              10px -10px 24px rgba(255, 255, 255, 0.95);
+  box-shadow: -10px 10px 24px rgba(180, 160, 145, 0.4),
+    10px -10px 24px rgba(255, 255, 255, 0.95);
   transform: translate3d(0, -3px, 0) scale(1.02);
 }
 
@@ -98,15 +98,15 @@ body {
 
 .card-neumorphic:hover {
   background: linear-gradient(145deg, rgba(255, 255, 255, 0.75), rgba(240, 230, 220, 0.65));
-  box-shadow: -14px 14px 28px rgba(180, 160, 145, 0.6), 
-              14px -14px 28px rgba(255, 255, 255, 0.95);
+  box-shadow: -14px 14px 28px rgba(180, 160, 145, 0.6),
+    14px -14px 28px rgba(255, 255, 255, 0.95);
 }
 
 /* Sage Green Glass - For Completed/Available */
 .glass-sage {
-  background: linear-gradient(145deg, 
-    rgba(184, 206, 184, 0.5), 
-    rgba(209, 227, 209, 0.4));
+  background: linear-gradient(145deg,
+      rgba(184, 206, 184, 0.5),
+      rgba(209, 227, 209, 0.4));
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
   border: 1px solid rgba(184, 206, 184, 0.6);
@@ -114,16 +114,16 @@ body {
 }
 
 .glass-sage:hover {
-  background: linear-gradient(145deg, 
-    rgba(184, 206, 184, 0.6), 
-    rgba(209, 227, 209, 0.5));
+  background: linear-gradient(145deg,
+      rgba(184, 206, 184, 0.6),
+      rgba(209, 227, 209, 0.5));
 }
 
 /* Clickable Sage Green Glass - Lifts on hover */
 .glass-sage-clickable {
-  background: linear-gradient(145deg, 
-    rgba(184, 206, 184, 0.5), 
-    rgba(209, 227, 209, 0.4));
+  background: linear-gradient(145deg,
+      rgba(184, 206, 184, 0.5),
+      rgba(209, 227, 209, 0.4));
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
   border: 1px solid rgba(184, 206, 184, 0.6);
@@ -136,19 +136,19 @@ body {
 }
 
 .glass-sage-clickable:hover {
-  background: linear-gradient(145deg, 
-    rgba(184, 206, 184, 0.6), 
-    rgba(209, 227, 209, 0.5));
-  box-shadow: -10px 10px 24px rgba(180, 160, 145, 0.4), 
-              10px -10px 24px rgba(255, 255, 255, 0.95);
+  background: linear-gradient(145deg,
+      rgba(184, 206, 184, 0.6),
+      rgba(209, 227, 209, 0.5));
+  box-shadow: -10px 10px 24px rgba(180, 160, 145, 0.4),
+    10px -10px 24px rgba(255, 255, 255, 0.95);
   transform: translate3d(0, -3px, 0) scale(1.02);
 }
 
 /* Lavender Glass - For Active/Selected */
 .glass-lavender {
-  background: linear-gradient(145deg, 
-    rgba(184, 168, 212, 0.6), 
-    rgba(212, 200, 232, 0.5));
+  background: linear-gradient(145deg,
+      rgba(184, 168, 212, 0.6),
+      rgba(212, 200, 232, 0.5));
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
   border: 1px solid rgba(184, 168, 212, 0.7);
@@ -156,16 +156,16 @@ body {
 }
 
 .glass-lavender:hover {
-  background: linear-gradient(145deg, 
-    rgba(184, 168, 212, 0.7), 
-    rgba(212, 200, 232, 0.6));
+  background: linear-gradient(145deg,
+      rgba(184, 168, 212, 0.7),
+      rgba(212, 200, 232, 0.6));
 }
 
 /* Clickable Lavender Glass - Lifts on hover */
 .glass-lavender-clickable {
-  background: linear-gradient(145deg, 
-    rgba(184, 168, 212, 0.6), 
-    rgba(212, 200, 232, 0.5));
+  background: linear-gradient(145deg,
+      rgba(184, 168, 212, 0.6),
+      rgba(212, 200, 232, 0.5));
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
   border: 1px solid rgba(184, 168, 212, 0.7);
@@ -178,19 +178,19 @@ body {
 }
 
 .glass-lavender-clickable:hover {
-  background: linear-gradient(145deg, 
-    rgba(184, 168, 212, 0.7), 
-    rgba(212, 200, 232, 0.6));
-  box-shadow: -10px 10px 24px rgba(180, 160, 145, 0.4), 
-              10px -10px 24px rgba(255, 255, 255, 0.95);
+  background: linear-gradient(145deg,
+      rgba(184, 168, 212, 0.7),
+      rgba(212, 200, 232, 0.6));
+  box-shadow: -10px 10px 24px rgba(180, 160, 145, 0.4),
+    10px -10px 24px rgba(255, 255, 255, 0.95);
   transform: translate3d(0, -3px, 0) scale(1.02);
 }
 
 /* Mint Glass - For content cards that darken on hover */
 .glass-mint {
-  background: linear-gradient(145deg, 
-    rgba(168, 212, 200, 0.6), 
-    rgba(188, 227, 217, 0.5));
+  background: linear-gradient(145deg,
+      rgba(168, 212, 200, 0.6),
+      rgba(188, 227, 217, 0.5));
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
   border: 1px solid rgba(168, 212, 200, 0.7);
@@ -199,16 +199,16 @@ body {
 }
 
 .glass-mint:hover {
-  background: linear-gradient(145deg, 
-    rgba(168, 212, 200, 0.7), 
-    rgba(188, 227, 217, 0.6));
+  background: linear-gradient(145deg,
+      rgba(168, 212, 200, 0.7),
+      rgba(188, 227, 217, 0.6));
 }
 
 /* Blue Glass - For Google/General Access */
 .glass-blue {
-  background: linear-gradient(145deg, 
-    rgba(168, 200, 220, 0.6), 
-    rgba(190, 215, 235, 0.5));
+  background: linear-gradient(145deg,
+      rgba(168, 200, 220, 0.6),
+      rgba(190, 215, 235, 0.5));
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
   border: 1px solid rgba(168, 200, 220, 0.7);
@@ -217,16 +217,16 @@ body {
 }
 
 .glass-blue:hover {
-  background: linear-gradient(145deg, 
-    rgba(168, 200, 220, 0.7), 
-    rgba(190, 215, 235, 0.6));
+  background: linear-gradient(145deg,
+      rgba(168, 200, 220, 0.7),
+      rgba(190, 215, 235, 0.6));
 }
 
 /* Clickable Blue Glass - Lifts on hover */
 .glass-blue-clickable {
-  background: linear-gradient(145deg, 
-    rgba(168, 200, 220, 0.6), 
-    rgba(190, 215, 235, 0.5));
+  background: linear-gradient(145deg,
+      rgba(168, 200, 220, 0.6),
+      rgba(190, 215, 235, 0.5));
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
   border: 1px solid rgba(168, 200, 220, 0.7);
@@ -239,19 +239,19 @@ body {
 }
 
 .glass-blue-clickable:hover {
-  background: linear-gradient(145deg, 
-    rgba(168, 200, 220, 0.7), 
-    rgba(190, 215, 235, 0.6));
-  box-shadow: -10px 10px 24px rgba(180, 160, 145, 0.4), 
-              10px -10px 24px rgba(255, 255, 255, 0.95);
+  background: linear-gradient(145deg,
+      rgba(168, 200, 220, 0.7),
+      rgba(190, 215, 235, 0.6));
+  box-shadow: -10px 10px 24px rgba(180, 160, 145, 0.4),
+    10px -10px 24px rgba(255, 255, 255, 0.95);
   transform: translate3d(0, -3px, 0) scale(1.02);
 }
 
 /* Peach Glass - For Special Elements */
 .glass-peach {
-  background: linear-gradient(145deg, 
-    rgba(232, 200, 184, 0.5), 
-    rgba(245, 220, 205, 0.4));
+  background: linear-gradient(145deg,
+      rgba(232, 200, 184, 0.5),
+      rgba(245, 220, 205, 0.4));
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
   border: 1px solid rgba(232, 200, 184, 0.6);
@@ -284,8 +284,8 @@ body {
 }
 
 .btn-neumorphic:hover {
-  box-shadow: -10px 10px 24px rgba(180, 160, 145, 0.4), 
-              10px -10px 24px rgba(255, 255, 255, 0.95);
+  box-shadow: -10px 10px 24px rgba(180, 160, 145, 0.4),
+    10px -10px 24px rgba(255, 255, 255, 0.95);
   transform: translate3d(0, -3px, 0) scale(1.02);
 }
 
@@ -309,10 +309,10 @@ body {
 
 /* Product Sticker Badge - Like ecommerce product tags/stickers */
 .badge-sticker {
-  background: linear-gradient(135deg, 
-    #FFE5B4 0%, 
-    #FFD89B 50%,
-    #FFC876 100%);
+  background: linear-gradient(135deg,
+      #FFE5B4 0%,
+      #FFD89B 50%,
+      #FFC876 100%);
   border: 2px dashed rgba(139, 69, 19, 0.25);
   padding: 0.5rem 0.75rem;
   border-radius: 4px;
@@ -323,17 +323,15 @@ body {
   color: #2D2520;
   transform: rotate(3deg);
   display: inline-block;
-  box-shadow: 
+  box-shadow:
     3px 3px 8px rgba(0, 0, 0, 0.15),
     -1px -1px 3px rgba(255, 255, 255, 0.4),
     inset 1px 1px 2px rgba(255, 255, 255, 0.5);
   position: relative;
   line-height: 1.2;
   /* Peel effect */
-  clip-path: polygon(
-    0% 5%, 5% 0%, 95% 0%, 100% 5%,
-    100% 95%, 95% 100%, 5% 100%, 0% 95%
-  );
+  clip-path: polygon(0% 5%, 5% 0%, 95% 0%, 100% 5%,
+      100% 95%, 95% 100%, 5% 100%, 0% 95%);
 }
 
 /* Smooth transitions */
@@ -363,6 +361,7 @@ body {
     max-height: 0;
     transform: translateY(-10px);
   }
+
   to {
     opacity: 1;
     max-height: 500px;
@@ -384,7 +383,8 @@ body {
   font-weight: 700;
 }
 
-.prose h2, .prose h3 {
+.prose h2,
+.prose h3 {
   color: var(--color-text-primary);
   font-weight: 700;
 }
@@ -401,7 +401,7 @@ body {
 /* Inset Input Fields - Pressed in look for forms */
 .glass-inset {
   background: linear-gradient(145deg, rgba(220, 210, 200, 0.3), rgba(255, 255, 255, 0.4));
-  box-shadow: 
+  box-shadow:
     inset 4px 4px 8px rgba(180, 160, 145, 0.2),
     inset -4px -4px 8px rgba(255, 255, 255, 0.5);
   border: 1px solid rgba(200, 190, 180, 0.2);
@@ -411,7 +411,7 @@ body {
 }
 
 .glass-inset:focus {
-  box-shadow: 
+  box-shadow:
     inset 4px 4px 10px rgba(180, 160, 145, 0.25),
     inset -4px -4px 10px rgba(255, 255, 255, 0.6),
     0 0 0 2px rgba(184, 206, 184, 0.3);
@@ -419,16 +419,20 @@ body {
 
 /* Hide scrollbar for mobile swipeable navigation */
 .scrollbar-hide {
-  -ms-overflow-style: none;  /* IE and Edge */
-  scrollbar-width: none;  /* Firefox */
+  -ms-overflow-style: none;
+  /* IE and Edge */
+  scrollbar-width: none;
+  /* Firefox */
 }
 
 .scrollbar-hide::-webkit-scrollbar {
-  display: none;  /* Chrome, Safari and Opera */
+  display: none;
+  /* Chrome, Safari and Opera */
 }
 
 /* Print Styles for Certificate */
 @media print {
+
   /* Hide navigation and action buttons */
   nav,
   [class*="NavigationBar"],
