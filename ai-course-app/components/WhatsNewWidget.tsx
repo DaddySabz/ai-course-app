@@ -51,7 +51,7 @@ export default function WhatsNewWidget() {
                     <span className="text-text-tertiary text-sm">→</span>
                 </div>
 
-                <div className="space-y-6 flex-1">
+                <div className="space-y-6">
                     {notes.map((note) => {
                         const icon = note.type === 'feature' ? '🎉' :
                             note.type === 'fix' ? '🔧' : '⚡'
