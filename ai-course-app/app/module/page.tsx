@@ -94,13 +94,13 @@ export default async function ModulePage({
                     key={day.day}
                     href={`/module?day=${day.day}`}
                     className={`flex flex-col gap-1 px-4 py-3 rounded-2xl transition-all duration-300 ${isActive
-                      ? 'glass-lavender-clickable text-text-primary'
+                      ? 'glass-lavender-clickable text-white'
                       : isDayCompleted
                         ? 'glass-sage-clickable text-text-primary'
                         : 'glass-clickable text-text-secondary'
                       }`}
                   >
-                    <span className="text-xs font-bold uppercase tracking-wider text-text-tertiary">Day {day.day}</span>
+                    <span className={`text-xs font-bold uppercase tracking-wider ${isActive ? 'text-white/80' : 'text-text-tertiary'}`}>Day {day.day}</span>
                     <span className="text-sm font-semibold leading-tight">{day.title}</span>
                   </Link>
                 )
