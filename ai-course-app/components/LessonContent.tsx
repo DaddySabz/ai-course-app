@@ -176,8 +176,8 @@ export default function LessonContent({ lesson, currentDay, userId, hasFullAcces
         </div>
       )}
 
-      {/* Unlock instruction tile (if not completed) */}
-      {!isCompleted && currentDay < 30 && (
+      {/* Unlock instruction tile (if not completed AND has affiliate links) */}
+      {!isCompleted && currentDay < 30 && lesson.handsOn?.affiliateLinks && lesson.handsOn.affiliateLinks.length > 0 && (
         <div className="glass-lavender rounded-3xl p-6 md:p-8 mb-6 border-2 border-lavender-purple/30">
           <div className="flex items-start gap-4">
             <div className="flex-shrink-0 w-12 h-12 rounded-full bg-lavender-purple/20 flex items-center justify-center">
@@ -190,7 +190,7 @@ export default function LessonContent({ lesson, currentDay, userId, hasFullAcces
                 Unlock Day {currentDay + 1}
               </h4>
               <p className="text-text-secondary text-sm md:text-base leading-relaxed">
-                Click any tool link above to mark this lesson complete and unlock tomorrow's content!
+                Click the tool link above to mark this lesson complete and unlock tomorrow's content!
               </p>
             </div>
           </div>
