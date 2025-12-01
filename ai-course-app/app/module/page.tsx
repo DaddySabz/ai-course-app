@@ -94,10 +94,10 @@ export default async function ModulePage({
                     key={day.day}
                     href={`/module?day=${day.day}`}
                     className={`flex flex-col gap-1 px-4 py-3 rounded-2xl transition-all duration-300 ${isActive
-                        ? 'glass-lavender-clickable text-text-primary'
-                        : isDayCompleted
-                          ? 'glass-sage-clickable text-text-primary'
-                          : 'glass-clickable text-text-secondary'
+                      ? 'glass-lavender-clickable text-text-primary'
+                      : isDayCompleted
+                        ? 'glass-sage-clickable text-text-primary'
+                        : 'glass-clickable text-text-secondary'
                       }`}
                   >
                     <span className="text-xs font-bold uppercase tracking-wider text-text-tertiary">Day {day.day}</span>
@@ -149,7 +149,7 @@ export default async function ModulePage({
       </div>
 
       {/* Mobile Bottom Navigation - Swipeable Day Selector */}
-      <div className="md:hidden fixed bottom-0 left-0 right-0 z-40 glass border-t border-white/40 shadow-[0_-4px_20px_rgba(0,0,0,0.08)]">
+      <div className="md:hidden fixed bottom-0 left-0 right-0 z-40 bg-background/95 backdrop-blur-md border-t border-text-tertiary/20 shadow-lg">
         {/* Scrollable Day Buttons */}
         <div className="overflow-x-auto scrollbar-hide px-4 py-3 overflow-y-visible">
           <div className="flex gap-2.5 min-w-max items-center">
