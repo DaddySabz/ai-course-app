@@ -9,19 +9,21 @@ interface LessonContentProps {
   currentDay: number
   userId: string
   hasFullAccess?: boolean
+  completedDays: number[]
 }
 
-export default function LessonContent({ lesson, currentDay, userId, hasFullAccess = false }: LessonContentProps) {
+export default function LessonContent({ lesson, currentDay, userId, hasFullAccess = false, completedDays: initialCompletedDays }: LessonContentProps) {
   const router = useRouter()
-  const [completedDays, setCompletedDays] = useState<number[]>([])
-  const [isCompleted, setIsCompleted] = useState(false)
-  const [loading, setLoading] = useState(true)
+  const [completedDays, setCompletedDays] = useState<number[]>(initialCompletedDays)
+  const [isCompleted, setIsCompleted] = useState(initialCompletedDays.includes(currentDay))
+  const [loading, setLoading] = useState(false)
   const [marking, setMarking] = useState(false)
 
-  // Fetch user progress on mount
+  // Update state when props change
   useEffect(() => {
-    fetchProgress()
-  }, [currentDay])
+    setCompletedDays(initialCompletedDays)
+    setIsCompleted(initialCompletedDays.includes(currentDay))
+  }, [initialCompletedDays, currentDay])
 
   const fetchProgress = async () => {
     try {

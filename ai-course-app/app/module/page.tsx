@@ -155,6 +155,7 @@ export default async function ModulePage({
             currentDay={currentDay}
             userId={session.user.id!}
             hasFullAccess={isAdmin || isTechPartner}
+            completedDays={completedDays}
           />
         </main>
       </div>
