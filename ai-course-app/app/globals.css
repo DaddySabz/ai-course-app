@@ -86,7 +86,7 @@ body {
   background: linear-gradient(145deg, rgba(255, 255, 255, 0.7), rgba(240, 230, 220, 0.6));
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
-  box-shadow: var(--shadow-neumorphic);
+  box-shadow: -12px 12px 24px rgba(180, 160, 145, 0.5), 12px -12px 24px rgba(255, 255, 255, 0.9);
   border: 1px solid rgba(255, 255, 255, 0.5);
   transition: all 0.3s ease;
   /* Prevent text blur during transforms */
@@ -98,8 +98,8 @@ body {
 
 .card-neumorphic:hover {
   background: linear-gradient(145deg, rgba(255, 255, 255, 0.75), rgba(240, 230, 220, 0.65));
-  box-shadow: -10px 10px 24px rgba(180, 160, 145, 0.4), 
-              10px -10px 24px rgba(255, 255, 255, 0.95);
+  box-shadow: -14px 14px 28px rgba(180, 160, 145, 0.6), 
+              14px -14px 28px rgba(255, 255, 255, 0.95);
 }
 
 /* Sage Green Glass - For Completed/Available */

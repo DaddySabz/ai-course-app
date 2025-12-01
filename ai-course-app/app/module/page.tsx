@@ -123,15 +123,7 @@ export default async function ModulePage({
         {/* Right Content Area - Warm, Spacious Design */}
         <main className="flex-1">
           {/* Hero Image with Title Overlay */}
-          <div
-            className="relative rounded-3xl mb-8 h-[250px] md:h-[400px]"
-            style={{
-              background: 'linear-gradient(145deg, rgba(255, 255, 255, 0.7), rgba(240, 230, 220, 0.6))',
-              backdropFilter: 'blur(10px)',
-              boxShadow: '-12px 12px 24px rgba(180, 160, 145, 0.5), 12px -12px 24px rgba(255, 255, 255, 0.9)',
-              border: '1px solid rgba(255, 255, 255, 0.5)'
-            }}
-          >
+          <div className="card-neumorphic relative rounded-3xl mb-8 h-[250px] md:h-[400px]">
             <img
               src="/images/course/day-1-hero-image.jpg"
               alt={lesson.title}
