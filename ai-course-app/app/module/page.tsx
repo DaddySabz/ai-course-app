@@ -15,7 +15,7 @@ export default async function ModulePage({
   searchParams: Promise<{ day?: string }>
 }) {
   const session = await auth()
-  
+
   if (!session?.user) {
     redirect("/")
   }
@@ -27,7 +27,7 @@ export default async function ModulePage({
   const params = await searchParams
   const currentDay = Number(params.day) || 1
   const lesson = courseModules.find(m => m.day === currentDay)
-  
+
   if (!lesson) {
     redirect("/dashboard")
   }
@@ -76,7 +76,7 @@ export default async function ModulePage({
                 const isDayCompleted = completedDays.includes(day.day)
                 const isLocked = day.day > 1 && !completedDays.includes(day.day - 1)
                 const isActive = day.day === currentDay
-                
+
                 if (isLocked) {
                   return (
                     <div
@@ -88,18 +88,17 @@ export default async function ModulePage({
                     </div>
                   )
                 }
-                
+
                 return (
                   <Link
                     key={day.day}
                     href={`/module?day=${day.day}`}
-                    className={`flex flex-col gap-1 px-4 py-3 rounded-2xl transition-all duration-300 ${
-                      isActive 
-                        ? 'glass-lavender-clickable text-text-primary' 
+                    className={`flex flex-col gap-1 px-4 py-3 rounded-2xl transition-all duration-300 ${isActive
+                        ? 'glass-lavender-clickable text-text-primary'
                         : isDayCompleted
-                        ? 'glass-sage-clickable text-text-primary'
-                        : 'glass-clickable text-text-secondary'
-                    }`}
+                          ? 'glass-sage-clickable text-text-primary'
+                          : 'glass-clickable text-text-secondary'
+                      }`}
                   >
                     <span className="text-xs font-bold uppercase tracking-wider text-text-tertiary">Day {day.day}</span>
                     <span className="text-sm font-semibold leading-tight">{day.title}</span>
@@ -114,8 +113,8 @@ export default async function ModulePage({
         <main className="flex-1">
           {/* Hero Image with Title Overlay */}
           <div className="relative rounded-3xl overflow-hidden mb-8 h-[250px] md:h-[400px] shadow-[8px_8px_16px_rgba(0,0,0,0.1),-8px_-8px_16px_rgba(255,255,255,0.5)] bg-white">
-            <img 
-              src="/images/course/day-1-hero-image.jpg" 
+            <img
+              src="/images/course/day-1-hero-image.jpg"
               alt={lesson.title}
               className="w-full h-full object-cover"
             />
@@ -140,8 +139,8 @@ export default async function ModulePage({
             </div>
           </div>
 
-          <LessonContent 
-            lesson={lesson} 
+          <LessonContent
+            lesson={lesson}
             currentDay={currentDay}
             userId={session.user.id!}
             hasFullAccess={isAdmin || isTechPartner}
@@ -150,18 +149,15 @@ export default async function ModulePage({
       </div>
 
       {/* Mobile Bottom Navigation - Swipeable Day Selector */}
-      <div className="md:hidden fixed bottom-0 left-0 right-0 z-40 pt-4 pb-4 overflow-visible" style={{
-        background: 'linear-gradient(to top, rgba(245, 241, 237, 0.98) 0%, rgba(245, 241, 237, 0.95) 80%, transparent 100%)',
-        backdropFilter: 'blur(10px)'
-      }}>
+      <div className="md:hidden fixed bottom-0 left-0 right-0 z-40 glass border-t border-white/40 shadow-[0_-4px_20px_rgba(0,0,0,0.08)]">
         {/* Scrollable Day Buttons */}
-        <div className="overflow-x-auto scrollbar-hide px-4 py-2 overflow-y-visible">
+        <div className="overflow-x-auto scrollbar-hide px-4 py-3 overflow-y-visible">
           <div className="flex gap-2.5 min-w-max items-center">
             {courseModules.map((day) => {
               const isDayCompleted = completedDays.includes(day.day)
               const isLocked = day.day > 1 && !completedDays.includes(day.day - 1)
               const isActive = day.day === currentDay
-              
+
               if (isLocked) {
                 return (
                   <div
@@ -178,32 +174,31 @@ export default async function ModulePage({
                   </div>
                 )
               }
-              
+
               return (
                 <Link
                   key={day.day}
                   href={`/module?day=${day.day}`}
                   className="flex flex-col items-center flex-shrink-0"
                 >
-                  <div 
-                    className={`w-11 h-11 rounded-full flex items-center justify-center font-semibold text-sm transition-all duration-300 ${
-                      isActive ? 'text-white' : 'text-text-primary'
-                    }`}
+                  <div
+                    className={`w-11 h-11 rounded-full flex items-center justify-center font-semibold text-sm transition-all duration-300 ${isActive ? 'text-white' : 'text-text-primary'
+                      }`}
                     style={
                       isActive
                         ? {
-                            // Purple/Lavender for current day (like desktop)
-                            background: 'linear-gradient(145deg, rgba(184, 168, 212, 0.9) 0%, rgba(164, 148, 192, 0.85) 100%)',
-                            boxShadow: '0 6px 20px rgba(184, 168, 212, 0.5), -6px 6px 16px rgba(160, 140, 180, 0.3), 6px -6px 16px rgba(255, 255, 255, 0.9)',
-                            transform: 'scale(1.1)'
-                          }
+                          // Purple/Lavender for current day (like desktop)
+                          background: 'linear-gradient(145deg, rgba(184, 168, 212, 0.9) 0%, rgba(164, 148, 192, 0.85) 100%)',
+                          boxShadow: '0 6px 20px rgba(184, 168, 212, 0.5), -6px 6px 16px rgba(160, 140, 180, 0.3), 6px -6px 16px rgba(255, 255, 255, 0.9)',
+                          transform: 'scale(1.1)'
+                        }
                         : isDayCompleted
-                        ? {
+                          ? {
                             // Green for completed (like desktop)
                             background: 'linear-gradient(145deg, rgba(184, 206, 184, 0.8) 0%, rgba(164, 186, 164, 0.75) 100%)',
                             boxShadow: '-6px 6px 16px rgba(150, 170, 150, 0.25), 6px -6px 16px rgba(255, 255, 255, 0.9)'
                           }
-                        : {
+                          : {
                             background: 'linear-gradient(145deg, rgba(255, 255, 255, 0.8) 0%, rgba(245, 241, 237, 0.8) 100%)',
                             boxShadow: '-4px 4px 12px rgba(180, 160, 145, 0.15), 4px -4px 12px rgba(255, 255, 255, 0.9)'
                           }
