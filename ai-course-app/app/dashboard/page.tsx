@@ -75,7 +75,7 @@ export default async function DashboardPage() {
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
             {/* Hey! tile - matches Course Progress width (2 cols) */}
             <div className="lg:col-span-2 order-1 lg:order-1">
-              <div className="card-neumorphic rounded-3xl p-8 border-2 border-sage-green/30 h-full">
+              <div className="card-neumorphic rounded-3xl p-8 border-2 border-sage-green/30 h-full flex flex-col">
                 <h3 className="text-2xl font-bold text-text-primary mb-6">Hey!</h3>
                 <p className="text-text-secondary mb-4 leading-relaxed">
                   Thanks for taking the time to beta test our app—we greatly appreciate it! This app is built from the ground up, so there may be bugs and glitches here and there. Please let us know if you spot something.
@@ -86,7 +86,7 @@ export default async function DashboardPage() {
                 <p className="text-text-secondary mb-6 leading-relaxed">
                   Just drop Saby an email or WhatsApp message—a screenshot also works!
                 </p>
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mt-auto">
                   <a
                     href="mailto:hello@wearewacky.com"
                     className="glass-blue-clickable flex flex-col items-center justify-center gap-1 px-6 py-4 rounded-2xl text-text-primary"
