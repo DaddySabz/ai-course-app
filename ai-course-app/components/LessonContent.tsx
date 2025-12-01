@@ -176,9 +176,9 @@ export default function LessonContent({ lesson, currentDay, userId, hasFullAcces
         </div>
       )}
 
-      {/* Unlock instruction tile (if not completed AND has affiliate links) */}
-      {!isCompleted && currentDay < 30 && lesson.handsOn?.affiliateLinks && lesson.handsOn.affiliateLinks.length > 0 && (
-        <div className="glass-lavender rounded-3xl p-6 md:p-8 mb-6 border-2 border-lavender-purple/30">
+      {/* Unlock instruction tile (only show if NEXT day is locked) */}
+      {!isCompleted && currentDay < 30 && lesson.handsOn?.affiliateLinks && lesson.handsOn.affiliateLinks.length > 0 && !completedDays.includes(currentDay + 1) && (
+        <div className="glass-lavender rounded-3xl p-6 md:p-8 mb-3 md:mb-6 border-2 border-lavender-purple/30">
           <div className="flex items-start gap-4">
             <div className="flex-shrink-0 w-12 h-12 rounded-full bg-lavender-purple/20 flex items-center justify-center">
               <svg className="w-6 h-6 text-lavender-purple" fill="none" viewBox="0 0 24 24" stroke="currentColor">
