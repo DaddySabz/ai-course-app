@@ -47,35 +47,34 @@ export default function WhatsNewWidget() {
         <Link href="/changelog" className="block h-full">
             <div className="card-neumorphic rounded-3xl p-8 hover:scale-[1.02] transition-transform h-full flex flex-col">
                 <h3 className="text-2xl font-bold text-text-primary mb-6">What's New</h3>
-            </div>
 
-            <div className="space-y-6 flex-1 overflow-auto">
-                {notes.map((note) => {
-                    const icon = note.type === 'feature' ? '🎉' :
-                        note.type === 'fix' ? '🔧' : '⚡'
+                <div className="space-y-6 flex-1 overflow-auto">
+                    {notes.map((note) => {
+                        const icon = note.type === 'feature' ? '🎉' :
+                            note.type === 'fix' ? '🔧' : '⚡'
 
-                    return (
-                        <div key={note.id} className="flex gap-3">
-                            <span className="text-2xl">{icon}</span>
-                            <div className="flex-1 min-w-0">
-                                <div className="flex items-center gap-2 mb-1">
-                                    <span className="px-2 py-0.5 rounded-full text-xs font-bold bg-text-tertiary/10 text-text-primary">
-                                        v{note.version}
-                                    </span>
+                        return (
+                            <div key={note.id} className="flex gap-3">
+                                <span className="text-2xl">{icon}</span>
+                                <div className="flex-1 min-w-0">
+                                    <div className="flex items-center gap-2 mb-1">
+                                        <span className="px-2 py-0.5 rounded-full text-xs font-bold bg-text-tertiary/10 text-text-primary">
+                                            v{note.version}
+                                        </span>
+                                    </div>
+                                    <p className="text-sm font-semibold text-text-primary line-clamp-2">
+                                        {note.title}
+                                    </p>
                                 </div>
-                                <p className="text-sm font-semibold text-text-primary line-clamp-2">
-                                    {note.title}
-                                </p>
                             </div>
-                        </div>
-                    )
-                })}
-            </div>
+                        )
+                    })}
+                </div>
 
-            <div className="pt-4 text-sm text-sage-green font-semibold">
-                View All Updates →
+                <div className="pt-4 text-sm text-sage-green font-semibold">
+                    View All Updates →
+                </div>
             </div>
-        </div>
         </Link >
     )
 }
