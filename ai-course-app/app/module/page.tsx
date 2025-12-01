@@ -129,7 +129,7 @@ export default async function ModulePage({
               alt={lesson.title}
               className="w-full h-full object-cover rounded-3xl"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent" />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent rounded-3xl" />
             <div className="absolute bottom-0 left-0 right-0 p-6 md:p-10">
               <div className="flex items-center gap-2 mb-2 md:mb-3">
                 <span className="badge-glass backdrop-blur-md bg-white/20 text-white border-white/30 text-xs md:text-sm">
