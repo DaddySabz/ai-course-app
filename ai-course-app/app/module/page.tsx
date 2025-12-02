@@ -127,7 +127,7 @@ export default async function ModulePage({
             <div className="hero-shadow-layer" aria-hidden="true" />
 
             {/* Hero content - clipped image */}
-            <div className="relative z-[1] h-[250px] md:h-[400px] rounded-3xl overflow-hidden">
+            <div className="relative z-[1] h-[250px] md:h-[400px] rounded-3xl overflow-hidden shadow-[var(--shadow-neumorphic)]">
               <img
                 src="/images/course/day-1-hero-image.jpg"
                 alt={lesson.title}
