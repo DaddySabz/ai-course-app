@@ -65,14 +65,14 @@ export async function GET(request: Request) {
             padding: '60px 100px',
           }}
         >
-          {/* Title - elegant, uppercase */}
+          {/* Title - smaller, elegant, uppercase */}
           <div style={{ 
-            fontSize: 42, 
+            fontSize: 32, 
             fontWeight: 600, 
             color: '#7A736E', 
-            marginBottom: 50, 
+            marginBottom: 40, 
             fontStyle: 'italic',
-            letterSpacing: 4,
+            letterSpacing: 6,
             textTransform: 'uppercase'
           }}>
             Certificate of Completion
@@ -93,25 +93,25 @@ export async function GET(request: Request) {
               <img
                 src={avatarUrl}
                 alt="Profile"
-                width={160}
-                height={160}
+                width={200}
+                height={200}
                 style={{
-                  borderRadius: 80,
+                  borderRadius: 100,
                   border: '6px solid rgba(184, 206, 184, 0.5)',
                   objectFit: 'cover',
                 }}
               />
             ) : (
               <div style={{
-                width: 160,
-                height: 160,
-                borderRadius: 80,
+                width: 200,
+                height: 200,
+                borderRadius: 100,
                 border: '6px solid rgba(184, 206, 184, 0.5)',
                 background: 'linear-gradient(135deg, rgba(184, 206, 184, 0.4), rgba(184, 168, 212, 0.4))',
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
-                fontSize: 72,
+                fontSize: 90,
                 fontWeight: 900,
                 color: '#2D2520',
               }}>
