@@ -106,8 +106,8 @@ export default async function CertificatePage() {
         {hasCompleted ? (
           <div className="w-full max-w-5xl">
             {/* Certificate Card - Premium Minimal Design */}
-            <div className="card-neumorphic rounded-3xl p-4 sm:p-6">
-              <div id="certificate-content" className="rounded-2xl p-10 sm:p-16 relative" style={{
+            <div className="card-neumorphic rounded-3xl overflow-hidden">
+              <div id="certificate-content" className="p-10 sm:p-16 relative" style={{
                 backgroundImage: 'url(/certificate-bg.png)',
                 backgroundSize: 'cover',
                 backgroundPosition: 'center',
