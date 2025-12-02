@@ -66,9 +66,9 @@ export default function CertificateActions({ certificateId, completionDate, imag
 
       if (response.ok) {
         showToast('Certificate regenerated! Refreshing...')
-        // Refresh the page to show the new certificate
+        // Hard refresh to bypass cache and show the new certificate
         setTimeout(() => {
-          window.location.reload()
+          window.location.href = window.location.href.split('?')[0] + '?t=' + Date.now()
         }, 1500)
       } else {
         const errorData = await response.json()
