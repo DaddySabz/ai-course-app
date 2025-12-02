@@ -45,7 +45,7 @@ export default function WhatsNewWidget() {
 
     return (
         <Link href="/changelog" className="block h-full">
-            <div className="card-neumorphic rounded-3xl p-8 hover:scale-[1.02] transition-transform h-full flex flex-col">
+            <div className="glass-clickable rounded-3xl p-8 h-full flex flex-col">
                 <h3 className="text-2xl font-bold text-text-primary mb-6">What's New</h3>
 
                 <div className="space-y-6 flex-1 overflow-auto">

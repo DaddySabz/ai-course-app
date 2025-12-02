@@ -7,7 +7,7 @@
   --color-surface: rgba(255, 255, 255, 0.6);
   --color-surface-hover: rgba(255, 255, 255, 0.75);
 
-  /* Accent Colors - One consistent accent color (mint/sage) */
+  /* Accent Colors */
   --color-accent: #A8D4C8;
   --color-accent-light: #C8E8E0;
   --color-sage-green: #B8CEB8;
@@ -22,24 +22,22 @@
   --color-text-secondary: #5A534E;
   --color-text-tertiary: #7A736E;
 
-  /* Shadows for Neumorphism - Light from top right */
-  /* All tiles use this SAME shadow for consistent height */
+  /* UNIFIED SHADOWS - All tiles same height */
   --shadow-neumorphic: -6px 6px 16px rgba(180, 160, 145, 0.35),
     6px -6px 16px rgba(255, 255, 255, 0.8);
   --shadow-neumorphic-inset: inset -4px 4px 10px rgba(180, 160, 145, 0.25),
     inset 4px -4px 10px rgba(255, 255, 255, 0.8);
-  --shadow-neumorphic-hover: -8px 8px 20px rgba(180, 160, 145, 0.45),
+  --shadow-neumorphic-lift: -8px 8px 20px rgba(180, 160, 145, 0.4),
     8px -8px 20px rgba(255, 255, 255, 0.9);
 }
 
-/* Global base styles */
 :root {
   color-scheme: light;
   --shadow-neumorphic: -6px 6px 16px rgba(180, 160, 145, 0.35),
     6px -6px 16px rgba(255, 255, 255, 0.8);
   --shadow-neumorphic-inset: inset -4px 4px 10px rgba(180, 160, 145, 0.25),
     inset 4px -4px 10px rgba(255, 255, 255, 0.8);
-  --shadow-neumorphic-hover: -8px 8px 20px rgba(180, 160, 145, 0.45),
+  --shadow-neumorphic-lift: -8px 8px 20px rgba(180, 160, 145, 0.4),
     8px -8px 20px rgba(255, 255, 255, 0.9);
   --color-text-primary: #2D2520;
   --color-text-secondary: #5A534E;
@@ -57,124 +55,34 @@ body {
 }
 
 /* ============================================
-   TILE SYSTEM - Consistent shadows everywhere
+   BASE TILES - Non-clickable, darken on hover
+   All have SAME shadow for consistent height
    ============================================ */
 
-/* BASE TILE - Neutral/White (non-clickable, darkens on hover) */
-.tile {
-  background: linear-gradient(145deg, rgba(255, 255, 255, 0.7), rgba(245, 238, 230, 0.6));
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.5);
-  box-shadow: var(--shadow-neumorphic);
-  transition: background 0.3s ease;
-}
-
-.tile:hover {
-  background: linear-gradient(145deg, rgba(255, 255, 255, 0.8), rgba(245, 238, 230, 0.7));
-}
-
-/* ACCENT TILE - Colored (mint/sage green) - darkens on hover */
-.tile-accent {
-  background: linear-gradient(145deg, rgba(168, 212, 200, 0.5), rgba(200, 232, 224, 0.4));
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  border: 1px solid rgba(168, 212, 200, 0.5);
-  box-shadow: var(--shadow-neumorphic);
-  transition: background 0.3s ease;
-}
-
-.tile-accent:hover {
-  background: linear-gradient(145deg, rgba(168, 212, 200, 0.6), rgba(200, 232, 224, 0.5));
-}
-
-/* INSET TILE - For nested elements inside tiles (input fields, task boxes) */
-.tile-inset {
-  background: linear-gradient(145deg, rgba(230, 220, 210, 0.4), rgba(255, 255, 255, 0.3));
-  backdrop-filter: blur(6px);
-  -webkit-backdrop-filter: blur(6px);
-  border: 1px solid rgba(200, 190, 180, 0.3);
-  box-shadow: var(--shadow-neumorphic-inset);
-  transition: all 0.3s ease;
-}
-
-.tile-inset:focus-within {
-  box-shadow: var(--shadow-neumorphic-inset), 0 0 0 2px rgba(168, 212, 200, 0.4);
-}
-
-/* ============================================
-   BUTTON SYSTEM - Clickable, lifts on hover
-   ============================================ */
-
-/* BASE BUTTON - Neutral (lifts on hover) */
-.btn {
-  background: linear-gradient(145deg, rgba(255, 255, 255, 0.8), rgba(245, 238, 230, 0.7));
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.5);
-  box-shadow: var(--shadow-neumorphic);
-  transition: all 0.3s ease;
-  font-weight: 600;
-  cursor: pointer;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-.btn:hover {
-  box-shadow: var(--shadow-neumorphic-hover);
-  transform: translateY(-2px);
-}
-
-.btn:active {
-  box-shadow: var(--shadow-neumorphic-inset);
-  transform: translateY(0);
-}
-
-/* ACCENT BUTTON - Colored (lifts on hover) */
-.btn-accent {
-  background: linear-gradient(145deg, rgba(168, 212, 200, 0.7), rgba(200, 232, 224, 0.6));
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  border: 1px solid rgba(168, 212, 200, 0.6);
-  box-shadow: var(--shadow-neumorphic);
-  transition: all 0.3s ease;
-  font-weight: 600;
-  cursor: pointer;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-.btn-accent:hover {
-  box-shadow: var(--shadow-neumorphic-hover);
-  transform: translateY(-2px);
-}
-
-.btn-accent:active {
-  box-shadow: var(--shadow-neumorphic-inset);
-  transform: translateY(0);
-}
-
-/* ============================================
-   LEGACY CLASSES - For backwards compatibility
-   ============================================ */
-
-/* Glass (sidebar) - same as tile */
+/* Neutral/White Glass - base tile */
 .glass {
   background: rgba(255, 255, 255, 0.6);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
   border: 1px solid rgba(255, 255, 255, 0.4);
   box-shadow: var(--shadow-neumorphic);
+  transition: background 0.3s ease;
 }
 
+.glass:hover {
+  background: rgba(255, 255, 255, 0.7);
+}
+
+/* Subtle glass - for disabled/coming soon items */
 .glass-subtle {
   background: rgba(255, 255, 255, 0.4);
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
   border: 1px solid rgba(255, 255, 255, 0.3);
+  box-shadow: var(--shadow-neumorphic);
 }
 
-/* Card neumorphic - now same as tile (no lift on hover) */
+/* Card neumorphic - neutral tile */
 .card-neumorphic {
   background: linear-gradient(145deg, rgba(255, 255, 255, 0.7), rgba(245, 238, 230, 0.6));
   backdrop-filter: blur(10px);
@@ -188,7 +96,11 @@ body {
   background: linear-gradient(145deg, rgba(255, 255, 255, 0.8), rgba(245, 238, 230, 0.7));
 }
 
-/* Glass mint - now same as tile-accent */
+/* ============================================
+   COLORED TILES - Same shadow, different colors
+   ============================================ */
+
+/* Mint/Sage Green */
 .glass-mint {
   background: linear-gradient(145deg, rgba(168, 212, 200, 0.5), rgba(200, 232, 224, 0.4));
   backdrop-filter: blur(10px);
@@ -202,21 +114,20 @@ body {
   background: linear-gradient(145deg, rgba(168, 212, 200, 0.6), rgba(200, 232, 224, 0.5));
 }
 
-/* Glass sage - same as tile-accent */
 .glass-sage {
-  background: linear-gradient(145deg, rgba(168, 212, 200, 0.5), rgba(200, 232, 224, 0.4));
+  background: linear-gradient(145deg, rgba(184, 206, 184, 0.5), rgba(209, 227, 209, 0.4));
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
-  border: 1px solid rgba(168, 212, 200, 0.5);
+  border: 1px solid rgba(184, 206, 184, 0.5);
   box-shadow: var(--shadow-neumorphic);
   transition: background 0.3s ease;
 }
 
 .glass-sage:hover {
-  background: linear-gradient(145deg, rgba(168, 212, 200, 0.6), rgba(200, 232, 224, 0.5));
+  background: linear-gradient(145deg, rgba(184, 206, 184, 0.6), rgba(209, 227, 209, 0.5));
 }
 
-/* Glass lavender - for active/selected states */
+/* Lavender/Purple */
 .glass-lavender {
   background: linear-gradient(145deg, rgba(184, 168, 212, 0.5), rgba(212, 200, 232, 0.4));
   backdrop-filter: blur(10px);
@@ -230,23 +141,173 @@ body {
   background: linear-gradient(145deg, rgba(184, 168, 212, 0.6), rgba(212, 200, 232, 0.5));
 }
 
-/* Glass clickable - for buttons that lift */
+/* Blue */
+.glass-blue {
+  background: linear-gradient(145deg, rgba(168, 200, 220, 0.5), rgba(190, 215, 235, 0.4));
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(168, 200, 220, 0.5);
+  box-shadow: var(--shadow-neumorphic);
+  transition: background 0.3s ease;
+}
+
+.glass-blue:hover {
+  background: linear-gradient(145deg, rgba(168, 200, 220, 0.6), rgba(190, 215, 235, 0.5));
+}
+
+/* Peach */
+.glass-peach {
+  background: linear-gradient(145deg, rgba(232, 200, 184, 0.5), rgba(245, 220, 205, 0.4));
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(232, 200, 184, 0.5);
+  box-shadow: var(--shadow-neumorphic);
+  transition: background 0.3s ease;
+}
+
+.glass-peach:hover {
+  background: linear-gradient(145deg, rgba(232, 200, 184, 0.6), rgba(245, 220, 205, 0.5));
+}
+
+/* ============================================
+   CLICKABLE ELEMENTS - Lift on hover
+   Same shadow, but transform on hover
+   ============================================ */
+
+/* Neutral clickable */
 .glass-clickable {
   background: rgba(255, 255, 255, 0.7);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
   border: 1px solid rgba(255, 255, 255, 0.5);
   box-shadow: var(--shadow-neumorphic);
-  transition: all 0.3s ease;
+  transition: all 0.2s ease;
   cursor: pointer;
 }
 
 .glass-clickable:hover {
-  box-shadow: var(--shadow-neumorphic-hover);
-  transform: translateY(-2px);
+  box-shadow: var(--shadow-neumorphic-lift);
+  transform: translateY(-3px);
 }
 
-/* Glass inset - for input fields */
+.glass-clickable:active {
+  box-shadow: var(--shadow-neumorphic-inset);
+  transform: translateY(0);
+}
+
+/* Sage/Green clickable */
+.glass-sage-clickable {
+  background: linear-gradient(145deg, rgba(184, 206, 184, 0.6), rgba(209, 227, 209, 0.5));
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(184, 206, 184, 0.6);
+  box-shadow: var(--shadow-neumorphic);
+  transition: all 0.2s ease;
+  cursor: pointer;
+}
+
+.glass-sage-clickable:hover {
+  box-shadow: var(--shadow-neumorphic-lift);
+  transform: translateY(-3px);
+}
+
+.glass-sage-clickable:active {
+  box-shadow: var(--shadow-neumorphic-inset);
+  transform: translateY(0);
+}
+
+/* Blue clickable */
+.glass-blue-clickable {
+  background: linear-gradient(145deg, rgba(168, 200, 220, 0.6), rgba(190, 215, 235, 0.5));
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(168, 200, 220, 0.6);
+  box-shadow: var(--shadow-neumorphic);
+  transition: all 0.2s ease;
+  cursor: pointer;
+}
+
+.glass-blue-clickable:hover {
+  box-shadow: var(--shadow-neumorphic-lift);
+  transform: translateY(-3px);
+}
+
+.glass-blue-clickable:active {
+  box-shadow: var(--shadow-neumorphic-inset);
+  transform: translateY(0);
+}
+
+/* Lavender clickable */
+.glass-lavender-clickable {
+  background: linear-gradient(145deg, rgba(184, 168, 212, 0.6), rgba(212, 200, 232, 0.5));
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(184, 168, 212, 0.6);
+  box-shadow: var(--shadow-neumorphic);
+  transition: all 0.2s ease;
+  cursor: pointer;
+}
+
+.glass-lavender-clickable:hover {
+  box-shadow: var(--shadow-neumorphic-lift);
+  transform: translateY(-3px);
+}
+
+.glass-lavender-clickable:active {
+  box-shadow: var(--shadow-neumorphic-inset);
+  transform: translateY(0);
+}
+
+/* Mint clickable */
+.glass-mint-clickable {
+  background: linear-gradient(145deg, rgba(168, 212, 200, 0.6), rgba(200, 232, 224, 0.5));
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(168, 212, 200, 0.6);
+  box-shadow: var(--shadow-neumorphic);
+  transition: all 0.2s ease;
+  cursor: pointer;
+}
+
+.glass-mint-clickable:hover {
+  box-shadow: var(--shadow-neumorphic-lift);
+  transform: translateY(-3px);
+}
+
+.glass-mint-clickable:active {
+  box-shadow: var(--shadow-neumorphic-inset);
+  transform: translateY(0);
+}
+
+/* ============================================
+   BUTTONS - Lift on hover
+   ============================================ */
+
+.btn-neumorphic {
+  background: linear-gradient(145deg, rgba(255, 255, 255, 0.8), rgba(245, 238, 230, 0.7));
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  box-shadow: var(--shadow-neumorphic);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  transition: all 0.2s ease;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.btn-neumorphic:hover {
+  box-shadow: var(--shadow-neumorphic-lift);
+  transform: translateY(-3px);
+}
+
+.btn-neumorphic:active {
+  box-shadow: var(--shadow-neumorphic-inset);
+  transform: translateY(0);
+}
+
+/* ============================================
+   INSET ELEMENTS - For nested items inside tiles
+   ============================================ */
+
 .glass-inset {
   background: linear-gradient(145deg, rgba(230, 220, 210, 0.4), rgba(255, 255, 255, 0.3));
   backdrop-filter: blur(6px);
@@ -260,39 +321,14 @@ body {
   box-shadow: var(--shadow-neumorphic-inset), 0 0 0 2px rgba(168, 212, 200, 0.4);
 }
 
-/* Button neumorphic - lifts on hover */
-.btn-neumorphic {
-  background: linear-gradient(145deg, rgba(255, 255, 255, 0.8), rgba(245, 238, 230, 0.7));
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  box-shadow: var(--shadow-neumorphic);
-  border: 1px solid rgba(255, 255, 255, 0.5);
-  transition: all 0.3s ease;
-  font-weight: 600;
-  cursor: pointer;
-}
-
-.btn-neumorphic:hover {
-  box-shadow: var(--shadow-neumorphic-hover);
-  transform: translateY(-2px);
-}
-
-.btn-neumorphic:active {
-  box-shadow: var(--shadow-neumorphic-inset);
-  transform: translateY(0);
-}
-
 /* Nested tile shadow - for day tiles in sidebar */
 .shadow-tile {
   box-shadow: var(--shadow-neumorphic);
-}
-
-.shadow-tile:hover {
-  background: linear-gradient(145deg, rgba(255, 255, 255, 0.8), rgba(245, 238, 230, 0.7));
+  transition: background 0.3s ease;
 }
 
 /* ============================================
-   BADGES - No shadow (flat elements)
+   BADGES - Flat elements, no shadow
    ============================================ */
 
 .badge-glass {
@@ -328,7 +364,6 @@ body {
    UTILITIES
    ============================================ */
 
-/* Smooth transitions - but NOT on transform by default */
 * {
   transition-property: background, box-shadow, border-color;
   transition-duration: 0.3s;
@@ -346,7 +381,6 @@ body {
   background-clip: text;
 }
 
-/* Animations */
 @keyframes slideDown {
   from {
     opacity: 0;
