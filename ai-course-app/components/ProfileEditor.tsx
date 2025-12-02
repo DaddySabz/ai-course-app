@@ -110,7 +110,7 @@ export default function ProfileEditor({ userId, defaultName, defaultAvatar, defa
     }
     setDisplayOrg(tempOrg)
     setIsEditingOrg(false)
-    await saveProfile(displayName, avatarUrl)
+    await saveProfile(displayName, avatarUrl, tempOrg)
   }
 
   const handleEmailSave = async () => {
@@ -145,7 +145,7 @@ export default function ProfileEditor({ userId, defaultName, defaultAvatar, defa
     alert('Password change functionality coming soon.')
   }
 
-  const saveProfile = async (name: string, avatar: string | null) => {
+  const saveProfile = async (name: string, avatar: string | null, org?: string) => {
     setIsSaving(true)
     try {
       const res = await fetch('/api/profile', {
@@ -153,11 +153,17 @@ export default function ProfileEditor({ userId, defaultName, defaultAvatar, defa
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
           displayName: name,
-          avatarUrl: avatar
+          avatarUrl: avatar,
+          ...(org !== undefined && { organization: org })
         })
       })
 
       if (res.ok) {
+        const data = await res.json()
+        // Show feedback if certificate was regenerated
+        if (data.certificateRegenerated) {
+          console.log('Certificate regenerated with updated profile')
+        }
         router.refresh()
       } else {
         const errorData = await res.json()

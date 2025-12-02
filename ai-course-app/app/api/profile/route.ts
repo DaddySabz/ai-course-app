@@ -45,7 +45,7 @@ export async function POST(req: Request) {
       return NextResponse.json({ error: 'Unauthorized' }, { status: 401 })
     }
 
-    const { displayName, avatarUrl } = await req.json()
+    const { displayName, avatarUrl, organization } = await req.json()
 
     const supabase = createClient(
       process.env.NEXT_PUBLIC_SUPABASE_URL!,
@@ -59,16 +59,22 @@ export async function POST(req: Request) {
       .eq('user_id', session.user.id)
       .single()
 
+    // Build update object - only include organization if provided
+    const updateData: Record<string, unknown> = {
+      display_name: displayName,
+      avatar_url: avatarUrl,
+      updated_at: new Date().toISOString()
+    }
+    if (organization !== undefined) {
+      updateData.organization = organization
+    }
+
     let result
     if (existing) {
       // Update existing profile
       result = await supabase
         .from('user_profiles')
-        .update({
-          display_name: displayName,
-          avatar_url: avatarUrl,
-          updated_at: new Date().toISOString()
-        })
+        .update(updateData)
         .eq('user_id', session.user.id)
         .select()
         .single()
@@ -79,7 +85,8 @@ export async function POST(req: Request) {
         .insert({
           user_id: session.user.id,
           display_name: displayName,
-          avatar_url: avatarUrl
+          avatar_url: avatarUrl,
+          ...(organization !== undefined && { organization })
         })
         .select()
         .single()
@@ -89,9 +96,40 @@ export async function POST(req: Request) {
       return NextResponse.json({ error: result.error.message }, { status: 500 })
     }
 
+    // Check if user has a certificate - if so, regenerate it with new profile data
+    const { data: certificate } = await supabase
+      .from('certificates')
+      .select('id')
+      .eq('user_email', session.user.email)
+      .limit(1)
+
+    let certificateRegenerated = false
+    if (certificate && certificate.length > 0) {
+      // Trigger certificate regeneration
+      try {
+        const baseUrl = process.env.NEXTAUTH_URL || process.env.VERCEL_URL 
+          ? `https://${process.env.VERCEL_URL}` 
+          : 'http://localhost:3000'
+        
+        await fetch(`${baseUrl}/api/certificate/generate-image`, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ 
+            certificateId: certificate[0].id,
+            forceRegenerate: true 
+          })
+        })
+        certificateRegenerated = true
+      } catch (certError) {
+        console.error('Certificate regeneration error:', certError)
+        // Don't fail the whole request if certificate regen fails
+      }
+    }
+
     return NextResponse.json({ 
       success: true,
-      profile: result.data
+      profile: result.data,
+      certificateRegenerated
     })
   } catch (error) {
     console.error('Update profile error:', error)

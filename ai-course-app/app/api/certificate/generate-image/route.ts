@@ -6,7 +6,7 @@ import { NextRequest, NextResponse } from 'next/server';
 
 export async function POST(request: NextRequest) {
   try {
-    const { certificateId } = await request.json();
+    const { certificateId, forceRegenerate } = await request.json();
     
     if (!certificateId) {
       return NextResponse.json({ error: 'Certificate ID required' }, { status: 400 });
@@ -28,8 +28,8 @@ export async function POST(request: NextRequest) {
       return NextResponse.json({ error: 'Certificate not found' }, { status: 404 });
     }
 
-    // Check if image already exists
-    if (cert.image_url) {
+    // Check if image already exists (skip if forceRegenerate is true)
+    if (cert.image_url && !forceRegenerate) {
       return NextResponse.json({ 
         success: true, 
         imageUrl: cert.image_url,
