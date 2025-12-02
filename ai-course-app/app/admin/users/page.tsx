@@ -39,7 +39,7 @@ export default async function AdminUsersPage() {
         return <AdminUsersClient initialUsers={[]} isAdmin={true} />
     }
 
-    // Fetch progress counts for each user
+    // Fetch progress counts and purchases for each user
     const usersWithProgress = await Promise.all(
         (profiles || []).map(async (profile) => {
             const { count } = await supabase
@@ -47,16 +47,38 @@ export default async function AdminUsersPage() {
                 .select('*', { count: 'exact', head: true })
                 .eq('user_id', profile.user_id)
 
+            // Fetch purchases for this user
+            const { data: purchases } = await supabase
+                .from('purchases')
+                .select('product_id, amount_paid, status, created_at')
+                .eq('user_id', profile.user_id)
+                .order('created_at', { ascending: false })
+
             return {
                 id: profile.user_id,
                 email: profile.contact_email || 'N/A',
                 display_name: profile.display_name || 'Unknown',
                 partner_type: profile.partner_type || 'beta',
                 progress_count: count || 0,
-                created_at: profile.created_at
+                created_at: profile.created_at,
+                purchases: purchases || []
             }
         })
     )
 
-    return <AdminUsersClient initialUsers={usersWithProgress} isAdmin={true} />
+    // Fetch all purchases for stats
+    const { data: allPurchases } = await supabase
+        .from('purchases')
+        .select('product_id, amount_paid, status, created_at')
+        .order('created_at', { ascending: false })
+
+    const purchaseStats = {
+        total: allPurchases?.length || 0,
+        paid: allPurchases?.filter(p => p.status === 'paid').length || 0,
+        failed: allPurchases?.filter(p => p.status === 'failed').length || 0,
+        refunded: allPurchases?.filter(p => p.status === 'refunded').length || 0,
+        totalRevenue: allPurchases?.filter(p => p.status === 'paid').reduce((sum, p) => sum + (p.amount_paid || 0), 0) || 0
+    }
+
+    return <AdminUsersClient initialUsers={usersWithProgress} isAdmin={true} purchaseStats={purchaseStats} />
 }

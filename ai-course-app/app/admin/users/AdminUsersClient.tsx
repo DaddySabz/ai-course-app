@@ -4,6 +4,13 @@ import { useState } from 'react'
 import { useRouter } from 'next/navigation'
 import Link from 'next/link'
 
+interface Purchase {
+    product_id: string
+    amount_paid: number | null
+    status: string
+    created_at: string
+}
+
 interface User {
     id: string
     email: string
@@ -11,14 +18,24 @@ interface User {
     partner_type: string
     progress_count: number
     created_at: string
+    purchases: Purchase[]
+}
+
+interface PurchaseStats {
+    total: number
+    paid: number
+    failed: number
+    refunded: number
+    totalRevenue: number
 }
 
 interface AdminUsersClientProps {
     initialUsers: User[]
     isAdmin: boolean
+    purchaseStats?: PurchaseStats
 }
 
-export default function AdminUsersClient({ initialUsers, isAdmin }: AdminUsersClientProps) {
+export default function AdminUsersClient({ initialUsers, isAdmin, purchaseStats }: AdminUsersClientProps) {
     const [users, setUsers] = useState(initialUsers)
     const [isAddingUser, setIsAddingUser] = useState(false)
     const [newUserEmail, setNewUserEmail] = useState('')
@@ -214,8 +231,8 @@ export default function AdminUsersClient({ initialUsers, isAdmin }: AdminUsersCl
                     </div>
                 </div>
 
-                {/* Stats */}
-                <div className="grid grid-cols-1 sm:grid-cols-4 gap-4 mb-8">
+                {/* User Stats */}
+                <div className="grid grid-cols-1 sm:grid-cols-4 gap-4 mb-4">
                     <div className="card-neumorphic rounded-2xl p-6">
                         <div className="text-3xl font-black text-text-primary">{users.length}</div>
                         <div className="text-sm text-text-secondary font-medium">Total Users</div>
@@ -233,6 +250,32 @@ export default function AdminUsersClient({ initialUsers, isAdmin }: AdminUsersCl
                         <div className="text-sm text-text-secondary font-medium">Tech Partners</div>
                     </div>
                 </div>
+
+                {/* Payment Stats */}
+                {purchaseStats && (
+                    <div className="grid grid-cols-1 sm:grid-cols-5 gap-4 mb-8">
+                        <div className="card-neumorphic rounded-2xl p-6 border-2 border-sage-green/30">
+                            <div className="text-3xl font-black text-sage-green">£{(purchaseStats.totalRevenue / 100).toFixed(0)}</div>
+                            <div className="text-sm text-text-secondary font-medium">Total Revenue</div>
+                        </div>
+                        <div className="card-neumorphic rounded-2xl p-6">
+                            <div className="text-3xl font-black text-text-primary">{purchaseStats.total}</div>
+                            <div className="text-sm text-text-secondary font-medium">Total Transactions</div>
+                        </div>
+                        <div className="card-neumorphic rounded-2xl p-6">
+                            <div className="text-3xl font-black text-green-600">{purchaseStats.paid}</div>
+                            <div className="text-sm text-text-secondary font-medium">Paid</div>
+                        </div>
+                        <div className="card-neumorphic rounded-2xl p-6">
+                            <div className="text-3xl font-black text-red-500">{purchaseStats.failed}</div>
+                            <div className="text-sm text-text-secondary font-medium">Failed</div>
+                        </div>
+                        <div className="card-neumorphic rounded-2xl p-6">
+                            <div className="text-3xl font-black text-amber-500">{purchaseStats.refunded}</div>
+                            <div className="text-sm text-text-secondary font-medium">Refunded</div>
+                        </div>
+                    </div>
+                )}
 
                 {/* Add User Button */}
                 <div className="mb-6">
@@ -332,10 +375,28 @@ export default function AdminUsersClient({ initialUsers, isAdmin }: AdminUsersCl
                                             </select>
                                         </div>
                                         <p className="text-text-secondary mb-2">{user.email}</p>
-                                        <div className="flex items-center gap-4 text-sm text-text-tertiary">
+                                        <div className="flex items-center gap-4 text-sm text-text-tertiary mb-2">
                                             <span>📚 {user.progress_count}/30 lessons</span>
                                             <span>📅 {new Date(user.created_at).toLocaleDateString()}</span>
                                         </div>
+                                        {/* Purchases */}
+                                        {user.purchases && user.purchases.length > 0 && (
+                                            <div className="flex flex-wrap gap-2 mt-2">
+                                                {user.purchases.map((purchase, idx) => (
+                                                    <span 
+                                                        key={idx}
+                                                        className={`px-3 py-1 rounded-full text-xs font-semibold ${
+                                                            purchase.status === 'paid' ? 'bg-green-100 text-green-700' :
+                                                            purchase.status === 'failed' ? 'bg-red-100 text-red-700' :
+                                                            purchase.status === 'refunded' ? 'bg-amber-100 text-amber-700' :
+                                                            'bg-gray-100 text-gray-700'
+                                                        }`}
+                                                    >
+                                                        💳 {purchase.product_id} • £{((purchase.amount_paid || 0) / 100).toFixed(0)} • {purchase.status.toUpperCase()}
+                                                    </span>
+                                                ))}
+                                            </div>
+                                        )}
                                     </div>
                                     <div className="flex flex-col gap-2">
                                         <button
