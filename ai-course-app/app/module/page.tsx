@@ -122,42 +122,35 @@ export default async function ModulePage({
 
         {/* Right Content Area - Warm, Spacious Design */}
         <main className="flex-1">
-          {/* Hero Image with Title Overlay - Shadow wrapper + clipped content */}
-          <div className="rounded-3xl mb-8" style={{ boxShadow: '-8px 8px 20px rgba(180, 160, 145, 0.4), 8px -8px 20px rgba(255, 255, 255, 0.8)' }}>
-            <div className="relative h-[250px] md:h-[400px] rounded-3xl overflow-hidden">
-              <img
-                src="/images/course/day-1-hero-image.jpg"
-                alt={lesson.title}
-                className="w-full h-full object-cover"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent" />
-              <div className="absolute bottom-0 left-0 right-0 p-6 md:p-10">
-                <div className="flex items-center gap-2 mb-2 md:mb-3">
-                  <span className="badge-glass backdrop-blur-md bg-white/20 text-white border-white/30 text-xs md:text-sm">
-                    Day {currentDay} of 30
-                  </span>
-                  {completedDays.includes(currentDay) && (
-                    <span className="badge-glass backdrop-blur-md bg-sage-green/30 text-white border-sage-green/40 text-xs md:text-sm">
-                      Completed
-                    </span>
-                  )}
-                </div>
-                <h1 className="text-3xl md:text-5xl font-black text-white mb-1 md:mb-2 leading-tight drop-shadow-lg">
-                  {lesson.title}
-                </h1>
-                <p className="text-base md:text-xl text-white/90 font-medium drop-shadow-md">
-                  {lesson.subtitle}
-                </p>
-              </div>
-            </div>
-          </div>
-
-          {/* TEST TILE - Delete after testing */}
+          {/* Hero Image with Title Overlay */}
           <div 
-            className="rounded-3xl mb-8 h-[250px] md:h-[400px] bg-amber-200 flex items-center justify-center"
+            className="rounded-3xl mb-8 h-[250px] md:h-[400px] relative overflow-hidden"
             style={{ boxShadow: '-8px 8px 20px rgba(180, 160, 145, 0.4), 8px -8px 20px rgba(255, 255, 255, 0.8)' }}
           >
-            <p className="text-2xl font-bold text-amber-800">TEST TILE - Does this have a shadow?</p>
+            <img
+              src="/images/course/day-1-hero-image.jpg"
+              alt={lesson.title}
+              className="absolute inset-0 w-full h-full object-cover"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent" />
+            <div className="absolute bottom-0 left-0 right-0 p-6 md:p-10">
+              <div className="flex items-center gap-2 mb-2 md:mb-3">
+                <span className="badge-glass backdrop-blur-md bg-white/20 text-white border-white/30 text-xs md:text-sm">
+                  Day {currentDay} of 30
+                </span>
+                {completedDays.includes(currentDay) && (
+                  <span className="badge-glass backdrop-blur-md bg-sage-green/30 text-white border-sage-green/40 text-xs md:text-sm">
+                    Completed
+                  </span>
+                )}
+              </div>
+              <h1 className="text-3xl md:text-5xl font-black text-white mb-1 md:mb-2 leading-tight drop-shadow-lg">
+                {lesson.title}
+              </h1>
+              <p className="text-base md:text-xl text-white/90 font-medium drop-shadow-md">
+                {lesson.subtitle}
+              </p>
+            </div>
           </div>
 
           <LessonContent
