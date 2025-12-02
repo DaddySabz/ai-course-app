@@ -120,15 +120,11 @@ export default async function CertificatePage() {
         {hasCompleted ? (
           <div className="w-full max-w-5xl">
             {/* Certificate Card - Premium Minimal Design */}
-            <div className="card-neumorphic rounded-3xl overflow-hidden">
+            <div className="card-neumorphic rounded-3xl overflow-hidden print:shadow-none print:rounded-none">
               <div id="certificate-content" className="relative" style={{
-                background: `
-                  linear-gradient(135deg, rgba(255,255,255,0.1) 0%, transparent 50%),
-                  linear-gradient(to bottom, #faf9f7 0%, #f5f3f0 50%, #f0ede8 100%)
-                `,
+                backgroundColor: '#f5f3f0',
                 padding: 'clamp(2.5rem, 6vw, 5rem) clamp(3rem, 8vw, 6rem)',
-                aspectRatio: '1.414 / 1',
-                boxShadow: 'inset 0 0 100px rgba(0,0,0,0.03)'
+                aspectRatio: '1.414 / 1'
               }}>
 
               {/* Title */}
@@ -203,7 +199,7 @@ export default async function CertificatePage() {
                   <p className="text-sm text-text-secondary font-semibold uppercase tracking-wider mb-1">Certificate ID</p>
                   {/* Display shortened UUID (first 8 chars) - Full UUID stored in DB for verification */}
                   <p className="text-lg font-semibold text-text-primary">
-                    {certificate?.id ? `AI-${String(certificate.id).replace(/-/g, '').slice(0, 8).toUpperCase()}` : 'AI-XXXXXXXX'}
+                    {certificate?.id || 'AI-XXXXXXXX'}
                   </p>
                 </div>
               </div>

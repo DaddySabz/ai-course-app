@@ -15,7 +15,58 @@ export default function CertificateActions({ certificateId, completionDate }: Ce
   }
 
   const handlePrint = () => {
-    window.print()
+    // Open a new window with just the certificate for clean printing
+    const certificate = document.getElementById('certificate-content')
+    if (!certificate) {
+      alert('Certificate not found. Please refresh the page and try again.')
+      return
+    }
+
+    const printWindow = window.open('', '_blank')
+    if (!printWindow) {
+      alert('Please allow pop-ups to print the certificate.')
+      return
+    }
+
+    printWindow.document.write(`
+      <!DOCTYPE html>
+      <html>
+        <head>
+          <title>Certificate - Introduction to AI</title>
+          <style>
+            * { margin: 0; padding: 0; box-sizing: border-box; }
+            @page { size: A4 landscape; margin: 0; }
+            body { 
+              display: flex; 
+              justify-content: center; 
+              align-items: center; 
+              min-height: 100vh;
+              background: white;
+              font-family: Georgia, serif;
+            }
+            .certificate {
+              width: 100%;
+              max-width: 297mm;
+              aspect-ratio: 1.414 / 1;
+              background-color: #f5f3f0;
+              padding: 3rem 4rem;
+            }
+          </style>
+        </head>
+        <body>
+          <div class="certificate">
+            ${certificate.innerHTML}
+          </div>
+          <script>
+            window.onload = function() {
+              window.print();
+              window.onafterprint = function() { window.close(); };
+            };
+          </script>
+        </body>
+      </html>
+    `)
+    printWindow.document.close()
   }
 
   const handleDownloadPDF = async () => {
@@ -41,7 +92,7 @@ export default function CertificateActions({ certificateId, completionDate }: Ce
         useCORS: true,
         allowTaint: false,
         logging: false,
-        backgroundColor: '#faf9f7',
+        backgroundColor: '#f5f3f0',
         width: certificate.scrollWidth,
         height: certificate.scrollHeight,
         x: 0,
@@ -93,7 +144,7 @@ export default function CertificateActions({ certificateId, completionDate }: Ce
         useCORS: true,
         allowTaint: false,
         logging: false,
-        backgroundColor: '#faf9f7',
+        backgroundColor: '#f5f3f0',
         width: certificate.scrollWidth,
         height: certificate.scrollHeight,
         x: 0,
@@ -149,7 +200,7 @@ export default function CertificateActions({ certificateId, completionDate }: Ce
         useCORS: true,
         allowTaint: false,
         logging: false,
-        backgroundColor: '#faf9f7',
+        backgroundColor: '#f5f3f0',
         width: certificate.scrollWidth,
         height: certificate.scrollHeight,
         x: 0,
@@ -386,7 +437,7 @@ export default function CertificateActions({ certificateId, completionDate }: Ce
         useCORS: true,
         allowTaint: false,
         logging: false,
-        backgroundColor: '#faf9f7',
+        backgroundColor: '#f5f3f0',
         width: certificate.scrollWidth,
         height: certificate.scrollHeight,
         x: 0,
@@ -503,8 +554,8 @@ export default function CertificateActions({ certificateId, completionDate }: Ce
           </button>
         </div>
 
-        {/* Row 3: Native Share (full width, only if supported) */}
-        {typeof navigator !== 'undefined' && 'canShare' in navigator && (
+        {/* Row 3: Native Share (full width, mobile only) */}
+        {typeof navigator !== 'undefined' && 'canShare' in navigator && isMobile() && (
           <div className="mb-3">
             <button
               onClick={handleNativeShare}

@@ -99,13 +99,9 @@ export default async function PublicCertificatePage({ params }: Props) {
         {/* Certificate Card - Clean paper design matching /certificate page */}
         <div className="card-neumorphic rounded-3xl overflow-hidden">
           <div className="relative" style={{
-            background: `
-              linear-gradient(135deg, rgba(255,255,255,0.1) 0%, transparent 50%),
-              linear-gradient(to bottom, #faf9f7 0%, #f5f3f0 50%, #f0ede8 100%)
-            `,
+            backgroundColor: '#f5f3f0',
             padding: 'clamp(2.5rem, 6vw, 5rem) clamp(3rem, 8vw, 6rem)',
-            aspectRatio: '1.414 / 1',
-            boxShadow: 'inset 0 0 100px rgba(0,0,0,0.03)'
+            aspectRatio: '1.414 / 1'
           }}>
           
             {/* Title */}
@@ -159,7 +155,7 @@ export default async function PublicCertificatePage({ params }: Props) {
               <div className="text-center sm:text-right">
                 <p className="text-sm text-text-secondary font-semibold uppercase tracking-wider mb-1">Certificate ID</p>
                 <p className="text-lg font-semibold text-text-primary">
-                  AI-{String(certificate.id).replace(/-/g, '').slice(0, 8).toUpperCase()}
+                  {certificate.id}
                 </p>
               </div>
             </div>
