@@ -59,11 +59,12 @@ export default async function CertificatePage() {
   // If completed, check for existing certificate or create one
   let certificate = null
   if (hasCompleted) {
+    // Use email instead of user_id for lookup (user_id can change between sessions)
     // Use .limit(1) instead of .single() to avoid errors when multiple rows exist
     const { data: existingCerts } = await supabase
       .from('certificates')
       .select('*')
-      .eq('user_id', session.user.id)
+      .eq('user_email', session.user.email)
       .order('issued_at', { ascending: true })
       .limit(1)
 
@@ -72,12 +73,13 @@ export default async function CertificatePage() {
     if (existingCert) {
       certificate = existingCert
 
-      // Always update certificate name to match current display_name from profile
-      if (existingCert.user_name !== displayName) {
+      // Always update certificate name and user_id to match current session
+      const needsUpdate = existingCert.user_name !== displayName || existingCert.user_id !== session.user.id
+      if (needsUpdate) {
         const { data: updatedCert } = await supabase
           .from('certificates')
-          .update({ user_name: displayName })
-          .eq('user_id', session.user.id)
+          .update({ user_name: displayName, user_id: session.user.id })
+          .eq('user_email', session.user.email)
           .select()
           .single()
 
