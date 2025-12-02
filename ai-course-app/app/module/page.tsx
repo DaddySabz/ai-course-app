@@ -121,12 +121,12 @@ export default async function ModulePage({
         </aside>
 
         {/* Right Content Area - Warm, Spacious Design */}
-        <main className="flex-1 pt-2 pl-2">
+        <main className="flex-1 p-4">
           {/* Hero Image with Title Overlay */}
           {/* Outer wrapper for shadow - no overflow hidden */}
           <div 
             className="rounded-3xl mb-8"
-            style={{ boxShadow: '-8px 8px 20px rgba(180, 160, 145, 0.4), 8px -8px 20px rgba(255, 255, 255, 0.8)' }}
+            style={{ boxShadow: '8px 8px 20px rgba(180, 160, 145, 0.5), -8px -8px 20px rgba(255, 255, 255, 0.9)' }}
           >
             {/* Inner wrapper for clipping - has overflow hidden */}
             <div className="relative h-[250px] md:h-[400px] rounded-3xl overflow-hidden">
