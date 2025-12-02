@@ -73,11 +73,16 @@ export default function CheckoutButton({ productId, priceId, amount, label, user
       <button
         onClick={handleCheckout}
         disabled={isLoading}
-        className="btn-neumorphic w-full flex items-center justify-center gap-2 px-6 py-4 rounded-2xl text-text-primary font-bold text-lg disabled:opacity-50 disabled:cursor-not-allowed"
+        className="w-full flex items-center justify-center gap-2 px-6 py-4 rounded-2xl font-bold text-lg disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-200 hover:-translate-y-1"
+        style={{
+          background: 'linear-gradient(135deg, #2D2520 0%, #4A4340 100%)',
+          color: '#FFFFFF',
+          boxShadow: '0 4px 14px rgba(45, 37, 32, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.1)'
+        }}
       >
         {isLoading ? (
           <>
-            <span className="inline-block size-5 border-2 border-text-primary border-t-transparent rounded-full animate-spin" />
+            <span className="inline-block size-5 border-2 border-white border-t-transparent rounded-full animate-spin" />
             <span>Processing...</span>
           </>
         ) : (

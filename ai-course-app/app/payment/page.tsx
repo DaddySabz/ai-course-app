@@ -140,7 +140,7 @@ export default async function PaymentPage({ searchParams }: PageProps) {
 
           {hasAccess ? (
             // Already purchased
-            <div className="glass-sage rounded-3xl p-8">
+            <div className="card-neumorphic rounded-3xl p-8">
               <div className="text-center">
                 <div className="inline-flex items-center justify-center size-16 rounded-full bg-sage-green/30 mb-4">
                   <span className="text-3xl">✓</span>
@@ -159,10 +159,10 @@ export default async function PaymentPage({ searchParams }: PageProps) {
             </div>
           ) : (
             // Checkout Form
-            <div className="flex flex-col lg:flex-row gap-8">
+            <div className="flex flex-col lg:flex-row gap-8 lg:items-stretch">
               {/* Left Column - Product Info */}
-              <div className="flex-1">
-                <div className="glass-blue rounded-3xl p-8">
+              <div className="flex-1 flex">
+                <div className="card-neumorphic rounded-3xl p-8 flex flex-col w-full">
                   <h2 className="text-2xl font-bold text-text-primary mb-4">
                     {product.title}
                   </h2>
@@ -170,28 +170,28 @@ export default async function PaymentPage({ searchParams }: PageProps) {
                     {product.description}
                   </p>
 
-                  {/* Features List */}
-                  <div className="space-y-3">
-                    <div className="flex items-start gap-3">
-                      <span className="text-sage-green text-xl mt-0.5">✓</span>
-                      <p className="text-text-secondary">30 days of comprehensive content</p>
+                  {/* Features List - white/light tiles on neutral background */}
+                  <div className="space-y-3 flex-1">
+                    <div className="glass flex items-start gap-3 p-4 rounded-2xl">
+                      <span className="text-sage-green text-xl font-bold">✓</span>
+                      <p className="text-text-primary font-medium">30 days of comprehensive content</p>
                     </div>
-                    <div className="flex items-start gap-3">
-                      <span className="text-sage-green text-xl mt-0.5">✓</span>
-                      <p className="text-text-secondary">Hands-on exercises and real-world applications</p>
+                    <div className="glass flex items-start gap-3 p-4 rounded-2xl">
+                      <span className="text-sage-green text-xl font-bold">✓</span>
+                      <p className="text-text-primary font-medium">Hands-on exercises and real-world applications</p>
                     </div>
-                    <div className="flex items-start gap-3">
-                      <span className="text-sage-green text-xl mt-0.5">✓</span>
-                      <p className="text-text-secondary">Certificate of completion</p>
+                    <div className="glass flex items-start gap-3 p-4 rounded-2xl">
+                      <span className="text-sage-green text-xl font-bold">✓</span>
+                      <p className="text-text-primary font-medium">Official certificate to add to LinkedIn</p>
                     </div>
-                    <div className="flex items-start gap-3">
-                      <span className="text-sage-green text-xl mt-0.5">✓</span>
-                      <p className="text-text-secondary">Lifetime access to course materials</p>
+                    <div className="glass flex items-start gap-3 p-4 rounded-2xl">
+                      <span className="text-sage-green text-xl font-bold">✓</span>
+                      <p className="text-text-primary font-medium">Lifetime access to course materials</p>
                     </div>
                   </div>
 
                   {/* Security Badge */}
-                  <div className="mt-8 pt-8 border-t border-text-tertiary/20">
+                  <div className="mt-8 pt-6 border-t border-text-tertiary/20">
                     <div className="flex items-center gap-2 text-text-secondary text-sm">
                       <span className="text-lg">🔒</span>
                       <span>Your payment is processed securely via Stripe.</span>
@@ -201,24 +201,24 @@ export default async function PaymentPage({ searchParams }: PageProps) {
               </div>
 
               {/* Right Column - Order Summary */}
-              <div className="lg:w-96">
-                <div className="glass-lavender rounded-3xl p-8 lg:sticky lg:top-24">
+              <div className="lg:w-96 flex">
+                <div className="card-neumorphic rounded-3xl p-8 lg:sticky lg:top-24 flex flex-col w-full">
                   <h2 className="text-2xl font-bold text-text-primary mb-6 pb-4 border-b border-text-tertiary/20">
                     Order Summary
                   </h2>
 
-                  <div className="space-y-4 mb-6">
+                  <div className="space-y-4 mb-6 flex-1">
                     <div className="flex justify-between items-center">
-                      <p className="text-text-secondary">{product.title}</p>
-                      <p className="font-semibold text-text-primary line-through text-text-tertiary">
+                      <p className="text-text-primary font-medium">{product.title}</p>
+                      <p className="font-semibold line-through text-text-tertiary">
                         £{product.fullPrice}
                       </p>
                     </div>
 
                     {discountLabel && (
                       <div className="glass-sage rounded-2xl p-3 text-center">
-                        <span className="text-sm font-bold text-sage-green">
-                          {discountLabel}
+                        <span className="text-sm font-bold text-text-primary">
+                          🎉 {discountLabel}
                         </span>
                       </div>
                     )}
