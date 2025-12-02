@@ -73,7 +73,7 @@ export default function CheckoutButton({ productId, priceId, amount, label, user
       <button
         onClick={handleCheckout}
         disabled={isLoading}
-        className="w-full flex items-center justify-center gap-2 px-6 py-4 rounded-2xl font-bold text-lg disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-200 hover:-translate-y-1"
+        className="w-full flex items-center justify-center gap-2 px-6 py-4 rounded-2xl font-bold text-lg disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-300 ease-out hover:-translate-y-[3px]"
         style={{
           background: 'linear-gradient(135deg, #2D2520 0%, #4A4340 100%)',
           color: '#FFFFFF',
