@@ -126,7 +126,7 @@ export default async function ModulePage({
           <div
             className="card-neumorphic relative rounded-3xl mb-8 h-[250px] md:h-[400px]"
             style={{
-              boxShadow: '0 0 0 4px red, 0 20px 60px rgba(255, 0, 0, 0.9)'
+              boxShadow: '0 20px 60px rgba(0, 0, 0, 0.3), 0 8px 24px rgba(0, 0, 0, 0.2)'
             }}
           >
             <img
