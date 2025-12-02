@@ -279,6 +279,27 @@ body {
   transform: translateY(0);
 }
 
+/* Peach clickable */
+.glass-peach-clickable {
+  background: linear-gradient(145deg, rgba(232, 200, 184, 0.6), rgba(245, 220, 205, 0.5));
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(232, 200, 184, 0.6);
+  box-shadow: var(--shadow-neumorphic);
+  transition: all 0.2s ease;
+  cursor: pointer;
+}
+
+.glass-peach-clickable:hover {
+  box-shadow: var(--shadow-neumorphic-lift);
+  transform: translateY(-3px);
+}
+
+.glass-peach-clickable:active {
+  box-shadow: var(--shadow-neumorphic-inset);
+  transform: translateY(0);
+}
+
 /* ============================================
    BUTTONS - Lift on hover
    ============================================ */

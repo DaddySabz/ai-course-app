@@ -104,7 +104,7 @@ export default async function ModulePage({
                   <Link
                     key={day.day}
                     href={`/module?day=${day.day}`}
-                    className={`flex flex-col gap-1 px-4 py-3 rounded-2xl transition-all duration-300 shadow-tile ${isActive
+                    className={`flex flex-col gap-1 px-4 py-3 rounded-2xl transition-all duration-200 shadow-tile hover:shadow-[var(--shadow-neumorphic-lift)] hover:-translate-y-1 ${isActive
                       ? 'bg-gradient-to-br from-lavender/60 to-lavender-light/50 border border-lavender/60 text-text-primary'
                       : isDayCompleted
                         ? 'bg-gradient-to-br from-sage-green/50 to-sage-green-light/40 border border-sage-green/50 text-text-primary'
@@ -163,10 +163,10 @@ export default async function ModulePage({
                 <Link
                   key={day.day}
                   href={`/module?day=${day.day}`}
-                  className="flex flex-col items-center flex-shrink-0"
+                  className="flex flex-col items-center flex-shrink-0 group"
                 >
                   <div
-                    className={`w-11 h-11 rounded-full flex items-center justify-center font-semibold text-sm transition-all duration-300 ${isActive ? 'text-white' : 'text-text-primary'
+                    className={`w-11 h-11 rounded-full flex items-center justify-center font-semibold text-sm transition-all duration-200 group-hover:-translate-y-1 ${isActive ? 'text-white' : 'text-text-primary'
                       }`}
                     style={
                       isActive

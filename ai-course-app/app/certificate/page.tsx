@@ -106,13 +106,14 @@ export default async function CertificatePage() {
         {hasCompleted ? (
           <div className="w-full max-w-5xl">
             {/* Certificate Card - Premium Minimal Design */}
-            <div id="certificate-content" className="rounded-3xl shadow-2xl p-12 sm:p-20 relative" style={{
-              backgroundImage: 'url(/certificate-bg.png)',
-              backgroundSize: 'cover',
-              backgroundPosition: 'center',
-              backgroundRepeat: 'no-repeat',
-              minHeight: '700px'
-            }}>
+            <div className="card-neumorphic rounded-3xl p-4 sm:p-6">
+              <div id="certificate-content" className="rounded-2xl p-10 sm:p-16 relative" style={{
+                backgroundImage: 'url(/certificate-bg.png)',
+                backgroundSize: 'cover',
+                backgroundPosition: 'center',
+                backgroundRepeat: 'no-repeat',
+                minHeight: '600px'
+              }}>
 
               {/* Title */}
               <div className="text-center mb-8">
@@ -189,6 +190,7 @@ export default async function CertificatePage() {
                     {certificate?.id ? `AI-${String(certificate.id).replace(/-/g, '').slice(0, 8).toUpperCase()}` : 'AI-XXXXXXXX'}
                   </p>
                 </div>
+              </div>
               </div>
             </div>
 
