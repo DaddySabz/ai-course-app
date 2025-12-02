@@ -21,8 +21,8 @@
   --color-text-tertiary: #7A736E;
 
   /* Shadows for Neumorphism - Light from top right */
-  --shadow-neumorphic: -16px 16px 32px rgba(180, 160, 145, 0.6),
-    16px -16px 32px rgba(255, 255, 255, 0.9);
+  --shadow-neumorphic: -8px 8px 20px rgba(180, 160, 145, 0.4),
+    8px -8px 20px rgba(255, 255, 255, 0.8);
   --shadow-neumorphic-inset: inset -6px 6px 12px rgba(180, 160, 145, 0.25),
     inset 6px -6px 12px rgba(255, 255, 255, 0.9);
   --shadow-subtle: -4px 4px 12px rgba(180, 160, 145, 0.2);
@@ -33,8 +33,8 @@
   color-scheme: light;
 
   /* Re-declaring variables in :root to ensure availability for var() usage */
-  --shadow-neumorphic: -16px 16px 32px rgba(180, 160, 145, 0.6),
-    16px -16px 32px rgba(255, 255, 255, 0.9);
+  --shadow-neumorphic: -8px 8px 20px rgba(180, 160, 145, 0.4),
+    8px -8px 20px rgba(255, 255, 255, 0.8);
   --shadow-neumorphic-inset: inset -6px 6px 12px rgba(180, 160, 145, 0.25),
     inset 6px -6px 12px rgba(255, 255, 255, 0.9);
   --color-text-primary: #2D2520;
@@ -91,13 +91,13 @@ body {
 
 /* Nested tile shadow - smaller shadow for tiles inside containers */
 .shadow-tile {
-  box-shadow: -6px 6px 12px rgba(180, 160, 145, 0.25),
-    6px -6px 12px rgba(255, 255, 255, 0.7);
+  box-shadow: -4px 4px 10px rgba(180, 160, 145, 0.2),
+    4px -4px 10px rgba(255, 255, 255, 0.6);
 }
 
 .shadow-tile:hover {
-  box-shadow: -8px 8px 16px rgba(180, 160, 145, 0.3),
-    8px -8px 16px rgba(255, 255, 255, 0.8);
+  box-shadow: -5px 5px 12px rgba(180, 160, 145, 0.25),
+    5px -5px 12px rgba(255, 255, 255, 0.7);
 }
 
 /* Neumorphic Cards - Content cards that only darken on hover */

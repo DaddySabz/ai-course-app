@@ -124,7 +124,7 @@ export default async function ModulePage({
         <main className="flex-1">
           {/* Hero Image with Title Overlay */}
           <div className="relative rounded-3xl mb-8 h-[250px] md:h-[400px]" style={{
-            boxShadow: '-16px 16px 32px rgba(180, 160, 145, 0.6), 16px -16px 32px rgba(255, 255, 255, 0.9)'
+            boxShadow: '-8px 8px 20px rgba(180, 160, 145, 0.4), 8px -8px 20px rgba(255, 255, 255, 0.8)'
           }}>
             <img
               src="/images/course/day-1-hero-image.jpg"
