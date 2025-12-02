@@ -96,67 +96,72 @@ export default async function PublicCertificatePage({ params }: Props) {
       </div>
 
       <div className="w-full max-w-5xl mt-12 sm:mt-0">
-        {/* Certificate Card - Reusing styles but stripped down */}
-        <div className="card-neumorphic rounded-3xl shadow-2xl p-8 sm:p-16 relative bg-gradient-to-br from-white/70 to-[#F0E6DC]/60 backdrop-blur-xl border border-white/50">
-          {/* Decorative corners */}
-          <div className="absolute top-4 left-4 w-12 h-12 border-t-4 border-l-4 rounded-tl-xl" style={{ borderColor: 'rgba(184, 206, 184, 0.4)' }}></div>
-          <div className="absolute top-4 right-4 w-12 h-12 border-t-4 border-r-4 rounded-tr-xl" style={{ borderColor: 'rgba(184, 206, 184, 0.4)' }}></div>
-          <div className="absolute bottom-4 left-4 w-12 h-12 border-b-4 border-l-4 rounded-bl-xl" style={{ borderColor: 'rgba(184, 206, 184, 0.4)' }}></div>
-          <div className="absolute bottom-4 right-4 w-12 h-12 border-b-4 border-r-4 rounded-br-xl" style={{ borderColor: 'rgba(184, 206, 184, 0.4)' }}></div>
+        {/* Certificate Card - Clean paper design matching /certificate page */}
+        <div className="card-neumorphic rounded-3xl overflow-hidden">
+          <div className="relative" style={{
+            background: `
+              linear-gradient(135deg, rgba(255,255,255,0.1) 0%, transparent 50%),
+              linear-gradient(to bottom, #faf9f7 0%, #f5f3f0 50%, #f0ede8 100%)
+            `,
+            padding: 'clamp(2.5rem, 6vw, 5rem) clamp(3rem, 8vw, 6rem)',
+            aspectRatio: '1.414 / 1',
+            boxShadow: 'inset 0 0 100px rgba(0,0,0,0.03)'
+          }}>
           
-          {/* Title */}
-          <div className="text-center mb-4">
-            <h2 className="text-3xl sm:text-4xl font-black text-text-primary">Certificate of Completion</h2>
-          </div>
-
-          {/* This certifies that */}
-          <div className="text-center mb-12">
-            <p className="text-xl text-text-secondary mb-6 font-semibold">This certifies that</p>
-            
-            {/* Name */}
-            <div className="space-y-2">
-              <h1 className="text-4xl sm:text-6xl font-black tracking-tight text-text-primary">
-                {certificate.user_name}
-              </h1>
-            </div>
-          </div>
-
-          {/* Description */}
-          <div className="text-center mb-12">
-            <p className="text-xl text-text-secondary mb-3 font-medium">
-              has successfully completed the
-            </p>
-            <h3 className="text-3xl sm:text-4xl font-black text-text-primary mb-4">
-              Introduction to AI
-            </h3>
-            <p className="text-xl text-text-secondary font-medium max-w-2xl mx-auto">
-              course and demonstrated dedication and commitment to mastering AI fundamentals
-            </p>
-          </div>
-
-          {/* Footer Info */}
-          <div 
-            className="flex flex-col sm:flex-row justify-between items-center gap-6 pt-8 border-t-2"
-            style={{ borderColor: 'rgba(122, 115, 110, 0.2)' }}
-          >
-            <div className="text-center sm:text-left">
-              <p className="text-sm text-text-secondary font-semibold uppercase tracking-wider mb-1">Completion Date</p>
-              <p className="text-lg font-semibold text-text-primary">{date}</p>
-            </div>
-            
-            <div className="text-center">
-               <div className="px-4 py-2 bg-sage-green/20 rounded-full border border-sage-green/30">
-                 <span className="text-sage-green font-bold flex items-center gap-2">
-                   ✓ Verified Certificate
-                 </span>
-               </div>
+            {/* Title */}
+            <div className="text-center mb-8">
+              <h2 className="text-4xl sm:text-5xl font-bold text-gray-900" style={{ fontFamily: 'Georgia, serif', letterSpacing: '0.02em' }}>Certificate of Completion</h2>
             </div>
 
-            <div className="text-center sm:text-right">
-              <p className="text-sm text-text-secondary font-semibold uppercase tracking-wider mb-1">Certificate ID</p>
-              <p className="text-lg font-semibold text-text-primary">
-                AI-{String(certificate.id).replace(/-/g, '').slice(0, 8).toUpperCase()}
+            {/* This certifies that */}
+            <div className="text-center mb-12">
+              <p className="text-xl text-text-secondary mb-6 font-semibold">This certifies that</p>
+              
+              {/* Name */}
+              <div className="space-y-2">
+                <h1 className="text-4xl sm:text-5xl font-black tracking-tight text-text-primary">
+                  {certificate.user_name}
+                </h1>
+              </div>
+            </div>
+
+            {/* Description */}
+            <div className="text-center mb-12">
+              <p className="text-xl text-text-secondary mb-3 font-medium">
+                has successfully completed the
               </p>
+              <h3 className="text-3xl sm:text-4xl font-black text-text-primary mb-4">
+                Introduction to AI
+              </h3>
+              <p className="text-xl text-text-secondary font-medium max-w-2xl mx-auto">
+                course and demonstrated dedication and commitment to mastering AI fundamentals
+              </p>
+            </div>
+
+            {/* Footer Info */}
+            <div 
+              className="flex flex-col sm:flex-row justify-between items-center gap-6 pt-8 border-t-2"
+              style={{ borderColor: 'rgba(122, 115, 110, 0.2)' }}
+            >
+              <div className="text-center sm:text-left">
+                <p className="text-sm text-text-secondary font-semibold uppercase tracking-wider mb-1">Completion Date</p>
+                <p className="text-lg font-semibold text-text-primary">{date}</p>
+              </div>
+              
+              <div className="text-center">
+                 <div className="px-4 py-2 bg-sage-green/20 rounded-full border border-sage-green/30">
+                   <span className="text-sage-green font-bold flex items-center gap-2">
+                     ✓ Verified Certificate
+                   </span>
+                 </div>
+              </div>
+
+              <div className="text-center sm:text-right">
+                <p className="text-sm text-text-secondary font-semibold uppercase tracking-wider mb-1">Certificate ID</p>
+                <p className="text-lg font-semibold text-text-primary">
+                  AI-{String(certificate.id).replace(/-/g, '').slice(0, 8).toUpperCase()}
+                </p>
+              </div>
             </div>
           </div>
         </div>
