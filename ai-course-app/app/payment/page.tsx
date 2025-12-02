@@ -182,7 +182,7 @@ export default async function PaymentPage({ searchParams }: PageProps) {
                     </div>
                     <div className="glass flex items-start gap-3 p-4 rounded-2xl">
                       <span className="text-sage-green text-xl font-bold">✓</span>
-                      <p className="text-text-primary font-medium">Official certificate to add to LinkedIn</p>
+                      <p className="text-text-primary font-medium">Official certificate to display on your LinkedIn profile</p>
                     </div>
                     <div className="glass flex items-start gap-3 p-4 rounded-2xl">
                       <span className="text-sage-green text-xl font-bold">✓</span>
