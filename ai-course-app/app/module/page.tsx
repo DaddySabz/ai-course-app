@@ -152,6 +152,14 @@ export default async function ModulePage({
             </div>
           </div>
 
+          {/* TEST TILE - Delete after testing */}
+          <div 
+            className="rounded-3xl mb-8 h-[250px] md:h-[400px] bg-amber-200 flex items-center justify-center"
+            style={{ boxShadow: '-8px 8px 20px rgba(180, 160, 145, 0.4), 8px -8px 20px rgba(255, 255, 255, 0.8)' }}
+          >
+            <p className="text-2xl font-bold text-amber-800">TEST TILE - Does this have a shadow?</p>
+          </div>
+
           <LessonContent
             lesson={lesson}
             currentDay={currentDay}
