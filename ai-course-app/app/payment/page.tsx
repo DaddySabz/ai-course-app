@@ -170,31 +170,23 @@ export default async function PaymentPage({ searchParams }: PageProps) {
                     {product.description}
                   </p>
 
-                  {/* Features List - white/light tiles on neutral background */}
+                  {/* Features List - reordered as requested */}
                   <div className="space-y-3 flex-1">
-                    <div className="glass flex items-start gap-3 p-4 rounded-2xl">
-                      <span className="text-sage-green text-xl font-bold">✓</span>
-                      <p className="text-text-primary font-medium">30 days of comprehensive content</p>
-                    </div>
-                    <div className="glass flex items-start gap-3 p-4 rounded-2xl">
-                      <span className="text-sage-green text-xl font-bold">✓</span>
-                      <p className="text-text-primary font-medium">Hands-on exercises and real-world applications</p>
-                    </div>
                     <div className="glass flex items-start gap-3 p-4 rounded-2xl">
                       <span className="text-sage-green text-xl font-bold">✓</span>
                       <p className="text-text-primary font-medium">Official LinkedIn certificate to display on your profile</p>
                     </div>
                     <div className="glass flex items-start gap-3 p-4 rounded-2xl">
                       <span className="text-sage-green text-xl font-bold">✓</span>
+                      <p className="text-text-primary font-medium">30 days of comprehensive content</p>
+                    </div>
+                    <div className="glass flex items-start gap-3 p-4 rounded-2xl">
+                      <span className="text-sage-green text-xl font-bold">✓</span>
                       <p className="text-text-primary font-medium">Lifetime access to course materials</p>
                     </div>
-                  </div>
-
-                  {/* Security Badge */}
-                  <div className="mt-8 pt-6 border-t border-text-tertiary/20">
-                    <div className="flex items-center gap-2 text-text-secondary text-sm">
-                      <span className="text-lg">🔒</span>
-                      <span>Your payment is processed securely via Stripe.</span>
+                    <div className="glass flex items-start gap-3 p-4 rounded-2xl">
+                      <span className="text-sage-green text-xl font-bold">✓</span>
+                      <p className="text-text-primary font-medium">Hands-on exercises and real-world applications</p>
                     </div>
                   </div>
                 </div>
@@ -207,49 +199,72 @@ export default async function PaymentPage({ searchParams }: PageProps) {
                     Order Summary
                   </h2>
 
-                  <div className="space-y-4 mb-6 flex-1">
-                    <div className="flex justify-between items-center">
-                      <p className="text-text-primary font-medium">{product.title}</p>
-                      <p className="font-semibold line-through text-text-tertiary">
-                        £{product.fullPrice}
-                      </p>
-                    </div>
-
-                    {discountLabel && (
-                      <div className="glass-sage rounded-2xl p-3 text-center">
-                        <span className="text-sm font-bold text-text-primary">
-                          🎉 {discountLabel}
-                        </span>
+                  {/* Cart Items - expandable for future */}
+                  <div className="flex-1 space-y-3 mb-6">
+                    {/* Item Row */}
+                    <div className="glass rounded-2xl p-4">
+                      <div className="flex justify-between items-start">
+                        <div>
+                          <p className="text-text-primary font-semibold">{product.title}</p>
+                          {discountLabel && (
+                            <p className="text-xs text-sage-green font-medium mt-1">
+                              {discountLabel}
+                            </p>
+                          )}
+                        </div>
+                        <div className="text-right">
+                          {price < product.fullPrice && (
+                            <p className="text-sm line-through text-text-tertiary">
+                              £{product.fullPrice}
+                            </p>
+                          )}
+                          <p className="font-bold text-text-primary">
+                            {price === 0 ? 'FREE' : `£${price}`}
+                          </p>
+                        </div>
                       </div>
-                    )}
+                    </div>
+                    
+                    {/* Space for future items */}
+                  </div>
 
-                    <div className="border-t border-text-tertiary/20 pt-4 flex justify-between items-center">
+                  {/* Total + Button Section - grouped together */}
+                  <div className="border-t border-text-tertiary/20 pt-4">
+                    <div className="flex justify-between items-center mb-4">
                       <p className="text-lg font-bold text-text-primary">Total</p>
                       <p className="text-3xl font-black text-sage-green">
                         {priceLabel}
                       </p>
                     </div>
-                  </div>
 
-                  {/* Checkout Button */}
-                  <CheckoutButton
-                    productId={productId}
-                    priceId={stripePriceId}
-                    amount={price}
-                    label={price === 0 ? 'Enroll Now - FREE' : `Enroll Now - £${price}`}
-                    userId={session.user.id!}
-                  />
+                    {/* Checkout Button */}
+                    <CheckoutButton
+                      productId={productId}
+                      priceId={stripePriceId}
+                      amount={price}
+                      label={price === 0 ? 'Enroll Now - FREE' : `Enroll Now - £${price}`}
+                      userId={session.user.id!}
+                    />
 
-                  {/* Moneyback guarantee */}
-                  {price > 0 && (
-                    <div className="mt-6 text-center">
-                      <p className="text-xs text-text-secondary">
-                        <span className="font-semibold">30-Day Money-Back Guarantee</span>
-                        <br />
-                        Not satisfied? Get a full refund within 30 days.
-                      </p>
+                    {/* Moneyback guarantee */}
+                    {price > 0 && (
+                      <div className="mt-4 text-center">
+                        <p className="text-xs text-text-secondary">
+                          <span className="font-semibold">30-Day Money-Back Guarantee</span>
+                          <br />
+                          Not satisfied? Get a full refund within 30 days.
+                        </p>
+                      </div>
+                    )}
+
+                    {/* Security Badge - moved here */}
+                    <div className="mt-4 pt-4 border-t border-text-tertiary/20">
+                      <div className="flex items-center justify-center gap-2 text-text-secondary text-xs">
+                        <span>🔒</span>
+                        <span>Secure payment via Stripe</span>
+                      </div>
                     </div>
-                  )}
+                  </div>
                 </div>
               </div>
             </div>
