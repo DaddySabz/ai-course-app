@@ -59,11 +59,15 @@ export default async function CertificatePage() {
   // If completed, check for existing certificate or create one
   let certificate = null
   if (hasCompleted) {
-    const { data: existingCert } = await supabase
+    // Use .limit(1) instead of .single() to avoid errors when multiple rows exist
+    const { data: existingCerts } = await supabase
       .from('certificates')
       .select('*')
       .eq('user_id', session.user.id)
-      .single()
+      .order('issued_at', { ascending: true })
+      .limit(1)
+
+    const existingCert = existingCerts?.[0] || null
 
     if (existingCert) {
       certificate = existingCert
