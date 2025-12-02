@@ -255,24 +255,32 @@ export default async function DashboardPage() {
                   </span>
                 </div>
 
-                {/* BETA MODE: Set to true during beta testing (free access, no payment)
-                    Set to false when ready to accept payments */}
-                {(() => {
-                  const BETA_MODE = true; // Toggle this when ready for live payments
-                  return null;
-                })()}
-                
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                  {/* Course 1: Introduction to AI - Goes to course during beta, payment page when live */}
-                  <a 
-                    href={true ? `/module?day=${nextDay}` : "/payment?product=ai-course-intro"} 
-                    className="glass-clickable rounded-2xl p-6 block cursor-pointer"
-                  >
+                  {/* Course 1: Introduction to AI - Clickable to payment */}
+                  <a href="/payment?product=ai-course-intro" className="glass-clickable rounded-2xl p-6 block cursor-pointer">
                     <h4 className="text-lg font-bold text-text-primary mb-2">Introduction to AI</h4>
                     <div className="flex items-baseline gap-2 mb-3">
-                      {/* During beta, everyone sees FREE */}
-                      <span className="text-3xl font-black text-sage-green">FREE</span>
-                      <span className="text-xs text-text-tertiary">(Beta Access)</span>
+                      {isBetaTester ? (
+                        <>
+                          <span className="text-3xl font-black text-sage-green">FREE</span>
+                          <span className="text-xs text-text-tertiary">(Beta Tester)</span>
+                        </>
+                      ) : isWaitrosePartner ? (
+                        <>
+                          <span className="text-3xl font-black text-sage-green">£19</span>
+                          <span className="text-lg font-bold text-text-tertiary line-through">£49</span>
+                        </>
+                      ) : isTechPartner ? (
+                        <>
+                          <span className="text-3xl font-black" style={{ color: '#6B9B6B' }}>FREE</span>
+                          <span className="text-xs text-text-tertiary">(Tech Partner)</span>
+                        </>
+                      ) : (
+                        <>
+                          <span className="text-3xl font-black" style={{ color: '#6B9B6B' }}>FREE</span>
+                          <span className="text-lg font-bold text-text-tertiary line-through">£49</span>
+                        </>
+                      )}
                     </div>
                     <p className="text-xs text-text-secondary">30-day beginner course</p>
                   </a>
