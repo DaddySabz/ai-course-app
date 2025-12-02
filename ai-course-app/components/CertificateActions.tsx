@@ -38,6 +38,48 @@ export default function CertificateActions({ certificateId, completionDate, imag
     return await response.blob()
   }
 
+  // Regenerate certificate with latest profile data
+  const handleRegenerateCertificate = async () => {
+    if (!certificateId) {
+      showToast('No certificate found!')
+      return
+    }
+
+    try {
+      // Show loading indicator
+      const loadingMsg = document.createElement('div')
+      loadingMsg.textContent = 'Regenerating certificate...'
+      loadingMsg.style.cssText = 'position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);background:#fff;padding:20px;border-radius:8px;box-shadow:0 4px 12px rgba(0,0,0,0.3);z-index:9999;'
+      document.body.appendChild(loadingMsg)
+
+      const response = await fetch('/api/certificate/generate-image', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ 
+          certificateId,
+          forceRegenerate: true 
+        })
+      })
+
+      // Remove loading indicator
+      document.body.removeChild(loadingMsg)
+
+      if (response.ok) {
+        showToast('Certificate regenerated! Refreshing...')
+        // Refresh the page to show the new certificate
+        setTimeout(() => {
+          window.location.reload()
+        }, 1500)
+      } else {
+        const errorData = await response.json()
+        showToast(`Failed: ${errorData.error || 'Unknown error'}`)
+      }
+    } catch (error) {
+      console.error('Regenerate failed:', error)
+      showToast('Failed to regenerate. Please try again.')
+    }
+  }
+
   const handlePrint = async () => {
     try {
       // Show loading indicator
@@ -556,6 +598,23 @@ export default function CertificateActions({ certificateId, completionDate, imag
             </svg>
             Print
           </button>
+        </div>
+
+        {/* Regenerate Certificate Button */}
+        <div className="mt-4 pt-4 border-t border-sage-green/20">
+          <button
+            onClick={handleRegenerateCertificate}
+            className="glass-clickable py-3 px-6 rounded-2xl font-semibold flex items-center justify-center gap-2 w-full sm:w-auto text-sm"
+            title="Update certificate with your latest profile info"
+          >
+            <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
+            </svg>
+            Regenerate Certificate
+          </button>
+          <p className="text-xs text-text-tertiary mt-2">
+            Changed your name, photo, or organization? Click to update your certificate.
+          </p>
         </div>
       </div>
 
