@@ -19,7 +19,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   
   const { data: cert } = await supabaseAdmin
     .from('certificates')
-    .select('user_name, completion_date')
+    .select('user_name, completion_date, image_url')
     .eq('id', id)
     .single()
 
@@ -35,11 +35,17 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     day: 'numeric' 
   })
 
-  // Construct the OG Image URL
-  const ogUrl = new URL(`${process.env.NEXT_PUBLIC_APP_URL || 'https://courses.wearewacky.com'}/api/og`)
-  ogUrl.searchParams.set('name', cert.user_name)
-  ogUrl.searchParams.set('date', date)
-  ogUrl.searchParams.set('id', id)
+  // Use stored image if available, otherwise generate via API
+  let ogImageUrl: string
+  if (cert.image_url) {
+    ogImageUrl = cert.image_url
+  } else {
+    const ogUrl = new URL(`${process.env.NEXT_PUBLIC_APP_URL || 'https://courses.wearewacky.com'}/api/og`)
+    ogUrl.searchParams.set('name', cert.user_name)
+    ogUrl.searchParams.set('date', date)
+    ogUrl.searchParams.set('id', id)
+    ogImageUrl = ogUrl.toString()
+  }
 
   return {
     title: `${cert.user_name}'s Certificate of Completion`,
@@ -49,7 +55,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       description: '🎓 30-day AI onboarding course completed! AI fundamentals, prompt engineering, and real-world applications mastered.',
       images: [
         {
-          url: ogUrl.toString(),
+          url: ogImageUrl,
           width: 1200,
           height: 630,
           alt: `${cert.user_name}'s Certificate`,
@@ -60,7 +66,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       card: 'summary_large_image',
       title: `${cert.user_name}'s AI Certificate`,
       description: '🎓 30-day AI onboarding course completed!',
-      images: [ogUrl.toString()],
+      images: [ogImageUrl],
     },
   }
 }
@@ -78,15 +84,8 @@ export default async function PublicCertificatePage({ params }: Props) {
     notFound()
   }
 
-  // Fetch user profile for avatar and organization
-  const { data: profile } = await supabaseAdmin
-    .from('user_profiles')
-    .select('avatar_url, organization')
-    .eq('user_id', certificate.user_id)
-    .single()
-
-  const profileAvatar = profile?.avatar_url || null
-  const organization = profile?.organization || null
+  // Short certificate ID
+  const shortCertId = `AI-${certificate.id.replace(/-/g, '').slice(0, 8).toUpperCase()}`
 
   const date = new Date(certificate.completion_date).toLocaleDateString('en-US', { 
     year: 'numeric', 
@@ -107,98 +106,38 @@ export default async function PublicCertificatePage({ params }: Props) {
       </div>
 
       <div className="w-full max-w-5xl mt-12 sm:mt-0">
-        {/* Certificate Card - Clean paper design matching /certificate page */}
+        {/* Certificate Card - Display stored image if available */}
         <div className="card-neumorphic rounded-3xl overflow-hidden">
-          <div className="relative" style={{
-            backgroundColor: '#f5f3f0',
-            padding: 'clamp(2.5rem, 6vw, 5rem) clamp(3rem, 8vw, 6rem)',
-            aspectRatio: '1.414 / 1'
-          }}>
-          
-            {/* Title */}
-            <div className="text-center mb-8">
-              <h2 className="text-4xl sm:text-5xl font-bold text-gray-900" style={{ fontFamily: 'Georgia, serif', letterSpacing: '0.02em' }}>Certificate of Completion</h2>
+          {certificate.image_url ? (
+            // Display the stored certificate image
+            <div className="relative">
+              <img 
+                src={certificate.image_url} 
+                alt={`Certificate for ${certificate.user_name}`}
+                className="w-full h-auto"
+                style={{ aspectRatio: '1.414 / 1' }}
+              />
             </div>
-
-            {/* This certifies that + Profile Picture + Name */}
-            <div className="text-center mb-12">
-              <p className="text-xl text-text-secondary mb-6 font-semibold">This certifies that</p>
-
-              {/* Profile Picture */}
-              <div className="flex justify-center mb-6">
-                {profileAvatar ? (
-                  <img
-                    src={profileAvatar}
-                    alt="Profile"
-                    className="w-20 h-20 rounded-full shadow-lg object-cover"
-                    style={{ boxShadow: '0 0 0 4px rgba(184, 206, 184, 0.3)' }}
-                  />
-                ) : (
-                  <div
-                    className="w-20 h-20 rounded-full shadow-lg flex items-center justify-center"
-                    style={{
-                      boxShadow: '0 0 0 4px rgba(184, 206, 184, 0.3)',
-                      background: 'linear-gradient(to bottom right, rgba(184, 206, 184, 0.3), rgba(184, 168, 212, 0.3))'
-                    }}
-                  >
-                    <span className="text-3xl font-black text-text-primary">
-                      {certificate.user_name[0]?.toUpperCase() || 'U'}
-                    </span>
-                  </div>
-                )}
-              </div>
-
-              {/* Name and Organization */}
-              <div className="space-y-2">
-                <h1 className="text-4xl sm:text-5xl font-black tracking-tight text-text-primary">
-                  {certificate.user_name}
-                </h1>
-                {organization && (
-                  <p className="text-xl font-normal text-text-secondary">
-                    {organization}
-                  </p>
-                )}
-              </div>
+          ) : (
+            // Fallback: Generate image via API (shouldn't happen normally)
+            <div className="relative">
+              <img 
+                src={`/api/certificate-image?id=${certificate.id}`} 
+                alt={`Certificate for ${certificate.user_name}`}
+                className="w-full h-auto"
+                style={{ aspectRatio: '1.414 / 1' }}
+              />
             </div>
+          )}
+        </div>
 
-            {/* Description */}
-            <div className="text-center mb-12">
-              <p className="text-xl text-text-secondary mb-3 font-medium">
-                has successfully completed the
-              </p>
-              <h3 className="text-3xl sm:text-4xl font-black text-text-primary mb-4">
-                Introduction to AI
-              </h3>
-              <p className="text-xl text-text-secondary font-medium max-w-2xl mx-auto">
-                course and demonstrated dedication and commitment to mastering AI fundamentals
-              </p>
-            </div>
-
-            {/* Footer Info */}
-            <div 
-              className="flex flex-col sm:flex-row justify-between items-center gap-6 pt-8 border-t-2"
-              style={{ borderColor: 'rgba(122, 115, 110, 0.2)' }}
-            >
-              <div className="text-center sm:text-left">
-                <p className="text-sm text-text-secondary font-semibold uppercase tracking-wider mb-1">Completion Date</p>
-                <p className="text-lg font-semibold text-text-primary">{date}</p>
-              </div>
-              
-              <div className="text-center">
-                 <div className="px-4 py-2 bg-sage-green/20 rounded-full border border-sage-green/30">
-                   <span className="text-sage-green font-bold flex items-center gap-2">
-                     ✓ Verified Certificate
-                   </span>
-                 </div>
-              </div>
-
-              <div className="text-center sm:text-right">
-                <p className="text-sm text-text-secondary font-semibold uppercase tracking-wider mb-1">Certificate ID</p>
-                <p className="text-lg font-semibold text-text-primary">
-                  {`AI-${certificate.id.replace(/-/g, '').slice(0, 8).toUpperCase()}`}
-                </p>
-              </div>
-            </div>
+        {/* Verification Info */}
+        <div className="mt-6 text-center">
+          <div className="inline-flex items-center gap-2 px-6 py-3 bg-white/60 backdrop-blur-md rounded-full">
+            <span className="text-sage-green font-bold">✓</span>
+            <span className="text-text-secondary font-medium">
+              Verified Certificate • ID: {shortCertId} • Issued: {date}
+            </span>
           </div>
         </div>
       </div>

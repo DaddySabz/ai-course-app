@@ -5,9 +5,10 @@ import { jsPDF } from 'jspdf'
 interface CertificateActionsProps {
   certificateId?: string
   completionDate?: string // ISO date string like "2024-11-15"
+  imageUrl?: string // Pre-generated certificate image URL from Supabase Storage
 }
 
-export default function CertificateActions({ certificateId, completionDate }: CertificateActionsProps) {
+export default function CertificateActions({ certificateId, completionDate, imageUrl }: CertificateActionsProps) {
   // Detect if user is on mobile
   const isMobile = () => {
     return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)
@@ -19,8 +20,17 @@ export default function CertificateActions({ certificateId, completionDate }: Ce
     return `AI-${certificateId.replace(/-/g, '').slice(0, 8).toUpperCase()}`
   }
 
-  // Get certificate image from server API (no html2canvas!)
+  // Get certificate image - use stored URL if available, otherwise generate on-the-fly
   const getCertificateImageBlob = async (): Promise<Blob> => {
+    // If we have a pre-generated image URL, fetch it directly
+    if (imageUrl) {
+      const response = await fetch(imageUrl)
+      if (response.ok) {
+        return await response.blob()
+      }
+    }
+    
+    // Fallback: generate on-the-fly via API
     const response = await fetch(`/api/certificate-image?id=${certificateId}`)
     if (!response.ok) {
       throw new Error('Failed to generate certificate image')
@@ -36,9 +46,9 @@ export default function CertificateActions({ certificateId, completionDate }: Ce
       loadingMsg.style.cssText = 'position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);background:#fff;padding:20px;border-radius:8px;box-shadow:0 4px 12px rgba(0,0,0,0.3);z-index:9999;'
       document.body.appendChild(loadingMsg)
 
-      // Get image from server
+      // Get image (from stored URL or generate)
       const blob = await getCertificateImageBlob()
-      const imageUrl = URL.createObjectURL(blob)
+      const localImageUrl = URL.createObjectURL(blob)
 
       // Remove loading indicator
       document.body.removeChild(loadingMsg)
@@ -47,7 +57,7 @@ export default function CertificateActions({ certificateId, completionDate }: Ce
       const printWindow = window.open('', '_blank')
       if (!printWindow) {
         alert('Please allow pop-ups to print the certificate.')
-        URL.revokeObjectURL(imageUrl)
+        URL.revokeObjectURL(localImageUrl)
         return
       }
 
@@ -78,7 +88,7 @@ export default function CertificateActions({ certificateId, completionDate }: Ce
             </style>
           </head>
           <body>
-            <img src="${imageUrl}" alt="Certificate" onload="window.print(); setTimeout(() => window.close(), 500);" />
+            <img src="${localImageUrl}" alt="Certificate" onload="window.print(); setTimeout(() => window.close(), 500);" />
           </body>
         </html>
       `)
@@ -97,13 +107,13 @@ export default function CertificateActions({ certificateId, completionDate }: Ce
       loadingMsg.style.cssText = 'position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);background:#fff;padding:20px;border-radius:8px;box-shadow:0 4px 12px rgba(0,0,0,0.3);z-index:9999;'
       document.body.appendChild(loadingMsg)
 
-      // Get image from server
+      // Get image (from stored URL or generate)
       const blob = await getCertificateImageBlob()
-      const imageUrl = URL.createObjectURL(blob)
+      const localImageUrl = URL.createObjectURL(blob)
 
       // Load image to get dimensions
       const img = new Image()
-      img.src = imageUrl
+      img.src = localImageUrl
 
       await new Promise((resolve, reject) => {
         img.onload = resolve
@@ -125,10 +135,10 @@ export default function CertificateActions({ certificateId, completionDate }: Ce
       const pageHeight = 210
 
       // Add image to fill the page
-      pdf.addImage(imageUrl, 'PNG', 0, 0, pageWidth, pageHeight)
+      pdf.addImage(localImageUrl, 'PNG', 0, 0, pageWidth, pageHeight)
 
       pdf.save(`${getShortCertId()}-Certificate.pdf`)
-      URL.revokeObjectURL(imageUrl)
+      URL.revokeObjectURL(localImageUrl)
       
       showToast('PDF downloaded!')
     } catch (error) {
@@ -141,11 +151,11 @@ export default function CertificateActions({ certificateId, completionDate }: Ce
     try {
       // Show loading indicator
       const loadingMsg = document.createElement('div')
-      loadingMsg.textContent = 'Generating image...'
+      loadingMsg.textContent = 'Downloading image...'
       loadingMsg.style.cssText = 'position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);background:#fff;padding:20px;border-radius:8px;box-shadow:0 4px 12px rgba(0,0,0,0.3);z-index:9999;'
       document.body.appendChild(loadingMsg)
 
-      // Get image from server
+      // Get image (from stored URL or generate)
       const blob = await getCertificateImageBlob()
 
       // Remove loading indicator
@@ -161,8 +171,8 @@ export default function CertificateActions({ certificateId, completionDate }: Ce
       
       showToast('Image downloaded!')
     } catch (error) {
-      console.error('Image generation failed:', error)
-      alert('Failed to generate image. Error: ' + (error instanceof Error ? error.message : 'Unknown error'))
+      console.error('Image download failed:', error)
+      alert('Failed to download image. Error: ' + (error instanceof Error ? error.message : 'Unknown error'))
     }
   }
 
@@ -180,7 +190,7 @@ export default function CertificateActions({ certificateId, completionDate }: Ce
       loadingMsg.style.cssText = 'position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);background:#fff;padding:20px;border-radius:8px;box-shadow:0 4px 12px rgba(0,0,0,0.3);z-index:9999;'
       document.body.appendChild(loadingMsg)
 
-      // Get image from server
+      // Get image (from stored URL or generate)
       const blob = await getCertificateImageBlob()
 
       // Remove loading indicator
@@ -252,7 +262,6 @@ export default function CertificateActions({ certificateId, completionDate }: Ce
   }
 
   // Helper to open share links (full screen, centered)
-
   const openShareLink = (url: string) => {
     // Use available screen dimensions (accounts for taskbars)
     const screenWidth = window.screen.availWidth || window.screen.width
@@ -390,7 +399,7 @@ export default function CertificateActions({ certificateId, completionDate }: Ce
       loadingMsg.style.cssText = 'position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);background:#fff;padding:20px;border-radius:8px;box-shadow:0 4px 12px rgba(0,0,0,0.3);z-index:9999;'
       document.body.appendChild(loadingMsg)
 
-      // Get image from server
+      // Get image (from stored URL or generate)
       const blob = await getCertificateImageBlob()
 
       // Remove loading indicator
