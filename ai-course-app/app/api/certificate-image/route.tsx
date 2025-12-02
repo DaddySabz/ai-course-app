@@ -62,185 +62,153 @@ export async function GET(request: Request) {
             justifyContent: 'center',
             backgroundColor: '#f5f3f0',
             fontFamily: 'Georgia, serif',
+            padding: '80px 120px',
           }}
         >
-          {/* Certificate Container */}
+          {/* Title - smaller, not the hero */}
+          <div style={{ 
+            fontSize: 36, 
+            fontWeight: 600, 
+            color: '#7A736E', 
+            marginBottom: 40, 
+            fontStyle: 'italic',
+            letterSpacing: 2,
+            textTransform: 'uppercase'
+          }}>
+            Certificate of Completion
+          </div>
+
+          {/* This certifies that */}
+          <div style={{ fontSize: 24, color: '#5A534E', marginBottom: 32, fontWeight: 500 }}>
+            This certifies that
+          </div>
+
+          {/* Profile Picture or Initials - BIGGER */}
+          <div style={{
+            display: 'flex',
+            justifyContent: 'center',
+            marginBottom: 32,
+          }}>
+            {avatarUrl ? (
+              <img
+                src={avatarUrl}
+                alt="Profile"
+                width={140}
+                height={140}
+                style={{
+                  borderRadius: 70,
+                  border: '5px solid rgba(184, 206, 184, 0.5)',
+                  objectFit: 'cover',
+                }}
+              />
+            ) : (
+              <div style={{
+                width: 140,
+                height: 140,
+                borderRadius: 70,
+                border: '5px solid rgba(184, 206, 184, 0.5)',
+                background: 'linear-gradient(135deg, rgba(184, 206, 184, 0.4), rgba(184, 168, 212, 0.4))',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                fontSize: 64,
+                fontWeight: 900,
+                color: '#2D2520',
+              }}>
+                {initial}
+              </div>
+            )}
+          </div>
+
+          {/* Name - THE HERO, biggest text */}
+          <div
+            style={{
+              fontSize: 72,
+              fontWeight: 900,
+              color: '#2D2520',
+              textAlign: 'center',
+              marginBottom: 12,
+              letterSpacing: -1,
+            }}
+          >
+            {name}
+          </div>
+
+          {/* Organization */}
+          {organization && (
+            <div style={{ fontSize: 28, color: '#5A534E', marginBottom: 40 }}>
+              {organization}
+            </div>
+          )}
+
+          {/* has successfully completed the */}
+          <div style={{ 
+            fontSize: 24, 
+            color: '#5A534E', 
+            marginBottom: 12, 
+            marginTop: organization ? 0 : 40,
+            fontWeight: 500
+          }}>
+            has successfully completed the
+          </div>
+
+          {/* Course Name - second biggest */}
+          <div style={{ 
+            fontSize: 52, 
+            fontWeight: 900, 
+            color: '#2D2520', 
+            marginBottom: 20,
+            letterSpacing: -1
+          }}>
+            Introduction to AI
+          </div>
+
+          {/* Description */}
+          <div style={{ 
+            fontSize: 22, 
+            color: '#5A534E', 
+            textAlign: 'center', 
+            maxWidth: 900, 
+            marginBottom: 60,
+            fontWeight: 500,
+            lineHeight: 1.4
+          }}>
+            30-day course covering AI fundamentals, prompt engineering, and real-world applications
+          </div>
+
+          {/* Footer - just date and ID */}
           <div
             style={{
               display: 'flex',
-              flexDirection: 'column',
+              justifyContent: 'space-between',
               alignItems: 'center',
-              justifyContent: 'center',
               width: '100%',
-              height: '100%',
-              padding: '60px 100px',
+              borderTop: '2px solid rgba(122, 115, 110, 0.2)',
+              paddingTop: 32,
             }}
           >
-            {/* Wacky Works Digital Logo Text */}
-            <div style={{ 
-              fontSize: 24, 
-              fontWeight: 'bold', 
-              color: '#B8CEB8', 
-              marginBottom: 16,
-              letterSpacing: 1
-            }}>
-              Wacky Works Digital
+            <div style={{ display: 'flex', flexDirection: 'column' }}>
+              <span style={{ 
+                fontSize: 14, 
+                color: '#7A736E', 
+                fontWeight: 'bold', 
+                textTransform: 'uppercase', 
+                letterSpacing: 2,
+                marginBottom: 6
+              }}>Issued</span>
+              <span style={{ fontSize: 24, color: '#2D2520', fontWeight: 'bold' }}>{date}</span>
             </div>
-
-            {/* Title */}
-            <div style={{ 
-              fontSize: 64, 
-              fontWeight: 900, 
-              color: '#2D2520', 
-              marginBottom: 8, 
-              fontStyle: 'italic',
-              letterSpacing: 1
-            }}>
-              Certificate of Completion
-            </div>
-
-            {/* This certifies that */}
-            <div style={{ fontSize: 24, color: '#5A534E', marginBottom: 24, fontWeight: 600 }}>
-              This certifies that
-            </div>
-
-            {/* Profile Picture or Initials */}
-            <div style={{
-              display: 'flex',
-              justifyContent: 'center',
-              marginBottom: 24,
-            }}>
-              {avatarUrl ? (
-                <img
-                  src={avatarUrl}
-                  alt="Profile"
-                  width={100}
-                  height={100}
-                  style={{
-                    borderRadius: 50,
-                    border: '4px solid rgba(184, 206, 184, 0.4)',
-                    objectFit: 'cover',
-                  }}
-                />
-              ) : (
-                <div style={{
-                  width: 100,
-                  height: 100,
-                  borderRadius: 50,
-                  border: '4px solid rgba(184, 206, 184, 0.4)',
-                  background: 'linear-gradient(135deg, rgba(184, 206, 184, 0.3), rgba(184, 168, 212, 0.3))',
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  fontSize: 48,
-                  fontWeight: 900,
-                  color: '#2D2520',
-                }}>
-                  {initial}
-                </div>
-              )}
-            </div>
-
-            {/* Name */}
-            <div
-              style={{
-                fontSize: 56,
-                fontWeight: 900,
-                color: '#2D2520',
-                textAlign: 'center',
-                marginBottom: 8,
-                letterSpacing: -1,
-              }}
-            >
-              {name}
-            </div>
-
-            {/* Organization */}
-            {organization && (
-              <div style={{ fontSize: 24, color: '#5A534E', marginBottom: 24 }}>
-                {organization}
-              </div>
-            )}
-
-            {/* has successfully completed the */}
-            <div style={{ 
-              fontSize: 24, 
-              color: '#5A534E', 
-              marginBottom: 8, 
-              marginTop: organization ? 0 : 24,
-              fontWeight: 500
-            }}>
-              has successfully completed the
-            </div>
-
-            {/* Course Name */}
-            <div style={{ 
-              fontSize: 48, 
-              fontWeight: 900, 
-              color: '#2D2520', 
-              marginBottom: 16,
-              letterSpacing: -1
-            }}>
-              Introduction to AI
-            </div>
-
-            {/* Description */}
-            <div style={{ 
-              fontSize: 20, 
-              color: '#5A534E', 
-              textAlign: 'center', 
-              maxWidth: 800, 
-              marginBottom: 40,
-              fontWeight: 500
-            }}>
-              course and demonstrated dedication and commitment to mastering AI fundamentals
-            </div>
-
-            {/* Footer */}
-            <div
-              style={{
-                display: 'flex',
-                justifyContent: 'space-between',
-                alignItems: 'center',
-                width: '100%',
-                borderTop: '2px solid rgba(122, 115, 110, 0.2)',
-                paddingTop: 24,
-              }}
-            >
-              <div style={{ display: 'flex', flexDirection: 'column' }}>
-                <span style={{ 
-                  fontSize: 12, 
-                  color: '#7A736E', 
-                  fontWeight: 'bold', 
-                  textTransform: 'uppercase', 
-                  letterSpacing: 2,
-                  marginBottom: 4
-                }}>Completion Date</span>
-                <span style={{ fontSize: 20, color: '#2D2520', fontWeight: 'bold' }}>{date}</span>
-              </div>
-              
-              <div style={{ 
-                display: 'flex', 
-                alignItems: 'center',
-                padding: '8px 20px',
-                backgroundColor: 'rgba(184, 206, 184, 0.2)',
-                borderRadius: 50,
-                border: '1px solid rgba(184, 206, 184, 0.3)'
-              }}>
-                <span style={{ fontSize: 18, color: '#6B8E6B', fontWeight: 'bold' }}>✓ Verified Certificate</span>
-              </div>
-              
-              <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-end' }}>
-                <span style={{ 
-                  fontSize: 12, 
-                  color: '#7A736E', 
-                  fontWeight: 'bold', 
-                  textTransform: 'uppercase', 
-                  letterSpacing: 2,
-                  marginBottom: 4
-                }}>Certificate ID</span>
-                <span style={{ fontSize: 20, color: '#2D2520', fontWeight: 'bold' }}>{shortCertId}</span>
-              </div>
+            
+            <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-end' }}>
+              <span style={{ 
+                fontSize: 14, 
+                color: '#7A736E', 
+                fontWeight: 'bold', 
+                textTransform: 'uppercase', 
+                letterSpacing: 2,
+                marginBottom: 6
+              }}>Certificate ID</span>
+              <span style={{ fontSize: 24, color: '#2D2520', fontWeight: 'bold' }}>{shortCertId}</span>
             </div>
           </div>
         </div>
