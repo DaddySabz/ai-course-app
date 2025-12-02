@@ -82,66 +82,103 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
           process.env.SUPABASE_SECRET_KEY!
         )
 
-        // Check if profile exists
+        // FIRST: Check if profile exists BY EMAIL (not by user_id which changes)
         const { data: existingProfile } = await supabase
           .from('user_profiles')
-          .select('id')
-          .eq('user_id', user.id)
+          .select('id, user_id')
+          .eq('contact_email', user.email)
+          .limit(1)
           .single()
 
         if (!existingProfile) {
-          console.log('Creating new beta profile for:', user.email)
+          // Also check users table for a stable ID
+          let stableUserId = user.id
+          
+          const { data: existingUser } = await supabase
+            .from('users')
+            .select('id')
+            .eq('email', user.email)
+            .single()
+          
+          if (existingUser) {
+            stableUserId = existingUser.id
+          } else if (account?.provider === 'google') {
+            // Create user record for Google OAuth
+            const { data: newUser } = await supabase
+              .from('users')
+              .insert({
+                email: user.email,
+                name: user.name,
+                password_hash: '',
+              })
+              .select('id')
+              .single()
+            
+            if (newUser) {
+              stableUserId = newUser.id
+            }
+          }
+
+          console.log('Creating new beta profile for:', user.email, 'with stable ID:', stableUserId)
           // Create new profile as Beta Tester
           await supabase.from('user_profiles').insert({
-            user_id: user.id,
+            user_id: stableUserId,
             display_name: user.name || user.email.split('@')[0],
-            contact_email: user.email,  // ← ADD THIS LINE
+            contact_email: user.email,
             avatar_url: user.image,
-            partner_type: 'beta', // Default to beta for all new signups
+            partner_type: 'beta',
             partner_code: 'BETA_AUTO',
             organization: 'Beta Tester'
           })
+        } else {
+          // Profile exists - update avatar if changed (for Google users)
+          if (user.image && account?.provider === 'google') {
+            await supabase
+              .from('user_profiles')
+              .update({ avatar_url: user.image })
+              .eq('id', existingProfile.id)
+          }
         }
 
         return true
       } catch (error) {
         console.error('Error in signIn callback:', error)
-        return true // Allow sign in even if profile creation fails (will be handled by dashboard)
+        return true
       }
     },
     async jwt({ token, user, account }) {
-      // On initial sign in, look up or create a stable user ID from the database
+      // On initial sign in, look up the stable user ID from user_profiles by email
       if (user?.email) {
         const supabase = createClient(
           process.env.NEXT_PUBLIC_SUPABASE_URL!,
           process.env.SUPABASE_SECRET_KEY!
         )
 
-        // Check if user exists in users table
-        const { data: existingUser } = await supabase
-          .from('users')
-          .select('id')
-          .eq('email', user.email)
+        // Look up stable ID from user_profiles (the source of truth)
+        const { data: profile } = await supabase
+          .from('user_profiles')
+          .select('user_id')
+          .eq('contact_email', user.email)
+          .limit(1)
           .single()
 
-        if (existingUser) {
-          // Use existing stable ID from database
-          token.stableUserId = existingUser.id
-        } else if (account?.provider === 'google') {
-          // For Google OAuth users, create a user record with a stable ID
-          const { data: newUser } = await supabase
+        if (profile) {
+          // Use the stable user_id from the profile
+          token.stableUserId = profile.user_id
+          console.log('JWT: Found stable user_id for', user.email, ':', profile.user_id)
+        } else {
+          // Fallback: check users table
+          const { data: existingUser } = await supabase
             .from('users')
-            .insert({
-              email: user.email,
-              name: user.name,
-              password_hash: '', // OAuth users don't have passwords
-            })
             .select('id')
+            .eq('email', user.email)
             .single()
 
-          token.stableUserId = newUser?.id || token.sub
-        } else {
-          token.stableUserId = token.sub
+          if (existingUser) {
+            token.stableUserId = existingUser.id
+          } else {
+            token.stableUserId = token.sub
+          }
         }
       }
       return token
