@@ -109,12 +109,33 @@ export default function LessonContent({ lesson, currentDay, userId, hasFullAcces
 
   return (
     <>
-      {/* Learning Content - Frosted Glass Card */}
-      <div className="card-neumorphic rounded-3xl p-4 md:p-10 mb-6">
-        <div
-          className="prose prose-lg max-w-none"
-          dangerouslySetInnerHTML={{ __html: lesson.content }}
-        />
+      {/* Learning Content - Frosted Glass Card with Hero Image Header */}
+      <div className="card-neumorphic rounded-3xl overflow-hidden mb-6">
+        {/* Hero Image Header */}
+        <div className="relative h-[200px] md:h-[350px]">
+          <img
+            src="/images/course/day-1-hero-image.jpg"
+            alt={lesson.title}
+            className="absolute inset-0 w-full h-full object-cover"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent" />
+          <div className="absolute bottom-0 left-0 right-0 p-6 md:p-10">
+            <h1 className="text-3xl md:text-5xl font-black text-white mb-1 md:mb-2 leading-tight drop-shadow-lg">
+              {lesson.title}
+            </h1>
+            <p className="text-base md:text-xl text-white/90 font-medium drop-shadow-md">
+              {lesson.subtitle}
+            </p>
+          </div>
+        </div>
+        
+        {/* Content below the hero */}
+        <div className="p-4 md:p-10">
+          <div
+            className="prose prose-lg max-w-none"
+            dangerouslySetInnerHTML={{ __html: lesson.content }}
+          />
+        </div>
       </div>
 
       {/* Hands-On Section - Mint Glass Card */}
