@@ -225,6 +225,11 @@ export default function CertificateActions({ certificateId, completionDate }: Ce
     });
 
     window.open(`https://www.linkedin.com/profile/add?${params.toString()}`, '_blank');
+    
+    // Show helpful toast about adding skills (LinkedIn doesn't support pre-filling skills)
+    setTimeout(() => {
+      showToast('💡 Add skills: Artificial Intelligence, Machine Learning, Prompt Engineering')
+    }, 1000)
   }
 
   // Helper to open share links (full screen, centered)

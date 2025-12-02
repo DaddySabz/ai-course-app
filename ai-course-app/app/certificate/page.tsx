@@ -37,11 +37,18 @@ export default async function CertificatePage() {
 
   const { data: progressData, error: progressError } = await supabase
     .from('user_progress')
-    .select('day_number')
+    .select('day_number, completed_at')
     .eq('user_id', session.user.id)
+    .order('day_number', { ascending: false })
 
   // Handle case where table doesn't exist yet
   const safeProgressData = progressError ? [] : (progressData || [])
+  
+  // Get the actual completion date from Day 30 (or the highest completed day)
+  const lastCompletedDay = safeProgressData[0]
+  const actualCompletionDate = lastCompletedDay?.completed_at 
+    ? new Date(lastCompletedDay.completed_at).toISOString().split('T')[0]
+    : new Date().toISOString().split('T')[0]
 
   // Only admins and tech partners get instant certificate (for review purposes)
   // Waitrose partners and regular users must complete all 30 days
@@ -81,11 +88,12 @@ export default async function CertificatePage() {
       }
     } else {
       // Create new certificate with display name from profile
+      // Use the actual completion date from the last completed lesson
       const newCert = {
         user_id: session.user.id!,
         user_name: displayName,
         user_email: session.user.email!,
-        completion_date: new Date().toISOString().split('T')[0],
+        completion_date: actualCompletionDate,
       }
 
       const { data: createdCert } = await supabase
