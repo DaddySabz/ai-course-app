@@ -36,7 +36,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   })
 
   // Construct the OG Image URL
-  const ogUrl = new URL(`${process.env.NEXT_PUBLIC_APP_URL || 'https://ai-course-app-tau.vercel.app'}/api/og`)
+  const ogUrl = new URL(`${process.env.NEXT_PUBLIC_APP_URL || 'https://courses.wearewacky.com'}/api/og`)
   ogUrl.searchParams.set('name', cert.user_name)
   ogUrl.searchParams.set('date', date)
   ogUrl.searchParams.set('id', id)
@@ -78,6 +78,16 @@ export default async function PublicCertificatePage({ params }: Props) {
     notFound()
   }
 
+  // Fetch user profile for avatar and organization
+  const { data: profile } = await supabaseAdmin
+    .from('user_profiles')
+    .select('avatar_url, organization')
+    .eq('user_id', certificate.user_id)
+    .single()
+
+  const profileAvatar = profile?.avatar_url || null
+  const organization = profile?.organization || null
+
   const date = new Date(certificate.completion_date).toLocaleDateString('en-US', { 
     year: 'numeric', 
     month: 'long', 
@@ -110,15 +120,44 @@ export default async function PublicCertificatePage({ params }: Props) {
               <h2 className="text-4xl sm:text-5xl font-bold text-gray-900" style={{ fontFamily: 'Georgia, serif', letterSpacing: '0.02em' }}>Certificate of Completion</h2>
             </div>
 
-            {/* This certifies that */}
+            {/* This certifies that + Profile Picture + Name */}
             <div className="text-center mb-12">
               <p className="text-xl text-text-secondary mb-6 font-semibold">This certifies that</p>
-              
-              {/* Name */}
+
+              {/* Profile Picture */}
+              <div className="flex justify-center mb-6">
+                {profileAvatar ? (
+                  <img
+                    src={profileAvatar}
+                    alt="Profile"
+                    className="w-20 h-20 rounded-full shadow-lg object-cover"
+                    style={{ boxShadow: '0 0 0 4px rgba(184, 206, 184, 0.3)' }}
+                  />
+                ) : (
+                  <div
+                    className="w-20 h-20 rounded-full shadow-lg flex items-center justify-center"
+                    style={{
+                      boxShadow: '0 0 0 4px rgba(184, 206, 184, 0.3)',
+                      background: 'linear-gradient(to bottom right, rgba(184, 206, 184, 0.3), rgba(184, 168, 212, 0.3))'
+                    }}
+                  >
+                    <span className="text-3xl font-black text-text-primary">
+                      {certificate.user_name[0]?.toUpperCase() || 'U'}
+                    </span>
+                  </div>
+                )}
+              </div>
+
+              {/* Name and Organization */}
               <div className="space-y-2">
                 <h1 className="text-4xl sm:text-5xl font-black tracking-tight text-text-primary">
                   {certificate.user_name}
                 </h1>
+                {organization && (
+                  <p className="text-xl font-normal text-text-secondary">
+                    {organization}
+                  </p>
+                )}
               </div>
             </div>
 

@@ -44,6 +44,10 @@ export async function GET(request: Request) {
       .single();
 
     const organization = profile?.organization || null;
+    const avatarUrl = profile?.avatar_url || null;
+    
+    // Get first letter for initials fallback
+    const initial = name.charAt(0).toUpperCase();
 
     // Generate high-resolution certificate image (A4 landscape ratio)
     return new ImageResponse(
@@ -69,30 +73,83 @@ export async function GET(request: Request) {
               justifyContent: 'center',
               width: '100%',
               height: '100%',
-              padding: '80px 120px',
+              padding: '60px 100px',
             }}
           >
-            {/* Logo */}
-            <div style={{ fontSize: 28, fontWeight: 'bold', color: '#B8CEB8', marginBottom: 24 }}>
+            {/* Wacky Works Digital Logo Text */}
+            <div style={{ 
+              fontSize: 24, 
+              fontWeight: 'bold', 
+              color: '#B8CEB8', 
+              marginBottom: 16,
+              letterSpacing: 1
+            }}>
               Wacky Works Digital
             </div>
 
-            <div style={{ fontSize: 72, fontWeight: 900, color: '#2D2520', marginBottom: 12, fontStyle: 'italic' }}>
+            {/* Title */}
+            <div style={{ 
+              fontSize: 64, 
+              fontWeight: 900, 
+              color: '#2D2520', 
+              marginBottom: 8, 
+              fontStyle: 'italic',
+              letterSpacing: 1
+            }}>
               Certificate of Completion
             </div>
 
-            <div style={{ fontSize: 28, color: '#5A534E', marginBottom: 32 }}>
+            {/* This certifies that */}
+            <div style={{ fontSize: 24, color: '#5A534E', marginBottom: 24, fontWeight: 600 }}>
               This certifies that
+            </div>
+
+            {/* Profile Picture or Initials */}
+            <div style={{
+              display: 'flex',
+              justifyContent: 'center',
+              marginBottom: 24,
+            }}>
+              {avatarUrl ? (
+                <img
+                  src={avatarUrl}
+                  alt="Profile"
+                  width={100}
+                  height={100}
+                  style={{
+                    borderRadius: 50,
+                    border: '4px solid rgba(184, 206, 184, 0.4)',
+                    objectFit: 'cover',
+                  }}
+                />
+              ) : (
+                <div style={{
+                  width: 100,
+                  height: 100,
+                  borderRadius: 50,
+                  border: '4px solid rgba(184, 206, 184, 0.4)',
+                  background: 'linear-gradient(135deg, rgba(184, 206, 184, 0.3), rgba(184, 168, 212, 0.3))',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  fontSize: 48,
+                  fontWeight: 900,
+                  color: '#2D2520',
+                }}>
+                  {initial}
+                </div>
+              )}
             </div>
 
             {/* Name */}
             <div
               style={{
-                fontSize: 72,
+                fontSize: 56,
                 fontWeight: 900,
                 color: '#2D2520',
                 textAlign: 'center',
-                marginBottom: 12,
+                marginBottom: 8,
+                letterSpacing: -1,
               }}
             >
               {name}
@@ -100,20 +157,42 @@ export async function GET(request: Request) {
 
             {/* Organization */}
             {organization && (
-              <div style={{ fontSize: 28, color: '#5A534E', marginBottom: 32 }}>
+              <div style={{ fontSize: 24, color: '#5A534E', marginBottom: 24 }}>
                 {organization}
               </div>
             )}
 
-            <div style={{ fontSize: 28, color: '#5A534E', marginBottom: 12, marginTop: organization ? 0 : 32 }}>
+            {/* has successfully completed the */}
+            <div style={{ 
+              fontSize: 24, 
+              color: '#5A534E', 
+              marginBottom: 8, 
+              marginTop: organization ? 0 : 24,
+              fontWeight: 500
+            }}>
               has successfully completed the
             </div>
 
-            <div style={{ fontSize: 56, fontWeight: 900, color: '#B8CEB8', marginBottom: 24, fontStyle: 'italic' }}>
+            {/* Course Name */}
+            <div style={{ 
+              fontSize: 48, 
+              fontWeight: 900, 
+              color: '#2D2520', 
+              marginBottom: 16,
+              letterSpacing: -1
+            }}>
               Introduction to AI
             </div>
 
-            <div style={{ fontSize: 24, color: '#5A534E', textAlign: 'center', maxWidth: 900, marginBottom: 60 }}>
+            {/* Description */}
+            <div style={{ 
+              fontSize: 20, 
+              color: '#5A534E', 
+              textAlign: 'center', 
+              maxWidth: 800, 
+              marginBottom: 40,
+              fontWeight: 500
+            }}>
               course and demonstrated dedication and commitment to mastering AI fundamentals
             </div>
 
@@ -122,24 +201,45 @@ export async function GET(request: Request) {
               style={{
                 display: 'flex',
                 justifyContent: 'space-between',
+                alignItems: 'center',
                 width: '100%',
-                borderTop: '3px solid rgba(122, 115, 110, 0.2)',
-                paddingTop: 32,
+                borderTop: '2px solid rgba(122, 115, 110, 0.2)',
+                paddingTop: 24,
               }}
             >
               <div style={{ display: 'flex', flexDirection: 'column' }}>
-                <span style={{ fontSize: 16, color: '#7A736E', fontWeight: 'bold', textTransform: 'uppercase', letterSpacing: 2 }}>Completion Date</span>
-                <span style={{ fontSize: 24, color: '#2D2520', fontWeight: 'bold' }}>{date}</span>
+                <span style={{ 
+                  fontSize: 12, 
+                  color: '#7A736E', 
+                  fontWeight: 'bold', 
+                  textTransform: 'uppercase', 
+                  letterSpacing: 2,
+                  marginBottom: 4
+                }}>Completion Date</span>
+                <span style={{ fontSize: 20, color: '#2D2520', fontWeight: 'bold' }}>{date}</span>
               </div>
               
-              <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-                <span style={{ fontSize: 16, color: '#7A736E', fontWeight: 'bold', textTransform: 'uppercase', letterSpacing: 2 }}>Verified</span>
-                <span style={{ fontSize: 24, color: '#B8CEB8', fontWeight: 'bold' }}>✓ WeAreWacky.com</span>
+              <div style={{ 
+                display: 'flex', 
+                alignItems: 'center',
+                padding: '8px 20px',
+                backgroundColor: 'rgba(184, 206, 184, 0.2)',
+                borderRadius: 50,
+                border: '1px solid rgba(184, 206, 184, 0.3)'
+              }}>
+                <span style={{ fontSize: 18, color: '#6B8E6B', fontWeight: 'bold' }}>✓ Verified Certificate</span>
               </div>
               
               <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-end' }}>
-                <span style={{ fontSize: 16, color: '#7A736E', fontWeight: 'bold', textTransform: 'uppercase', letterSpacing: 2 }}>Certificate ID</span>
-                <span style={{ fontSize: 24, color: '#2D2520', fontWeight: 'bold' }}>{shortCertId}</span>
+                <span style={{ 
+                  fontSize: 12, 
+                  color: '#7A736E', 
+                  fontWeight: 'bold', 
+                  textTransform: 'uppercase', 
+                  letterSpacing: 2,
+                  marginBottom: 4
+                }}>Certificate ID</span>
+                <span style={{ fontSize: 20, color: '#2D2520', fontWeight: 'bold' }}>{shortCertId}</span>
               </div>
             </div>
           </div>
@@ -158,4 +258,3 @@ export async function GET(request: Request) {
     });
   }
 }
-
