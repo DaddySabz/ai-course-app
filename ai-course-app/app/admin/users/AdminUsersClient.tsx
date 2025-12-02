@@ -168,6 +168,27 @@ export default function AdminUsersClient({ initialUsers, isAdmin }: AdminUsersCl
         }
     }
 
+    const handleChangePartnerType = async (userId: string, email: string, newType: string) => {
+        try {
+            const response = await fetch('/api/admin/change-partner-type', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ userId, partnerType: newType })
+            })
+
+            if (response.ok) {
+                alert(`✅ Changed ${email} to ${newType}!`)
+                // Update local state
+                setUsers(users.map(u => u.id === userId ? { ...u, partner_type: newType } : u))
+            } else {
+                alert('❌ Failed to change partner type')
+            }
+        } catch (error) {
+            console.error('Error changing partner type:', error)
+            alert('❌ Failed to change partner type')
+        }
+    }
+
     return (
         <div className="min-h-screen p-8">
             <div className="max-w-7xl mx-auto">
@@ -292,13 +313,23 @@ export default function AdminUsersClient({ initialUsers, isAdmin }: AdminUsersCl
                                     <div className="flex-1">
                                         <div className="flex items-center gap-3 mb-2">
                                             <h3 className="text-xl font-bold text-text-primary">{user.display_name}</h3>
-                                            <span className={`px-3 py-1 rounded-full text-xs font-bold ${user.partner_type === 'beta' ? 'bg-green-100 text-green-700' :
-                                                user.partner_type === 'waitrose' ? 'bg-purple-100 text-purple-700' :
+                                            <select
+                                                value={user.partner_type}
+                                                onChange={(e) => handleChangePartnerType(user.id, user.email, e.target.value)}
+                                                className={`px-3 py-1 rounded-full text-xs font-bold cursor-pointer border-0 outline-none ${
+                                                    user.partner_type === 'beta' ? 'bg-green-100 text-green-700' :
+                                                    user.partner_type === 'waitrose' ? 'bg-purple-100 text-purple-700' :
                                                     user.partner_type === 'tech' ? 'bg-blue-100 text-blue-700' :
-                                                        'bg-gray-100 text-gray-700'
-                                                }`}>
-                                                {user.partner_type.toUpperCase()}
-                                            </span>
+                                                    user.partner_type === 'paid' ? 'bg-amber-100 text-amber-700' :
+                                                    'bg-gray-100 text-gray-700'
+                                                }`}
+                                            >
+                                                <option value="beta">BETA</option>
+                                                <option value="waitrose">WAITROSE</option>
+                                                <option value="tech">TECH</option>
+                                                <option value="paid">PAID</option>
+                                                <option value="">NORMAL</option>
+                                            </select>
                                         </div>
                                         <p className="text-text-secondary mb-2">{user.email}</p>
                                         <div className="flex items-center gap-4 text-sm text-text-tertiary">
