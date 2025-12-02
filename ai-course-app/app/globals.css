@@ -89,6 +89,17 @@ body {
   border: 1px solid rgba(255, 255, 255, 0.3);
 }
 
+/* Nested tile shadow - smaller shadow for tiles inside containers */
+.shadow-tile {
+  box-shadow: -6px 6px 12px rgba(180, 160, 145, 0.25),
+    6px -6px 12px rgba(255, 255, 255, 0.7);
+}
+
+.shadow-tile:hover {
+  box-shadow: -8px 8px 16px rgba(180, 160, 145, 0.3),
+    8px -8px 16px rgba(255, 255, 255, 0.8);
+}
+
 /* Neumorphic Cards - Content cards that only darken on hover */
 .card-neumorphic {
   background: linear-gradient(145deg, rgba(255, 255, 255, 0.7), rgba(240, 230, 220, 0.6));
