@@ -2018,448 +2018,465 @@ Tomorrow, we automate workflows.`
   // WEEK 5: THE BIGGER PICTURE
   // ============================================
 
-  // DAY 25: The Automation Canvas
+  // DAY 25: Presentations in Seconds
   {
     day: 25,
-    title: "The Automation Canvas",
-    subtitle: "Make AI work while you sleep",
+    title: "Presentations in Seconds",
+    subtitle: "From idea to polished slides before your coffee gets cold",
     content: `
-      <p>Everything we've done so far requires you to be there. You prompt. AI responds. Interactive.</p>
+      <p>We've all been there. It's 11pm. The presentation is tomorrow. You're staring at a blank PowerPoint slide, cursor blinking, wondering why you left this so late.</p>
 
-      <p>Automation is different. You set things up once. They run without you. AI works while you're doing something else.</p>
+      <p>Or maybe you're not a procrastinator. Maybe you just hate making slides. The formatting. The design decisions. Finding images that don't look like clip art from 2003. It's tedious work that eats hours.</p>
 
-      <p>Make (formerly Integromat) is the canvas for building these automated workflows.</p>
+      <p>What if you could just describe what you wanted and have it appear?</p>
 
-      <h3>The Visual Approach</h3>
+      <h3>The Blank Canvas Problem</h3>
 
-      <p>Make shows automation as a flowchart. Triggers on one side. Actions on the other. Connections showing how data flows.</p>
+      <p>Here's why presentations take so long: too many decisions.</p>
 
-      <p>This visual approach makes complex logic accessible. You can see what's happening. You can modify it by dragging and connecting.</p>
+      <p>What font? What colours? How should this be laid out? Where do I find a good image? Is this too much text? Does this flow make sense?</p>
 
-      <h3>What You Can Automate</h3>
+      <p>Each decision is small. Together, they're exhausting. And most of us aren't designers. We're just people who need to communicate something visually.</p>
 
-      <p>Almost anything that happens digitally can be automated.</p>
+      <p>AI solves this by making the decisions for you. Good decisions, based on what actually works. You focus on the message. AI handles the visual craft.</p>
 
-      <p>Email arrives → Extract content with AI → Add to database → Notify team</p>
+      <h3>Directing Instead of Designing</h3>
 
-      <p>Form submitted → Generate personalised response with AI → Send email → Update CRM</p>
+      <p>Think about how you'd explain your presentation to a colleague. "I need something about our Q3 results. Maybe 8 slides. Professional but not boring. Include some charts."</p>
 
-      <p>Social mention → Analyse sentiment with AI → Route to appropriate team → Log response</p>
+      <p>That's all you need to say now. AI takes that description and produces a complete, designed presentation. Not a rough draft. A finished deck.</p>
 
-      <p>The patterns are endless. Any time you do something repetitive, there's probably an automation waiting.</p>
+      <p>First attempt not quite right? Direct it. "Make slide 3 more visual." "Add a comparison table." "Change the tone to be more casual." You're a creative director now, not a pixel-pusher.</p>
 
-      <h3>AI Integration</h3>
+      <h3>The Speed Shift</h3>
 
-      <p>Make connects to AI tools directly. OpenAI. Claude. Gemini. They become steps in your workflows.</p>
+      <p>What used to take hours now takes minutes. That's not an exaggeration.</p>
 
-      <p>This is where AI becomes truly powerful. Not as a tool you visit, but as a component in systems that run continuously.</p>
+      <p>This matters because presentations often get rushed. You run out of time and the slides suffer. Or you spend so long on slides that you don't rehearse what you'll actually say.</p>
 
-      <h3>The Learning Curve</h3>
+      <p>When creation is fast, you have time to think about delivery. About the story you're telling. About the questions you'll get. The presentation gets better because you're not exhausted from making it.</p>
 
-      <p>Automation tools require some learning. Not coding, but logical thinking. Understanding triggers and conditions. Debugging when things don't work.</p>
+      <h3>Beyond Slides</h3>
 
-      <p>The investment is worth it. Hours of manual work can become minutes of automated processing.</p>
+      <p>The same principle applies to other visual documents. One-pagers. Proposals. Reports that need to look professional.</p>
 
-      <h3>Starting Simple</h3>
+      <p>Anywhere you've been fighting with formatting instead of focusing on content, AI can help. Describe what you need. Get something polished. Refine from there.</p>
 
-      <p>Don't build complex automations first. Start with something simple that saves you 10 minutes. Then expand.</p>
-
-      <p>Successful automation is incremental. Small improvements that compound over time.</p>
-
-      <p>Tomorrow, we explore advanced automation for those who want to go deeper.</p>
+      <p>Tomorrow, we tackle another universal time-sink: meetings.</p>
     `,
     handsOn: {
-      title: "Build Your First Automation",
-      description: "Create a workflow that runs without you.",
+      title: "Create a Presentation in 60 Seconds",
+      description: "Experience what happens when AI handles design.",
       affiliateLinks: [
-        { text: "Try Make →", url: "https://www.make.com" }
+        { text: "Try Gamma →", url: "https://gamma.app" }
       ],
-      exercise: `1. Go to make.com and create an account. Free tier available.
+      exercise: `1. Go to gamma.app and create a free account.
 
-2. Connect an email account. Gmail or Outlook.
+2. Think of a presentation you actually need. A project update. Something you're learning. An idea you want to share with someone.
 
-3. Build a simple automation: When email arrives with specific keyword → Extract with AI → Send summary to yourself via another channel.
+3. Describe it in plain English. Include who it's for and roughly how long it should be.
 
-4. Test it. Send yourself an email. Watch the automation run.
+4. Watch it generate. Notice the design choices—fonts, colours, layout, images. You didn't choose any of that. AI did.
 
-5. Try connecting AI. Add an OpenAI or Claude module. Have it process the email content.
+5. Now direct it. Pick a slide that's not quite right. Tell AI what to change. Watch it adapt.
 
-6. Think about your repetitive tasks. Which could be automated?
+6. Compare this to your usual process. How long would this have taken in PowerPoint?
 
-7. You just built something that works without you. That's a different kind of power.
+7. The skill here isn't design. It's clear communication. Describe what you want well, and AI delivers.
 
-Tomorrow, more advanced automation patterns.`
+Tomorrow, we solve the problem of meetings that disappear from memory the moment they end.`
     }
   },
 
-  // DAY 26: Advanced Automation
+  // DAY 26: Never Miss a Meeting
   {
     day: 26,
-    title: "Advanced Automation",
-    subtitle: "n8n and the power of self-hosting",
+    title: "Never Miss a Meeting",
+    subtitle: "AI that listens so you can actually participate",
     content: `
-      <p>Make is powerful but runs on someone else's servers. Your data flows through their systems. You pay based on usage.</p>
+      <p>Here's a scene you know too well.</p>
 
-      <p>n8n offers a different model. Self-host it. Keep data on your own systems. Pay nothing for usage. Full control.</p>
+      <p>You're in a meeting, trying to take notes while also listening, while also thinking about what to say, while also watching the chat. Something important gets said. You miss it because you were writing down the last important thing.</p>
 
-      <h3>The Self-Hosting Advantage</h3>
+      <p>Or you weren't even there. Conflict in your calendar. Now you're watching a 90-minute recording at 2x speed, trying to find the three minutes that actually matter.</p>
 
-      <p>For privacy-sensitive workflows, self-hosting matters. Customer data never leaves your infrastructure. You control security. Compliance becomes simpler.</p>
+      <p>This is broken. And AI fixes it.</p>
 
-      <p>For high-volume workflows, self-hosting is economical. No per-operation charges. Run as much as your server can handle.</p>
+      <h3>The Note-Taking Trap</h3>
 
-      <h3>The Technical Trade-Off</h3>
+      <p>Taking notes during a meeting creates a terrible trade-off.</p>
 
-      <p>Self-hosting requires setup. You need a server. You need basic administration skills. Things can break and you fix them.</p>
+      <p>Take detailed notes and you're not fully present. You're transcribing, not thinking. You miss nuance. You can't contribute as well because half your brain is on writing.</p>
 
-      <p>For technical teams, this is fine. For non-technical users, Make's managed service might be worth the cost.</p>
+      <p>Stay fully present and you forget half of what was discussed by tomorrow. Important decisions become fuzzy. Action items get lost. You end up asking colleagues "wait, what did we agree on?"</p>
 
-      <h3>Advanced Patterns</h3>
+      <p>Neither option is good. So we've all just accepted that meetings are inefficient.</p>
 
-      <p>n8n enables patterns that are harder elsewhere.</p>
+      <h3>What Changes When AI Listens</h3>
 
-      <p>Complex branching logic with many conditions. Loops that process lists of items. Custom code when pre-built nodes don't exist. Integration with internal systems that lack public APIs.</p>
+      <p>Imagine walking into a meeting knowing that everything will be captured. Every word. Who said it. When they said it.</p>
 
-      <h3>AI Workflow Examples</h3>
+      <p>You don't take notes. You participate. You think. You ask better questions. You're actually there, mentally, instead of half-present with a notebook.</p>
 
-      <p>Customer support triage: Email arrives → AI categorises → Routes to appropriate queue → Drafts response suggestion</p>
+      <p>After the meeting, you get a summary. Key points. Action items. Searchable transcript. The 60-minute meeting becomes a 2-minute read.</p>
 
-      <p>Content pipeline: Google alert → AI summarises → Adds to research database → Notifies if high priority</p>
+      <p>Missed the meeting entirely? Read the summary. Search for your name to find what's relevant to you. Watch only the moments that matter.</p>
 
-      <p>Lead scoring: Form submission → AI analyses → Scores likelihood → Updates CRM → Triggers appropriate follow-up</p>
+      <h3>The Async Possibility</h3>
 
-      <h3>The Power User Path</h3>
+      <p>Here's a bigger shift: not every meeting needs everyone live.</p>
 
-      <p>n8n is where automation enthusiasts end up. Maximum flexibility. Maximum control. Maximum capability.</p>
+      <p>If AI captures everything perfectly, some meetings can become asynchronous. Record it once. Everyone watches on their schedule. Comments and questions happen in the document, not in another meeting.</p>
 
-      <p>If Make feels limiting, n8n is the next step.</p>
+      <p>For teams across time zones, this is transformative. No more 6am calls because that's the only time everyone can make.</p>
 
-      <p>Tomorrow, AI that writes code.</p>
+      <h3>A Word on Privacy</h3>
+
+      <p>Recording conversations has implications. Always get consent. Be transparent. For sensitive discussions, consider whether a permanent record is appropriate.</p>
+
+      <p>The tool is powerful. Use it thoughtfully.</p>
+
+      <p>Tomorrow, we unlock AI superpowers in a tool millions already use every day.</p>
     `,
     handsOn: {
-      title: "Explore Self-Hosted Automation",
-      description: "See what's possible with full automation control.",
+      title: "Let AI Take Your Notes",
+      description: "Experience meetings where you can actually focus.",
       affiliateLinks: [
-        { text: "Try n8n Cloud →", url: "https://n8n.io" }
+        { text: "Try Otter.ai →", url: "https://otter.ai" }
       ],
-      exercise: `1. Go to n8n.io. You can try cloud-hosted first to learn the interface.
+      exercise: `1. Go to otter.ai and create a free account.
 
-2. Notice the differences from Make. Different visual approach. Different available integrations.
+2. Connect it to your calendar and meeting platform—Zoom, Google Meet, or Teams all work.
 
-3. Build the same automation you built yesterday. Email trigger → AI processing → Output action.
+3. Use it in your next real meeting. Or schedule a quick test call with a friend or colleague.
 
-4. Try something more complex. Add branching. If AI finds urgency → do one thing. If not → do another.
+4. During the meeting, don't take notes. Just be present. Trust that AI is capturing everything.
 
-5. Explore the community workflows. See what others have built.
+5. Afterwards, explore what it created. Read the summary. Find the action items. Search for specific topics.
 
-6. Consider: what would self-hosting enable for your specific needs?
+6. Notice how it identified who said what. Notice the timestamps. This is a searchable record of the conversation.
 
-7. You now know two automation platforms. Each has its place.
+7. Think about what this means. Every meeting, captured. Every decision, findable. Every "what did we agree on?" answered instantly.
 
-Tomorrow, AI writes code.`
+Tomorrow, we add AI to a tool you might already use every day.`
     }
   },
 
-  // DAY 27: Code Without Coding
+  // DAY 27: Design Like a Pro
   {
     day: 27,
-    title: "Code Without Coding",
-    subtitle: "AI that builds software from descriptions",
+    title: "Design Like a Pro",
+    subtitle: "When AI meets the tools you already use",
     content: `
-      <p>You don't need to code to build software anymore. Describe what you want. AI writes the code. It actually works.</p>
+      <p>Here's something interesting about AI: the most powerful applications aren't always new tools. Sometimes they're AI features added to tools you already know.</p>
 
-      <p>Replit Agent is one of the tools making this possible. You describe an application in plain English. It builds it.</p>
+      <p>Canva is a perfect example. Millions of people use it for design—social posts, presentations, flyers, everything. It already made design accessible to non-designers.</p>
 
-      <h3>The Paradigm Shift</h3>
+      <p>Now it has AI woven throughout. And it changes what's possible.</p>
 
-      <p>Traditionally, having an idea and having a working application were separated by months of development. Now they're separated by a conversation.</p>
+      <h3>The "Good Enough" Barrier</h3>
 
-      <p>"Build me a simple project management tool where I can track tasks, set due dates, and mark things complete."</p>
+      <p>Before AI, Canva helped you create things that were good enough. Templates got you most of the way. But there were always friction points.</p>
 
-      <p>The AI creates the interface, the database, the logic. You have a working app.</p>
+      <p>Need a specific image? Hunt through stock libraries. Need to remove a background? Export to another tool. Need the same design in five sizes? Manually adjust each one. Need copy for your design? Write it yourself.</p>
 
-      <h3>What It Can Build</h3>
+      <p>Each friction point was small. Together, they added up. "Good enough" was achievable. "Actually great" required more effort than most people had time for.</p>
 
-      <p>Simple web applications. Internal tools. Prototypes. MVPs. Automation scripts. Data processing utilities.</p>
+      <h3>When Friction Disappears</h3>
 
-      <p>For complex enterprise systems, you'll still need professional developers. But for many real needs, AI-generated code is good enough.</p>
+      <p>AI removes the friction points.</p>
 
-      <h3>The Iteration Process</h3>
+      <p>Need a specific image? Describe it. AI generates it. Need to remove a background? One click. Need five sizes? AI adapts the layout for each. Need copy? Describe the vibe, AI writes options.</p>
 
-      <p>First generation is rarely perfect. You describe changes. "Add a priority field." "Make it sort by due date." "Add email notifications."</p>
+      <p>Suddenly "actually great" takes the same time "good enough" used to take. The ceiling rises for everyone.</p>
 
-      <p>The AI modifies the code. You iterate toward what you need. Like sculpting, but with software.</p>
+      <h3>The Compound Effect</h3>
 
-      <h3>The Skill Question</h3>
+      <p>Here's where it gets interesting. Each AI feature is useful alone. But they compound.</p>
 
-      <p>Does this replace developers? Not really. Complex systems still need human expertise. But it democratises simple software.</p>
+      <p>Generate an image. Remove its background. Place it in a design. Write the headline. Resize for every platform. What would have been an afternoon is now fifteen minutes.</p>
 
-      <p>Non-developers can build tools they need. Developers can prototype faster. Everyone's capability expands.</p>
+      <p>And because it's fast, you iterate more. Try different images. Test different headlines. Explore options you wouldn't have had time for before.</p>
 
-      <h3>When To Use This</h3>
+      <h3>AI Inside vs AI Outside</h3>
 
-      <p>Internal tools that aren't worth professional development time. Quick prototypes to test ideas. Simple automations that need custom logic.</p>
+      <p>There's a lesson here beyond Canva. AI integrated into your existing workflow is often more useful than AI as a separate tool.</p>
 
-      <p>Not for: mission-critical systems, complex integrations, anything where failure has serious consequences.</p>
+      <p>You don't have to copy text to ChatGPT, get a result, copy it back. The AI is right there, in context, understanding what you're trying to do.</p>
 
-      <p>Tomorrow, AI for professional developers.</p>
+      <p>Look for this pattern in tools you already use. Many are adding AI features. The productivity gains come from using them where you already work.</p>
+
+      <p>Tomorrow, we explore something different: AI assistants you can customise for your specific needs.</p>
     `,
     handsOn: {
-      title: "Build an App Without Coding",
-      description: "Create working software from plain English descriptions.",
+      title: "Discover AI in Tools You Know",
+      description: "Experience AI features inside a familiar platform.",
       affiliateLinks: [
-        { text: "Try Replit →", url: "https://replit.com" }
+        { text: "Try Canva →", url: "https://www.canva.com" }
       ],
-      exercise: `1. Go to replit.com and find the Agent feature.
+      exercise: `1. Go to canva.com and sign in. If you don't have an account, the free tier works fine.
 
-2. Describe a simple tool you wish existed. Be specific about what it should do.
+2. Start a design you actually need. Social post, presentation slide, anything real.
 
-3. Watch the AI build it. See the code being written in real-time.
+3. Find the AI writing feature. Add a text box and look for the AI option. Describe what you need. Notice how it understands context.
 
-4. Test the result. What works? What needs adjustment?
+4. Find the AI image generation. Describe an image that would fit your design. Generate a few options.
 
-5. Describe changes. Watch the AI modify the code.
+5. Try the background remover on any photo. One click. Notice what used to require Photoshop skills.
 
-6. Iterate until you have something useful.
+6. If you have time, try resizing your design for a different platform. Watch how AI adapts the layout.
 
-7. You just built software without knowing how to code. Let that sink in.
+7. The point isn't Canva specifically. It's that AI is appearing inside tools everywhere. Look for it in apps you already use.
 
-Tomorrow, AI for people who do know how to code.`
+Tomorrow, we explore AI assistants that can be built just for you.`
     }
   },
 
-  // DAY 28: The AI Code Editor
+  // DAY 28: Meet Custom AI Assistants
   {
     day: 28,
-    title: "The AI Code Editor",
-    subtitle: "How professional developers are using AI",
+    title: "Meet Custom AI Assistants",
+    subtitle: "When AI knows exactly what you need",
     content: `
-      <p>If Day 27 was AI building code for non-coders, Day 28 is AI amplifying what coders can do.</p>
+      <p>Every AI tool we've used so far is a generalist. ChatGPT can help with anything. Gemini can help with anything. That's powerful.</p>
 
-      <p>Cursor is an AI-powered code editor. It understands code at a deep level. It suggests, completes, and refactors in ways that make developers significantly faster.</p>
+      <p>But think about how you actually work. You probably ask similar questions repeatedly. You provide the same context over and over. "I'm a teacher." "I'm vegetarian." "I prefer casual tone." "My audience is beginners."</p>
 
-      <h3>Intelligent Autocomplete</h3>
+      <p>What if AI already knew all that?</p>
 
-      <p>Traditional autocomplete finishes variable names. AI autocomplete finishes functions. It writes the implementation you probably want based on the context.</p>
+      <h3>The Context Problem</h3>
 
-      <p>You type a function name. AI writes the body. You review and accept, or modify and continue.</p>
+      <p>General AI starts every conversation fresh. It doesn't know you. Doesn't remember your preferences. Doesn't understand your situation.</p>
 
-      <h3>Natural Language Editing</h3>
+      <p>So you explain. Every time. "I'm planning meals for a family of four, two kids are picky eaters, we're trying to eat less meat, I have about 30 minutes to cook on weeknights..."</p>
 
-      <p>Select code. Describe what you want changed. "Refactor this to be more efficient." "Add error handling." "Convert to async."</p>
+      <p>Then you ask your actual question.</p>
 
-      <p>The AI makes the changes. You approve or adjust. Editing becomes a conversation.</p>
+      <p>This works. But it's friction. And friction means you use AI less than you could, for fewer things than you should.</p>
 
-      <h3>Codebase Understanding</h3>
+      <h3>Custom Assistants</h3>
 
-      <p>Cursor reads your entire project. It understands how pieces connect. Suggestions are contextual to your specific codebase, not generic.</p>
+      <p>A custom AI assistant is an AI that already knows your context. You set it up once—your situation, your preferences, your needs—and then every conversation starts from there.</p>
 
-      <p>This means it can write code that fits your patterns, uses your conventions, and integrates with your existing systems.</p>
+      <p>Instead of explaining your dietary restrictions every time, you just ask "what should I make tonight?" The assistant already knows.</p>
 
-      <h3>The Productivity Factor</h3>
+      <p>Instead of describing your writing style, you just say "draft this email." The assistant already writes like you.</p>
 
-      <p>Developers using AI assistance report significant productivity gains. Not 10%. More like 30-50% for certain tasks.</p>
+      <p>The AI becomes genuinely personal. Not personal like "it knows your data." Personal like "it understands your situation."</p>
 
-      <p>The boring parts—boilerplate, repetitive patterns, standard implementations—get faster. Time goes to interesting problems instead.</p>
+      <h3>What Makes Them Work</h3>
 
-      <h3>The Quality Question</h3>
+      <p>Custom assistants have a few key ingredients.</p>
 
-      <p>AI-suggested code needs review. It's not always optimal. Sometimes it's wrong. The developer's expertise is still essential.</p>
+      <p>Instructions tell the AI how to behave. Its personality. Its expertise. What to focus on. What to avoid. "You're a patient cooking instructor who specialises in quick weeknight meals. Always suggest substitutions for hard-to-find ingredients."</p>
 
-      <p>But the starting point is better. Iterations are faster. The overall output increases.</p>
+      <p>Knowledge gives the AI information to reference. Your recipes. Your notes. Your preferences. Documents it can search when answering.</p>
 
-      <p>Tomorrow, AI that works autonomously.</p>
+      <p>Focus keeps it useful. A meal planning assistant doesn't need to discuss philosophy. Constraints make it better at its specific job.</p>
+
+      <h3>Finding What Exists</h3>
+
+      <p>Before building your own, explore what others have created. There are assistants for writing, learning, productivity, creativity, health, career, and countless niches.</p>
+
+      <p>Someone might have already built exactly what you need. And seeing what exists sparks ideas for what you could build.</p>
+
+      <p>Tomorrow, you'll create your own. Today, we explore what's possible.</p>
     `,
     handsOn: {
-      title: "Experience AI-Powered Coding",
-      description: "See how AI changes software development.",
+      title: "Explore Custom AI Assistants",
+      description: "Discover AI that's built for specific purposes.",
       affiliateLinks: [
-        { text: "Try Cursor →", url: "https://cursor.sh" }
+        { text: "Explore Gemini Gems →", url: "https://gemini.google.com" }
       ],
-      exercise: `1. If you code: Download Cursor. Open a project. Try the AI features on real code.
+      exercise: `1. Go to gemini.google.com and sign in with your Google account.
 
-2. Notice how completions understand context. Accept suggestions. See how much faster you move.
+2. Look for "Explore Gems" in the sidebar. This is Google's library of custom AI assistants.
 
-3. Try natural language editing. Select something. Describe a change. Watch it happen.
+3. Browse what's available. Notice the categories. Writing. Learning. Productivity. Creativity.
 
-4. If you don't code: Watch a demo video. Understand what's possible.
+4. Try at least three different Gems. Pick ones relevant to things you actually do.
 
-5. Either way, consider what it means that coding is becoming a conversation.
+5. Notice how each one has a specific personality. Compare how they respond versus regular Gemini. The focus makes them better at their specific job.
 
-6. The skill is shifting from "writing code" to "directing AI to write code" + "reviewing and refining."
+6. Now think about your life. What questions do you ask repeatedly? What context do you always have to explain? What would be useful to have an AI that just "gets" your situation?
 
-7. Tomorrow, AI employees that work autonomously.`
+7. Write down three ideas. A cooking assistant that knows your family's preferences. A writing helper that matches your style. A learning tutor for something you're studying. Anything.
+
+Tomorrow, you'll build one of these ideas. Your own custom AI assistant.`
     }
   },
 
-  // DAY 29: The AI Employee
+  // DAY 29: Create Your First AI Assistant
   {
     day: 29,
-    title: "The AI Employee",
-    subtitle: "Autonomous agents that complete tasks",
+    title: "Create Your First AI Assistant",
+    subtitle: "Building something that's yours",
     content: `
-      <p>Everything until now has been tools. You use them. They assist you. You're in control.</p>
+      <p>Yesterday you explored custom assistants others have built. Today you build your own.</p>
 
-      <p>Agents are different. You assign a task. They complete it. They work autonomously, making decisions, using tools, getting things done.</p>
+      <p>This is different from everything else in the course. You're not using a tool someone made. You're creating something new. Something designed for your specific needs, by you.</p>
 
-      <p>This is the frontier. And it's becoming practical.</p>
+      <p>And it's surprisingly simple.</p>
 
-      <h3>What Agents Can Do</h3>
+      <h3>Choosing What to Build</h3>
 
-      <p>Lindy and similar platforms let you create AI agents for specific jobs.</p>
+      <p>Look at the ideas you wrote down yesterday. Which one would help you most?</p>
 
-      <p>Inbox manager: Reads emails. Categorises. Drafts responses. Escalates what needs human attention.</p>
+      <p>Good first assistants are focused. They do one thing well. A meal planner. A writing editor. A study buddy. A brainstorm partner. A fitness coach. An interview prepper.</p>
 
-      <p>Research analyst: Given a question, searches sources, synthesises information, produces reports.</p>
+      <p>Pick something you'd actually use. Something where you repeatedly need similar help. That's where a custom assistant shines.</p>
 
-      <p>Meeting scheduler: Handles back-and-forth of finding times. Books meetings. Sends confirmations.</p>
+      <h3>Writing Instructions</h3>
 
-      <h3>The Delegation Mindset</h3>
+      <p>Instructions are how you shape the AI's behaviour. Think of it like briefing a new team member.</p>
 
-      <p>Using agents requires a shift. You're not doing tasks anymore. You're delegating them.</p>
+      <p>Start with who they are. "You are a patient cooking instructor who specialises in quick weeknight meals for busy families."</p>
 
-      <p>This requires clear instructions. Understanding what can go wrong. Checking outputs. It's more like managing than doing.</p>
+      <p>Add how they should behave. "Always suggest ingredient substitutions. Keep recipes under 30 minutes. Assume basic cooking skills but explain techniques when needed."</p>
 
-      <h3>The Trust Question</h3>
+      <p>Include what to avoid. "Don't suggest recipes requiring special equipment. Don't assume access to specialty ingredients."</p>
 
-      <p>How much can you trust an AI agent? More than you could last year. Less than you probably should.</p>
+      <p>Be specific. The more detail you provide, the better the assistant understands its role.</p>
 
-      <p>Start with low-stakes tasks. Build confidence in specific agents for specific jobs. Expand gradually.</p>
+      <h3>Adding Knowledge</h3>
 
-      <p>The agents aren't human. They'll make mistakes humans wouldn't. They'll also never get tired, never get distracted, and work 24/7.</p>
+      <p>Knowledge makes your assistant smarter about your specific situation.</p>
 
-      <h3>The Future Visible Today</h3>
+      <p>Upload documents it should reference. Your favourite recipes. Your family's dietary restrictions. Notes about what your kids will actually eat.</p>
 
-      <p>Agents are early. The best are good at narrow tasks. General-purpose agents that can do anything are still developing.</p>
+      <p>The assistant can search this knowledge when answering. It's like giving it a reference library customised to you.</p>
 
-      <p>But the trajectory is clear. AI is moving from tools to teammates. From assistance to autonomy.</p>
+      <h3>Testing and Refining</h3>
 
-      <p>Understanding how to work with agents is understanding the near future of work.</p>
+      <p>Your first version won't be perfect. That's fine.</p>
 
-      <p>Tomorrow, we tie it all together.</p>
+      <p>Use it. Notice what works. Notice what doesn't. Adjust the instructions. Add more knowledge. Iterate.</p>
+
+      <p>Good assistants evolve. You'll think of edge cases. You'll want different behaviour in certain situations. Each refinement makes it more useful.</p>
+
+      <h3>What You're Really Learning</h3>
+
+      <p>Building a custom assistant teaches you something deeper than the specific tool.</p>
+
+      <p>You're learning to think about AI systematically. What context does it need? What instructions shape behaviour? How do you communicate what you want clearly?</p>
+
+      <p>These skills transfer everywhere. Every AI interaction gets better when you understand how to guide AI effectively.</p>
+
+      <p>Tomorrow, we bring everything together.</p>
     `,
     handsOn: {
-      title: "Deploy an AI Agent",
-      description: "Create an autonomous AI that handles tasks for you.",
+      title: "Build Your First Custom Assistant",
+      description: "Create an AI assistant designed just for you.",
       affiliateLinks: [
-        { text: "Try Lindy →", url: "https://www.lindy.ai" }
+        { text: "Create a Gemini Gem →", url: "https://gemini.google.com" }
       ],
-      exercise: `1. Go to lindy.ai and create an account.
+      exercise: `1. Go to gemini.google.com. Look for "Explore Gems" then find the option to create a new Gem.
 
-2. Set up a simple agent. Start with something low-stakes—maybe email triage or scheduling assistance.
+2. Pick one idea from yesterday. Something you'd actually use regularly.
 
-3. Define what it should do. Be specific about scope and limits.
+3. Give it a name that reflects what it does. "Weeknight Dinner Helper" or "Email Draft Editor" or whatever fits.
 
-4. Let it work on some real tasks. Watch what it does.
+4. Write the description. One sentence about what this assistant does.
 
-5. Review outputs. What did it handle well? Where did it struggle?
+5. Write the instructions. This is the important part. Who is this assistant? How should it behave? What should it focus on? What should it avoid? Be specific.
 
-6. Refine the instructions. See if performance improves.
+6. If you have relevant documents, upload them as knowledge. Recipes, notes, preferences, anything that helps.
 
-7. You just deployed something that works without you. That's the future of productivity.
+7. Test it. Ask it questions you'd actually ask. See how it responds. Refine the instructions based on what works and what doesn't.
 
-Tomorrow, we synthesise everything.`
+Congratulations. You just created your own AI assistant. Tomorrow, we celebrate and look forward.`
     }
   },
 
-  // DAY 30: Your Next 30 Days
+  // DAY 30: Your AI Future
   {
     day: 30,
-    title: "Your Next 30 Days",
-    subtitle: "From knowledge to practice",
+    title: "Your AI Future",
+    subtitle: "From here, everything is different",
     content: `
-      <p>Thirty days ago, AI was something you'd heard about. Now you've used it. Created with it. Built things.</p>
+      <p>Thirty days ago, AI was something you'd heard about. Now you've used it. Created with it. Built your own assistant.</p>
 
-      <p>The question isn't what you've learned. It's what you'll do with it.</p>
+      <p>That's not a small thing.</p>
+
+      <p>Most people are still where you were a month ago. Curious but uncertain. Aware but not capable. You've crossed a line they haven't.</p>
+
+      <h3>What You Actually Learned</h3>
+
+      <p>It's worth pausing to recognise how far you've come.</p>
+
+      <p>You can have productive conversations with AI. You know how to prompt effectively. You understand context, task, and constraints.</p>
+
+      <p>You can research faster than ever before. Synthesise information. Get answers instead of reading lists.</p>
+
+      <p>You can create images, presentations, and content that would have required professional skills or significant time before.</p>
+
+      <p>You can capture and process meetings, design without design skills, and work faster in tools you already use.</p>
+
+      <p>And now you can build custom AI assistants tailored to your specific needs.</p>
+
+      <p>That's a genuinely different capability set than you had thirty days ago.</p>
 
       <h3>Your Personal Stack</h3>
 
-      <p>Not every tool is right for everyone. From everything you've tried, which resonated?</p>
+      <p>Not every tool we covered will stick. That's fine. The goal was exposure, not mastery of everything.</p>
 
-      <p>For text work: Which AI assistant felt most natural? ChatGPT, Claude, Gemini?</p>
+      <p>What resonated? Which tools fit how you actually work? Those are your stack. The ones you'll use regularly. The ones worth getting better at.</p>
 
-      <p>For images: Midjourney for quality? Nano Banana for accessibility? Ideogram for text?</p>
+      <p>For most people, it's a handful. A main AI assistant. An image tool. A few productivity enhancers. That's enough to be significantly more capable than before.</p>
 
-      <p>For video: Runway? Veo? Kling? Luma?</p>
+      <h3>The Habit That Matters</h3>
 
-      <p>For audio: ElevenLabs for voice. Suno or Udio for music.</p>
+      <p>Here's the practice that makes everything stick: before starting any task, ask "could AI help here?"</p>
 
-      <p>For productivity: Whatever fits your workflow.</p>
+      <p>Sometimes the answer is no. Many times it's yes. The question itself is valuable. It builds the reflex of thinking about AI as an option.</p>
 
-      <p>Build your stack. The tools you'll actually use regularly. Start there.</p>
+      <p>Over time, this becomes automatic. You stop doing things the hard way when an easier way exists. That's when AI stops being a novelty and becomes just how you work.</p>
 
-      <h3>The Practice Pattern</h3>
+      <h3>What Comes Next</h3>
 
-      <p>Knowledge decays without practice. Here's how to make AI second nature:</p>
+      <p>This course covered the foundations. There's more to explore if you want to go deeper.</p>
 
-      <p>Default to AI first. Before starting any task, ask: could AI help here? Even if the answer is no, the question builds the habit.</p>
+      <p>Automation: AI that works without you, connecting tools and running workflows.</p>
 
-      <p>Iterate publicly. Share what you create. Get feedback. Improve.</p>
+      <p>Agents: AI that completes tasks autonomously, making decisions along the way.</p>
 
-      <p>Stay current. AI changes monthly. Follow one or two sources. Try new tools when they matter.</p>
+      <p>Building with AI: Creating applications, tools, and products powered by AI.</p>
 
-      <h3>The Opportunity Window</h3>
+      <p>These are intermediate and advanced topics. They build on everything you've learned here. If you're interested, they're the next frontier.</p>
 
-      <p>Right now, AI capability exceeds AI adoption. Most people don't use these tools. Most businesses haven't integrated them. There's an advantage in being early.</p>
+      <h3>A Final Thought</h3>
 
-      <p>That window won't last forever. As adoption spreads, the advantage becomes normal expectation. The time to build these skills is now.</p>
+      <p>AI won't replace you. But someone using AI might.</p>
 
-      <h3>What Doesn't Change</h3>
+      <p>That's not a threat. It's an observation. The people thriving right now aren't the ones with the most raw talent. They're the ones who learned to amplify their talent with AI.</p>
 
-      <p>AI capabilities will keep expanding. The tools will improve. New options will emerge.</p>
-
-      <p>What won't change:</p>
-
-      <p>Your judgment matters. AI gives you capabilities. You decide how to use them.</p>
-
-      <p>Your taste matters. AI generates options. You decide what's good.</p>
-
-      <p>Your humanity matters. AI can produce but not connect. People still want to engage with people.</p>
-
-      <p>The goal was never to be replaced by AI. The goal was to be amplified by AI. To do more of what matters. To spend less time on what doesn't.</p>
-
-      <h3>A Final Note</h3>
-
-      <p>Thirty days is both a lot and a little.</p>
-
-      <p>A lot because you've covered enormous ground. Tools, capabilities, concepts, applications. You know things most people don't.</p>
-
-      <p>A little because this field is vast and moving fast. There's always more to learn. Always new developments. Always deeper mastery available.</p>
-
-      <p>This is the beginning, not the end.</p>
+      <p>You're now one of them.</p>
 
       <p>Keep experimenting. Keep learning. Keep asking what AI can do for the problems that matter to you.</p>
 
-      <p>The future belongs to people who know how to work with AI. You're now one of them.</p>
+      <p>The future is being shaped by people who know how to work with AI. Welcome to that group.</p>
     `,
     handsOn: {
-      title: "Your 30-Day Journey Capstone",
-      description: "Create a final project that showcases what you've learned.",
+      title: "Celebrate and Share",
+      description: "You did it. Now make it count.",
       affiliateLinks: [
-        { text: "Return to ChatGPT →", url: "https://chat.openai.com" },
-        { text: "Return to Midjourney →", url: "https://midjourney.com" },
-        { text: "Return to Runway →", url: "https://runwayml.com" }
+        { text: "Get Your Certificate →", url: "/certificate" }
       ],
-      exercise: `**Capstone Project**
+      exercise: `1. Take a moment. You completed a 30-day course. That takes commitment. Acknowledge it.
 
-Create your 30-day journey presentation.
+2. Go to your certificate page and download your certificate. You earned it.
 
-Use at least three different AI tools in its creation.
+3. Think about your highlight. What was the most useful thing you learned? The most surprising? The tool you'll keep using?
 
-Include:
-- Where you started
-- What surprised you
-- Your personal AI stack
-- One creation showcase
-- What's next for you
+4. If you built a custom assistant yesterday, use it today. Start making it part of your routine.
 
-Share it if you want—with us, with your network, with nobody. The creation matters more than the sharing.
+5. Consider sharing. Post about completing the course. Tell someone what you learned. Teaching reinforces learning.
 
-**Then celebrate.**
+6. Look at your work from the last month. The images you created. The presentations. The content. You made things that didn't exist before.
 
-You finished. You learned. You grew.
+7. Keep going. This is the beginning, not the end. AI will keep evolving. So will you.
 
-Well done.`
+Congratulations. You're ready for whatever comes next.`
     }
   }
 ];
