@@ -195,7 +195,7 @@ export default async function CertificatePage() {
             </div>
 
             {/* Action Buttons */}
-            <CertificateActions certificateId={certificate?.id} />
+            <CertificateActions certificateId={certificate?.id} completionDate={certificate?.completion_date} />
           </div>
         ) : (
           /* Not Completed Yet - Warm design */

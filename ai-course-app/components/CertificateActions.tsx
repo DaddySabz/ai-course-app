@@ -5,9 +5,10 @@ import { jsPDF } from 'jspdf'
 
 interface CertificateActionsProps {
   certificateId?: string
+  completionDate?: string // ISO date string like "2024-11-15"
 }
 
-export default function CertificateActions({ certificateId }: CertificateActionsProps) {
+export default function CertificateActions({ certificateId, completionDate }: CertificateActionsProps) {
   // Detect if user is on mobile
   const isMobile = () => {
     return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)
@@ -203,14 +204,23 @@ export default function CertificateActions({ certificateId }: CertificateActions
 
   // LinkedIn "Add to Profile" Deep Link - Pre-fills certification modal
   const shareToLinkedInProfile = () => {
+    // Parse the actual completion date from the certificate
+    const certDate = completionDate ? new Date(completionDate) : new Date()
+    const issueYear = certDate.getFullYear().toString()
+    const issueMonth = (certDate.getMonth() + 1).toString()
+
     const params = new URLSearchParams({
       startTask: 'CERTIFICATION_NAME',
       name: 'Introduction to AI',
       // Wacky Works Digital LinkedIn Organization ID
       organizationId: '109555093',
-      issueYear: new Date().getFullYear().toString(),
-      issueMonth: (new Date().getMonth() + 1).toString(),
+      // Issuing organization name (required field)
+      organizationName: 'Wacky Works Digital',
+      issueYear: issueYear,
+      issueMonth: issueMonth,
+      // Certificate URL points to the public verification page
       certUrl: `${window.location.origin}/c/${certificateId}`,
+      // Full certificate ID for verification
       certId: certificateId || 'CERT-ID'
     });
 
