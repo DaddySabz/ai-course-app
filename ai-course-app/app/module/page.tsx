@@ -123,12 +123,7 @@ export default async function ModulePage({
         {/* Right Content Area - Warm, Spacious Design */}
         <main className="flex-1">
           {/* Hero Image with Title Overlay */}
-          <div
-            className="card-neumorphic relative rounded-3xl mb-8 h-[250px] md:h-[400px]"
-            style={{
-              boxShadow: '0 20px 60px rgba(0, 0, 0, 0.3), 0 8px 24px rgba(0, 0, 0, 0.2)'
-            }}
-          >
+          <div className="card-neumorphic relative rounded-3xl mb-8 h-[250px] md:h-[400px]">
             <img
               src="/images/course/day-1-hero-image.jpg"
               alt={lesson.title}
