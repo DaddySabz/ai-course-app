@@ -42,6 +42,15 @@ export default async function DashboardPage() {
   const isTechPartner = partnerType === 'tech'
   const isBetaTester = partnerType === 'beta'
 
+  // Check if user has purchased courses
+  const { data: purchasesData } = await supabase
+    .from('purchases')
+    .select('product_id, status')
+    .eq('user_id', session.user.id)
+    .eq('status', 'paid')
+
+  const hasPurchasedIntroCourse = purchasesData?.some(p => p.product_id === 'ai-course-intro') || false
+
   // If admin OR tech partner, show full progress (100% complete)
   // If table doesn't exist yet, default to empty (will be created when user completes first lesson)
   const safeProgressData = (isAdmin || isTechPartner)
@@ -256,34 +265,43 @@ export default async function DashboardPage() {
                 </div>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                  {/* Course 1: Introduction to AI - Clickable to payment */}
-                  <a href="/payment?product=ai-course-intro" className="glass-clickable rounded-2xl p-6 block cursor-pointer">
-                    <h4 className="text-lg font-bold text-text-primary mb-2">Introduction to AI</h4>
-                    <div className="flex items-baseline gap-2 mb-3">
-                      {isBetaTester ? (
-                        <>
-                          <span className="text-3xl font-black text-sage-green">FREE</span>
-                          <span className="text-xs text-text-tertiary">(Beta Tester)</span>
-                        </>
-                      ) : isWaitrosePartner ? (
-                        <>
-                          <span className="text-3xl font-black text-sage-green">£19</span>
-                          <span className="text-lg font-bold text-text-tertiary line-through">£49</span>
-                        </>
-                      ) : isTechPartner ? (
-                        <>
-                          <span className="text-3xl font-black" style={{ color: '#6B9B6B' }}>FREE</span>
-                          <span className="text-xs text-text-tertiary">(Tech Partner)</span>
-                        </>
-                      ) : (
-                        <>
-                          <span className="text-3xl font-black" style={{ color: '#6B9B6B' }}>FREE</span>
-                          <span className="text-lg font-bold text-text-tertiary line-through">£49</span>
-                        </>
-                      )}
-                    </div>
-                    <p className="text-xs text-text-secondary">30-day beginner course</p>
-                  </a>
+                  {/* Course 1: Introduction to AI */}
+                  {hasPurchasedIntroCourse || isBetaTester || isTechPartner ? (
+                    // User has access - link to course
+                    <a href="/module?day=1" className="glass-clickable rounded-2xl p-6 block cursor-pointer border-2 border-sage-green/40">
+                      <div className="flex items-center justify-between mb-2">
+                        <h4 className="text-lg font-bold text-text-primary">Introduction to AI</h4>
+                        <span className="px-3 py-1 rounded-full text-xs font-bold bg-sage-green/20 text-sage-green">
+                          ✓ ENROLLED
+                        </span>
+                      </div>
+                      <div className="flex items-baseline gap-2 mb-3">
+                        <span className="text-2xl font-black text-sage-green">Full Access</span>
+                        {isBetaTester && <span className="text-xs text-text-tertiary">(Beta Tester)</span>}
+                        {isTechPartner && <span className="text-xs text-text-tertiary">(Tech Partner)</span>}
+                        {hasPurchasedIntroCourse && !isBetaTester && !isTechPartner && <span className="text-xs text-text-tertiary">(Purchased)</span>}
+                      </div>
+                      <p className="text-xs text-text-secondary">30-day beginner course • Click to continue →</p>
+                    </a>
+                  ) : (
+                    // User needs to purchase - link to payment
+                    <a href="/payment?product=ai-course-intro" className="glass-clickable rounded-2xl p-6 block cursor-pointer">
+                      <h4 className="text-lg font-bold text-text-primary mb-2">Introduction to AI</h4>
+                      <div className="flex items-baseline gap-2 mb-3">
+                        {isWaitrosePartner ? (
+                          <>
+                            <span className="text-3xl font-black text-sage-green">£19</span>
+                            <span className="text-lg font-bold text-text-tertiary line-through">£49</span>
+                          </>
+                        ) : (
+                          <>
+                            <span className="text-3xl font-black text-sage-green">£49</span>
+                          </>
+                        )}
+                      </div>
+                      <p className="text-xs text-text-secondary">30-day beginner course</p>
+                    </a>
+                  )}
 
                   {/* Course 2: Adventures with AI - Coming Soon */}
                   <div className="glass-subtle rounded-2xl p-6 opacity-75">
