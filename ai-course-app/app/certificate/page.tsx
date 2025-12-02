@@ -121,12 +121,13 @@ export default async function CertificatePage() {
           <div className="w-full max-w-5xl">
             {/* Certificate Card - Premium Minimal Design */}
             <div className="card-neumorphic rounded-3xl overflow-hidden">
-              <div id="certificate-content" className="p-10 sm:p-16 relative" style={{
+              <div id="certificate-content" className="relative" style={{
                 backgroundImage: 'url(/certificate-bg.png)',
-                backgroundSize: 'cover',
+                backgroundSize: '100% 100%',
                 backgroundPosition: 'center',
                 backgroundRepeat: 'no-repeat',
-                minHeight: '600px'
+                padding: 'clamp(2rem, 5vw, 4rem) clamp(3rem, 8vw, 6rem)',
+                aspectRatio: '1.414 / 1'
               }}>
 
               {/* Title */}
