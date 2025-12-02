@@ -4,23 +4,8 @@ import { redirect } from "next/navigation"
 import { createClient } from '@supabase/supabase-js'
 import Link from 'next/link'
 import CertificateActions from '@/components/CertificateActions'
+import CertificateImage from '@/components/CertificateImage'
 import NavigationBar from '@/components/NavigationBar'
-
-// Helper to generate certificate image
-async function generateCertificateImage(certificateId: string, baseUrl: string) {
-  try {
-    const response = await fetch(`${baseUrl}/api/certificate/generate-image`, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ certificateId })
-    });
-    const result = await response.json();
-    return result.imageUrl || null;
-  } catch (error) {
-    console.error('Failed to generate certificate image:', error);
-    return null;
-  }
-}
 
 export default async function CertificatePage() {
   const session = await auth()
@@ -48,8 +33,6 @@ export default async function CertificatePage() {
 
   const isTechPartner = profileData?.partner_type === 'tech'
   const displayName = profileData?.display_name || session.user.name || session.user.email?.split('@')[0] || 'AI Learner'
-  const profileAvatar = profileData?.avatar_url || session.user.image || null
-  const organization = profileData?.organization || null
 
   const { data: progressData, error: progressError } = await supabase
     .from('user_progress')
@@ -131,18 +114,7 @@ export default async function CertificatePage() {
 
       certificate = createdCert
     }
-
-    // Generate certificate image if not already generated
-    if (certificate && !certificateImageUrl) {
-      const baseUrl = process.env.NEXT_PUBLIC_APP_URL || 'https://courses.wearewacky.com';
-      certificateImageUrl = await generateCertificateImage(certificate.id, baseUrl);
-    }
   }
-
-  // Format short certificate ID
-  const shortCertId = certificate?.id 
-    ? `AI-${certificate.id.replace(/-/g, '').slice(0, 8).toUpperCase()}`
-    : 'AI-XXXXXXXX';
 
   return (
     <div className="min-h-screen pt-20">
@@ -151,101 +123,12 @@ export default async function CertificatePage() {
       <div className="flex flex-col items-center justify-center p-4 py-12">
         {hasCompleted ? (
           <div className="w-full max-w-5xl">
-            {/* Certificate Card - Display stored image if available, otherwise render HTML */}
+            {/* Certificate Card - Uses client component for loading state */}
             <div className="card-neumorphic rounded-3xl overflow-hidden print:shadow-none print:rounded-none">
-              {certificateImageUrl ? (
-                // Display the stored certificate image
-                <div id="certificate-content" className="relative">
-                  <img 
-                    src={certificateImageUrl} 
-                    alt={`Certificate for ${displayName}`}
-                    className="w-full h-auto"
-                    style={{ aspectRatio: '1.414 / 1' }}
-                  />
-                </div>
-              ) : (
-                // Fallback: Render HTML certificate (shouldn't happen normally)
-                <div id="certificate-content" className="relative" style={{
-                  backgroundColor: '#f5f3f0',
-                  padding: 'clamp(2.5rem, 6vw, 5rem) clamp(3rem, 8vw, 6rem)',
-                  aspectRatio: '1.414 / 1'
-                }}>
-
-                {/* Title */}
-                <div className="text-center mb-8">
-                  <h2 className="text-4xl sm:text-5xl font-bold text-gray-900" style={{ fontFamily: 'Georgia, serif', letterSpacing: '0.02em' }}>Certificate of Completion</h2>
-                </div>
-
-                {/* This certifies that + Profile Picture + Name */}
-                <div className="text-center mb-12">
-                  <p className="text-xl text-text-secondary mb-6 font-semibold">This certifies that</p>
-
-                  {/* Profile Picture */}
-                  <div className="flex justify-center mb-6">
-                    {profileAvatar ? (
-                      <img
-                        src={profileAvatar}
-                        alt="Profile"
-                        className="w-20 h-20 rounded-full shadow-lg object-cover"
-                        style={{ boxShadow: '0 0 0 4px rgba(184, 206, 184, 0.3)' }}
-                      />
-                    ) : (
-                      <div
-                        className="w-20 h-20 rounded-full shadow-lg flex items-center justify-center"
-                        style={{
-                          boxShadow: '0 0 0 4px rgba(184, 206, 184, 0.3)',
-                          background: 'linear-gradient(to bottom right, rgba(184, 206, 184, 0.3), rgba(184, 168, 212, 0.3))'
-                        }}
-                      >
-                        <span className="text-3xl font-black text-text-primary">
-                          {displayName[0]?.toUpperCase() || 'U'}
-                        </span>
-                      </div>
-                    )}
-                  </div>
-
-                  {/* Name and Organization */}
-                  <div className="space-y-2">
-                    <h1 className="text-4xl sm:text-5xl font-black tracking-tight text-text-primary">
-                      {displayName}
-                    </h1>
-                    {organization && (
-                      <p className="text-xl font-normal text-text-secondary">
-                        {organization}
-                      </p>
-                    )}
-                  </div>
-                </div>
-
-                {/* Description */}
-                <div className="text-center mb-12">
-                  <p className="text-xl text-text-secondary mb-3 font-medium">
-                    has successfully completed the
-                  </p>
-                  <h3 className="text-3xl sm:text-4xl font-black text-text-primary mb-4">
-                    Introduction to AI
-                  </h3>
-                  <p className="text-xl text-text-secondary font-medium">
-                    course and demonstrated dedication and commitment to mastering AI fundamentals
-                  </p>
-                </div>
-
-                {/* Date and ID */}
-                <div
-                  className="flex flex-col sm:flex-row justify-between items-center gap-6 pt-8 border-t-2"
-                  style={{ borderColor: 'rgba(122, 115, 110, 0.2)' }}
-                >
-                  <div className="text-center sm:text-left">
-                    <p className="text-sm text-text-secondary font-semibold uppercase tracking-wider mb-1">Completion Date</p>
-                    <p className="text-lg font-semibold text-text-primary">{certificate?.completion_date ? new Date(certificate.completion_date).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' }) : ''}</p>
-                  </div>
-                  <div className="text-center sm:text-right">
-                    <p className="text-sm text-text-secondary font-semibold uppercase tracking-wider mb-1">Certificate ID</p>
-                    <p className="text-lg font-semibold text-text-primary">{shortCertId}</p>
-                  </div>
-                </div>
-                </div>
-              )}
+              <CertificateImage 
+                certificateId={certificate?.id || ''} 
+                initialImageUrl={certificateImageUrl}
+              />
             </div>
 
             {/* Action Buttons */}
