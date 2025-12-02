@@ -121,27 +121,22 @@ export default async function ModulePage({
         </aside>
 
         {/* Right Content Area - Warm, Spacious Design */}
-        <main className="flex-1 p-4">
-          {/* Hero Image with Title Overlay */}
-          <div className="relative mb-8">
-            <div className="hero-shadow-layer" aria-hidden="true" />
-
-            {/* Hero content - clipped image */}
-            <div className="relative z-[1] h-[250px] md:h-[400px] rounded-3xl overflow-hidden shadow-[var(--shadow-neumorphic)]">
-              <img
-                src="/images/course/day-1-hero-image.jpg"
-                alt={lesson.title}
-                className="absolute inset-0 w-full h-full object-cover"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent" />
-              <div className="absolute bottom-0 left-0 right-0 p-6 md:p-10">
-                <h1 className="text-3xl md:text-5xl font-black text-white mb-1 md:mb-2 leading-tight drop-shadow-lg">
-                  {lesson.title}
-                </h1>
-                <p className="text-base md:text-xl text-white/90 font-medium drop-shadow-md">
-                  {lesson.subtitle}
-                </p>
-              </div>
+        <main className="flex-1">
+          {/* Hero Image with Title Overlay - Simple approach: just the image, no shadow */}
+          <div className="relative mb-8 h-[250px] md:h-[400px] rounded-3xl overflow-hidden">
+            <img
+              src="/images/course/day-1-hero-image.jpg"
+              alt={lesson.title}
+              className="absolute inset-0 w-full h-full object-cover"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent" />
+            <div className="absolute bottom-0 left-0 right-0 p-6 md:p-10">
+              <h1 className="text-3xl md:text-5xl font-black text-white mb-1 md:mb-2 leading-tight drop-shadow-lg">
+                {lesson.title}
+              </h1>
+              <p className="text-base md:text-xl text-white/90 font-medium drop-shadow-md">
+                {lesson.subtitle}
+              </p>
             </div>
           </div>
 
