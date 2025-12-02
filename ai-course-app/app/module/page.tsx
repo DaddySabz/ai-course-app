@@ -122,12 +122,11 @@ export default async function ModulePage({
 
         {/* Right Content Area - Warm, Spacious Design */}
         <main className="flex-1">
-          {/* Hero Image with Title Overlay - Outer div for shadow, inner div for overflow clipping */}
+          {/* Hero Image with Title Overlay - Using filter drop-shadow instead of box-shadow */}
           <div 
-            className="rounded-3xl mb-8"
-            style={{ boxShadow: '-8px 8px 20px rgba(180, 160, 145, 0.4), 8px -8px 20px rgba(255, 255, 255, 0.8)' }}
+            className="rounded-3xl mb-8 relative h-[250px] md:h-[400px] overflow-hidden"
+            style={{ filter: 'drop-shadow(-8px 8px 12px rgba(180, 160, 145, 0.5)) drop-shadow(8px -8px 12px rgba(255, 255, 255, 0.9))' }}
           >
-            <div className="relative h-[250px] md:h-[400px] rounded-3xl overflow-hidden">
               <img
                 src="/images/course/day-1-hero-image.jpg"
                 alt={lesson.title}
@@ -152,7 +151,6 @@ export default async function ModulePage({
                   {lesson.subtitle}
                 </p>
               </div>
-            </div>
           </div>
 
           <LessonContent
