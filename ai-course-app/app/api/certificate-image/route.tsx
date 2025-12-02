@@ -28,7 +28,6 @@ export async function GET(request: Request) {
       return new Response('Certificate not found', { status: 404 });
     }
 
-    const name = cert.user_name || 'AI Learner';
     const date = cert.completion_date 
       ? new Date(cert.completion_date).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })
       : new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
@@ -36,13 +35,15 @@ export async function GET(request: Request) {
     // Format certificate ID as short version (AI-XXXXXXXX)
     const shortCertId = `AI-${certificateId.replace(/-/g, '').slice(0, 8).toUpperCase()}`;
 
-    // Fetch user profile for avatar and organization
+    // Fetch user profile for avatar, organization, and display_name
     const { data: profile } = await supabase
       .from('user_profiles')
-      .select('avatar_url, organization')
+      .select('avatar_url, organization, display_name')
       .eq('user_id', cert.user_id)
       .single();
 
+    // Use profile display_name if available, otherwise fall back to cert.user_name
+    const name = profile?.display_name || cert.user_name || 'AI Learner';
     const organization = profile?.organization || null;
     const avatarUrl = profile?.avatar_url || null;
     

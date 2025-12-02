@@ -107,11 +107,14 @@ export async function POST(req: Request) {
     if (certificate && certificate.length > 0) {
       // Trigger certificate regeneration
       try {
-        const baseUrl = process.env.NEXTAUTH_URL || process.env.VERCEL_URL 
-          ? `https://${process.env.VERCEL_URL}` 
-          : 'http://localhost:3000'
+        // Determine base URL for internal API call
+        const baseUrl = process.env.NEXTAUTH_URL 
+          || (process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : null)
+          || 'http://localhost:3000'
         
-        await fetch(`${baseUrl}/api/certificate/generate-image`, {
+        console.log('Regenerating certificate, baseUrl:', baseUrl)
+        
+        const regenerateResponse = await fetch(`${baseUrl}/api/certificate/generate-image`, {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({ 
@@ -119,7 +122,13 @@ export async function POST(req: Request) {
             forceRegenerate: true 
           })
         })
-        certificateRegenerated = true
+        
+        if (regenerateResponse.ok) {
+          certificateRegenerated = true
+          console.log('Certificate regenerated successfully')
+        } else {
+          console.error('Certificate regeneration failed:', await regenerateResponse.text())
+        }
       } catch (certError) {
         console.error('Certificate regeneration error:', certError)
         // Don't fail the whole request if certificate regen fails
