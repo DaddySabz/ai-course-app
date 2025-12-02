@@ -109,9 +109,47 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
         return true // Allow sign in even if profile creation fails (will be handled by dashboard)
       }
     },
+    async jwt({ token, user, account }) {
+      // On initial sign in, look up or create a stable user ID from the database
+      if (user?.email) {
+        const supabase = createClient(
+          process.env.NEXT_PUBLIC_SUPABASE_URL!,
+          process.env.SUPABASE_SECRET_KEY!
+        )
+
+        // Check if user exists in users table
+        const { data: existingUser } = await supabase
+          .from('users')
+          .select('id')
+          .eq('email', user.email)
+          .single()
+
+        if (existingUser) {
+          // Use existing stable ID from database
+          token.stableUserId = existingUser.id
+        } else if (account?.provider === 'google') {
+          // For Google OAuth users, create a user record with a stable ID
+          const { data: newUser } = await supabase
+            .from('users')
+            .insert({
+              email: user.email,
+              name: user.name,
+              password_hash: '', // OAuth users don't have passwords
+            })
+            .select('id')
+            .single()
+
+          token.stableUserId = newUser?.id || token.sub
+        } else {
+          token.stableUserId = token.sub
+        }
+      }
+      return token
+    },
     async session({ session, token }) {
       if (session.user) {
-        session.user.id = token.sub as string
+        // Use the stable user ID from the database, not the JWT sub
+        session.user.id = (token.stableUserId as string) || (token.sub as string)
       }
       return session
     },
