@@ -101,9 +101,21 @@ body {
 }
 
 /* Hero image tile - explicit shadow that won't be overridden */
-.hero-tile {
-  box-shadow: -8px 8px 20px rgba(180, 160, 145, 0.4),
-    8px -8px 20px rgba(255, 255, 255, 0.8) !important;
+.hero-shadow {
+  position: relative;
+  border-radius: 1.5rem;
+  isolation: isolate;
+}
+
+.hero-shadow::before {
+  content: '';
+  position: absolute;
+  inset: -6px;
+  border-radius: inherit;
+  box-shadow: -12px 12px 32px rgba(180, 160, 145, 0.35),
+    12px -12px 32px rgba(255, 255, 255, 0.85);
+  z-index: -1;
+  pointer-events: none;
 }
 
 /* Neumorphic Cards - Content cards that only darken on hover */

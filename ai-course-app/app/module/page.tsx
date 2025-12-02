@@ -123,8 +123,7 @@ export default async function ModulePage({
         {/* Right Content Area - Warm, Spacious Design */}
         <main className="flex-1 p-4">
           {/* Hero Image with Title Overlay */}
-          {/* Outer wrapper for shadow - no overflow hidden */}
-          <div className="card-neumorphic rounded-3xl mb-8 p-0">
+          <div className="hero-shadow rounded-3xl mb-8">
             {/* Inner wrapper for clipping - has overflow hidden */}
             <div className="relative h-[250px] md:h-[400px] rounded-3xl overflow-hidden">
               <img
