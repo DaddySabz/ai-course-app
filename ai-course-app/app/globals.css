@@ -325,6 +325,26 @@ body {
   transform: translateY(0);
 }
 
+/* Dark/Primary CTA Button */
+.btn-dark {
+  background: linear-gradient(135deg, #2D2520 0%, #4A4340 100%);
+  color: #FFFFFF;
+  box-shadow: 0 4px 14px rgba(45, 37, 32, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  transition: all 0.2s ease;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.btn-dark:hover {
+  box-shadow: 0 8px 20px rgba(45, 37, 32, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  transform: translateY(-3px);
+}
+
+.btn-dark:active {
+  box-shadow: 0 2px 8px rgba(45, 37, 32, 0.3), inset 0 2px 4px rgba(0, 0, 0, 0.2);
+  transform: translateY(0);
+}
+
 /* ============================================
    INSET ELEMENTS - For nested items inside tiles
    ============================================ */
