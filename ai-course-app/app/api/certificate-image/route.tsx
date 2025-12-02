@@ -62,24 +62,24 @@ export async function GET(request: Request) {
             justifyContent: 'center',
             backgroundColor: '#f5f3f0',
             fontFamily: 'Georgia, serif',
-            padding: '80px 120px',
+            padding: '60px 100px',
           }}
         >
-          {/* Title - smaller, not the hero */}
+          {/* Title - elegant, uppercase */}
           <div style={{ 
-            fontSize: 36, 
+            fontSize: 42, 
             fontWeight: 600, 
             color: '#7A736E', 
-            marginBottom: 40, 
+            marginBottom: 50, 
             fontStyle: 'italic',
-            letterSpacing: 2,
+            letterSpacing: 4,
             textTransform: 'uppercase'
           }}>
             Certificate of Completion
           </div>
 
           {/* This certifies that */}
-          <div style={{ fontSize: 24, color: '#5A534E', marginBottom: 32, fontWeight: 500 }}>
+          <div style={{ fontSize: 28, color: '#5A534E', marginBottom: 40, fontWeight: 500 }}>
             This certifies that
           </div>
 
@@ -87,31 +87,31 @@ export async function GET(request: Request) {
           <div style={{
             display: 'flex',
             justifyContent: 'center',
-            marginBottom: 32,
+            marginBottom: 40,
           }}>
             {avatarUrl ? (
               <img
                 src={avatarUrl}
                 alt="Profile"
-                width={140}
-                height={140}
+                width={160}
+                height={160}
                 style={{
-                  borderRadius: 70,
-                  border: '5px solid rgba(184, 206, 184, 0.5)',
+                  borderRadius: 80,
+                  border: '6px solid rgba(184, 206, 184, 0.5)',
                   objectFit: 'cover',
                 }}
               />
             ) : (
               <div style={{
-                width: 140,
-                height: 140,
-                borderRadius: 70,
-                border: '5px solid rgba(184, 206, 184, 0.5)',
+                width: 160,
+                height: 160,
+                borderRadius: 80,
+                border: '6px solid rgba(184, 206, 184, 0.5)',
                 background: 'linear-gradient(135deg, rgba(184, 206, 184, 0.4), rgba(184, 168, 212, 0.4))',
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
-                fontSize: 64,
+                fontSize: 72,
                 fontWeight: 900,
                 color: '#2D2520',
               }}>
@@ -123,12 +123,12 @@ export async function GET(request: Request) {
           {/* Name - THE HERO, biggest text */}
           <div
             style={{
-              fontSize: 72,
+              fontSize: 86,
               fontWeight: 900,
               color: '#2D2520',
               textAlign: 'center',
-              marginBottom: 12,
-              letterSpacing: -1,
+              marginBottom: 16,
+              letterSpacing: -2,
             }}
           >
             {name}
@@ -136,17 +136,17 @@ export async function GET(request: Request) {
 
           {/* Organization */}
           {organization && (
-            <div style={{ fontSize: 28, color: '#5A534E', marginBottom: 40 }}>
+            <div style={{ fontSize: 32, color: '#5A534E', marginBottom: 50 }}>
               {organization}
             </div>
           )}
 
           {/* has successfully completed the */}
           <div style={{ 
-            fontSize: 24, 
+            fontSize: 28, 
             color: '#5A534E', 
-            marginBottom: 12, 
-            marginTop: organization ? 0 : 40,
+            marginBottom: 16, 
+            marginTop: organization ? 0 : 50,
             fontWeight: 500
           }}>
             has successfully completed the
@@ -154,10 +154,10 @@ export async function GET(request: Request) {
 
           {/* Course Name - second biggest */}
           <div style={{ 
-            fontSize: 52, 
+            fontSize: 62, 
             fontWeight: 900, 
             color: '#2D2520', 
-            marginBottom: 20,
+            marginBottom: 24,
             letterSpacing: -1
           }}>
             Introduction to AI
@@ -165,13 +165,13 @@ export async function GET(request: Request) {
 
           {/* Description */}
           <div style={{ 
-            fontSize: 22, 
+            fontSize: 26, 
             color: '#5A534E', 
             textAlign: 'center', 
-            maxWidth: 900, 
-            marginBottom: 60,
+            maxWidth: 1000, 
+            marginBottom: 70,
             fontWeight: 500,
-            lineHeight: 1.4
+            lineHeight: 1.5
           }}>
             30-day course covering AI fundamentals, prompt engineering, and real-world applications
           </div>
@@ -183,32 +183,32 @@ export async function GET(request: Request) {
               justifyContent: 'space-between',
               alignItems: 'center',
               width: '100%',
-              borderTop: '2px solid rgba(122, 115, 110, 0.2)',
-              paddingTop: 32,
+              borderTop: '3px solid rgba(122, 115, 110, 0.2)',
+              paddingTop: 40,
             }}
           >
             <div style={{ display: 'flex', flexDirection: 'column' }}>
               <span style={{ 
-                fontSize: 14, 
+                fontSize: 16, 
                 color: '#7A736E', 
                 fontWeight: 'bold', 
                 textTransform: 'uppercase', 
-                letterSpacing: 2,
-                marginBottom: 6
+                letterSpacing: 3,
+                marginBottom: 8
               }}>Issued</span>
-              <span style={{ fontSize: 24, color: '#2D2520', fontWeight: 'bold' }}>{date}</span>
+              <span style={{ fontSize: 28, color: '#2D2520', fontWeight: 'bold' }}>{date}</span>
             </div>
             
             <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-end' }}>
               <span style={{ 
-                fontSize: 14, 
+                fontSize: 16, 
                 color: '#7A736E', 
                 fontWeight: 'bold', 
                 textTransform: 'uppercase', 
-                letterSpacing: 2,
-                marginBottom: 6
+                letterSpacing: 3,
+                marginBottom: 8
               }}>Certificate ID</span>
-              <span style={{ fontSize: 24, color: '#2D2520', fontWeight: 'bold' }}>{shortCertId}</span>
+              <span style={{ fontSize: 28, color: '#2D2520', fontWeight: 'bold' }}>{shortCertId}</span>
             </div>
           </div>
         </div>
