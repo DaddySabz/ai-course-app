@@ -122,12 +122,13 @@ export default async function CertificatePage() {
             {/* Certificate Card - Premium Minimal Design */}
             <div className="card-neumorphic rounded-3xl overflow-hidden">
               <div id="certificate-content" className="relative" style={{
-                backgroundImage: 'url(/certificate-bg.png)',
-                backgroundSize: '100% 100%',
-                backgroundPosition: 'center',
-                backgroundRepeat: 'no-repeat',
-                padding: 'clamp(2rem, 5vw, 4rem) clamp(3rem, 8vw, 6rem)',
-                aspectRatio: '1.414 / 1'
+                background: `
+                  linear-gradient(135deg, rgba(255,255,255,0.1) 0%, transparent 50%),
+                  linear-gradient(to bottom, #faf9f7 0%, #f5f3f0 50%, #f0ede8 100%)
+                `,
+                padding: 'clamp(2.5rem, 6vw, 5rem) clamp(3rem, 8vw, 6rem)',
+                aspectRatio: '1.414 / 1',
+                boxShadow: 'inset 0 0 100px rgba(0,0,0,0.03)'
               }}>
 
               {/* Title */}
