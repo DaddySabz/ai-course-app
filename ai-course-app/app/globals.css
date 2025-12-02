@@ -31,6 +31,14 @@
 /* Global base styles */
 :root {
   color-scheme: light;
+
+  /* Re-declaring variables in :root to ensure availability for var() usage */
+  --shadow-neumorphic: -16px 16px 32px rgba(180, 160, 145, 0.6),
+    16px -16px 32px rgba(255, 255, 255, 0.9);
+  --shadow-neumorphic-inset: inset -6px 6px 12px rgba(180, 160, 145, 0.25),
+    inset 6px -6px 12px rgba(255, 255, 255, 0.9);
+  --color-text-primary: #2D2520;
+  --color-text-secondary: #5A534E;
 }
 
 body {
