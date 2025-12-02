@@ -1,3 +1,12 @@
+{
+  "name": "ai_course_app",
+  "version": "0.7.43",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "eslint"
   },
   "dependencies": {
     "@stripe/stripe-js": "^4.10.0",
