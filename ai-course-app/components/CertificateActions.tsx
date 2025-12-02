@@ -601,10 +601,10 @@ export default function CertificateActions({ certificateId, completionDate, imag
         </div>
 
         {/* Regenerate Certificate Button */}
-        <div className="mt-4 pt-4 border-t border-sage-green/20">
+        <div className="mt-4 pt-4 border-t border-sage-green/20 flex flex-col items-center">
           <button
             onClick={handleRegenerateCertificate}
-            className="glass-clickable py-3 px-6 rounded-2xl font-semibold flex items-center justify-center gap-2 w-full sm:w-auto text-sm"
+            className="glass-clickable py-3 px-6 rounded-2xl font-semibold flex items-center justify-center gap-2 text-sm"
             title="Update certificate with your latest profile info"
           >
             <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -612,7 +612,7 @@ export default function CertificateActions({ certificateId, completionDate, imag
             </svg>
             Regenerate Certificate
           </button>
-          <p className="text-xs text-text-tertiary mt-2">
+          <p className="text-xs text-text-tertiary mt-2 text-center">
             Changed your name, photo, or organization? Click to update your certificate.
           </p>
         </div>
