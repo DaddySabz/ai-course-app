@@ -60,127 +60,131 @@ export async function GET(request: Request) {
             display: 'flex',
             flexDirection: 'column',
             alignItems: 'center',
-            justifyContent: 'flex-start',
+            justifyContent: 'space-between',
             backgroundColor: '#f5f3f0',
             fontFamily: 'Georgia, serif',
-            padding: '50px 100px 60px',
+            padding: '70px 100px',
           }}
         >
-          {/* TOP SECTION - moved up */}
-          {/* Title - smaller, elegant, uppercase */}
-          <div style={{ 
-            fontSize: 28, 
-            fontWeight: 600, 
-            color: '#7A736E', 
-            marginBottom: 12, 
-            fontStyle: 'italic',
-            letterSpacing: 6,
-            textTransform: 'uppercase'
-          }}>
-            Certificate of Completion
+          {/* TOP SECTION */}
+          <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+            {/* Title - elegant, uppercase */}
+            <div style={{ 
+              fontSize: 28, 
+              fontWeight: 600, 
+              color: '#7A736E', 
+              marginBottom: 16, 
+              fontStyle: 'italic',
+              letterSpacing: 6,
+              textTransform: 'uppercase'
+            }}>
+              Certificate of Completion
+            </div>
+
+            {/* This certifies that */}
+            <div style={{ fontSize: 24, color: '#5A534E', fontWeight: 500 }}>
+              This certifies that
+            </div>
           </div>
 
-          {/* This certifies that */}
-          <div style={{ fontSize: 24, color: '#5A534E', marginBottom: 30, fontWeight: 500 }}>
-            This certifies that
-          </div>
-
-          {/* MIDDLE SECTION - the hero area with more space */}
-          {/* Profile Picture or Initials - EVEN BIGGER */}
-          <div style={{
-            display: 'flex',
-            justifyContent: 'center',
-            marginBottom: 30,
-          }}>
-            {avatarUrl ? (
-              <img
-                src={avatarUrl}
-                alt="Profile"
-                width={240}
-                height={240}
-                style={{
-                  borderRadius: 120,
+          {/* MIDDLE SECTION - the hero area */}
+          <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+            {/* Profile Picture or Initials */}
+            <div style={{
+              display: 'flex',
+              justifyContent: 'center',
+              marginBottom: 24,
+            }}>
+              {avatarUrl ? (
+                <img
+                  src={avatarUrl}
+                  alt="Profile"
+                  width={220}
+                  height={220}
+                  style={{
+                    borderRadius: 110,
+                    border: '6px solid rgba(184, 206, 184, 0.5)',
+                    objectFit: 'cover',
+                  }}
+                />
+              ) : (
+                <div style={{
+                  width: 220,
+                  height: 220,
+                  borderRadius: 110,
                   border: '6px solid rgba(184, 206, 184, 0.5)',
-                  objectFit: 'cover',
-                }}
-              />
-            ) : (
-              <div style={{
-                width: 240,
-                height: 240,
-                borderRadius: 120,
-                border: '6px solid rgba(184, 206, 184, 0.5)',
-                background: 'linear-gradient(135deg, rgba(184, 206, 184, 0.4), rgba(184, 168, 212, 0.4))',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                fontSize: 110,
+                  background: 'linear-gradient(135deg, rgba(184, 206, 184, 0.4), rgba(184, 168, 212, 0.4))',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  fontSize: 100,
+                  fontWeight: 900,
+                  color: '#2D2520',
+                }}>
+                  {initial}
+                </div>
+              )}
+            </div>
+
+            {/* Name - THE HERO, biggest text */}
+            <div
+              style={{
+                fontSize: 86,
                 fontWeight: 900,
                 color: '#2D2520',
-              }}>
-                {initial}
+                textAlign: 'center',
+                marginBottom: 8,
+                letterSpacing: -2,
+              }}
+            >
+              {name}
+            </div>
+
+            {/* Organization */}
+            {organization && (
+              <div style={{ fontSize: 36, color: '#5A534E', fontWeight: 500 }}>
+                {organization}
               </div>
             )}
           </div>
 
-          {/* Name - THE HERO, biggest text */}
-          <div
-            style={{
-              fontSize: 86,
-              fontWeight: 900,
-              color: '#2D2520',
-              textAlign: 'center',
-              marginBottom: 12,
-              letterSpacing: -2,
-            }}
-          >
-            {name}
-          </div>
-
-          {/* Organization - bigger */}
-          {organization && (
-            <div style={{ fontSize: 38, color: '#5A534E', marginBottom: 50, fontWeight: 500 }}>
-              {organization}
+          {/* BOTTOM SECTION */}
+          <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+            {/* has successfully completed the */}
+            <div style={{ 
+              fontSize: 24, 
+              color: '#5A534E', 
+              marginBottom: 12, 
+              fontWeight: 500
+            }}>
+              has successfully completed the
             </div>
-          )}
 
-          {/* BOTTOM SECTION - moved down */}
-          {/* has successfully completed the */}
-          <div style={{ 
-            fontSize: 24, 
-            color: '#5A534E', 
-            marginBottom: 12, 
-            marginTop: organization ? 20 : 60,
-            fontWeight: 500
-          }}>
-            has successfully completed the
+            {/* Course Name - second biggest */}
+            <div style={{ 
+              fontSize: 58, 
+              fontWeight: 900, 
+              color: '#2D2520', 
+              marginBottom: 14,
+              letterSpacing: -1
+            }}>
+              Introduction to AI
+            </div>
+
+            {/* Description */}
+            <div style={{ 
+              fontSize: 22, 
+              color: '#5A534E', 
+              textAlign: 'center', 
+              maxWidth: 900, 
+              fontWeight: 500,
+              lineHeight: 1.4
+            }}>
+              30-day course covering AI fundamentals, prompt engineering, and real-world applications
+            </div>
           </div>
 
-          {/* Course Name - second biggest */}
-          <div style={{ 
-            fontSize: 58, 
-            fontWeight: 900, 
-            color: '#2D2520', 
-            marginBottom: 16,
-            letterSpacing: -1
-          }}>
-            Introduction to AI
-          </div>
-
-          {/* Description */}
-          <div style={{ 
-            fontSize: 22, 
-            color: '#5A534E', 
-            textAlign: 'center', 
-            maxWidth: 900, 
-            marginBottom: 50,
-            fontWeight: 500,
-            lineHeight: 1.5
-          }}>
-            30-day course covering AI fundamentals, prompt engineering, and real-world applications
-          </div>
-
-          {/* Footer - just date and ID */}
+          {/* Footer - date and ID */}
           <div
             style={{
               display: 'flex',
@@ -188,8 +192,7 @@ export async function GET(request: Request) {
               alignItems: 'center',
               width: '100%',
               borderTop: '3px solid rgba(122, 115, 110, 0.2)',
-              paddingTop: 30,
-              marginTop: 'auto',
+              paddingTop: 24,
             }}
           >
             <div style={{ display: 'flex', flexDirection: 'column' }}>
