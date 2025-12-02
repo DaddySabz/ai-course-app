@@ -614,6 +614,8 @@ export default function CertificateActions({ certificateId, completionDate, imag
           </button>
           <p className="text-xs text-text-tertiary mt-2 text-center">
             Changed your name, photo, or organization? Click to update your certificate.
+            <br />
+            <span className="text-text-tertiary/70">If the image doesn't update, wait 1-2 minutes and refresh your page.</span>
           </p>
         </div>
       </div>
