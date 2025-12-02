@@ -197,9 +197,9 @@ export default async function CertificatePage() {
                 </div>
                 <div className="text-center sm:text-right">
                   <p className="text-sm text-text-secondary font-semibold uppercase tracking-wider mb-1">Certificate ID</p>
-                  {/* Display shortened UUID (first 8 chars) - Full UUID stored in DB for verification */}
+                  {/* Display shortened UUID (AI-XXXXXXXX format) - Full UUID stored in DB for verification */}
                   <p className="text-lg font-semibold text-text-primary">
-                    {certificate?.id || 'AI-XXXXXXXX'}
+                    {certificate?.id ? `AI-${certificate.id.replace(/-/g, '').slice(0, 8).toUpperCase()}` : 'AI-XXXXXXXX'}
                   </p>
                 </div>
               </div>

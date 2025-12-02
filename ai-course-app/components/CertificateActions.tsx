@@ -1,6 +1,5 @@
 "use client"
 
-import html2canvas from 'html2canvas'
 import { jsPDF } from 'jspdf'
 
 interface CertificateActionsProps {
@@ -14,68 +13,83 @@ export default function CertificateActions({ certificateId, completionDate }: Ce
     return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)
   }
 
-  const handlePrint = () => {
-    // Open a new window with just the certificate for clean printing
-    const certificate = document.getElementById('certificate-content')
-    if (!certificate) {
-      alert('Certificate not found. Please refresh the page and try again.')
-      return
-    }
+  // Short certificate ID format (AI-XXXXXXXX)
+  const getShortCertId = () => {
+    if (!certificateId) return 'CERT'
+    return `AI-${certificateId.replace(/-/g, '').slice(0, 8).toUpperCase()}`
+  }
 
-    const printWindow = window.open('', '_blank')
-    if (!printWindow) {
-      alert('Please allow pop-ups to print the certificate.')
-      return
+  // Get certificate image from server API (no html2canvas!)
+  const getCertificateImageBlob = async (): Promise<Blob> => {
+    const response = await fetch(`/api/certificate-image?id=${certificateId}`)
+    if (!response.ok) {
+      throw new Error('Failed to generate certificate image')
     }
+    return await response.blob()
+  }
 
-    printWindow.document.write(`
-      <!DOCTYPE html>
-      <html>
-        <head>
-          <title>Certificate - Introduction to AI</title>
-          <style>
-            * { margin: 0; padding: 0; box-sizing: border-box; }
-            @page { size: A4 landscape; margin: 0; }
-            body { 
-              display: flex; 
-              justify-content: center; 
-              align-items: center; 
-              min-height: 100vh;
-              background: white;
-              font-family: Georgia, serif;
-            }
-            .certificate {
-              width: 100%;
-              max-width: 297mm;
-              aspect-ratio: 1.414 / 1;
-              background-color: #f5f3f0;
-              padding: 3rem 4rem;
-            }
-          </style>
-        </head>
-        <body>
-          <div class="certificate">
-            ${certificate.innerHTML}
-          </div>
-          <script>
-            window.onload = function() {
-              window.print();
-              window.onafterprint = function() { window.close(); };
-            };
-          </script>
-        </body>
-      </html>
-    `)
-    printWindow.document.close()
+  const handlePrint = async () => {
+    try {
+      // Show loading indicator
+      const loadingMsg = document.createElement('div')
+      loadingMsg.textContent = 'Preparing print...'
+      loadingMsg.style.cssText = 'position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);background:#fff;padding:20px;border-radius:8px;box-shadow:0 4px 12px rgba(0,0,0,0.3);z-index:9999;'
+      document.body.appendChild(loadingMsg)
+
+      // Get image from server
+      const blob = await getCertificateImageBlob()
+      const imageUrl = URL.createObjectURL(blob)
+
+      // Remove loading indicator
+      document.body.removeChild(loadingMsg)
+
+      // Open print window with just the image
+      const printWindow = window.open('', '_blank')
+      if (!printWindow) {
+        alert('Please allow pop-ups to print the certificate.')
+        URL.revokeObjectURL(imageUrl)
+        return
+      }
+
+      printWindow.document.write(`
+        <!DOCTYPE html>
+        <html>
+          <head>
+            <title>Certificate - Introduction to AI</title>
+            <style>
+              * { margin: 0; padding: 0; box-sizing: border-box; }
+              @page { size: A4 landscape; margin: 0; }
+              @media print {
+                body { margin: 0; }
+                img { width: 100%; height: auto; }
+              }
+              body { 
+                display: flex; 
+                justify-content: center; 
+                align-items: center; 
+                min-height: 100vh;
+                background: white;
+              }
+              img {
+                max-width: 100%;
+                max-height: 100vh;
+                object-fit: contain;
+              }
+            </style>
+          </head>
+          <body>
+            <img src="${imageUrl}" alt="Certificate" onload="window.print(); setTimeout(() => window.close(), 500);" />
+          </body>
+        </html>
+      `)
+      printWindow.document.close()
+    } catch (error) {
+      console.error('Print failed:', error)
+      alert('Failed to prepare print. Please try again.')
+    }
   }
 
   const handleDownloadPDF = async () => {
-    const certificate = document.getElementById('certificate-content')
-    if (!certificate) {
-      alert('Certificate not found. Please refresh the page and try again.')
-      return
-    }
-
     try {
       // Show loading indicator
       const loadingMsg = document.createElement('div')
@@ -83,51 +97,47 @@ export default function CertificateActions({ certificateId, completionDate }: Ce
       loadingMsg.style.cssText = 'position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);background:#fff;padding:20px;border-radius:8px;box-shadow:0 4px 12px rgba(0,0,0,0.3);z-index:9999;'
       document.body.appendChild(loadingMsg)
 
-      // Higher quality settings
-      const scale = 3
+      // Get image from server
+      const blob = await getCertificateImageBlob()
+      const imageUrl = URL.createObjectURL(blob)
 
-      // Capture the certificate as canvas
-      const canvas = await html2canvas(certificate, {
-        scale: scale,
-        useCORS: true,
-        allowTaint: false,
-        logging: false,
-        backgroundColor: '#f5f3f0',
-        width: certificate.scrollWidth,
-        height: certificate.scrollHeight,
-        x: 0,
-        y: 0
+      // Load image to get dimensions
+      const img = new Image()
+      img.src = imageUrl
+
+      await new Promise((resolve, reject) => {
+        img.onload = resolve
+        img.onerror = reject
       })
 
       // Remove loading indicator
       document.body.removeChild(loadingMsg)
 
-      // Create PDF with custom dimensions matching the certificate exactly
-      // This avoids white margins/letterboxing on the digital file
+      // Create PDF with landscape A4 dimensions
       const pdf = new jsPDF({
-        orientation: canvas.width > canvas.height ? 'landscape' : 'portrait',
-        unit: 'px',
-        format: [canvas.width, canvas.height]
+        orientation: 'landscape',
+        unit: 'mm',
+        format: 'a4'
       })
 
-      // Add image at 0,0 with 100% width and height
-      const imgData = canvas.toDataURL('image/png', 1.0)
-      pdf.addImage(imgData, 'PNG', 0, 0, canvas.width, canvas.height)
+      // A4 landscape: 297mm x 210mm
+      const pageWidth = 297
+      const pageHeight = 210
 
-      pdf.save(`AI-Certificate-${certificateId ? certificateId.replace(/-/g, '').slice(0, 8).toUpperCase() : 'DOWNLOAD'}.pdf`)
+      // Add image to fill the page
+      pdf.addImage(imageUrl, 'PNG', 0, 0, pageWidth, pageHeight)
+
+      pdf.save(`${getShortCertId()}-Certificate.pdf`)
+      URL.revokeObjectURL(imageUrl)
+      
+      showToast('PDF downloaded!')
     } catch (error) {
       console.error('PDF generation failed:', error)
-      alert('Failed to generate PDF. Error: ' + (error instanceof Error ? error.message : 'Unknown error') + '\n\nPlease try the "Download Image" option instead.')
+      alert('Failed to generate PDF. Error: ' + (error instanceof Error ? error.message : 'Unknown error'))
     }
   }
 
   const handleDownloadImage = async () => {
-    const certificate = document.getElementById('certificate-content')
-    if (!certificate) {
-      alert('Certificate not found. Please refresh the page and try again.')
-      return
-    }
-
     try {
       // Show loading indicator
       const loadingMsg = document.createElement('div')
@@ -135,41 +145,24 @@ export default function CertificateActions({ certificateId, completionDate }: Ce
       loadingMsg.style.cssText = 'position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);background:#fff;padding:20px;border-radius:8px;box-shadow:0 4px 12px rgba(0,0,0,0.3);z-index:9999;'
       document.body.appendChild(loadingMsg)
 
-      // High resolution for A3 quality
-      const scale = 4
-
-      // Capture at high resolution
-      const canvas = await html2canvas(certificate, {
-        scale: scale,
-        useCORS: true,
-        allowTaint: false,
-        logging: false,
-        backgroundColor: '#f5f3f0',
-        width: certificate.scrollWidth,
-        height: certificate.scrollHeight,
-        x: 0,
-        y: 0
-      })
+      // Get image from server
+      const blob = await getCertificateImageBlob()
 
       // Remove loading indicator
       document.body.removeChild(loadingMsg)
 
-      // Convert to blob and download
-      canvas.toBlob((blob: Blob | null) => {
-        if (!blob) {
-          alert('Failed to generate image. Please try again.')
-          return
-        }
-        const url = URL.createObjectURL(blob)
-        const link = document.createElement('a')
-        link.download = `AI-Certificate-${certificateId ? certificateId.replace(/-/g, '').slice(0, 8).toUpperCase() : 'DOWNLOAD'}.png`
-        link.href = url
-        link.click()
-        URL.revokeObjectURL(url)
-      }, 'image/png', 1.0)
+      // Download the image
+      const url = URL.createObjectURL(blob)
+      const link = document.createElement('a')
+      link.download = `${getShortCertId()}-Certificate.png`
+      link.href = url
+      link.click()
+      URL.revokeObjectURL(url)
+      
+      showToast('Image downloaded!')
     } catch (error) {
       console.error('Image generation failed:', error)
-      alert('Failed to generate image. Error: ' + (error instanceof Error ? error.message : 'Unknown error') + '\n\nPlease try the Print option instead.')
+      alert('Failed to generate image. Error: ' + (error instanceof Error ? error.message : 'Unknown error'))
     }
   }
 
@@ -180,12 +173,6 @@ export default function CertificateActions({ certificateId, completionDate }: Ce
       return
     }
 
-    const certificate = document.getElementById('certificate-content')
-    if (!certificate) {
-      alert('Certificate not found. Please refresh the page and try again.')
-      return
-    }
-
     try {
       // Show loading indicator
       const loadingMsg = document.createElement('div')
@@ -193,35 +180,16 @@ export default function CertificateActions({ certificateId, completionDate }: Ce
       loadingMsg.style.cssText = 'position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);background:#fff;padding:20px;border-radius:8px;box-shadow:0 4px 12px rgba(0,0,0,0.3);z-index:9999;'
       document.body.appendChild(loadingMsg)
 
-      // Generate high-quality image (1080x1080 for Instagram Stories)
-      const scale = 4
-      const canvas = await html2canvas(certificate, {
-        scale: scale,
-        useCORS: true,
-        allowTaint: false,
-        logging: false,
-        backgroundColor: '#f5f3f0',
-        width: certificate.scrollWidth,
-        height: certificate.scrollHeight,
-        x: 0,
-        y: 0
-      })
+      // Get image from server
+      const blob = await getCertificateImageBlob()
 
       // Remove loading indicator
       document.body.removeChild(loadingMsg)
 
-      // Convert canvas to Blob
-      const blob = await new Promise<Blob>((resolve, reject) => {
-        canvas.toBlob((blob) => {
-          if (blob) resolve(blob)
-          else reject(new Error('Failed to generate image blob'))
-        }, 'image/png', 1.0)
-      })
-
       // Create File object from Blob
       const file = new File(
         [blob],
-        `AI-Certificate-${certificateId ? certificateId.replace(/-/g, '').slice(0, 8).toUpperCase() : 'SHARE'}.png`,
+        `${getShortCertId()}-Certificate.png`,
         { type: 'image/png' }
       )
 
@@ -271,8 +239,8 @@ export default function CertificateActions({ certificateId, completionDate }: Ce
       issueMonth: issueMonth,
       // Certificate URL points to the public verification page
       certUrl: `${window.location.origin}/c/${certificateId}`,
-      // Full certificate ID for verification
-      certId: certificateId || 'CERT-ID'
+      // Short certificate ID for verification
+      certId: getShortCertId()
     });
 
     window.open(`https://www.linkedin.com/profile/add?${params.toString()}`, '_blank');
@@ -414,13 +382,7 @@ export default function CertificateActions({ certificateId, completionDate }: Ce
   }
 
   const shareOnInstagram = async () => {
-    // Instagram: Auto-download image (1080x1080 square) + copy caption
-    const certificate = document.getElementById('certificate-content')
-    if (!certificate) {
-      alert('Certificate not found. Please refresh the page and try again.')
-      return
-    }
-
+    // Instagram: Auto-download image + copy caption
     try {
       // Show loading indicator
       const loadingMsg = document.createElement('div')
@@ -428,42 +390,23 @@ export default function CertificateActions({ certificateId, completionDate }: Ce
       loadingMsg.style.cssText = 'position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);background:#fff;padding:20px;border-radius:8px;box-shadow:0 4px 12px rgba(0,0,0,0.3);z-index:9999;'
       document.body.appendChild(loadingMsg)
 
-      // Instagram square format (1080x1080) - high quality
-      const scale = 4
-
-      // Capture certificate
-      const canvas = await html2canvas(certificate, {
-        scale: scale,
-        useCORS: true,
-        allowTaint: false,
-        logging: false,
-        backgroundColor: '#f5f3f0',
-        width: certificate.scrollWidth,
-        height: certificate.scrollHeight,
-        x: 0,
-        y: 0
-      })
+      // Get image from server
+      const blob = await getCertificateImageBlob()
 
       // Remove loading indicator
       document.body.removeChild(loadingMsg)
 
-      // Convert to blob and download
-      canvas.toBlob((blob: Blob | null) => {
-        if (!blob) {
-          alert('Failed to generate image for Instagram. Please try again.')
-          return
-        }
-        const url = URL.createObjectURL(blob)
-        const link = document.createElement('a')
-        link.download = `AI-Certificate-Instagram-${certificateId ? certificateId.replace(/-/g, '').slice(0, 8).toUpperCase() : 'SHARE'}.png`
-        link.href = url
-        link.click()
-        URL.revokeObjectURL(url)
-      }, 'image/png', 1.0)
+      // Download the image
+      const url = URL.createObjectURL(blob)
+      const link = document.createElement('a')
+      link.download = `${getShortCertId()}-Instagram.png`
+      link.href = url
+      link.click()
+      URL.revokeObjectURL(url)
 
       // Copy caption to clipboard
-      const url = getShareUrl()
-      const caption = `🎓 Certificate unlocked! ✨\n\nJust completed my 30-day Introduction to AI course journey! Learned AI fundamentals, prompt engineering, and real-world applications.\n\nReady to apply these skills! 💼\n\nCheck it out: ${url}\n\n#AI #MachineLearning #ArtificialIntelligence #AICertificate #TechEducation #OnlineLearning #ProfessionalDevelopment #TechSkills #EdTech #Certificate`
+      const shareUrl = getShareUrl()
+      const caption = `🎓 Certificate unlocked! ✨\n\nJust completed my 30-day Introduction to AI course journey! Learned AI fundamentals, prompt engineering, and real-world applications.\n\nReady to apply these skills! 💼\n\nCheck it out: ${shareUrl}\n\n#AI #MachineLearning #ArtificialIntelligence #AICertificate #TechEducation #OnlineLearning #ProfessionalDevelopment #TechSkills #EdTech #Certificate`
 
       // Try to copy to clipboard
       try {
@@ -474,7 +417,7 @@ export default function CertificateActions({ certificateId, completionDate }: Ce
       }
     } catch (error) {
       console.error('Instagram share failed:', error)
-      alert('Failed to prepare Instagram share. Error: ' + (error instanceof Error ? error.message : 'Unknown error') + '\n\nPlease try the "Download Image" option instead.')
+      alert('Failed to prepare Instagram share. Error: ' + (error instanceof Error ? error.message : 'Unknown error'))
     }
   }
 

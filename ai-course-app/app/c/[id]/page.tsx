@@ -39,6 +39,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const ogUrl = new URL(`${process.env.NEXT_PUBLIC_APP_URL || 'https://ai-course-app-tau.vercel.app'}/api/og`)
   ogUrl.searchParams.set('name', cert.user_name)
   ogUrl.searchParams.set('date', date)
+  ogUrl.searchParams.set('id', id)
 
   return {
     title: `${cert.user_name}'s Certificate of Completion`,
@@ -155,7 +156,7 @@ export default async function PublicCertificatePage({ params }: Props) {
               <div className="text-center sm:text-right">
                 <p className="text-sm text-text-secondary font-semibold uppercase tracking-wider mb-1">Certificate ID</p>
                 <p className="text-lg font-semibold text-text-primary">
-                  {certificate.id}
+                  {`AI-${certificate.id.replace(/-/g, '').slice(0, 8).toUpperCase()}`}
                 </p>
               </div>
             </div>
