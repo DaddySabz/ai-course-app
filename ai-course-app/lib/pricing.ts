@@ -9,26 +9,26 @@ export interface PriceInfo {
   currency: Currency
 }
 
-// Price IDs from Stripe (Introduction to AI course)
+// LIVE Price IDs from Stripe (Introduction to AI course)
 export const PRICE_IDS = {
   'ai-course-intro': {
     normal: {
-      gbp: { priceId: 'price_1SX0s5FaWAVKdu3u1aws1EKO', amount: 49, symbol: '£' },
-      usd: { priceId: 'price_1SaGZiFaWAVKdu3uVyMMJ1ej', amount: 59, symbol: '$' },
-      cad: { priceId: 'price_1SaGZjFaWAVKdu3uTz7uooOk', amount: 79, symbol: 'C$' },
-      eur: { priceId: 'price_1SaGZtFaWAVKdu3ua3i3TGcC', amount: 55, symbol: '€' },
-      aud: { priceId: 'price_1SaGZuFaWAVKdu3uNEIV1lhF', amount: 89, symbol: 'A$' },
-      hkd: { priceId: 'price_1SaGa2FaWAVKdu3ulMYO4WF0', amount: 459, symbol: 'HK$' },
-      huf: { priceId: 'price_1SaGa4FaWAVKdu3uBSOTtRX3', amount: 22900, symbol: 'Ft' },
+      gbp: { priceId: 'price_1SaJFCFDt9aGqs933Af77h2e', amount: 49, symbol: '£' },
+      usd: { priceId: 'price_1SaJFDFDt9aGqs933yvMHXSO', amount: 59, symbol: '$' },
+      cad: { priceId: 'price_1SaJFFFDt9aGqs93ctvjPsaq', amount: 79, symbol: 'C$' },
+      eur: { priceId: 'price_1SaJFNFDt9aGqs93gdFpvcId', amount: 55, symbol: '€' },
+      aud: { priceId: 'price_1SaJFOFDt9aGqs93w2LJSW5w', amount: 89, symbol: 'A$' },
+      hkd: { priceId: 'price_1SaJFQFDt9aGqs93WTpjbLpm', amount: 459, symbol: 'HK$' },
+      huf: { priceId: 'price_1SaJFRFDt9aGqs93to6akRly', amount: 22900, symbol: 'Ft' },
     },
     partner: {
-      gbp: { priceId: 'price_1SX0s5FaWAVKdu3uag4tz6o3', amount: 19, symbol: '£' },
-      usd: { priceId: 'price_1SaGZiFaWAVKdu3ug0Wet5ua', amount: 25, symbol: '$' },
-      cad: { priceId: 'price_1SaGZjFaWAVKdu3uVOH3sqxj', amount: 35, symbol: 'C$' },
-      eur: { priceId: 'price_1SaGZtFaWAVKdu3uwAOi6GWw', amount: 22, symbol: '€' },
-      aud: { priceId: 'price_1SaGZvFaWAVKdu3u3uOdwFVD', amount: 35, symbol: 'A$' },
-      hkd: { priceId: 'price_1SaGa3FaWAVKdu3uGiFuArOJ', amount: 189, symbol: 'HK$' },
-      huf: { priceId: 'price_1SaGa4FaWAVKdu3u5Lzl3PQE', amount: 8900, symbol: 'Ft' },
+      gbp: { priceId: 'price_1SaJFDFDt9aGqs93edQA2cdV', amount: 19, symbol: '£' },
+      usd: { priceId: 'price_1SaJFEFDt9aGqs93hIEjnNVD', amount: 25, symbol: '$' },
+      cad: { priceId: 'price_1SaJFFFDt9aGqs93ZYIo6gIF', amount: 35, symbol: 'C$' },
+      eur: { priceId: 'price_1SaJFOFDt9aGqs93riEJljTu', amount: 22, symbol: '€' },
+      aud: { priceId: 'price_1SaJFPFDt9aGqs93zKQyPqhm', amount: 35, symbol: 'A$' },
+      hkd: { priceId: 'price_1SaJFQFDt9aGqs93yVnMSLfO', amount: 189, symbol: 'HK$' },
+      huf: { priceId: 'price_1SaJFSFDt9aGqs9397Ixsl0r', amount: 8900, symbol: 'Ft' },
     },
   },
 } as const
