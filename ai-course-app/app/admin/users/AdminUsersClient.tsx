@@ -352,19 +352,20 @@ export default function AdminUsersClient({ initialUsers, isAdmin, purchaseStats 
                     <div className="space-y-4">
                         {users.map((user) => (
                             <div key={user.id} className="border-2 border-text-tertiary/20 rounded-2xl p-6 hover:border-sage-green transition-colors">
-                                <div className="flex items-start justify-between">
-                                    <div className="flex-1">
-                                        <div className="flex items-center gap-3 mb-2">
+                                <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+                                    {/* Left Column - User Info */}
+                                    <div>
+                                        <div className="flex items-center gap-3 mb-3">
                                             <h3 className="text-xl font-bold text-text-primary">{user.display_name}</h3>
                                             <select
                                                 value={user.partner_type}
                                                 onChange={(e) => handleChangePartnerType(user.id, user.email, e.target.value)}
                                                 className={`px-3 py-1 rounded-full text-xs font-bold cursor-pointer border-0 outline-none ${
-                                                    user.partner_type === 'beta' ? 'bg-green-100 text-green-700' :
-                                                    user.partner_type === 'waitrose' ? 'bg-purple-100 text-purple-700' :
-                                                    user.partner_type === 'tech' ? 'bg-blue-100 text-blue-700' :
-                                                    user.partner_type === 'paid' ? 'bg-amber-100 text-amber-700' :
-                                                    'bg-gray-100 text-gray-700'
+                                                    user.partner_type === 'beta' ? 'bg-green-100/60 text-green-700' :
+                                                    user.partner_type === 'waitrose' ? 'bg-purple-100/60 text-purple-700' :
+                                                    user.partner_type === 'tech' ? 'bg-blue-100/60 text-blue-700' :
+                                                    user.partner_type === 'paid' ? 'bg-amber-100/60 text-amber-700' :
+                                                    'bg-gray-100/60 text-gray-700'
                                                 }`}
                                             >
                                                 <option value="beta">BETA</option>
@@ -374,52 +375,91 @@ export default function AdminUsersClient({ initialUsers, isAdmin, purchaseStats 
                                                 <option value="">NORMAL</option>
                                             </select>
                                         </div>
-                                        <p className="text-text-secondary mb-2">{user.email}</p>
-                                        <div className="flex items-center gap-4 text-sm text-text-tertiary mb-2">
-                                            <span>📚 {user.progress_count}/30 lessons</span>
-                                            <span>📅 {new Date(user.created_at).toLocaleDateString()}</span>
+                                        <p className="text-text-secondary text-base mb-3">{user.email}</p>
+                                        <div className="space-y-2">
+                                            <div className="flex items-center gap-2 text-base">
+                                                <span className="text-text-tertiary">📚</span>
+                                                <span className="font-semibold text-text-primary">{user.progress_count}/30</span>
+                                                <span className="text-text-secondary">lessons completed</span>
+                                            </div>
+                                            <div className="flex items-center gap-2 text-base">
+                                                <span className="text-text-tertiary">📅</span>
+                                                <span className="text-text-secondary">Joined</span>
+                                                <span className="font-semibold text-text-primary">{new Date(user.created_at).toLocaleDateString()}</span>
+                                            </div>
                                         </div>
-                                        {/* Purchases */}
-                                        {user.purchases && user.purchases.length > 0 && (
-                                            <div className="flex flex-wrap gap-2 mt-2">
+                                    </div>
+
+                                    {/* Middle Column - Purchases & Activity */}
+                                    <div className="flex flex-col justify-center">
+                                        {user.purchases && user.purchases.length > 0 ? (
+                                            <div className="space-y-3">
+                                                <h4 className="text-sm font-bold text-text-tertiary uppercase tracking-wide">Purchases</h4>
                                                 {user.purchases.map((purchase, idx) => (
-                                                    <span 
+                                                    <div 
                                                         key={idx}
-                                                        className={`px-3 py-1 rounded-full text-xs font-semibold ${
-                                                            purchase.status === 'paid' ? 'bg-green-100 text-green-700' :
-                                                            purchase.status === 'failed' ? 'bg-red-100 text-red-700' :
-                                                            purchase.status === 'refunded' ? 'bg-amber-100 text-amber-700' :
-                                                            'bg-gray-100 text-gray-700'
+                                                        className={`p-3 rounded-xl ${
+                                                            purchase.status === 'paid' ? 'bg-green-50 border border-green-200' :
+                                                            purchase.status === 'failed' ? 'bg-red-50 border border-red-200' :
+                                                            purchase.status === 'refunded' ? 'bg-amber-50 border border-amber-200' :
+                                                            'bg-gray-50 border border-gray-200'
                                                         }`}
                                                     >
-                                                        💳 {purchase.product_id} • £{((purchase.amount_paid || 0) / 100).toFixed(0)} • {purchase.status.toUpperCase()}
-                                                    </span>
+                                                        <div className="flex items-center justify-between mb-1">
+                                                            <span className="font-semibold text-text-primary text-sm">
+                                                                {purchase.product_id === 'ai-course-intro' ? 'Introduction to AI' : purchase.product_id}
+                                                            </span>
+                                                            <span className={`text-sm font-bold ${
+                                                                purchase.status === 'paid' ? 'text-green-600' :
+                                                                purchase.status === 'failed' ? 'text-red-600' :
+                                                                'text-amber-600'
+                                                            }`}>
+                                                                £{((purchase.amount_paid || 0) / 100).toFixed(0)}
+                                                            </span>
+                                                        </div>
+                                                        <div className="flex items-center justify-between text-xs text-text-tertiary">
+                                                            <span>{new Date(purchase.created_at).toLocaleDateString()} at {new Date(purchase.created_at).toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'})}</span>
+                                                            <span className={`font-semibold uppercase ${
+                                                                purchase.status === 'paid' ? 'text-green-600' :
+                                                                purchase.status === 'failed' ? 'text-red-600' :
+                                                                'text-amber-600'
+                                                            }`}>
+                                                                {purchase.status}
+                                                            </span>
+                                                        </div>
+                                                    </div>
                                                 ))}
+                                            </div>
+                                        ) : (
+                                            <div className="text-center py-4">
+                                                <span className="text-text-tertiary text-sm">No purchases yet</span>
                                             </div>
                                         )}
                                     </div>
-                                    <div className="flex flex-col gap-2">
+
+                                    {/* Right Column - Actions */}
+                                    <div className="flex flex-col gap-2 justify-center">
                                         <button
                                             onClick={() => handleResetProgress(user.id, user.email)}
-                                            className="px-4 py-2 rounded-lg font-semibold text-amber-700 bg-amber-100 hover:bg-amber-200 transition-colors text-sm"
+                                            className="px-4 py-2 rounded-lg font-medium text-amber-600 bg-amber-50 hover:bg-amber-100 border border-amber-200 transition-colors text-sm"
                                         >
                                             🔄 Reset Progress
                                         </button>
                                         <button
                                             onClick={() => handleUnlockCourse(user.id, user.email)}
-                                            className="px-4 py-2 rounded-lg font-semibold text-purple-700 bg-purple-100 hover:bg-purple-200 transition-colors text-sm"
+                                            className="px-4 py-2 rounded-lg font-medium text-purple-600 bg-purple-50 hover:bg-purple-100 border border-purple-200 transition-colors text-sm"
                                         >
                                             🔓 Unlock Course
                                         </button>
                                         <button
                                             onClick={() => handleCompleteAllDays(user.id, user.email)}
-                                            className="px-4 py-2 rounded-lg font-semibold text-green-700 bg-green-100 hover:bg-green-200 transition-colors text-sm"
+                                            className="px-4 py-2 rounded-lg font-medium text-green-600 bg-green-50 hover:bg-green-100 border border-green-200 transition-colors text-sm"
                                         >
                                             ✅ Complete All Days
                                         </button>
                                         <button
                                             onClick={() => handleDeleteUser(user.id, user.email)}
-                                            className="px-4 py-2 rounded-lg font-semibold text-red-700 bg-red-100 hover:bg-red-200 transition-colors text-sm"
+                                            className="px-4 py-2 rounded-lg font-medium text-red-600 bg-red-50 hover:bg-red-100 border border-red-200 transition-colors text-sm"
                                         >
                                             🗑️ Delete User
                                         </button>
