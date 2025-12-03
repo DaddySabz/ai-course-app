@@ -92,28 +92,23 @@ export default async function PaymentPage({ searchParams }: PageProps) {
     redirect('/dashboard')
   }
 
-  // Determine price and price ID based on user type
-  let price = product.fullPrice
-  let priceLabel = `£${price}`
-  let discountLabel = null
-  let stripePriceId = ''
+  // Determine pricing tier based on user type
+  let tier: 'free' | 'partner' | 'normal' = 'normal'
+  let discountLabel: string | null = null
+  let isFree = false
 
   if (isAdmin || isTechPartner) {
-    price = 0
-    priceLabel = 'FREE'
+    tier = 'free'
+    isFree = true
     discountLabel = isTechPartner ? 'Tech Partner Access' : 'Admin Access'
-    stripePriceId = ''
   } else if (isWaitrosePartner) {
-    price = product.waitrosePrice
-    priceLabel = `£${price}`
+    tier = 'partner'
     discountLabel = 'Waitrose Partner Discount'
-    stripePriceId = process.env.NEXT_PUBLIC_PRICE_ID_INTRO_PARTNER || ''
-  } else {
+  } else if (partnerType === 'beta') {
     // Beta testers get it free
-    price = product.betaPrice
-    priceLabel = price === 0 ? 'FREE' : `£${price}`
+    tier = 'free'
+    isFree = true
     discountLabel = 'Beta Tester Access'
-    stripePriceId = ''
   }
 
   return (
@@ -213,41 +208,45 @@ export default async function PaymentPage({ searchParams }: PageProps) {
                           )}
                         </div>
                         <div className="text-right">
-                          {price < product.fullPrice && (
+                          {!isFree && tier === 'partner' && (
                             <p className="text-sm line-through text-text-tertiary">
-                              £{product.fullPrice}
+                              Full Price
                             </p>
                           )}
                           <p className="font-bold text-text-primary">
-                            {price === 0 ? 'FREE' : `£${price}`}
+                            {isFree ? 'FREE' : 'See below'}
                           </p>
                         </div>
                       </div>
                     </div>
                     
-                    {/* Space for future items */}
+                    {/* Currency note */}
+                    {!isFree && (
+                      <p className="text-xs text-text-tertiary text-center">
+                        Price shown in your local currency
+                      </p>
+                    )}
                   </div>
 
                   {/* Total + Button Section - grouped together */}
                   <div className="border-t border-text-tertiary/20 pt-4">
-                    <div className="flex justify-between items-center mb-4">
-                      <p className="text-lg font-bold text-text-primary">Total</p>
-                      <p className="text-3xl font-black text-sage-green">
-                        {priceLabel}
-                      </p>
-                    </div>
+                    {isFree && (
+                      <div className="flex justify-between items-center mb-4">
+                        <p className="text-lg font-bold text-text-primary">Total</p>
+                        <p className="text-3xl font-black text-sage-green">FREE</p>
+                      </div>
+                    )}
 
                     {/* Checkout Button */}
                     <CheckoutButton
                       productId={productId}
-                      priceId={stripePriceId}
-                      amount={price}
-                      label={price === 0 ? 'Enroll Now - FREE' : `Enroll Now - £${price}`}
+                      tier={tier}
                       userId={session.user.id!}
+                      label={isFree ? 'Enroll Now - FREE' : undefined}
                     />
 
                     {/* Moneyback guarantee */}
-                    {price > 0 && (
+                    {!isFree && (
                       <div className="mt-4 text-center">
                         <p className="text-xs text-text-secondary">
                           <span className="font-semibold">30-Day Money-Back Guarantee</span>

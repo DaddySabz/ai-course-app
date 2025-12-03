@@ -1,18 +1,31 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
+import { detectCurrency, getPrice, formatPrice, Currency } from '@/lib/pricing'
 
 interface CheckoutButtonProps {
   productId: string
-  priceId: string
-  amount: number
-  label: string
+  tier: 'normal' | 'partner' | 'free'
   userId: string
+  label?: string
 }
 
-export default function CheckoutButton({ productId, priceId, amount, label, userId }: CheckoutButtonProps) {
+export default function CheckoutButton({ productId, tier, userId, label }: CheckoutButtonProps) {
   const [isLoading, setIsLoading] = useState(false)
   const [error, setError] = useState<string | null>(null)
+  const [currency, setCurrency] = useState<Currency>('gbp')
+  const [priceInfo, setPriceInfo] = useState<{ priceId: string; amount: number; symbol: string } | null>(null)
+
+  // Detect currency on mount
+  useEffect(() => {
+    const detected = detectCurrency()
+    setCurrency(detected)
+    
+    if (tier !== 'free') {
+      const price = getPrice(productId, tier, detected)
+      setPriceInfo(price)
+    }
+  }, [productId, tier])
 
   const handleCheckout = async () => {
     setIsLoading(true)
@@ -20,7 +33,7 @@ export default function CheckoutButton({ productId, priceId, amount, label, user
 
     try {
       // If free, just grant access directly
-      if (amount === 0) {
+      if (tier === 'free') {
         const response = await fetch('/api/checkout/free', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
@@ -42,11 +55,15 @@ export default function CheckoutButton({ productId, priceId, amount, label, user
       }
 
       // Otherwise, create Stripe checkout session
+      if (!priceInfo) {
+        throw new Error('Price information not loaded')
+      }
+
       const response = await fetch('/api/checkout', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
-          priceId,
+          priceId: priceInfo.priceId,
           userId,
           productId,
         }),
@@ -68,11 +85,20 @@ export default function CheckoutButton({ productId, priceId, amount, label, user
     }
   }
 
+  // Generate button label
+  const buttonLabel = label || (
+    tier === 'free' 
+      ? 'Enroll Now - FREE' 
+      : priceInfo 
+        ? `Enroll Now - ${formatPrice(priceInfo.amount, currency)}`
+        : 'Loading...'
+  )
+
   return (
     <div className="w-full">
       <button
         onClick={handleCheckout}
-        disabled={isLoading}
+        disabled={isLoading || (!priceInfo && tier !== 'free')}
         className="btn-dark w-full flex items-center justify-center gap-2 px-6 py-4 rounded-2xl text-lg disabled:opacity-50 disabled:cursor-not-allowed"
       >
         {isLoading ? (
@@ -81,7 +107,7 @@ export default function CheckoutButton({ productId, priceId, amount, label, user
             <span>Processing...</span>
           </>
         ) : (
-          <span>{label}</span>
+          <span>{buttonLabel}</span>
         )}
       </button>
 
