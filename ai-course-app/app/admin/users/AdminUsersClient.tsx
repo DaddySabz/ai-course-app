@@ -19,6 +19,7 @@ interface User {
     partner_type: string
     progress_count: number
     created_at: string
+    last_login: string | null
     purchases: Purchase[]
 }
 
@@ -368,6 +369,15 @@ export default function AdminUsersClient({ initialUsers, isAdmin, purchaseStats 
                                                 <span className="text-text-tertiary">📚</span>
                                                 <span className="font-semibold text-text-primary">{user.progress_count}/30</span>
                                                 <span className="text-text-secondary">lessons completed</span>
+                                            </div>
+                                            <div className="flex items-center gap-2 text-base">
+                                                <span className="text-text-tertiary">🕐</span>
+                                                <span className="text-text-secondary">Last login</span>
+                                                <span className="font-semibold text-text-primary">
+                                                    {user.last_login 
+                                                        ? new Date(user.last_login).toLocaleDateString() 
+                                                        : 'Never'}
+                                                </span>
                                             </div>
                                             <div className="flex items-center gap-2 text-base">
                                                 <span className="text-text-tertiary">📅</span>
