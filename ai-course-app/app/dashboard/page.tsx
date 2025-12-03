@@ -173,14 +173,12 @@ export default async function DashboardPage() {
                   </a>
 
                   {/* Sign Out Button */}
-                  <form action={async () => {
-                    "use server"
-                    await signOut({ redirectTo: "/" })
-                  }} className="w-full">
-                    <button className="btn-neumorphic w-full flex items-center justify-center gap-2 p-4 rounded-2xl text-red-600 font-bold hover:scale-[1.02] transition-transform">
-                      <span>Sign Out</span>
-                    </button>
-                  </form>
+                  <a
+                    href="/auth/signout"
+                    className="btn-neumorphic w-full flex items-center justify-center gap-2 p-4 rounded-2xl text-red-600 font-bold hover:scale-[1.02] transition-transform"
+                  >
+                    <span>Sign Out</span>
+                  </a>
                 </div>
               </div>
             </section>
