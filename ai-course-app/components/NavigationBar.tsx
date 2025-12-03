@@ -8,6 +8,7 @@ export default function NavigationBar() {
   const pathname = usePathname()
   const { data: session } = useSession()
   const [profileAvatar, setProfileAvatar] = useState<string | null>(null)
+  const [displayName, setDisplayName] = useState<string | null>(null)
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
 
   const navItems = [
@@ -17,9 +18,17 @@ export default function NavigationBar() {
     { name: "Profile", path: "/profile" },
   ]
 
-  // Fetch updated profile avatar
+  // Get the first letter for avatar fallback (name first, then email)
+  const getAvatarLetter = () => {
+    if (displayName) return displayName[0].toUpperCase()
+    if (session?.user?.name) return session.user.name[0].toUpperCase()
+    if (session?.user?.email) return session.user.email[0].toUpperCase()
+    return 'U'
+  }
+
+  // Fetch updated profile data
   useEffect(() => {
-    const fetchAvatar = () => {
+    const fetchProfile = () => {
       if (session?.user) {
         fetch('/api/profile')
           .then(res => res.json())
@@ -29,16 +38,19 @@ export default function NavigationBar() {
             } else if (data.defaultAvatar) {
               setProfileAvatar(data.defaultAvatar)
             }
+            if (data.profile?.display_name) {
+              setDisplayName(data.profile.display_name)
+            }
           })
           .catch(err => console.error('Error fetching profile:', err))
       }
     }
 
-    fetchAvatar()
+    fetchProfile()
 
     // Listen for profile updates
     const handleProfileUpdate = () => {
-      fetchAvatar()
+      fetchProfile()
     }
     
     window.addEventListener('profileUpdated', handleProfileUpdate)
@@ -90,7 +102,7 @@ export default function NavigationBar() {
                   ) : (
                     <div className="w-full h-full flex items-center justify-center bg-gradient-to-br from-sage-green/20 to-lavender/20">
                       <span className="text-text-primary font-bold text-lg">
-                        {session.user.email?.[0].toUpperCase() || "U"}
+                        {getAvatarLetter()}
                       </span>
                     </div>
                   )}
@@ -115,7 +127,7 @@ export default function NavigationBar() {
                   ) : (
                     <div className="w-full h-full flex items-center justify-center bg-gradient-to-br from-sage-green/20 to-lavender/20">
                       <span className="text-text-primary font-bold text-lg">
-                        {session.user.email?.[0].toUpperCase() || "U"}
+                        {getAvatarLetter()}
                       </span>
                     </div>
                   )}

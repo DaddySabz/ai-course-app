@@ -149,27 +149,25 @@ export default async function DashboardPage() {
 
                   {/* Name and Organization */}
                   <h4 className="text-2xl font-black text-text-primary mb-1">
-                    {displayName}
+                    {displayName || 'Your Name'}
                   </h4>
-                  {organization && (
-                    <p className="text-base font-normal text-text-secondary mb-4">
-                      {organization}
-                    </p>
-                  )}
+                  <p className="text-base font-normal text-text-secondary mb-4">
+                    {organization || 'Your Company'}
+                  </p>
 
-                  <p className="text-xs text-text-secondary">
-                    Your name and picture will appear on your certificate
+                  <p className="text-xs text-text-secondary text-center">
+                    Your profile picture, name and company name will appear on your certificate
                   </p>
                 </div>
 
                 {/* Buttons at bottom - outside flex-1 */}
                 <div className="w-full space-y-4 mt-6">
-                  {/* View Profile Button */}
+                  {/* Edit Profile Button */}
                   <a
                     href="/profile"
                     className="btn-neumorphic w-full flex items-center justify-center gap-2 p-4 rounded-2xl text-text-primary font-bold hover:scale-[1.02] transition-transform"
                   >
-                    <span>View Profile</span>
+                    <span>Edit Profile</span>
                   </a>
 
                   {/* Sign Out Button */}
