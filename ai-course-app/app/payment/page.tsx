@@ -22,7 +22,7 @@ export default async function PaymentPage({ searchParams }: PageProps) {
 
   // Get user's country from Vercel headers for currency detection
   const headersList = await headers()
-  const country = headersList.get('x-vercel-ip-country') || 'GB'
+  const country = headersList.get('x-vercel-ip-country') || 'US'
   const currency = getCurrencyFromCountry(country)
 
   // Admin emails get FULL course access (no restrictions)

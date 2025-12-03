@@ -79,8 +79,8 @@ const COUNTRY_TO_CURRENCY: Record<string, Currency> = {
 
 // Get currency from country code (Vercel provides this via x-vercel-ip-country header)
 export function getCurrencyFromCountry(countryCode: string | null): Currency {
-  if (!countryCode) return 'gbp'
-  return COUNTRY_TO_CURRENCY[countryCode.toUpperCase()] || 'gbp'
+  if (!countryCode) return 'usd'
+  return COUNTRY_TO_CURRENCY[countryCode.toUpperCase()] || 'usd'
 }
 
 // Get price info for a product
