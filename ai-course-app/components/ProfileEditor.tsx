@@ -104,13 +104,13 @@ export default function ProfileEditor({ userId, defaultName, defaultAvatar, defa
   }
 
   const handleOrgSave = async () => {
-    if (!tempOrg.trim()) {
-      alert('Organization cannot be empty')
-      return
-    }
-    setDisplayOrg(tempOrg)
+    setDisplayOrg(tempOrg.trim())
     setIsEditingOrg(false)
-    await saveProfile(displayName, avatarUrl, tempOrg)
+    await saveProfile(displayName, avatarUrl, tempOrg.trim())
+    // Notify NavigationBar to update
+    window.dispatchEvent(new Event('profileUpdated'))
+    // Refresh to update dashboard
+    router.refresh()
   }
 
   const handleEmailSave = async () => {
@@ -273,57 +273,56 @@ export default function ProfileEditor({ userId, defaultName, defaultAvatar, defa
         )}
       </div>
 
-      {/* Organization/Company Field */}
-      {displayOrg && (
-        <div>
-          <label className="text-xs font-bold text-text-secondary uppercase tracking-wider mb-2 block">
-            Organization
-          </label>
-          {isEditingOrg ? (
-            <div className="space-y-2">
-              <input
-                type="text"
-                value={tempOrg}
-                onChange={(e) => setTempOrg(e.target.value)}
-                className="w-full px-4 py-3 rounded-xl glass-inset text-text-primary font-semibold focus:outline-none"
-                autoFocus
-                onKeyDown={(e) => {
-                  if (e.key === 'Enter') handleOrgSave()
-                  if (e.key === 'Escape') {
-                    setTempOrg(displayOrg)
-                    setIsEditingOrg(false)
-                  }
+      {/* Company/Organization Field */}
+      <div>
+        <label className="text-xs font-bold text-text-secondary uppercase tracking-wider mb-2 block">
+          Company
+        </label>
+        {isEditingOrg ? (
+          <div className="space-y-2">
+            <input
+              type="text"
+              value={tempOrg}
+              onChange={(e) => setTempOrg(e.target.value)}
+              placeholder="Enter your company name"
+              className="w-full px-4 py-3 rounded-xl glass-inset text-text-primary font-semibold focus:outline-none placeholder:text-text-tertiary"
+              autoFocus
+              onKeyDown={(e) => {
+                if (e.key === 'Enter') handleOrgSave()
+                if (e.key === 'Escape') {
+                  setTempOrg(displayOrg)
+                  setIsEditingOrg(false)
+                }
+              }}
+            />
+            <div className="flex items-center gap-2">
+              <button
+                onClick={handleOrgSave}
+                disabled={isSaving}
+                className="flex-1 px-4 py-3 glass-sage-clickable rounded-xl font-bold text-text-primary"
+              >
+                Save
+              </button>
+              <button
+                onClick={() => {
+                  setTempOrg(displayOrg)
+                  setIsEditingOrg(false)
                 }}
-              />
-              <div className="flex items-center gap-2">
-                <button
-                  onClick={handleOrgSave}
-                  disabled={isSaving}
-                  className="flex-1 px-4 py-3 glass-sage-clickable rounded-xl font-bold text-text-primary"
-                >
-                  Save
-                </button>
-                <button
-                  onClick={() => {
-                    setTempOrg(displayOrg)
-                    setIsEditingOrg(false)
-                  }}
-                  className="flex-1 px-4 py-3 glass-clickable rounded-xl font-bold text-text-secondary"
-                >
-                  Cancel
-                </button>
-              </div>
+                className="flex-1 px-4 py-3 glass-clickable rounded-xl font-bold text-text-secondary"
+              >
+                Cancel
+              </button>
             </div>
-          ) : (
-            <div 
-              onClick={() => setIsEditingOrg(true)}
-              className="px-4 py-3 rounded-xl bg-white/50 text-text-primary font-semibold cursor-pointer hover:bg-white/70 transition-colors"
-            >
-              {displayOrg}
-            </div>
-          )}
-        </div>
-      )}
+          </div>
+        ) : (
+          <div 
+            onClick={() => setIsEditingOrg(true)}
+            className="px-4 py-3 rounded-xl bg-white/50 text-text-primary font-semibold cursor-pointer hover:bg-white/70 transition-colors"
+          >
+            {displayOrg || <span className="text-text-tertiary">Click to add company</span>}
+          </div>
+        )}
+      </div>
 
       {/* Email Field */}
       <div>
@@ -447,7 +446,7 @@ export default function ProfileEditor({ userId, defaultName, defaultAvatar, defa
       {/* Sign Out Button */}
       <div className="pt-4">
         <a
-          href="/api/auth/signout"
+          href="/auth/signout"
           className="btn-neumorphic w-full rounded-2xl px-6 py-4 text-base font-bold text-red-600 hover:scale-[1.02] transition-transform block text-center"
         >
           Sign Out
