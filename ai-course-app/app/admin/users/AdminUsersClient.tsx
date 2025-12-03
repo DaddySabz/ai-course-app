@@ -17,6 +17,7 @@ interface User {
     email: string
     display_name: string
     partner_type: string
+    auth_provider: string | null
     progress_count: number
     created_at: string
     last_login: string | null
@@ -363,7 +364,24 @@ export default function AdminUsersClient({ initialUsers, isAdmin, purchaseStats 
                                                 <option value="">NORMAL</option>
                                             </select>
                                         </div>
-                                        <p className="text-text-secondary text-base mb-3">{user.email}</p>
+                                        <div className="flex items-center gap-2 mb-3">
+                                            <p className="text-text-secondary text-base">{user.email}</p>
+                                            {user.auth_provider && (
+                                                <span className={`px-2 py-0.5 rounded-full text-xs font-medium ${
+                                                    user.auth_provider === 'google' ? 'bg-red-100/60 text-red-600' :
+                                                    user.auth_provider === 'email' ? 'bg-blue-100/60 text-blue-600' :
+                                                    user.auth_provider === 'waitrose' ? 'bg-purple-100/60 text-purple-600' :
+                                                    user.auth_provider === 'tech' ? 'bg-cyan-100/60 text-cyan-600' :
+                                                    'bg-gray-100/60 text-gray-600'
+                                                }`}>
+                                                    {user.auth_provider === 'google' ? '🔵 Google' :
+                                                     user.auth_provider === 'email' ? '✉️ Email' :
+                                                     user.auth_provider === 'waitrose' ? '🛒 Waitrose' :
+                                                     user.auth_provider === 'tech' ? '💻 Tech' :
+                                                     user.auth_provider}
+                                                </span>
+                                            )}
+                                        </div>
                                         <div className="space-y-2">
                                             <div className="flex items-center gap-2 text-base">
                                                 <span className="text-text-tertiary">📚</span>

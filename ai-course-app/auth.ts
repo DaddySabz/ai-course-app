@@ -120,7 +120,10 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
             }
           }
 
-          console.log('Creating new beta profile for:', user.email, 'with stable ID:', stableUserId)
+          // Determine auth provider
+          const authProvider = account?.provider === 'google' ? 'google' : 'email'
+          
+          console.log('Creating new beta profile for:', user.email, 'with stable ID:', stableUserId, 'via:', authProvider)
           // Create new profile as Beta Tester
           await supabase.from('user_profiles').insert({
             user_id: stableUserId,
@@ -130,6 +133,7 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
             partner_type: 'beta',
             partner_code: 'BETA_AUTO',
             organization: 'Beta Tester',
+            auth_provider: authProvider,
             last_login: new Date().toISOString()
           })
         } else {

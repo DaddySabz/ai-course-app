@@ -100,10 +100,11 @@ export async function POST(request: NextRequest) {
         {
           user_id: newUser.id,
           display_name: name,
-          contact_email: email,  // ← ADD THIS LINE
-          partner_type: partnerType === 'waitrose' ? 'beta' : partnerType, // Waitrose → Beta during beta period
+          contact_email: email,
+          partner_type: partnerType === 'waitrose' ? 'waitrose' : partnerType,
           partner_code: partnerCode,
-          organization: organization || null
+          organization: organization || null,
+          auth_provider: partnerType  // Track: 'waitrose' or 'tech'
         }
       ])
 

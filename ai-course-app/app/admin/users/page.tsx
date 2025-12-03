@@ -31,7 +31,7 @@ export default async function AdminUsersPage() {
     // Fetch all users from user_profiles (after migration, contact_email will be populated)
     const { data: profiles, error: profilesError } = await supabase
         .from('user_profiles')
-        .select('user_id, display_name, contact_email, partner_type, created_at, last_login')
+        .select('user_id, display_name, contact_email, partner_type, auth_provider, created_at, last_login')
         .order('created_at', { ascending: false })
 
     if (profilesError) {
@@ -59,6 +59,7 @@ export default async function AdminUsersPage() {
                 email: profile.contact_email || 'N/A',
                 display_name: profile.display_name || 'Unknown',
                 partner_type: profile.partner_type || 'beta',
+                auth_provider: profile.auth_provider || null,
                 progress_count: count || 0,
                 created_at: profile.created_at,
                 last_login: profile.last_login,
