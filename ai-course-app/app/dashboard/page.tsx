@@ -135,15 +135,13 @@ export default async function DashboardPage() {
               </div>
             </div>
 
-            {/* What's New Widget - matches Profile width (1 col), same height as Hey! */}
-            {(isBetaTester || isWaitrosePartner) && (
-              <div className="lg:col-span-1 order-2 lg:order-2">
-                <WhatsNewWidget />
-              </div>
-            )}
+            {/* What's New Widget - visible to everyone */}
+            <div className="lg:col-span-1 order-2 lg:order-2">
+              <WhatsNewWidget />
+            </div>
 
             {/* Profile - Shows on right, same column as What's New */}
-            <section className={(isBetaTester || isWaitrosePartner) ? 'lg:col-span-1 order-3 lg:order-4' : 'lg:col-span-1 order-2 lg:order-4'}>
+            <section className="lg:col-span-1 order-3 lg:order-4">
               <div className="glass-lavender rounded-3xl p-8 flex flex-col h-full">
                 <h3 className="text-2xl font-bold text-text-primary mb-6">Profile</h3>
 

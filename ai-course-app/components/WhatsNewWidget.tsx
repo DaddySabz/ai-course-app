@@ -48,13 +48,20 @@ export default function WhatsNewWidget() {
             <div className="glass-clickable rounded-3xl p-8 h-full flex flex-col">
                 <h3 className="text-2xl font-bold text-text-primary mb-6">What's New</h3>
 
-                <div className="space-y-6 flex-1 overflow-auto">
+                <div className="space-y-5 flex-1 overflow-auto">
                     {notes.map((note) => {
+                        // Format date as DD/MM/YY
+                        const date = new Date(note.created_at)
+                        const formattedDate = `${date.getDate().toString().padStart(2, '0')}/${(date.getMonth() + 1).toString().padStart(2, '0')}/${date.getFullYear().toString().slice(-2)}`
+                        
                         return (
                             <div key={note.id} className="flex gap-3">
                                 <div className="flex-1 min-w-0">
                                     <div className="flex items-center gap-2 mb-1">
-                                        <span className="px-2 py-0.5 rounded-full text-xs font-bold bg-text-tertiary/10 text-text-primary">
+                                        <span className="text-xs text-text-tertiary font-medium">
+                                            {formattedDate}
+                                        </span>
+                                        <span className="px-2 py-0.5 rounded-full text-xs font-bold bg-sage-green/20 text-sage-green">
                                             v{note.version}
                                         </span>
                                     </div>
