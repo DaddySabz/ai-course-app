@@ -189,8 +189,8 @@ export default function LessonContent({ lesson, currentDay, userId, hasFullAcces
       {isCompleted && (
         <div className="glass-sage rounded-3xl p-6 md:p-8 border-2 border-sage-green/30">
           <div className="flex items-start gap-4">
-            <div className="flex-shrink-0 w-12 h-12 rounded-full bg-sage-green/20 flex items-center justify-center">
-              <svg className="w-6 h-6 text-sage-green" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <div className="flex-shrink-0 w-12 h-12 rounded-full bg-sage-green/30 flex items-center justify-center">
+              <svg className="w-6 h-6 text-text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 11V7a4 4 0 118 0m-4 8v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2z" />
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 7a4 4 0 00-8 0" />
               </svg>
