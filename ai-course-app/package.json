@@ -1,6 +1,6 @@
 {
   "name": "ai_course_app",
-  "version": "1.0.0-rc1",
+  "version": "0.9.23",
   "private": true,
   "scripts": {
     "dev": "next dev",
