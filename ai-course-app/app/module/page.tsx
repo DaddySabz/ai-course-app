@@ -64,9 +64,9 @@ export default async function ModulePage({
     <div className="min-h-screen pt-20">
       <NavigationBar />
 
-      <div className="flex max-w-7xl mx-auto gap-6 px-3 md:px-6 py-6 pb-0 md:pb-6">
+      <div className="flex max-w-7xl mx-auto gap-6 px-3 md:px-6 py-6 pb-0 md:pb-6 items-stretch">
         {/* Left Sidebar - Frosted Glass with Neumorphic Days (Desktop Only) */}
-        <aside className="hidden md:block w-80 glass rounded-3xl p-6 h-fit sticky top-24">
+        <aside className="hidden md:flex md:flex-col w-80 glass rounded-3xl p-6">
           <div>
             <h3 className="text-xs font-bold text-text-secondary uppercase tracking-wider mb-5">
               COURSE DAYS
@@ -78,24 +78,13 @@ export default async function ModulePage({
                 const isActive = day.day === currentDay
 
                 if (isLocked) {
-                  // Show sticker only on the NEXT day (first locked day)
-                  const isNextDay = day.day === currentDay + 1
-
                   return (
                     <div
                       key={day.day}
-                      className="relative flex flex-col gap-1 px-4 py-3 rounded-2xl text-text-tertiary cursor-not-allowed glass-subtle"
+                      className="flex flex-col gap-1 px-4 py-3 rounded-2xl text-text-tertiary cursor-not-allowed glass-subtle opacity-60"
                     >
-                      {isNextDay && (
-                        <div className="absolute -top-2 -right-2 bg-lavender-purple text-white text-[10px] font-bold px-2 py-1 rounded-full shadow-lg flex items-center gap-1">
-                          <svg className="w-3 h-3" fill="currentColor" viewBox="0 0 20 20">
-                            <path fillRule="evenodd" d="M5 9V7a5 5 0 0110 0v2a2 2 0 012 2v5a2 2 0 01-2 2H5a2 2 0 01-2-2v-5a2 2 0 012-2zm8-2v2H7V7a3 3 0 016 0z" clipRule="evenodd" />
-                          </svg>
-                          Complete Day {currentDay}
-                        </div>
-                      )}
                       <span className="text-xs font-bold uppercase tracking-wider text-text-tertiary">Day {day.day}</span>
-                      <span className="text-sm font-semibold leading-tight opacity-60">{day.title}</span>
+                      <span className="text-sm font-semibold leading-tight">{day.title}</span>
                     </div>
                   )
                 }
