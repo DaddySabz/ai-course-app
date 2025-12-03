@@ -128,16 +128,23 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
             avatar_url: user.image,
             partner_type: 'beta',
             partner_code: 'BETA_AUTO',
-            organization: 'Beta Tester'
+            organization: 'Beta Tester',
+            last_login: new Date().toISOString()
           })
         } else {
-          // Profile exists - update avatar if changed (for Google users)
-          if (user.image && account?.provider === 'google') {
-            await supabase
-              .from('user_profiles')
-              .update({ avatar_url: user.image })
-              .eq('id', existingProfile.id)
+          // Profile exists - update last_login and avatar if changed (for Google users)
+          const updateData: { last_login: string; avatar_url?: string } = {
+            last_login: new Date().toISOString()
           }
+          
+          if (user.image && account?.provider === 'google') {
+            updateData.avatar_url = user.image
+          }
+          
+          await supabase
+            .from('user_profiles')
+            .update(updateData)
+            .eq('id', existingProfile.id)
         }
 
         return true
