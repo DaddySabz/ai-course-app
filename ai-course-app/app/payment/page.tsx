@@ -119,7 +119,8 @@ export default async function PaymentPage({ searchParams }: PageProps) {
   }
 
   // Get price info for display
-  const priceInfo = !isFree ? getPrice(productId, tier, currency) : null
+  const priceTier: 'normal' | 'partner' = tier === 'partner' ? 'partner' : 'normal'
+  const priceInfo = !isFree ? getPrice(productId, priceTier, currency) : null
   const displayPrice = priceInfo ? formatPrice(priceInfo.amount, currency) : 'FREE'
   const fullPriceInfo = getPrice(productId, 'normal', currency)
   const fullDisplayPrice = formatPrice(fullPriceInfo.amount, currency)
