@@ -1,7 +1,7 @@
 import { auth } from "@/auth"
 import { redirect } from "next/navigation"
 import { createClient } from '@supabase/supabase-js'
-import Link from 'next/link'
+import AdminNav from '@/components/AdminNav'
 
 export default async function AdminBugsPage() {
     const session = await auth()
@@ -31,20 +31,14 @@ export default async function AdminBugsPage() {
     const feedback = error ? [] : (feedbackData || [])
 
     return (
-        <div className="min-h-screen p-8">
+        <div className="min-h-screen bg-background p-8">
             <div className="max-w-7xl mx-auto">
+                <AdminNav />
+                
                 {/* Header */}
-                <div className="flex items-center justify-between mb-8">
-                    <div>
-                        <h1 className="text-4xl font-black text-text-primary mb-2">Bug Reports</h1>
-                        <p className="text-text-secondary">Review and manage user-submitted bugs and feedback</p>
-                    </div>
-                    <Link
-                        href="/admin"
-                        className="px-6 py-3 rounded-xl font-bold text-text-primary hover:bg-text-tertiary/10 transition-colors"
-                    >
-                        ← Back to Admin
-                    </Link>
+                <div className="mb-8">
+                    <h1 className="text-4xl font-black text-text-primary mb-2">Bug Reports</h1>
+                    <p className="text-text-secondary">Review and manage user-submitted bugs and feedback</p>
                 </div>
 
                 {/* Stats */}

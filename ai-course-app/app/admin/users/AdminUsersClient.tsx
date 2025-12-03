@@ -3,6 +3,7 @@
 import { useState } from 'react'
 import { useRouter } from 'next/navigation'
 import Link from 'next/link'
+import AdminNav from '@/components/AdminNav'
 
 interface Purchase {
     product_id: string
@@ -207,28 +208,14 @@ export default function AdminUsersClient({ initialUsers, isAdmin, purchaseStats 
     }
 
     return (
-        <div className="min-h-screen p-8">
+        <div className="min-h-screen bg-background p-8">
             <div className="max-w-7xl mx-auto">
+                <AdminNav />
+                
                 {/* Header */}
-                <div className="flex items-center justify-between mb-8">
-                    <div>
-                        <h1 className="text-4xl font-black text-text-primary mb-2">User Management</h1>
-                        <p className="text-text-secondary">Add, delete, and manage student accounts</p>
-                    </div>
-                    <div className="flex gap-3">
-                        <Link
-                            href="/admin/bugs"
-                            className="px-6 py-3 rounded-xl font-bold text-text-primary hover:bg-text-tertiary/10 transition-colors"
-                        >
-                            View Bugs
-                        </Link>
-                        <Link
-                            href="/admin"
-                            className="px-6 py-3 rounded-xl font-bold text-text-primary hover:bg-text-tertiary/10 transition-colors"
-                        >
-                            ← Back to Admin
-                        </Link>
-                    </div>
+                <div className="mb-8">
+                    <h1 className="text-4xl font-black text-text-primary mb-2">User Management</h1>
+                    <p className="text-text-secondary">Add, delete, and manage student accounts</p>
                 </div>
 
                 {/* User Stats */}

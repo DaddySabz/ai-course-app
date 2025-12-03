@@ -1,6 +1,7 @@
 'use client'
 
 import { useState } from 'react'
+import AdminNav from '@/components/AdminNav'
 
 const heroPrompts = [
   {
@@ -170,7 +171,9 @@ export default function PromptsPage() {
 
   return (
     <div className="min-h-screen bg-background p-8">
-      <div className="max-w-4xl mx-auto">
+      <div className="max-w-7xl mx-auto">
+        <AdminNav />
+        
         <div className="mb-8">
           <h1 className="text-4xl font-black text-text-primary mb-2">Midjourney Hero Prompts</h1>
           <p className="text-text-secondary">30 prompts for course hero images • Style: Photorealistic Portrait • Aspect: 16:9</p>
