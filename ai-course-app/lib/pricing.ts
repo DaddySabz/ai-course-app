@@ -33,49 +33,54 @@ export const PRICE_IDS = {
   },
 } as const
 
-// Map browser locale/timezone to currency
-export function detectCurrency(): Currency {
-  if (typeof window === 'undefined') return 'gbp'
+// Country code to currency mapping (ISO 3166-1 alpha-2)
+const COUNTRY_TO_CURRENCY: Record<string, Currency> = {
+  // GBP
+  'GB': 'gbp',
+  'UK': 'gbp',
   
-  const timezone = Intl.DateTimeFormat().resolvedOptions().timeZone
-  const locale = navigator.language || 'en-GB'
+  // USD
+  'US': 'usd',
   
-  // Timezone-based detection (more accurate)
-  if (timezone.startsWith('America/')) {
-    // Check for Canada
-    if (timezone.includes('Toronto') || timezone.includes('Vancouver') || 
-        timezone.includes('Montreal') || timezone.includes('Edmonton') ||
-        timezone.includes('Winnipeg') || timezone.includes('Halifax')) {
-      return 'cad'
-    }
-    return 'usd'
-  }
+  // CAD
+  'CA': 'cad',
   
-  if (timezone.startsWith('Australia/')) return 'aud'
-  if (timezone.startsWith('Europe/Budapest')) return 'huf'
-  if (timezone === 'Asia/Hong_Kong' || timezone === 'Hongkong') return 'hkd'
+  // AUD
+  'AU': 'aud',
   
-  // European timezones (excluding UK and Hungary)
-  if (timezone.startsWith('Europe/') && 
-      !timezone.includes('London') && 
-      !timezone.includes('Budapest')) {
-    return 'eur'
-  }
+  // HKD
+  'HK': 'hkd',
   
-  // Locale-based fallback
-  const lang = locale.toLowerCase()
-  if (lang.includes('en-us') || lang === 'en') return 'usd'
-  if (lang.includes('en-ca') || lang.includes('fr-ca')) return 'cad'
-  if (lang.includes('en-au')) return 'aud'
-  if (lang.includes('zh-hk') || lang.includes('en-hk')) return 'hkd'
-  if (lang.includes('hu')) return 'huf'
-  if (lang.includes('de') || lang.includes('fr') || lang.includes('es') || 
-      lang.includes('it') || lang.includes('nl') || lang.includes('pt')) {
-    return 'eur'
-  }
+  // HUF
+  'HU': 'huf',
   
-  // Default to GBP
-  return 'gbp'
+  // EUR - Eurozone countries
+  'AT': 'eur', // Austria
+  'BE': 'eur', // Belgium
+  'CY': 'eur', // Cyprus
+  'EE': 'eur', // Estonia
+  'FI': 'eur', // Finland
+  'FR': 'eur', // France
+  'DE': 'eur', // Germany
+  'GR': 'eur', // Greece
+  'IE': 'eur', // Ireland
+  'IT': 'eur', // Italy
+  'LV': 'eur', // Latvia
+  'LT': 'eur', // Lithuania
+  'LU': 'eur', // Luxembourg
+  'MT': 'eur', // Malta
+  'NL': 'eur', // Netherlands
+  'PT': 'eur', // Portugal
+  'SK': 'eur', // Slovakia
+  'SI': 'eur', // Slovenia
+  'ES': 'eur', // Spain
+  'HR': 'eur', // Croatia
+}
+
+// Get currency from country code (Vercel provides this via x-vercel-ip-country header)
+export function getCurrencyFromCountry(countryCode: string | null): Currency {
+  if (!countryCode) return 'gbp'
+  return COUNTRY_TO_CURRENCY[countryCode.toUpperCase()] || 'gbp'
 }
 
 // Get price info for a product

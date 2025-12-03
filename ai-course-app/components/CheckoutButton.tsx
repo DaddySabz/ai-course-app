@@ -1,31 +1,28 @@
 'use client'
 
 import { useState, useEffect } from 'react'
-import { detectCurrency, getPrice, formatPrice, Currency } from '@/lib/pricing'
+import { getPrice, formatPrice, type Currency } from '@/lib/pricing'
 
 interface CheckoutButtonProps {
   productId: string
   tier: 'normal' | 'partner' | 'free'
   userId: string
+  currency: Currency  // Server-determined from Vercel geolocation
   label?: string
 }
 
-export default function CheckoutButton({ productId, tier, userId, label }: CheckoutButtonProps) {
+export default function CheckoutButton({ productId, tier, userId, currency, label }: CheckoutButtonProps) {
   const [isLoading, setIsLoading] = useState(false)
   const [error, setError] = useState<string | null>(null)
-  const [currency, setCurrency] = useState<Currency>('gbp')
   const [priceInfo, setPriceInfo] = useState<{ priceId: string; amount: number; symbol: string } | null>(null)
 
-  // Detect currency on mount
+  // Get price based on server-provided currency
   useEffect(() => {
-    const detected = detectCurrency()
-    setCurrency(detected)
-    
     if (tier !== 'free') {
-      const price = getPrice(productId, tier, detected)
+      const price = getPrice(productId, tier, currency)
       setPriceInfo(price)
     }
-  }, [productId, tier])
+  }, [productId, tier, currency])
 
   const handleCheckout = async () => {
     setIsLoading(true)
@@ -91,7 +88,7 @@ export default function CheckoutButton({ productId, tier, userId, label }: Check
       ? 'Enroll Now - FREE' 
       : priceInfo 
         ? `Enroll Now - ${formatPrice(priceInfo.amount, currency)}`
-        : 'Loading...'
+        : 'Enroll Now'
   )
 
   return (

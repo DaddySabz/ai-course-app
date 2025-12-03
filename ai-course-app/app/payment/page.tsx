@@ -1,8 +1,10 @@
 import { auth, signOut } from "@/auth"
 import { redirect } from "next/navigation"
+import { headers } from "next/headers"
 import { createClient } from '@supabase/supabase-js'
 import NavigationBar from '@/components/NavigationBar'
 import CheckoutButton from '@/components/CheckoutButton'
+import { getCurrencyFromCountry, getPrice, formatPrice, type Currency } from '@/lib/pricing'
 
 interface PageProps {
   searchParams: Promise<{ [key: string]: string | string[] | undefined }>
@@ -17,6 +19,11 @@ export default async function PaymentPage({ searchParams }: PageProps) {
 
   const params = await searchParams
   const productId = params.product as string || 'ai-course-intro'
+
+  // Get user's country from Vercel headers for currency detection
+  const headersList = await headers()
+  const country = headersList.get('x-vercel-ip-country') || 'GB'
+  const currency = getCurrencyFromCountry(country)
 
   // Admin emails get FULL course access (no restrictions)
   const ADMIN_EMAILS = ['admin@wearewacky.com', 'saby@wearewacky.com', 'wackyworksdigital@gmail.com']
@@ -242,6 +249,7 @@ export default async function PaymentPage({ searchParams }: PageProps) {
                       productId={productId}
                       tier={tier}
                       userId={session.user.id!}
+                      currency={currency}
                       label={isFree ? 'Enroll Now - FREE' : undefined}
                     />
 
