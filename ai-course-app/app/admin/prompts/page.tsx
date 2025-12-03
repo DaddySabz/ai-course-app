@@ -60,43 +60,43 @@ const heroPrompts = [
   },
   {
     day: 12,
-    title: "The Video Revolution",
-    prompt: "A person holding a smartphone horizontally, professional-quality video scenes projecting outward from the screen, expression of empowerment, golden hour outdoor lighting, Canon EOS R5, 85mm f/1.2 lens, shallow depth of field, warm sunset tones, natural bokeh"
+    title: "Google's Video Vision",
+    prompt: "A creative professional watching Google Veo generate stunning video footage on a large screen, cinematic scenes emerging from light particles, expression of amazement at AI video quality, modern tech studio lighting, Canon EOS R5, 85mm f/1.2 lens, shallow depth of field, futuristic blue and warm tones, high-tech bokeh"
   },
   {
     day: 13,
-    title: "Sound and Vision",
-    prompt: "A musician with headphones, visible sound waves and musical notes interweaving with visual elements around them, eyes closed in creative flow, moody studio lighting, Canon EOS R5, 85mm f/1.2 lens, shallow depth of field, purple and gold tones, atmospheric bokeh"
+    title: "Viral Motion",
+    prompt: "A social media creator surrounded by floating viral video clips and trending content, phone in hand capturing the moment, expression of creative excitement, ring light and colorful ambient lighting, Canon EOS R5, 85mm f/1.2 lens, shallow depth of field, vibrant energetic tones, social media bokeh"
   },
   {
     day: 14,
-    title: "The Honest Conversation",
-    prompt: "Two people in genuine conversation, one human and one represented by a subtle AI glow, expressions of mutual understanding and respect, warm coffee shop lighting, Canon EOS R5, 85mm f/1.2 lens, shallow depth of field, intimate warm tones, cozy bokeh"
+    title: "Image to Motion",
+    prompt: "A photographer watching their still photograph come alive with subtle motion and animation, image transitioning from static to moving, expression of wonder and discovery, studio photography lighting, Canon EOS R5, 85mm f/1.2 lens, shallow depth of field, artistic warm tones, motion blur bokeh"
   },
   {
     day: 15,
-    title: "Hallway of Mirrors",
-    prompt: "A person looking thoughtfully at multiple reflections of information, some clear and some distorted, expression of careful discernment, dramatic mirror lighting, Canon EOS R5, 85mm f/1.2 lens, shallow depth of field, cool analytical tones with warm highlights, reflective bokeh"
+    title: "The Voice Clone",
+    prompt: "A person speaking into a professional microphone with their voice visualized as golden sound waves that transform into multiple voice variations, expression of fascination, recording studio lighting, Canon EOS R5, 85mm f/1.2 lens, shallow depth of field, warm audio gold tones, soundwave bokeh"
   },
   {
     day: 16,
-    title: "The Productivity Lie",
-    prompt: "A relaxed person stepping back from a chaotic desk of tasks, floating checkmarks and completed items behind them, expression of calm confidence, soft natural light, Canon EOS R5, 85mm f/1.2 lens, shallow depth of field, balanced warm tones, peaceful bokeh"
+    title: "The Song Factory",
+    prompt: "A music enthusiast with floating musical notes, instruments, and audio waveforms materializing around them from text prompts, expression of creative joy, colorful concert-style lighting, Canon EOS R5, 85mm f/1.2 lens, shallow depth of field, vibrant musical tones, rhythmic bokeh"
   },
   {
     day: 17,
-    title: "AI at Work",
-    prompt: "A professional in a modern office, subtle AI assistance visualized as helpful floating guides and suggestions, expression of enhanced capability, clean corporate lighting, Canon EOS R5, 85mm f/1.2 lens, shallow depth of field, professional warm tones, office bokeh"
+    title: "The Audiophile's Choice",
+    prompt: "A person with high-end headphones, eyes closed in musical bliss, detailed sound waves and audio quality visualizations floating around, expression of pure audio appreciation, warm intimate lighting, Canon EOS R5, 85mm f/1.2 lens, shallow depth of field, rich warm audio tones, premium bokeh"
   },
   {
     day: 18,
-    title: "The Small Business Edge",
-    prompt: "A small business owner in their shop, AI-powered analytics and customer insights floating around them, expression of competitive confidence, warm storefront lighting, Canon EOS R5, 85mm f/1.2 lens, shallow depth of field, entrepreneurial warm tones, ambient bokeh"
+    title: "Edit Video Like Text",
+    prompt: "A video editor watching footage rearrange itself through simple text commands, video timeline transforming like a text document, expression of empowered simplicity, modern editing suite lighting, Canon EOS R5, 85mm f/1.2 lens, shallow depth of field, clean professional tones, timeline bokeh"
   },
   {
     day: 19,
-    title: "Learning Reimagined",
-    prompt: "A student surrounded by floating interactive lessons, 3D models, and personalized learning paths, expression of engaged curiosity, bright educational lighting, Canon EOS R5, 85mm f/1.2 lens, shallow depth of field, inspiring warm tones, knowledge bokeh"
+    title: "The Avatar Speaks",
+    prompt: "A person standing next to their realistic AI avatar double on a screen, the avatar presenting to an audience, expression of amazed delight at their digital twin, professional broadcast lighting, Canon EOS R5, 85mm f/1.2 lens, shallow depth of field, polished presenter tones, studio bokeh"
   },
   {
     day: 20,
