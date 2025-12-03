@@ -64,9 +64,9 @@ export default async function ModulePage({
     <div className="min-h-screen pt-20">
       <NavigationBar />
 
-      <div className="flex max-w-7xl mx-auto gap-6 px-3 md:px-6 py-6 pb-0 md:pb-6 items-stretch">
+      <div className="flex max-w-7xl mx-auto gap-6 px-3 md:px-6 py-6 pb-6">
         {/* Left Sidebar - Frosted Glass with Neumorphic Days (Desktop Only) */}
-        <aside className="hidden md:flex md:flex-col w-80 glass rounded-3xl p-6">
+        <aside className="hidden md:block w-80 glass rounded-3xl p-6 h-fit sticky top-24">
           <div>
             <h3 className="text-xs font-bold text-text-secondary uppercase tracking-wider mb-5">
               COURSE DAYS
