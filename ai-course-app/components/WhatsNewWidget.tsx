@@ -50,9 +50,10 @@ export default function WhatsNewWidget() {
 
                 <div className="space-y-5 flex-1 overflow-auto">
                     {notes.map((note) => {
-                        // Format date as DD/MM/YY
+                        // Format date as DD/Mon/YY
                         const date = new Date(note.created_at)
-                        const formattedDate = `${date.getDate().toString().padStart(2, '0')}/${(date.getMonth() + 1).toString().padStart(2, '0')}/${date.getFullYear().toString().slice(-2)}`
+                        const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
+                        const formattedDate = `${date.getDate().toString().padStart(2, '0')}/${months[date.getMonth()]}/${date.getFullYear().toString().slice(-2)}`
                         
                         return (
                             <div key={note.id} className="flex gap-3">
