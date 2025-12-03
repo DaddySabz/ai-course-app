@@ -24,39 +24,28 @@ export default function SignOutPage() {
           <span className="text-4xl">👋</span>
         </div>
         
-        <h1 className="text-3xl font-black text-text-primary mb-3">
+        <h1 className="text-3xl font-black text-text-primary mb-8">
           Leaving so soon?
         </h1>
-        
-        <p className="text-text-secondary mb-8">
-          Are you sure you want to sign out? We'll miss you!
-        </p>
 
-        <div className="flex flex-col sm:flex-row gap-3">
+        <div className="flex flex-col sm:flex-row gap-4">
           <button
             onClick={handleCancel}
-            className="flex-1 px-6 py-4 rounded-xl font-bold text-text-primary 
-                       bg-white/50 hover:bg-white border-2 border-text-tertiary/20
-                       transition-all hover:scale-[1.02]"
+            className="btn-neumorphic flex-1 px-6 py-4 rounded-xl font-bold text-text-primary 
+                       hover:scale-[1.02] transition-transform"
           >
-            ← Stay Here
+            Stay Here
           </button>
           
           <button
             onClick={handleSignOut}
             disabled={isSigningOut}
-            className="flex-1 px-6 py-4 rounded-xl font-bold text-white 
-                       bg-gradient-to-r from-rose-500 to-rose-600
-                       hover:from-rose-600 hover:to-rose-700
-                       transition-all hover:scale-[1.02] disabled:opacity-50"
+            className="btn-neumorphic flex-1 px-6 py-4 rounded-xl font-bold text-red-600
+                       hover:scale-[1.02] transition-transform disabled:opacity-50"
           >
             {isSigningOut ? 'Signing out...' : 'Sign Out'}
           </button>
         </div>
-
-        <p className="text-text-tertiary text-sm mt-6">
-          You can always come back and continue your learning journey.
-        </p>
       </div>
     </div>
   )
