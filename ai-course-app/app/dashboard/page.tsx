@@ -1,14 +1,33 @@
 import { auth, signOut } from "@/auth"
 import { redirect } from "next/navigation"
+import { headers } from "next/headers"
 import { createClient } from '@supabase/supabase-js'
 import NavigationBar from '@/components/NavigationBar'
 import WhatsNewWidget from '@/components/WhatsNewWidget'
+import { getCurrencyFromCountry, formatPrice } from '@/lib/pricing'
 
 export default async function DashboardPage() {
   const session = await auth()
 
   if (!session?.user) {
     redirect("/")
+  }
+
+  // Get user's country from Vercel headers for currency detection
+  const headersList = await headers()
+  const country = headersList.get('x-vercel-ip-country') || 'US'
+  const currency = getCurrencyFromCountry(country)
+
+  // Course prices (normal and partner)
+  const prices = {
+    intro: { normal: formatPrice(currency === 'gbp' ? 49 : currency === 'usd' ? 59 : currency === 'cad' ? 79 : currency === 'eur' ? 55 : currency === 'aud' ? 89 : currency === 'hkd' ? 459 : currency === 'huf' ? 22900 : 59, currency),
+             partner: formatPrice(currency === 'gbp' ? 19 : currency === 'usd' ? 25 : currency === 'cad' ? 35 : currency === 'eur' ? 22 : currency === 'aud' ? 35 : currency === 'hkd' ? 189 : currency === 'huf' ? 8900 : 25, currency) },
+    adventures: { normal: formatPrice(currency === 'gbp' ? 79 : currency === 'usd' ? 99 : currency === 'cad' ? 129 : currency === 'eur' ? 89 : currency === 'aud' ? 149 : currency === 'hkd' ? 779 : currency === 'huf' ? 38900 : 99, currency),
+                  partner: formatPrice(currency === 'gbp' ? 29 : currency === 'usd' ? 39 : currency === 'cad' ? 49 : currency === 'eur' ? 35 : currency === 'aud' ? 55 : currency === 'hkd' ? 299 : currency === 'huf' ? 14900 : 39, currency) },
+    automations: { normal: formatPrice(currency === 'gbp' ? 129 : currency === 'usd' ? 159 : currency === 'cad' ? 199 : currency === 'eur' ? 145 : currency === 'aud' ? 239 : currency === 'hkd' ? 1249 : currency === 'huf' ? 62900 : 159, currency),
+                   partner: formatPrice(currency === 'gbp' ? 49 : currency === 'usd' ? 65 : currency === 'cad' ? 79 : currency === 'eur' ? 55 : currency === 'aud' ? 89 : currency === 'hkd' ? 489 : currency === 'huf' ? 24900 : 65, currency) },
+    video: { normal: formatPrice(currency === 'gbp' ? 129 : currency === 'usd' ? 159 : currency === 'cad' ? 199 : currency === 'eur' ? 145 : currency === 'aud' ? 239 : currency === 'hkd' ? 1249 : currency === 'huf' ? 62900 : 159, currency),
+             partner: formatPrice(currency === 'gbp' ? 49 : currency === 'usd' ? 65 : currency === 'cad' ? 79 : currency === 'eur' ? 55 : currency === 'aud' ? 89 : currency === 'hkd' ? 489 : currency === 'huf' ? 24900 : 65, currency) },
   }
 
   // Admin emails get FULL course access (no restrictions)
@@ -286,12 +305,12 @@ export default async function DashboardPage() {
                       <div className="flex items-baseline gap-2 mb-3">
                         {isWaitrosePartner ? (
                           <>
-                            <span className="text-3xl font-black text-sage-green">£19</span>
-                            <span className="text-lg font-bold text-text-tertiary line-through">£49</span>
+                            <span className="text-3xl font-black text-sage-green">{prices.intro.partner}</span>
+                            <span className="text-lg font-bold text-text-tertiary line-through">{prices.intro.normal}</span>
                           </>
                         ) : (
                           <>
-                            <span className="text-3xl font-black text-sage-green">£49</span>
+                            <span className="text-3xl font-black text-sage-green">{prices.intro.normal}</span>
                           </>
                         )}
                       </div>
@@ -305,11 +324,11 @@ export default async function DashboardPage() {
                     <div className="flex items-baseline gap-2 mb-3">
                       {isWaitrosePartner ? (
                         <>
-                          <span className="text-2xl font-bold text-text-tertiary">£29</span>
-                          <span className="text-sm font-bold text-text-tertiary line-through">£79</span>
+                          <span className="text-2xl font-bold text-text-tertiary">{prices.adventures.partner}</span>
+                          <span className="text-sm font-bold text-text-tertiary line-through">{prices.adventures.normal}</span>
                         </>
                       ) : (
-                        <span className="text-2xl font-bold text-text-tertiary">£79</span>
+                        <span className="text-2xl font-bold text-text-tertiary">{prices.adventures.normal}</span>
                       )}
                     </div>
                     <p className="text-xs text-text-tertiary font-semibold">Coming soon</p>
@@ -321,11 +340,11 @@ export default async function DashboardPage() {
                     <div className="flex items-baseline gap-2 mb-3">
                       {isWaitrosePartner ? (
                         <>
-                          <span className="text-2xl font-bold text-text-tertiary">£49</span>
-                          <span className="text-sm font-bold text-text-tertiary line-through">£129</span>
+                          <span className="text-2xl font-bold text-text-tertiary">{prices.automations.partner}</span>
+                          <span className="text-sm font-bold text-text-tertiary line-through">{prices.automations.normal}</span>
                         </>
                       ) : (
-                        <span className="text-2xl font-bold text-text-tertiary">£129</span>
+                        <span className="text-2xl font-bold text-text-tertiary">{prices.automations.normal}</span>
                       )}
                     </div>
                     <p className="text-xs text-text-tertiary font-semibold">Coming in 2026</p>
@@ -337,11 +356,11 @@ export default async function DashboardPage() {
                     <div className="flex items-baseline gap-2 mb-3">
                       {isWaitrosePartner ? (
                         <>
-                          <span className="text-2xl font-bold text-text-tertiary">£49</span>
-                          <span className="text-sm font-bold text-text-tertiary line-through">£129</span>
+                          <span className="text-2xl font-bold text-text-tertiary">{prices.video.partner}</span>
+                          <span className="text-sm font-bold text-text-tertiary line-through">{prices.video.normal}</span>
                         </>
                       ) : (
-                        <span className="text-2xl font-bold text-text-tertiary">£129</span>
+                        <span className="text-2xl font-bold text-text-tertiary">{prices.video.normal}</span>
                       )}
                     </div>
                     <p className="text-xs text-text-tertiary font-semibold">Coming in 2026</p>

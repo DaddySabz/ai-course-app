@@ -118,6 +118,12 @@ export default async function PaymentPage({ searchParams }: PageProps) {
     discountLabel = 'Beta Tester Access'
   }
 
+  // Get price info for display
+  const priceInfo = !isFree ? getPrice(productId, tier, currency) : null
+  const displayPrice = priceInfo ? formatPrice(priceInfo.amount, currency) : 'FREE'
+  const fullPriceInfo = getPrice(productId, 'normal', currency)
+  const fullDisplayPrice = formatPrice(fullPriceInfo.amount, currency)
+
   return (
     <div className="min-h-screen pt-20">
       <NavigationBar />
@@ -217,11 +223,11 @@ export default async function PaymentPage({ searchParams }: PageProps) {
                         <div className="text-right">
                           {!isFree && tier === 'partner' && (
                             <p className="text-sm line-through text-text-tertiary">
-                              Full Price
+                              {fullDisplayPrice}
                             </p>
                           )}
                           <p className="font-bold text-text-primary">
-                            {isFree ? 'FREE' : 'See below'}
+                            {displayPrice}
                           </p>
                         </div>
                       </div>
@@ -237,12 +243,10 @@ export default async function PaymentPage({ searchParams }: PageProps) {
 
                   {/* Total + Button Section - grouped together */}
                   <div className="border-t border-text-tertiary/20 pt-4">
-                    {isFree && (
-                      <div className="flex justify-between items-center mb-4">
-                        <p className="text-lg font-bold text-text-primary">Total</p>
-                        <p className="text-3xl font-black text-sage-green">FREE</p>
-                      </div>
-                    )}
+                    <div className="flex justify-between items-center mb-4">
+                      <p className="text-lg font-bold text-text-primary">Total</p>
+                      <p className="text-3xl font-black text-sage-green">{displayPrice}</p>
+                    </div>
 
                     {/* Checkout Button */}
                     <CheckoutButton
