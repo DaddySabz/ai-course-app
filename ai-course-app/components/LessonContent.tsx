@@ -114,7 +114,7 @@ export default function LessonContent({ lesson, currentDay, userId, hasFullAcces
         {/* Hero Image Header */}
         <div className="relative h-[200px] md:h-[350px]">
           <img
-            src="/images/course/day-1-hero-image.jpg"
+            src={`/images/course/day-${currentDay}-hero.jpg`}
             alt={lesson.title}
             className="absolute inset-0 w-full h-full object-cover"
           />
